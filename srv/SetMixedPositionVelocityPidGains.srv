@@ -1,0 +1,11 @@
+float64 p
+float64 i
+float64 d
+float64 i_clamp
+float64 max_force
+float64 min_velocity
+float64 max_velocity
+float64 velocity_slope
+float64 position_deadband
+int32 friction_deadband
+---
