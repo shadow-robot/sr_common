@@ -8,7 +8,11 @@ float64 time_step
 float64 command
 float64 measured_effort
 float64 friction_compensation
-float64 p
-float64 i
-float64 d
-float64 i_clamp
+float64 position_p
+float64 position_i
+float64 position_d
+float64 position_i_clamp
+float64 velocity_p
+float64 velocity_i
+float64 velocity_d
+float64 velocity_i_clamp
