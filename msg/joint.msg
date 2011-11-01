@@ -1,7 +1,7 @@
 string  joint_name
-float32 joint_position
-float32 joint_target
-float32 joint_torque
-float32 joint_temperature
-float32 joint_current 
+float64 joint_position
+float64 joint_target
+float64 joint_torque
+float64 joint_temperature
+float64 joint_current
 string  error_flag
