@@ -10,6 +10,7 @@
   <url>http://ros.org/wiki/sr_robot_msgs</url>
   <depend package="roslib"/>
   <depend package="std_msgs"/>
+  <depend package="sensor_msgs"/>
   <export>
     <cpp cflags="-I${prefix}/include"/>
     <python path="${prefix}/src"/>
