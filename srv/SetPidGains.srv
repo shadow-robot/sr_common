@@ -4,5 +4,5 @@ float64 d
 float64 i_clamp
 float64 max_force
 float64 deadband
-float64 friction_deadband
+int32 friction_deadband
 ---
