@@ -1,0 +1,16 @@
+<package>
+  <description brief="sr_description">
+
+     sr_description contains the description for Shadow Robot's Hand and Arm, as well as some additional models used in our robot (kinect, etc...).
+
+  </description>
+  <author>Ugo Cupcic</author>
+  <license>GPL</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/sr_description</url>
+  <depend package="urdf"/>
+  <depend package="xacro"/>
+
+</package>
+
+
