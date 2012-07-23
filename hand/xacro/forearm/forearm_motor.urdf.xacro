@@ -2,9 +2,9 @@
 
   <property name="M_PI" value="3.1415926535897931" />
 
-  <xacro:macro name="forearm_motor">
+  <xacro:macro name="forearm">
 
-    <link name="forearm_motor">
+    <link name="forearm">
       <inertial>
 	<origin xyz="0 0 0.09" rpy="0 0 0"/>
 	<mass value="3.0" />
@@ -24,7 +24,7 @@
 	</geometry>
       </collision>
     </link>
-    <gazebo reference="forearm_motor">
+    <gazebo reference="forearm">
       <material>Gazebo/Grey</material>
       <selfCollide>true</selfCollide>
     </gazebo>

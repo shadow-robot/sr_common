@@ -8,8 +8,8 @@
 
   <xacro:macro name="shadowhand_motor">
 
-    <xacro:forearm_motor>
-    </xacro:forearm_motor>
+    <xacro:forearm>
+    </xacro:forearm>
 
     <link name="dummy_palm">
       <inertial>
@@ -34,12 +34,12 @@
     </link>
 
     <joint name="forearm_to_dummy" type="fixed">
-      <parent link="forearm_motor"/>
+      <parent link="forearm"/>
       <child link="dummy_palm"/>
       <origin xyz="0.011 0.010 0.22" rpy="0 0 3.14"/>
     </joint>
 
-    <!-- mfknuckle is at [0.011 -0.01 0.346] from the bottom of forearm_motor -->
+    <!-- mfknuckle is at [0.011 -0.01 0.346] from the bottom of forearm -->
     <xacro:finger link_prefix="mf" joint_prefix="MF" parent="dummy_palm">
       <origin xyz="0.0 0 0.116" rpy="0 0 0" />
       <axis xyz="0 -1 0" />

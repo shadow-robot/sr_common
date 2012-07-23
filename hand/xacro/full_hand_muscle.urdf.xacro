@@ -13,10 +13,10 @@
   <!-- Right Hand -->
   <xacro:macro name="shadowhand_muscle">
 
-    <xacro:forearm_muscle>
-    </xacro:forearm_muscle>
+    <xacro:forearm>
+    </xacro:forearm>
 
-    <xacro:wrist parent="forearm_muscle">
+    <xacro:wrist parent="forearm">
       <origin xyz="0 0 0.396" rpy="0 0 0" />
     </xacro:wrist>
 
@@ -49,10 +49,10 @@
   <!-- Left Hand -->
   <xacro:macro name="shadowhand_left_muscle">
 
-    <xacro:forearm_muscle>
-    </xacro:forearm_muscle>
+    <xacro:forearm>
+    </xacro:forearm>
 
-    <xacro:wrist_left parent="forearm_muscle">
+    <xacro:wrist_left parent="forearm">
       <origin xyz="0 0 0.396" rpy="0 0 0" />
     </xacro:wrist_left>
 
