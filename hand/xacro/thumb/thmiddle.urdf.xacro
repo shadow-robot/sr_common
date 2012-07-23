@@ -6,7 +6,7 @@
        xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
        xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
-  <include filename="$(find sr_description/hand/xacro/thumb/thmiddle.transmission.xacro" />
+  <include filename="$(find sr_description)/hand/xacro/thumb/thmiddle.transmission.xacro" />
 
   <xacro:macro name="thmiddle" params="parent">
 

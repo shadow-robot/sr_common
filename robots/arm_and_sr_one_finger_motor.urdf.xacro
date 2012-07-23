@@ -14,12 +14,6 @@
     <origin rpy="0 0 0" xyz="0 0 1.0"/>
   </joint>
 
-  <joint name="base_fix" type="fixed">
-    <parent link="world"/>
-    <child link="desk_support"/>
-    <origin rpy="0 0 0" xyz="0 0 0"/>
-  </joint>
-
   <xacro:sr_arm_motor>
   </xacro:sr_arm_motor>
 

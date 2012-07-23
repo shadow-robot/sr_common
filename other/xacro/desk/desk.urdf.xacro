@@ -59,10 +59,6 @@
     <selfCollide>true</selfCollide>
   </gazebo>
 
-  <gazebo>
-    <canonicalBody>desk_support</canonicalBody>
-  </gazebo>
-
   <joint name="desk_joint" type="fixed">
     <parent link="desk_support"/>
     <child link="desk_pillar"/>

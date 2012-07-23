@@ -6,7 +6,7 @@
        xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
        xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
-  <include filename="$(find sr_description/hand/xacro/thumb/thdistal.transmission.xacro" />
+  <include filename="$(find sr_description)/hand/xacro/thumb/thdistal.transmission.xacro" />
 
   <xacro:macro name="thdistal" params="parent">
 
@@ -20,7 +20,7 @@
       <visual>
 	<origin xyz="0 0 0" rpy="0 0 0" />
 	<geometry name="thdistal_visual">
-	  <mesh filename="package://sr_description/model/TH1_z.dae" scale="0.001 0.001 0.001" />
+	  <mesh filename="package://sr_description/hand/model/TH1_z.dae" scale="0.001 0.001 0.001" />
 	</geometry>
 	<material name="shadow_thmiddle_material">
 	  <color rgba="0.2 0.2 0.2 1.0"/>
@@ -29,7 +29,7 @@
       <collision>
 	<origin xyz="0 0 0" rpy="0 0 0 " />
 	<geometry name="thmiddle_collision_geom">
-	  <mesh filename="package://sr_description/model/TH1_z.dae" scale="0.001 0.001 0.001" />
+	  <mesh filename="package://sr_description/hand/model/TH1_z.dae" scale="0.001 0.001 0.001" />
 	  <!--	  <box size="0.015 0.015 0.015" /> -->
 	</geometry>
       </collision>

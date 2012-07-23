@@ -1,10 +1,10 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <include filename="$(find sr_description/hand/xacro/thumb/thbase.urdf.xacro" />
-  <include filename="$(find sr_description/hand/xacro/thumb/thproximal.urdf.xacro" />
-  <include filename="$(find sr_description/hand/xacro/thumb/thhub.urdf.xacro" />
-  <include filename="$(find sr_description/hand/xacro/thumb/thmiddle.urdf.xacro" />
-  <include filename="$(find sr_description/hand/xacro/thumb/thdistal_biotac.urdf.xacro" />
+  <include filename="$(find sr_description)/hand/xacro/thumb/thbase.urdf.xacro" />
+  <include filename="$(find sr_description)/hand/xacro/thumb/thproximal.urdf.xacro" />
+  <include filename="$(find sr_description)/hand/xacro/thumb/thhub.urdf.xacro" />
+  <include filename="$(find sr_description)/hand/xacro/thumb/thmiddle.urdf.xacro" />
+  <include filename="$(find sr_description)/hand/xacro/thumb/thdistal_biotac.urdf.xacro" />
 
   <!-- Right Hand -->
   <xacro:macro name="thumb" params="parent">

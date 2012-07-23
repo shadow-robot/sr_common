@@ -1,9 +1,9 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <include filename="$(find sr_description/hand/xacro/finger/knuckle/knuckle.urdf.xacro" />
-  <include filename="$(find sr_description/hand/xacro/finger/proximal/proximal.urdf.xacro" />
-  <include filename="$(find sr_description/hand/xacro/finger/middle/middle.urdf.xacro" />
-  <include filename="$(find sr_description/hand/xacro/finger/distal/distal_ellipsoid.urdf.xacro" />
+  <include filename="$(find sr_description)/hand/xacro/finger/knuckle/knuckle.urdf.xacro" />
+  <include filename="$(find sr_description)/hand/xacro/finger/proximal/proximal.urdf.xacro" />
+  <include filename="$(find sr_description)/hand/xacro/finger/middle/middle.urdf.xacro" />
+  <include filename="$(find sr_description)/hand/xacro/finger/distal/distal_ellipsoid.urdf.xacro" />
 
   <xacro:macro name="finger" params="link_prefix joint_prefix parent *origin *axis">
 

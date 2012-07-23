@@ -4,8 +4,6 @@
 <property name="M_PI" value="3.1415926535897931" />
 
 <xacro:macro name="shadowarm_base">
-  <link name="world" />
-
   <link name="shadowarm_base">
     <inertial>
       <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -15,7 +13,7 @@
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0"/>
       <geometry name="shadowarm_base_visual">
-        <mesh filename="package://sr_hand/model/meshes/arm/arm_base.dae" scale="0.001 0.001 0.001" />
+        <mesh filename="package://sr_description/arm/model/arm_base.dae" scale="0.001 0.001 0.001" />
       </geometry>
       <material name="LightGrey" />
     </visual>

@@ -6,7 +6,7 @@
        xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
        xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
-  <include filename="$(find sr_description/hand/xacro/finger/lfmetacarpal/lfmetacarpal.transmission.xacro" />
+  <include filename="$(find sr_description)/hand/xacro/finger/lfmetacarpal/lfmetacarpal.transmission.xacro" />
 
   <!-- Right Handed -->
   <xacro:macro name="lfmetacarpal" params="parent">
