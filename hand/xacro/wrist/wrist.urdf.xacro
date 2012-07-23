@@ -1,6 +1,6 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <include filename="$(find sr_hand)/model/hand_urdf/wrist/wrist.transmission.xacro" />
+  <include filename="$(find sr_description/hand/xacro/wrist/wrist.transmission.xacro" />
 
   <!-- Right Hand -->
   <xacro:macro name="wrist" params="parent *origin">
@@ -19,18 +19,18 @@
   <!-- Macro to used to generate left and right handed versions.
   DO NOT use out side of here ie treat as a private macro -->
   <xacro:macro name="wrist_base" params="parent *origin mesh">
-  
+
     <link name="wrist" >
       <inertial>
 	<origin xyz="0 0.0 0.0" rpy="0 0 0" />
 	<!--<insert_block name="origin" />-->
 	<mass value="0.1" />
-	<inertia  ixx="0.120" ixy="0.0"  ixz="0.0"  iyy="0.148"  iyz="0.0" izz="0.0438" /> 
+	<inertia  ixx="0.120" ixy="0.0"  ixz="0.0"  iyy="0.148"  iyz="0.0" izz="0.0438" />
       </inertial>
       <visual>
 	<origin xyz="0 0 0" rpy="0 0 0" />
 	<geometry name="wrist_visual">
-      <mesh filename="package://sr_hand/model/meshes/${mesh}" scale="0.001 0.001 0.001" />
+      <mesh filename="package://sr_description/hand/model/${mesh}" scale="0.001 0.001 0.001" />
 	</geometry>
 	<material name="LightGrey" />
       </visual>
@@ -45,10 +45,10 @@
       <material>PR2/Grey2</material>
       <selfCollide>true</selfCollide>
     </gazebo>
-    
+
     <joint name="WRJ2" type="revolute">
       <parent link="${parent}"/>
-      <child link="wrist"/>   
+      <child link="wrist"/>
       <!--<origin xyz="0 -0.010 0.213" rpy="0 0 0" />-->
       <insert_block name="origin" />
       <axis xyz="0 1 0" />
@@ -57,7 +57,7 @@
     </joint>
 
     <xacro:shadowhand_wrist_transmission />
-  
+
   </xacro:macro>
-  
+
 </robot>

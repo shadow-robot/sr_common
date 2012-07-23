@@ -6,7 +6,7 @@
        xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
        xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
-  <include filename="$(find sr_hand)/model/hand_urdf/thumb/thproximal.transmission.xacro" />
+  <include filename="$(find sr_description/hand/xacro/thumb/thproximal.transmission.xacro" />
 
   <!-- Right Hand -->
   <xacro:macro name="thproximal" params="parent">
@@ -31,7 +31,7 @@
       <visual>
 	<origin xyz="0 0 0" rpy="0 0 0" />
 	<geometry name="thproximal_visual">
-      <mesh filename="package://sr_hand/model/meshes/TH3_z.dae" scale="0.001 0.001 0.001" />
+      <mesh filename="package://sr_description/hand/model/TH3_z.dae" scale="0.001 0.001 0.001" />
       </geometry>
       <material name="shadow_thproximal_material">
 	  <color rgba="0.2 0.2 0.2 1.0"/>

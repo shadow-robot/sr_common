@@ -6,7 +6,7 @@
        xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
        xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
-  <include filename="$(find sr_hand)/model/hand_urdf/finger/distal/distal.transmission.xacro" />
+  <include filename="$(find sr_description/hand/xacro/finger/distal/distal.transmission.xacro" />
 
   <xacro:macro name="distal" params="link_prefix joint_prefix parent">
 
@@ -20,14 +20,14 @@
       <visual>
 	<origin xyz="0 0 0" rpy="0 0 0" />
 	<geometry name="distal_visual">
-      <mesh filename="package://sr_hand/model/meshes/F1.dae" scale="0.001 0.001 0.001" />
+      <mesh filename="package://sr_description/hand/model/F1.dae" scale="0.001 0.001 0.001" />
       </geometry>
       <material name="Grey" />
       </visual>
       <collision>
 	<origin xyz="0 0 0" rpy="0 0 0" />
 	<geometry name="distal_collision_geom">
-	 <mesh filename="package://sr_hand/model/meshes/F1.dae" scale="0.001 0.001 0.001" />
+	 <mesh filename="package://sr_description/hand/model/F1.dae" scale="0.001 0.001 0.001" />
 	</geometry>
       </collision>
     </link>

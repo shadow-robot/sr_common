@@ -1,10 +1,10 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="arm_and_hand">
 
-  <include filename="$(find sr_hand)/model/materials.urdf.xacro" />
-  <include filename="$(find sr_hand)/model/arm_urdf/full_arm_motor.urdf.xacro" />
-  <include filename="$(find sr_hand)/model/hand_urdf/full_hand_motor.urdf.xacro" />
-  <include filename="$(find sr_hand)/model/gazebo/gazebo.urdf.xacro" />
-  <include filename="$(find sr_hand)/model/desk/desk.urdf.xacro" />
+  <include filename="$(find sr_description)/materials.urdf.xacro" />
+  <include filename="$(find sr_description)/arm/xacro/full_arm_motor.urdf.xacro" />
+  <include filename="$(find sr_description)/hand/xacro/full_hand_motor.urdf.xacro" />
+  <include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
+  <include filename="$(find sr_description)/other/xacro/desk/desk.urdf.xacro" />
 
   <xacro:desk/>
 

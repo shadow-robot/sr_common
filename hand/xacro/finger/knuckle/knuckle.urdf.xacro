@@ -6,7 +6,7 @@
        xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
        xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
-  <include filename="$(find sr_hand)/model/hand_urdf/finger/knuckle/knuckle.transmission.xacro" />
+  <include filename="$(find sr_description/hand/xacro/finger/knuckle/knuckle.transmission.xacro" />
 
   <xacro:macro name="knuckle" params="link_prefix joint_prefix parent *origin">
 
@@ -21,7 +21,7 @@
       <visual>
 	<origin xyz="0 0 0.0005" rpy="0 0 0" />
 	<geometry name="knuckle_visual">
-      <mesh filename="package://sr_hand/model/meshes/knuckle.dae" scale="0.001 0.001 0.001" />
+      <mesh filename="package://sr_description/hand/model/knuckle.dae" scale="0.001 0.001 0.001" />
       </geometry>
       <material name="LightGrey" />
       </visual>

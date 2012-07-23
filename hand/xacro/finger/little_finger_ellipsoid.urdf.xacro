@@ -6,11 +6,11 @@
        xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
        xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
-  <include filename="$(find sr_hand)/model/hand_urdf/finger/knuckle/knuckle.urdf.xacro" />
-  <include filename="$(find sr_hand)/model/hand_urdf/finger/proximal/proximal.urdf.xacro" />
-  <include filename="$(find sr_hand)/model/hand_urdf/finger/middle/middle.urdf.xacro" />
-  <include filename="$(find sr_hand)/model/hand_urdf/finger/distal/distal_ellipsoid.urdf.xacro" />
-  <include filename="$(find sr_hand)/model/hand_urdf/finger/lfmetacarpal/lfmetacarpal.urdf.xacro" />
+  <include filename="$(find sr_description/hand/xacro/finger/knuckle/knuckle.urdf.xacro" />
+  <include filename="$(find sr_description/hand/xacro/finger/proximal/proximal.urdf.xacro" />
+  <include filename="$(find sr_description/hand/xacro/finger/middle/middle.urdf.xacro" />
+  <include filename="$(find sr_description/hand/xacro/finger/distal/distal_ellipsoid.urdf.xacro" />
+  <include filename="$(find sr_description/hand/xacro/finger/lfmetacarpal/lfmetacarpal.urdf.xacro" />
 
   <xacro:macro name="little_finger" params="link_prefix joint_prefix parent">
 
@@ -27,7 +27,7 @@
       <visual>
 	<origin xyz="0 0 0" rpy="0 0 0" />
 	<geometry name="knuckle_visual">
-      <mesh filename="package://sr_hand/model/meshes/knuckle.dae" scale="0.001 0.001 0.001" />
+      <mesh filename="package://sr_description/hand/model/knuckle.dae" scale="0.001 0.001 0.001" />
       </geometry>
       <material name="LightGrey" />
       </visual>

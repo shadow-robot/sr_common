@@ -3,8 +3,8 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <include filename="$(find sr_hand)/model/hand_urdf/forearm/forearm_motor.urdf.xacro" />
-  <include filename="$(find sr_hand)/model/hand_urdf/finger/classic_finger.urdf.xacro" />
+  <include filename="$(find sr_description/hand/xacro/forearm/forearm_motor.urdf.xacro" />
+  <include filename="$(find sr_description/hand/xacro/finger/classic_finger.urdf.xacro" />
 
   <xacro:macro name="shadowhand_motor">
 

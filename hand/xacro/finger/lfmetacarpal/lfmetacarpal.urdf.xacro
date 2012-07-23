@@ -6,13 +6,13 @@
        xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
        xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
-  <include filename="$(find sr_hand)/model/hand_urdf/finger/lfmetacarpal/lfmetacarpal.transmission.xacro" />
+  <include filename="$(find sr_description/hand/xacro/finger/lfmetacarpal/lfmetacarpal.transmission.xacro" />
 
   <!-- Right Handed -->
   <xacro:macro name="lfmetacarpal" params="parent">
       <xacro:lfmetacarpal_base parent="${parent}" reflect="1" mesh="lfmetacarpal.dae" />
   </xacro:macro>
-  
+
   <!-- Left Handed -->
   <xacro:macro name="lfmetacarpal_left" params="parent">
       <xacro:lfmetacarpal_base parent="${parent}" reflect="-1" mesh="lfmetacarpal_left.mesh" />
@@ -31,7 +31,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry name="lfmetacarpal_visual">
-          <mesh filename="package://sr_hand/model/meshes/${mesh}" scale="0.001 0.001 0.001" />
+          <mesh filename="package://sr_description/hand/model/${mesh}" scale="0.001 0.001 0.001" />
         </geometry>
         <material name="Grey" />
       </visual>
@@ -70,5 +70,5 @@
     <xacro:lfmetacarpal_transmission />
 
   </xacro:macro>
-  
+
 </robot>

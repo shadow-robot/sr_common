@@ -6,7 +6,7 @@
        xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
        xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
-  <include filename="$(find sr_hand)/model/hand_urdf/finger/middle/middle.transmission.xacro" />
+  <include filename="$(find sr_description/hand/xacro/finger/middle/middle.transmission.xacro" />
 
   <xacro:macro name="middle" params="link_prefix joint_prefix parent">
 
@@ -20,7 +20,7 @@
       <visual>
 	<origin xyz="0 0 0" rpy="0 0 0" />
 	<geometry name="middle_visual">
-      <mesh filename="package://sr_hand/model/meshes/F2.dae" scale="0.001 0.001 0.001" />
+      <mesh filename="package://sr_description/hand/model/F2.dae" scale="0.001 0.001 0.001" />
       </geometry>
       <material name="Grey" />
       </visual>
