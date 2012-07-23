@@ -1,0 +1,39 @@
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="arm_and_hand">
+
+  <include filename="$(find sr_hand)/model/materials.urdf.xacro" />
+  <include filename="$(find sr_hand)/model/arm_urdf/full_arm_motor.urdf.xacro" />
+  <include filename="$(find sr_hand)/model/hand_urdf/one_finger_unit_motor.urdf.xacro" />
+  <include filename="$(find sr_hand)/model/gazebo/gazebo.urdf.xacro" />
+  <include filename="$(find sr_hand)/model/desk/desk.urdf.xacro" />
+
+  <xacro:desk/>
+
+  <joint name="arm_to_desk_fixed" type="fixed">
+    <parent link="desk_pillar"/>
+    <child link="shadowarm_base"/>
+    <origin rpy="0 0 0" xyz="0 0 1.0"/>
+  </joint>
+
+  <joint name="base_fix" type="fixed">
+    <parent link="world"/>
+    <child link="desk_support"/>
+    <origin rpy="0 0 0" xyz="0 0 0"/>
+  </joint>
+
+  <xacro:sr_arm_motor>
+  </xacro:sr_arm_motor>
+
+  <joint name="arm_link" type="revolute">
+    <parent link="shadowarm_handsupport_motor"/>
+    <child link="forearm_motor"/>
+    <origin xyz="0 0 0" rpy="0 0 ${M_PI}" />
+    <axis xyz="0 -1 0" />
+    <limit lower="0" upper="0" effort="10"
+    velocity="1.0" />
+    <dynamics damping="3.5"/>
+  </joint>
+
+  <xacro:shadowhand_motor>
+  </xacro:shadowhand_motor>
+
+</robot>

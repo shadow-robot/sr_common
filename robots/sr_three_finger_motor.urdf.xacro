@@ -1,0 +1,15 @@
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://www.ros.org/wiki/xacro"
+       name="shadowhand_motor">
+
+  <include filename="$(find sr_hand)/model/materials.urdf.xacro" />
+  <include filename="$(find sr_hand)/model/hand_urdf/three_finger_unit_motor.urdf.xacro" />
+  <include filename="$(find sr_hand)/model/gazebo/gazebo.urdf.xacro" />
+
+  <xacro:shadowhand_motor>
+  </xacro:shadowhand_motor>
+
+
+</robot>

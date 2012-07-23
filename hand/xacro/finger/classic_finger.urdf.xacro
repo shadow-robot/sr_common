@@ -1,0 +1,26 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <include filename="$(find sr_hand)/model/hand_urdf/finger/knuckle/knuckle.urdf.xacro" />
+  <include filename="$(find sr_hand)/model/hand_urdf/finger/proximal/proximal.urdf.xacro" />
+  <include filename="$(find sr_hand)/model/hand_urdf/finger/middle/middle.urdf.xacro" />
+  <include filename="$(find sr_hand)/model/hand_urdf/finger/distal/distal.urdf.xacro" />
+  
+  <xacro:macro name="finger" params="link_prefix joint_prefix parent *origin *axis">
+  
+    <xacro:knuckle link_prefix="${link_prefix}" joint_prefix="${joint_prefix}" parent="${parent}" >
+      <insert_block name="origin" />
+      <insert_block name="axis"/>
+    </xacro:knuckle>
+    
+    <xacro:proximal link_prefix="${link_prefix}" joint_prefix="${joint_prefix}" parent="${link_prefix}knuckle" >
+    </xacro:proximal>
+    
+    <xacro:middle link_prefix="${link_prefix}" joint_prefix="${joint_prefix}" parent="${link_prefix}proximal" >
+    </xacro:middle>
+    
+    <xacro:distal link_prefix="${link_prefix}" joint_prefix="${joint_prefix}" parent="${link_prefix}middle" >
+    </xacro:distal>
+    
+  </xacro:macro>
+  
+</robot>

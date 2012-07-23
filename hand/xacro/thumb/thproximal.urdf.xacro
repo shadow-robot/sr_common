@@ -1,0 +1,75 @@
+<robot xmlns:xacro="http://ros.org/wiki/xacro"
+        xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:joint="http://playerstage.sourceforge.net/gazebo/xmlschema/#slider"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
+       xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
+
+  <include filename="$(find sr_hand)/model/hand_urdf/thumb/thproximal.transmission.xacro" />
+
+  <!-- Right Hand -->
+  <xacro:macro name="thproximal" params="parent">
+      <xacro:thproximal_base parent="${parent}" reflect="1" />
+  </xacro:macro>
+
+  <!-- Left Hand -->
+  <xacro:macro name="thproximal_left" params="parent">
+      <xacro:thproximal_base parent="${parent}" reflect="-1" />
+  </xacro:macro>
+
+  <!-- Macro to used to generate left and right handed versions.
+  DO NOT use out side of here ie treat as a private macro -->
+  <xacro:macro name="thproximal_base" params="parent reflect">
+
+    <link name="thproximal">
+      <inertial>
+	<mass value="0.016" />
+	<origin xyz="0 0 0.019" rpy="0 0 0"/>
+	<inertia  ixx="0.1" ixy="0.0"  ixz="0.0"  iyy="0.1"  iyz="0.0"	izz="0.1" />
+      </inertial>
+      <visual>
+	<origin xyz="0 0 0" rpy="0 0 0" />
+	<geometry name="thproximal_visual">
+      <mesh filename="package://sr_hand/model/meshes/TH3_z.dae" scale="0.001 0.001 0.001" />
+      </geometry>
+      <material name="shadow_thproximal_material">
+	  <color rgba="0.2 0.2 0.2 1.0"/>
+	</material>
+      </visual>
+      <collision>
+	<origin xyz="0 0 0.019" rpy="0 0 0" />
+	<geometry name="thproximal_collision_geom">
+	  <box size="0.008 0.008 0.020" />
+	</geometry>
+      </collision>
+    </link>
+    <gazebo reference="thproximal">
+      <sensor:contact name="thproximal_contact_sensor">
+        <geom>thproximal_geom</geom>
+       <updateRate>100.0</updateRate>
+        <controller:gazebo_ros_bumper name="thproximal_gazebo_ros_bumper_controller" plugin="libgazebo_ros_bumper.so">
+          <alwaysOn>true</alwaysOn>
+          <updateRate>100.0</updateRate>
+          <frameName>thproximal</frameName>
+          <bumperTopicName>thproximal_bumper</bumperTopicName>
+          <interface:bumper name="thproximal_gazebo_ros_bumper_iface" />
+        </controller:gazebo_ros_bumper>
+      </sensor:contact>
+      <material>Gazebo/Grey</material>
+    </gazebo>
+
+    <joint name="THJ4" type="revolute">
+      <parent link="${parent}"/>
+      <child link="thproximal"/>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <axis xyz="${reflect*1} 0 0" />
+      <limit lower="0" upper="1.309" effort="10"
+      velocity="1.0" />
+      <dynamics damping="50.5"/>
+    </joint>
+
+    <xacro:thproximal_transmission />
+
+  </xacro:macro>
+</robot>
