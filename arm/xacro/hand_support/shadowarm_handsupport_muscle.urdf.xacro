@@ -4,7 +4,7 @@
 
   <xacro:macro name="shadowarm_handsupport_muscle" params="parent">
 
-    <link name="shadowarm_handsupport_muscle">
+    <link name="shadowarm_handsupport">
       <inertial>
 	<origin xyz="0 0 0" rpy="0 0 0" />
 	<mass value="0.75" />
@@ -24,14 +24,14 @@
 	</geometry>
       </collision>
     </link>
-    <gazebo reference="shadowarm_handsupport_muscle">
+    <gazebo reference="shadowarm_handsupport">
       <material>Gazebo/Grey</material>
       <selfCollide>true</selfCollide>
     </gazebo>
 
     <joint name="ElbowJRotate" type="revolute">
       <parent link="${parent}"/>
-      <child link="shadowarm_handsupport_muscle"/>
+      <child link="shadowarm_handsupport"/>
       <origin xyz="0.08 0 0.131" rpy="0 0 0" />
       <axis xyz="0 0 -1" />
       <limit lower="-${M_PI/2}" upper="${M_PI/2}"

@@ -19,7 +19,7 @@
   </xacro:sr_arm_motor>
 
   <joint name="arm_link" type="fixed">
-    <parent link="shadowarm_handsupport_motor"/>
+    <parent link="shadowarm_handsupport"/>
     <child link="forearm"/>
     <origin xyz="0 0 0" rpy="0 0 ${2.35619449}" />
   </joint>

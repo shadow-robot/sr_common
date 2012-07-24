@@ -18,7 +18,7 @@
   </xacro:sr_arm_motor>
 
   <joint name="arm_link" type="revolute">
-    <parent link="shadowarm_handsupport_motor"/>
+    <parent link="shadowarm_handsupport"/>
     <child link="forearm"/>
     <origin xyz="0 0 0" rpy="0 0 ${M_PI}" />
     <axis xyz="0 -1 0" />
