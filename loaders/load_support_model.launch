@@ -1,0 +1,3 @@
+<launch>
+    <param name="support_description" command="$(find xacro)/xacro.py '$(find sr_description)/other/xacro/desk/desk_robot.urdf.xacro'" />
+</launch>

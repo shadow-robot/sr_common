@@ -27,7 +27,7 @@
       </link>
       <gazebo reference="shadowarm_trunk">
 	<material>Gazebo/Grey</material>
-	<selfCollide>true</selfCollide>
+	<selfCollide>false</selfCollide>
       </gazebo>
 
     <joint name="ShoulderJRotate" type="revolute">

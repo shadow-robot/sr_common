@@ -50,7 +50,7 @@
       <kd  value="1.0" />
 
       <material>Gazebo/Grey</material>
-      <selfCollide>false</selfCollide>
+      <selfCollide>true</selfCollide>
     </gazebo>
 
     <joint name="${joint_prefix}J1" type="revolute">

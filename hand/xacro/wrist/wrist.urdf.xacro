@@ -43,7 +43,7 @@
     </link>
     <gazebo reference="wrist">
       <material>PR2/Grey2</material>
-      <selfCollide>true</selfCollide>
+      <selfCollide>false</selfCollide>
     </gazebo>
 
     <joint name="WRJ2" type="revolute">

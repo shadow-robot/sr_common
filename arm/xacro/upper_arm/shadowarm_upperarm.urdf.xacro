@@ -26,7 +26,7 @@
     </link>
     <gazebo reference="shadowarm_upperarm">
       <material>Gazebo/Grey</material>
-      <selfCollide>true</selfCollide>
+      <selfCollide>false</selfCollide>
     </gazebo>
 
     <joint name="ShoulderJSwing" type="revolute">

@@ -5,12 +5,9 @@
   <include filename="$(find sr_description)/hand/xacro/three_finger_unit_motor.urdf.xacro" />
   <include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
 
-  <include filename="$(find sr_description)/other/xacro/desk/desk.urdf.xacro" />
-
-  <xacro:desk/>
-
-  <joint name="arm_to_desk_fixed" type="fixed">
-    <parent link="desk_pillar"/>
+  <link name="world" />
+  <joint name="arm_to_world_fixed" type="fixed">
+    <parent link="world"/>
     <child link="shadowarm_base"/>
     <origin rpy="0 0 0" xyz="0 0 1.0"/>
   </joint>

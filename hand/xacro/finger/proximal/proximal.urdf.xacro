@@ -44,6 +44,7 @@
         </controller:gazebo_ros_bumper>
       </sensor:contact>
       <material>Gazebo/Grey</material>
+      <selfCollide>true</selfCollide>
     </gazebo>
 
     <joint name="${joint_prefix}J3" type="revolute">
