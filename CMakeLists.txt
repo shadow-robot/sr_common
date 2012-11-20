@@ -21,7 +21,10 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #uncomment if you have defined services
 #rosbuild_gensrv()
 
-rosbuild_add_gtest(test_urdf test/test_urdf.cpp)
+rosbuild_add_executable(test_urdf test/test_urdf.cpp)
+rosbuild_add_gtest_build_flags(test_urdf)
+target_link_libraries(test_urdf pthread)
+rosbuild_add_rostest(test/test_urdf.test)
 
 #common commands for building c++ executables and libraries
 #rosbuild_add_library(${PROJECT_NAME} src/example.cpp)

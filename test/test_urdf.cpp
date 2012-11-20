@@ -78,8 +78,8 @@ int walker( char *result, int& test_result)
         printf("\n\ntesting: %s\n",(std::string(pwd)+"/robots/"+dir_name).c_str());
         printf("python `rospack find xacro`/xacro.py %s/robots/%s  > `rospack find sr_description`/test/tmp.urdf", pwd, dir_name.c_str() );
         runExternalProcess("python `rospack find xacro`/xacro.py", std::string(pwd)+"/robots/"+dir_name+" > `rospack find sr_description`/test/tmp.urdf" );
+
         test_result = test_result || runExternalProcess("`rospack find urdf_parser`/bin/check_urdf", "`rospack find sr_description`/test/tmp.urdf");
-        //break;
       }
     }
   }
