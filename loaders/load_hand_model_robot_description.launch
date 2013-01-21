@@ -4,7 +4,8 @@
       <param name="robot_description" command="$(find xacro)/xacro.py '$(find sr_description)/robots/shadowhand_left_muscle.urdf.xacro'" />
     </group>
     <group unless="$(optenv LEFT_HAND 0)">
-      <param name="robot_description" command="$(find xacro)/xacro.py '$(find sr_description)/robots/shadowhand_muscle.urdf.xacro'" />
+		<param if="$(optenv BIOTAC_HAND 0)" name="robot_description" command="$(find xacro)/xacro.py '$(find sr_description)/robots/shadowhand_muscle_biotac.urdf.xacro'" />
+	    <param unless="$(optenv BIOTAC_HAND 0)" name="robot_description" command="$(find xacro)/xacro.py '$(find sr_description)/robots/shadowhand_muscle.urdf.xacro'" />
     </group>
   </group>
 

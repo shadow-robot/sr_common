@@ -3,8 +3,7 @@
   <include filename="$(find sr_description)/hand/xacro/thumb/thbase.urdf.xacro" />
   <include filename="$(find sr_description)/hand/xacro/thumb/thproximal.urdf.xacro" />
   <include filename="$(find sr_description)/hand/xacro/thumb/thhub.urdf.xacro" />
-  <include filename="$(find sr_description)/hand/xacro/thumb/thmiddle.urdf.xacro" />
-  <include filename="$(find sr_description)/hand/xacro/thumb/thdistal_biotac.urdf.xacro" />
+  <include filename="$(find sr_description)/hand/xacro/thumb/thbiotac.urdf.xacro" />
 
   <!-- Right Hand -->
   <xacro:macro name="thumb" params="parent">
@@ -39,11 +38,8 @@
     <xacro:thhub parent="thproximal">
     </xacro:thhub>
 
-    <xacro:thmiddle parent="thhub">
-    </xacro:thmiddle>
-
-    <xacro:thdistal parent="thmiddle">
-    </xacro:thdistal>
+    <xacro:thbiotac parent="thhub"> <!-- fnh: note: also includes thtip link -->
+    </xacro:thbiotac>
 
   </xacro:macro>
 

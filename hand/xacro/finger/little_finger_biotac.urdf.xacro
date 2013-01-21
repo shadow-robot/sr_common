@@ -6,11 +6,10 @@
        xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
        xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
+  <include filename="$(find sr_description)/hand/xacro/finger/lfmetacarpal/lfmetacarpal.urdf.xacro" />
   <include filename="$(find sr_description)/hand/xacro/finger/knuckle/knuckle.urdf.xacro" />
   <include filename="$(find sr_description)/hand/xacro/finger/proximal/proximal.urdf.xacro" />
-  <include filename="$(find sr_description)/hand/xacro/finger/middle/middle.urdf.xacro" />
-  <include filename="$(find sr_description)/hand/xacro/finger/distal/distal_biotac.urdf.xacro" />
-  <include filename="$(find sr_description)/hand/xacro/finger/lfmetacarpal/lfmetacarpal.urdf.xacro" />
+  <include filename="$(find sr_description)/hand/xacro/finger/biotac/biotac.urdf.xacro" />
 
   <!-- Right Handed -->
   <xacro:macro name="little_finger" params="link_prefix joint_prefix parent">
@@ -84,11 +83,8 @@
     <xacro:proximal link_prefix="${link_prefix}" joint_prefix="${joint_prefix}" parent="${link_prefix}knuckle">
     </xacro:proximal>
 
-    <xacro:middle link_prefix="${link_prefix}" joint_prefix="${joint_prefix}" parent="${link_prefix}proximal">
-    </xacro:middle>
-
-    <xacro:distal link_prefix="${link_prefix}" joint_prefix="${joint_prefix}" parent="${link_prefix}middle">
-    </xacro:distal>
+    <xacro:biotac_middle link_prefix="${link_prefix}" joint_prefix="${joint_prefix}" parent="${link_prefix}proximal">
+    </xacro:biotac_middle>
   </xacro:macro>
 
 </robot>

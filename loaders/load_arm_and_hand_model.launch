@@ -1,7 +1,8 @@
 <launch>
   <!-- spawn the arm model -->
   <group if="$(optenv MUSCLE 0)">
-    <param name="robot_description" command="$(find xacro)/xacro.py '$(find sr_description)/robots/arm_and_hand_muscle.urdf.xacro'" />
+	<param if="$(optenv BIOTAC_HAND 0)" name="robot_description" command="$(find xacro)/xacro.py '$(find sr_description)/robots/arm_and_hand_muscle_biotac.urdf.xacro'" />
+	<param unless="$(optenv BIOTAC_HAND 0)" name="robot_description" command="$(find xacro)/xacro.py '$(find sr_description)/robots/arm_and_hand_muscle.urdf.xacro'" />
   </group>
   <group unless="$(optenv MUSCLE 0)">
     <group if="$(optenv ONE_FINGER 0)">
@@ -16,7 +17,8 @@
 	  <param name="robot_description" command="$(find xacro)/xacro.py '$(find sr_description)/robots/arm_and_hand_motor_ellipsoid.urdf.xacro'" />
 	</group>
 	<group unless="$(optenv ELLIPSOID 0)">
-	  <param name="robot_description" command="$(find xacro)/xacro.py '$(find sr_description)/robots/arm_and_hand_motor.urdf.xacro'" />
+	  <param if="$(optenv BIOTAC_HAND 0)" name="robot_description" command="$(find xacro)/xacro.py '$(find sr_description)/robots/arm_and_hand_motor_biotac.urdf.xacro'" />
+	  <param unless="$(optenv BIOTAC_HAND 0)" name="robot_description" command="$(find xacro)/xacro.py '$(find sr_description)/robots/arm_and_hand_motor.urdf.xacro'" />
 	</group>
       </group>
     </group>

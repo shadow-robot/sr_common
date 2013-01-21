@@ -6,14 +6,14 @@
 
     <link name="forearm">
       <inertial>
-	<origin xyz="0 0 0.175" />
+	<origin xyz="0 0 0" />
 	<mass value="3.0" />
 	<inertia  ixx="0.00735" ixy="0.0"  ixz="0.0"  iyy="0.00735"  iyz="0.0"  izz="0.0343" />
       </inertial>
       <visual>
-	<origin xyz="0 0 0" rpy="${M_PI} 0 0" />
+	<origin xyz="0 0 0" rpy="0 0 0" />
 	<geometry name="shadow_forearm_geom">
-	  <mesh filename="package://sr_description/hand/model/forearm_muscle.mesh" scale="0.016 0.016 0.016" />
+	  <mesh filename="package://sr_description/hand/model/forearm_muscle.dae" scale="0.016 0.016 0.016" />
 	</geometry>
 	<material name="Grey" />
       </visual>

@@ -1,0 +1,27 @@
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="arm_and_hand">
+
+  <include filename="$(find sr_description)/materials.urdf.xacro" />
+  <include filename="$(find sr_description)/arm/xacro/full_arm_muscle.urdf.xacro" />
+  <include filename="$(find sr_description)/hand/xacro/full_hand_muscle_biotac.urdf.xacro" />
+  <include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
+
+  <link name="world" />
+  <joint name="arm_to_world_fixed" type="fixed">
+    <parent link="world"/>
+    <child link="shadowarm_base"/>
+    <origin rpy="0 0 0" xyz="0 0 1.0"/>
+  </joint>
+
+  <xacro:sr_arm_muscle>
+  </xacro:sr_arm_muscle>
+
+  <joint name="arm_link" type="fixed">
+    <parent link="shadowarm_handsupport"/>
+    <child link="forearm"/>
+    <origin xyz="0 0 0" rpy="0 0 ${M_PI}" />
+  </joint>
+
+  <xacro:shadowhand_muscle>
+  </xacro:shadowhand_muscle>
+
+</robot>
