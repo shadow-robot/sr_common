@@ -11,5 +11,35 @@
   <xacro:shadowhand_muscle>
   </xacro:shadowhand_muscle>
 
+  <link name="forearm_disk">
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="3.0" />
+      <inertia  ixx="0.00735" ixy="0.0"  ixz="0.0"  iyy="0.00735"  iyz="0.0"  izz="0.0343" />
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry name="forearm_disk_geom">
+	<mesh filename="package://sr_description/hand/model/forearm_muscle_disk.dae" scale="1.0 1.0 1.0" />
+      </geometry>
+      <material name="Grey" />
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.175" rpy="0 0 0" />
+      <geometry name="forearm_disk_collision">
+	<cylinder radius="0.07" length="0.004"/>
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="forearm_disk">
+    <material>Gazebo/Grey</material>
+    <selfCollide>false</selfCollide>
+  </gazebo>
+
+  <joint name="forearm_disk_to_forearm" type="fixed">
+    <parent link="forearm_disk"/>
+    <child link="forearm"/>
+    <origin xyz="0 0 0.004" rpy="0 0 0" />
+  </joint>
 
 </robot>
