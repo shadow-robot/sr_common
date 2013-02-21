@@ -13,7 +13,7 @@
       <visual>
 	<origin xyz="0 0 0" rpy="0 0 0" />
 	<geometry name="shadow_forearm_geom">
-	  <mesh filename="package://sr_description/hand/model/forearm_muscle.dae" scale="0.016 0.016 0.016" />
+	  <mesh filename="package://sr_description/hand/model/forearm_muscle.dae" scale="1.0 1.0 1.0" />
 	</geometry>
 	<material name="Grey" />
       </visual>
