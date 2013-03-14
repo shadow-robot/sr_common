@@ -6,7 +6,7 @@
   <gazebo>
     <controller:sr_gazebo_ros_controller_manager name="sr_gazebo_ros_controller_manager" plugin="libsr_gazebo_ros_controller_manager.so">
       <alwaysOn>true</alwaysOn>
-      <updateRate>700.0</updateRate>
+      <updateRate>1400.0</updateRate>
     </controller:sr_gazebo_ros_controller_manager>
 
   </gazebo>
