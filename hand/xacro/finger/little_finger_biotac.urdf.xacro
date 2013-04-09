@@ -68,7 +68,7 @@
       <child link="lfknuckle" />
       <origin xyz="0 0 0.06579" rpy="0 0 0" />
       <axis xyz="0 1 0" />
-      <limit lower="-0.43633231299858238" upper="0.43633231299858238" effort="10" velocity="1.0" />
+      <limit lower="-0.3491" upper="0.3491" effort="10" velocity="1.0" />
       <dynamics damping="50.5" />
     </joint>
 
