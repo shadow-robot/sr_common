@@ -20,31 +20,32 @@
       </inertial>
       <visual>
 	<origin xyz="0 0 0.0005" rpy="0 0 0" />
-	<geometry name="knuckle_visual">
+	<geometry name="${link_prefix}knuckle_visual">
       <mesh filename="package://sr_description/hand/model/knuckle.dae" scale="0.001 0.001 0.001" />
       </geometry>
       <material name="LightGrey" />
       </visual>
       <collision>
 	<origin xyz="0 0 0" rpy="0 0 0" />
-	<geometry name="knuckle_collision_geom">
+	<geometry name="${link_prefix}knuckle_collision_geom">
 	  <box size="0.005 0.005 0.005" />
 	</geometry>
       </collision>
     </link>
     <gazebo reference="${link_prefix}knuckle">
-      <sensor:contact name="${link_prefix}knuckle_contact_sensor">
-        <geom>${link_prefix}knuckle_geom</geom>
-       <updateRate>100.0</updateRate>
-        <controller:gazebo_ros_bumper name="${link_prefix}knuckle_gazebo_ros_bumper_controller" plugin="libgazebo_ros_bumper.so">
+      <sensor type="contact" name="${link_prefix}knuckle_contact_sensor">
+        <update_rate>100.0</update_rate>
+        <contact>
+          <collision>${link_prefix}knuckle_collision_geom</collision>
+        </contact>
+        <plugin name="${link_prefix}knuckle_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
           <alwaysOn>true</alwaysOn>
-          <updateRate>100.0</updateRate>
           <frameName>${link_prefix}knuckle</frameName>
+          <updateRate>100.0</updateRate>
           <bumperTopicName>${link_prefix}knuckle_bumper</bumperTopicName>
-          <interface:bumper name="${link_prefix}knuckle_gazebo_ros_bumper_iface" />
-        </controller:gazebo_ros_bumper>
-      </sensor:contact>
-      <material>PR2/Grey2</material>
+        </plugin>
+      </sensor>
+      <material>Gazebo/Grey</material>
     </gazebo>
 
     <joint name="${joint_prefix}J4" type="revolute">

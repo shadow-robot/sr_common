@@ -44,18 +44,19 @@
     </link>
 
     <gazebo reference="thmiddle">
-      <sensor:contact name="thmiddle_contact_sensor">
-        <geom>thmiddle_geom</geom>
-       <updateRate>100.0</updateRate>
-        <controller:gazebo_ros_bumper name="thmiddle_gazebo_ros_bumper_controller" plugin="libgazebo_ros_bumper.so">
+      <sensor type="contact" name="thmiddle_contact_sensor">
+        <update_rate>100.0</update_rate>
+        <contact>
+          <collision>thmiddle_collision_geom</collision>
+        </contact>
+        <plugin name="thmiddle_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
           <alwaysOn>true</alwaysOn>
-          <updateRate>100.0</updateRate>
           <frameName>thmiddle</frameName>
+          <updateRate>100.0</updateRate>
           <bumperTopicName>thmiddle_bumper</bumperTopicName>
-          <interface:bumper name="thmiddle_gazebo_ros_bumper_iface" />
-        </controller:gazebo_ros_bumper>
-      </sensor:contact>
-      <material name="Grey"/>
+        </plugin>
+      </sensor>
+      <material>Gazebo/Grey</material>
     </gazebo>
 
     <joint name="THJ2" type="revolute">

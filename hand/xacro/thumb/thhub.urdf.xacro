@@ -34,17 +34,18 @@
       </collision>
     </link>
     <gazebo reference="thhub">
-      <sensor:contact name="thhub_contact_sensor">
-        <geom>thhub_geom</geom>
-       <updateRate>100.0</updateRate>
-        <controller:gazebo_ros_bumper name="thhub_gazebo_ros_bumper_controller" plugin="libgazebo_ros_bumper.so">
+      <sensor type="contact" name="thhub_contact_sensor">
+        <update_rate>100.0</update_rate>
+        <contact>
+          <collision>thhub_collision_geom</collision>
+        </contact>
+        <plugin name="thhub_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
           <alwaysOn>true</alwaysOn>
-          <updateRate>100.0</updateRate>
           <frameName>thhub</frameName>
+          <updateRate>100.0</updateRate>
           <bumperTopicName>thhub_bumper</bumperTopicName>
-          <interface:bumper name="thhub_gazebo_ros_bumper_iface" />
-        </controller:gazebo_ros_bumper>
-      </sensor:contact>
+        </plugin>
+      </sensor>
       <material>Gazebo/Grey</material>
     </gazebo>
 

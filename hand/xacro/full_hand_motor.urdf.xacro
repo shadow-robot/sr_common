@@ -43,7 +43,6 @@
 
     <xacro:thumb parent="palm">
     </xacro:thumb>
-
   </xacro:macro>
 
   <!-- Left Hand -->

@@ -50,18 +50,19 @@
     </link>
 
     <gazebo reference="lfknuckle">
-      <sensor:contact name="lfknuckle_contact_sensor">
-        <geom>lfknuckle_geom</geom>
-        <updateRate>100.0</updateRate>
-        <controller:gazebo_ros_bumper name="lfknuckle_gazebo_ros_bumper_controller" plugin="libgazebo_ros_bumper.so">
+      <sensor type="contact" name="lfknuckle_contact_sensor">
+        <update_rate>100.0</update_rate>
+        <contact>
+          <collision>lfknuckle_collision_geom</collision>
+        </contact>
+        <plugin name="lfknuckle_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
           <alwaysOn>true</alwaysOn>
-          <updateRate>100.0</updateRate>
           <frameName>lfknuckle</frameName>
+          <updateRate>100.0</updateRate>
           <bumperTopicName>lfknuckle_bumper</bumperTopicName>
-          <interface:bumper name="lfknuckle_gazebo_ros_bumper_iface" />
-        </controller:gazebo_ros_bumper>
-      </sensor:contact>
-      <material>PR2/Grey2</material>
+        </plugin>
+      </sensor>
+      <material>Gazebo/Grey</material>
     </gazebo>
 
     <joint name="LFJ4" type="revolute">

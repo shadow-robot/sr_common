@@ -35,17 +35,19 @@
       </collision>
     </link>
     <gazebo reference="thdistal">
-      <sensor:contact name="thdistal_contact_sensor">
-        <geom>thdistal_geom</geom>
-	<updateRate>100.0</updateRate>
-        <controller:gazebo_ros_bumper name="thdistal_gazebo_ros_bumper_controller" plugin="libgazebo_ros_bumper.so">
+      <sensor type="contact" name="thdistal_contact_sensor">
+        <update_rate>100.0</update_rate>
+        <contact>
+          <collision>thdistal_collision_geom</collision>
+        </contact>
+        <plugin name="thdistal_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
           <alwaysOn>true</alwaysOn>
-          <updateRate>100.0</updateRate>
           <frameName>thdistal</frameName>
+          <updateRate>100.0</updateRate>
           <bumperTopicName>thdistal_bumper</bumperTopicName>
-          <interface:bumper name="thdistal_gazebo_ros_bumper_iface" />
-        </controller:gazebo_ros_bumper>
-      </sensor:contact>
+        </plugin>
+      </sensor>
+      <material>Gazebo/Grey</material>
 
       <mu1 value="500.0" />
       <mu2 value="500.0" />
