@@ -18,35 +18,33 @@
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 1.571" />
-        <geometry name="adapter_visual">
+        <geometry name="${link_prefix}adapter_visual">
           <mesh filename="package://sr_description/hand/model/biotacs/F2_biotac_adapter.stl" scale="0.001 0.001 0.001" />
         </geometry>
         <material name="LightGrey" />
       </visual>
       <collision>
         <origin xyz="0 0 0.0125" rpy="0 0 0" />
-        <geometry name="adapter_collision_geom">
+        <geometry name="${link_prefix}adapter_collision_geom">
           <box size="0.008 0.008 0.03" />
         </geometry>
       </collision>
     </link>
 
     <gazebo reference="${link_prefix}adapter">
-<!--
-      <sensor:contact name="${link_prefix}adapter_contact_sensor">
-        <geom>${link_prefix}adapter_collision_geom</geom>
-        <updateRate>100.0</updateRate>
-        <controller:gazebo_ros_bumper
-            name="${link_prefix}adapter_gazebo_ros_bumper_controller"
-            plugin="libgazebo_ros_bumper.so">
+      <sensor type="contact" name="${link_prefix}adapter_contact_sensor">
+        <update_rate>100.0</update_rate>
+        <contact>
+          <collision>${link_prefix}adapter_collision_geom</collision>
+        </contact>
+        <plugin name="${link_prefix}adapter_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
           <alwaysOn>true</alwaysOn>
-          <updateRate>100.0</updateRate>
           <frameName>${link_prefix}adapter</frameName>
+          <updateRate>100.0</updateRate>
           <bumperTopicName>${link_prefix}adapter_bumper</bumperTopicName>
-          <interface:bumper name="${link_prefix}adapter_gazebo_ros_bumper_iface" />
-        </controller:gazebo_ros_bumper>
-      </sensor:contact>
--->
+        </plugin>
+      </sensor>
+
       <material name="LightGrey"/>
     </gazebo>
 
@@ -87,7 +85,7 @@
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry name="biotac_visual">
+        <geometry name="${link_prefix}biotac_visual">
           <!-- <mesh filename="package://sr_description/hand/model/biotacs/biotac.stl" scale="0.0254 0.0254 0.0254" /> -->
           <mesh filename="package://sr_description/hand/model/biotacs/biotac_decimated.dae" scale="0.0254 0.0254 0.0254" />
         </geometry>
@@ -102,21 +100,19 @@
     </link>
 
     <gazebo reference="${link_prefix}biotac">
-<!--
-      <sensor:contact name="${link_prefix}adapter_contact_sensor">
-        <geom>${link_prefix}biotac_collision_geom</geom>
-        <updateRate>100.0</updateRate>
-        <controller:gazebo_ros_bumper
-            name="${link_prefix}biotac_gazebo_ros_bumper_controller"
-            plugin="libgazebo_ros_bumper.so">
+      <sensor type="contact" name="${link_prefix}biotac_contact_sensor">
+        <update_rate>100.0</update_rate>
+        <contact>
+          <collision>${link_prefix}biotac_collision_geom</collision>
+        </contact>
+        <plugin name="${link_prefix}biotac_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
           <alwaysOn>true</alwaysOn>
-          <updateRate>100.0</updateRate>
           <frameName>${link_prefix}biotac</frameName>
+          <updateRate>100.0</updateRate>
           <bumperTopicName>${link_prefix}biotac_bumper</bumperTopicName>
-          <interface:bumper name="${link_prefix}biotac_gazebo_ros_bumper_iface" />
-        </controller:gazebo_ros_bumper>
-      </sensor:contact>
--->
+        </plugin>
+      </sensor>
+
       <material name="BiotacGreen"/>
     </gazebo>
 

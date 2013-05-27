@@ -19,7 +19,7 @@
       </inertial>
       <visual>
 	<origin xyz="0 0 0" rpy="0 0 0" />
-	<geometry name="distal_visual">
+	<geometry name="${link_prefix}distal_visual">
 	  <mesh filename="package://sr_description/hand/model/distal_ellipsoid.dae" scale="0.001 0.001 0.001" />
 	</geometry>
 	<material name="Grey" />
@@ -33,23 +33,26 @@
 	   </visual>-->
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry name="distal_collision_geom">
+        <geometry name="${link_prefix}distal_collision_geom">
           <mesh filename="package://sr_description/hand/model/distal_ellipsoid.dae" scale="0.001 0.001 0.001" />
         </geometry>
       </collision>
     </link>
     <gazebo reference="${link_prefix}distal">
-      <sensor:contact name="${link_prefix}distal_contact_sensor">
-        <geom>${link_prefix}distal_geom</geom>
-        <updateRate>100.0</updateRate>
-        <controller:gazebo_ros_bumper name="${link_prefix}distal_gazebo_ros_bumper_controller" plugin="libgazebo_ros_bumper.so">
+      <sensor type="contact" name="${link_prefix}distal_contact_sensor">
+        <update_rate>100.0</update_rate>
+        <contact>
+          <collision>${link_prefix}distal_collision_geom</collision>
+        </contact>
+        <plugin name="${link_prefix}distal_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
           <alwaysOn>true</alwaysOn>
-          <updateRate>100.0</updateRate>
           <frameName>${link_prefix}distal</frameName>
+          <updateRate>100.0</updateRate>
           <bumperTopicName>${link_prefix}distal_bumper</bumperTopicName>
-          <interface:bumper name="${link_prefix}distal_gazebo_ros_bumper_iface" />
-        </controller:gazebo_ros_bumper>
-      </sensor:contact>
+        </plugin>
+      </sensor>
+
+
       <mu1 value="500.0" />
       <mu2 value="500.0" />
       <kp  value="10000000.0" />

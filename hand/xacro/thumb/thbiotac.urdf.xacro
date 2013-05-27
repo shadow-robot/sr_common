@@ -118,7 +118,7 @@
         <material name="BiotacGreen" />
       </visual>
       <collision>
-        <geometry name="$th_biotac_collision_geom">
+        <geometry name="th_biotac_collision_geom">
           <!-- <box size="0.001 0.001 0.001" /> -->
           <!-- <mesh filename="package://sr_description/hand/model/biotacs/biotac-v5.stl" scale="0.0254 0.0254 0.0254" /> -->
           <mesh filename="package://sr_description/hand/model/biotacs/biotac_decimated.dae" scale="0.0254 0.0254 0.0254" />
@@ -127,21 +127,18 @@
     </link>
 
     <gazebo reference="thbiotac">
-<!--
-      <sensor:contact name="th_adapter_contact_sensor">
-        <geom>th_biotac_collision_geom</geom>
-        <updateRate>100.0</updateRate>
-        <controller:gazebo_ros_bumper
-            name="th_biotac_gazebo_ros_bumper_controller"
-            plugin="libgazebo_ros_bumper.so">
+      <sensor type="contact" name="thbiotac_contact_sensor">
+        <update_rate>100.0</update_rate>
+        <contact>
+          <collision>thbiotac_collision_geom</collision>
+        </contact>
+        <plugin name="thbiotac_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
           <alwaysOn>true</alwaysOn>
-          <updateRate>100.0</updateRate>
           <frameName>thbiotac</frameName>
-          <bumperTopicName>th_biotac_bumper</bumperTopicName>
-          <interface:bumper name="$th_biotac_gazebo_ros_bumper_iface" />
-        </controller:gazebo_ros_bumper>
-      </sensor:contact>
--->
+          <updateRate>100.0</updateRate>
+          <bumperTopicName>thbiotac_bumper</bumperTopicName>
+        </plugin>
+      </sensor>
       <material name="BiotacGreen"/>
     </gazebo>
 
