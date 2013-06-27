@@ -1,1 +1,1 @@
-int16[12] distal
+uint16[12] distal

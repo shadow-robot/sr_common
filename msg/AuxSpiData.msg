@@ -1,2 +1,2 @@
 Header header
-int16[16] sensors
+uint16[16] sensors
