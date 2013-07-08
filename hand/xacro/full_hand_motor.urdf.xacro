@@ -60,17 +60,17 @@
 
     <xacro:finger link_prefix="ff" joint_prefix="FF" parent="palm">
       <origin xyz="-0.033 0 0.095" rpy="0 0 0" />
-      <axis xyz="0 -1 0" />
+      <axis xyz="0 1 0" />
     </xacro:finger>
 
     <xacro:finger link_prefix="mf" joint_prefix="MF" parent="palm">
       <origin xyz="-0.011 0 0.099" rpy="0 0 0" />
-      <axis xyz="0 -1 0" />
+      <axis xyz="0 1 0" />
     </xacro:finger>
 
     <xacro:finger link_prefix="rf" joint_prefix="RF" parent="palm">
       <origin xyz="0.011 0 0.095" rpy="0 0 0" />
-      <axis xyz="0 1 0" />
+      <axis xyz="0 -1 0" />
     </xacro:finger>
 
     <xacro:little_finger_left link_prefix="lf" joint_prefix="LF" parent="palm">
