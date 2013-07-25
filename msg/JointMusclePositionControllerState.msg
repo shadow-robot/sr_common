@@ -8,6 +8,8 @@ float64 pseudo_command
 float64 valve_muscle_0
 float64 valve_muscle_1
 float64 packed_valve
+uint16 muscle_pressure_0
+uint16 muscle_pressure_1
 float64 p
 float64 i
 float64 d
