@@ -5,8 +5,8 @@ float64 process_value_dot
 float64 error
 float64 time_step
 float64 pseudo_command
-float64 valve_muscle_0
-float64 valve_muscle_1
+int8 valve_muscle_0
+int8 valve_muscle_1
 float64 packed_valve
 uint16 muscle_pressure_0
 uint16 muscle_pressure_1
