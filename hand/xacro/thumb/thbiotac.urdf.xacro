@@ -64,13 +64,13 @@
       <child link="thmiddle"/>
       <origin xyz="0 0 0.01" rpy="0 0 0" /> <!-- FIXME: z offset is too large -->
       <axis xyz="0 -1 0" />
-      <limit lower="-0.5237" upper="0.5237" effort="10"
+      <limit lower="-0.6981" upper="0.6981" effort="10"
       velocity="1.0" />
       <dynamics damping="50.5"/>
     </joint>
 
-    <transmission type="sr_mechanism_model/SimpleTransmission" name="thbiotac_J2_transmission">
-      <actuator name="THJ2_actuator" />
+    <transmission type="sr_mechanism_model/SimpleTransmission" name="thmiddle_transmission">
+      <actuator name="THJ2" />
       <joint name="THJ2" />
       <mechanicalReduction>1</mechanicalReduction>
       <motorTorqueConstant>1</motorTorqueConstant>
@@ -94,8 +94,8 @@
       <dynamics damping="50.5"/>
     </joint>
 
-    <transmission type="sr_mechanism_model/SimpleTransmission" name="thbiotac_J1_dummy_transmission">
-      <actuator name="THJ1_actuator" />
+    <transmission type="sr_mechanism_model/SimpleTransmission" name="thdistal_transmission">
+      <actuator name="THJ1" />
       <joint name="THJ1" />
       <mechanicalReduction>1</mechanicalReduction>
       <motorTorqueConstant>1</motorTorqueConstant>
