@@ -4,7 +4,7 @@
   <include filename="$(find sr_description)/hand/xacro/finger/proximal/proximal.urdf.xacro" />
   <include filename="$(find sr_description)/hand/xacro/finger/biotac/biotac.urdf.xacro" />
 
-  <xacro:macro name="finger" params="link_prefix joint_prefix parent *origin *axis">
+  <xacro:macro name="finger_biotac" params="link_prefix joint_prefix parent *origin *axis">
 
     <xacro:knuckle link_prefix="${link_prefix}" joint_prefix="${joint_prefix}" parent="${parent}" >
       <insert_block name="origin" />
