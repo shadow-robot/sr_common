@@ -1,0 +1,29 @@
+<package>
+  <name>sr_description</name>
+  <version>1.2.0</version>
+  <description>sr_description contains the description for Shadow Robot's Hand and Arm, as well as some additional models used in our robot (kinect, etc...).</description>
+  <maintainer email="">Ugo Cupcic</maintainer>
+
+  <license>GPL</license>
+
+  <url type="website">http://ros.org/wiki/sr_description</url>
+  <!-- <url type="bugtracker"></url> -->
+
+  <author>Ugo Cupcic</author>
+
+  <!-- Dependencies which this package needs to build itself. -->
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Dependencies needed to compile this package. -->
+  <build_depend>urdf</build_depend>
+  <build_depend>xacro</build_depend>
+
+  <!-- Dependencies needed after this package is compiled. -->
+  <run_depend>urdf</run_depend>
+  <run_depend>xacro</run_depend>
+
+  <!-- Dependencies needed only for running tests. -->
+  <!-- <test_depend>urdf</test_depend> -->
+  <!-- <test_depend>xacro</test_depend> -->
+
+</package>
