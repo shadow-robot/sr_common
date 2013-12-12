@@ -7,7 +7,6 @@
   <license>GPL</license>
 
   <url type="website">http://ros.org/wiki/sr_robot_msgs</url>
-  <!-- <url type="bugtracker"></url> -->
 
   <author email="ugo@shadowrobot.com">Ugo Cupcic</author>
 
@@ -18,16 +17,13 @@
   <build_depend>roslib</build_depend>
   <build_depend>std_msgs</build_depend>
   <build_depend>sensor_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
 
   <!-- Dependencies needed after this package is compiled. -->
   <run_depend>roslib</run_depend>
   <run_depend>std_msgs</run_depend>
   <run_depend>sensor_msgs</run_depend>
-
-  <!-- Dependencies needed only for running tests. -->
-  <!-- <test_depend>roslib</test_depend> -->
-  <!-- <test_depend>std_msgs</test_depend> -->
-  <!-- <test_depend>sensor_msgs</test_depend> -->
+  <run_depend>message_runtime</run_depend>
 
 <export>
     <cpp cflags="-I${prefix}/include"/>
