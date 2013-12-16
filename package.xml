@@ -25,9 +25,4 @@
   <run_depend>sensor_msgs</run_depend>
   <run_depend>message_runtime</run_depend>
 
-<export>
-    <cpp cflags="-I${prefix}/include"/>
-    <python path="${prefix}/src"/>
-</export>
-
 </package>
