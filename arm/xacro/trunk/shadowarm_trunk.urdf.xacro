@@ -1,7 +1,7 @@
 
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <include filename="$(find sr_description)/arm/xacro/trunk/shadowarm_trunk.transmission.xacro" />
+  <xacro:include filename="$(find sr_description)/arm/xacro/trunk/shadowarm_trunk.transmission.xacro" />
 
   <xacro:macro name="shadowarm_trunk" params="parent">
 

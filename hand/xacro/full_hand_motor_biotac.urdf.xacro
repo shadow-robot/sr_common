@@ -3,12 +3,12 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <include filename="$(find sr_description)/hand/xacro/forearm/forearm_motor.urdf.xacro" />
-  <include filename="$(find sr_description)/hand/xacro/wrist/wrist.urdf.xacro" />
-  <include filename="$(find sr_description)/hand/xacro/palm/palm.urdf.xacro" />
-  <include filename="$(find sr_description)/hand/xacro/finger/classic_finger_biotac.urdf.xacro" />
-  <include filename="$(find sr_description)/hand/xacro/finger/little_finger_biotac.urdf.xacro" />
-  <include filename="$(find sr_description)/hand/xacro/thumb/thumb_biotac.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/forearm/forearm_motor.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/wrist/wrist.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/palm/palm.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/finger/classic_finger_biotac.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/finger/little_finger_biotac.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thumb_biotac.urdf.xacro" />
 
   <!-- Right Hand -->
   <xacro:macro name="shadowhand_motor">

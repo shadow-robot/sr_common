@@ -6,11 +6,11 @@
        xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
        xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
-  <include filename="$(find sr_description)/hand/xacro/finger/knuckle/knuckle.urdf.xacro" />
-  <include filename="$(find sr_description)/hand/xacro/finger/proximal/proximal.urdf.xacro" />
-  <include filename="$(find sr_description)/hand/xacro/finger/middle/middle.urdf.xacro" />
-  <include filename="$(find sr_description)/hand/xacro/finger/distal/distal_ellipsoid.urdf.xacro" />
-  <include filename="$(find sr_description)/hand/xacro/finger/lfmetacarpal/lfmetacarpal.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/finger/knuckle/knuckle.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/finger/proximal/proximal.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/finger/middle/middle.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/finger/distal/distal_ellipsoid.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/finger/lfmetacarpal/lfmetacarpal.urdf.xacro" />
 
   <xacro:macro name="little_finger" params="link_prefix joint_prefix parent">
 

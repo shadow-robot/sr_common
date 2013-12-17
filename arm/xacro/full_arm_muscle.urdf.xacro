@@ -4,11 +4,11 @@
        xmlns:xacro="http://www.ros.org/wiki/xacro"
        name="full_arm_muscle">
 
-  <include filename="$(find sr_description)/arm/xacro/base/shadowarm_base.urdf.xacro" />
-  <include filename="$(find sr_description)/arm/xacro/trunk/shadowarm_trunk.urdf.xacro" />
-  <include filename="$(find sr_description)/arm/xacro/upper_arm/shadowarm_upperarm.urdf.xacro" />
-  <include filename="$(find sr_description)/arm/xacro/lower_arm/shadowarm_lowerarm.urdf.xacro" />
-  <include filename="$(find sr_description)/arm/xacro/hand_support/shadowarm_handsupport_muscle.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/arm/xacro/base/shadowarm_base.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/arm/xacro/trunk/shadowarm_trunk.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/arm/xacro/upper_arm/shadowarm_upperarm.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/arm/xacro/lower_arm/shadowarm_lowerarm.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/arm/xacro/hand_support/shadowarm_handsupport_muscle.urdf.xacro" />
 
   <xacro:macro name="sr_arm_muscle">
 

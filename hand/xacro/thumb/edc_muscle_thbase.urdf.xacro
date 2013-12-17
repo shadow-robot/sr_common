@@ -6,7 +6,7 @@
        xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
        xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
-  <include filename="$(find sr_description)/hand/xacro/thumb/edc_muscle_thbase.transmission.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/thumb/edc_muscle_thbase.transmission.xacro" />
 
   <!-- Right Hand -->
   <xacro:macro name="thbase" params="parent">

@@ -6,8 +6,8 @@
        xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
        xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
-  <include filename="$(find sr_description)/hand/xacro/finger/lfmetacarpal/lfmetacarpal.urdf.xacro" />
-  <include filename="$(find sr_description)/hand/xacro/finger/classic_finger.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/finger/lfmetacarpal/lfmetacarpal.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/finger/classic_finger.urdf.xacro" />
 
   <!-- Right Handed -->
   <xacro:macro name="little_finger" params="link_prefix joint_prefix parent">

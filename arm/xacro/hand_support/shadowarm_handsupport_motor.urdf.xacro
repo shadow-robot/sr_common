@@ -1,6 +1,6 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <include filename="$(find sr_description)/arm/xacro/hand_support/shadowarm_handsupport_motor.transmission.xacro" />
+  <xacro:include filename="$(find sr_description)/arm/xacro/hand_support/shadowarm_handsupport_motor.transmission.xacro" />
 
   <xacro:macro name="shadowarm_handsupport_motor" params="parent">
 

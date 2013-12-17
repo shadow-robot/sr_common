@@ -1,7 +1,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <property name="M_PI" value="3.1415926535"/>
 
-  <include filename="$(find sr_description)/other/xacro/kinect/gazebo_kinect.urdf.xacro"/>
+  <xacro:include filename="$(find sr_description)/other/xacro/kinect/gazebo_kinect.urdf.xacro"/>
 
   <xacro:macro name="shadowarm_side_kinect" params="parent">
     <joint name="base_camera_joint" type="fixed">

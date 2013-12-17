@@ -6,7 +6,7 @@
        xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
        xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
-  <include filename="$(find sr_description)/hand/xacro/finger/biotac/biotac.transmission.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/finger/biotac/biotac.transmission.xacro" />
 
   <xacro:macro name="biotac_middle" params="link_prefix joint_prefix parent">
 

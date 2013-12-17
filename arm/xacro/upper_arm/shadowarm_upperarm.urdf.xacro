@@ -1,6 +1,6 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <include filename="$(find sr_description)/arm/xacro/upper_arm/shadowarm_upperarm.transmission.xacro" />
+  <xacro:include filename="$(find sr_description)/arm/xacro/upper_arm/shadowarm_upperarm.transmission.xacro" />
 
   <xacro:macro name="shadowarm_upperarm" params="parent">
 
