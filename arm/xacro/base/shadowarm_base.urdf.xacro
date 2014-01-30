@@ -27,7 +27,7 @@
     </link>
     <gazebo reference="shadowarm_base">
       <material>Gazebo/Grey</material>
-      <selfCollide>true</selfCollide>
+      <selfCollide>false</selfCollide>
     </gazebo>
 
 </xacro:macro>
