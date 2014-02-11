@@ -53,9 +53,9 @@
       <child link="${link_prefix}adapter"/>
       <origin xyz="0 0 0.045" rpy="0 0 0" />
       <axis xyz="1 0 0" />
-      <limit lower="0" upper="${M_PI/2}" effort="10"
-      velocity="1.0" />
-      <dynamics damping="50.5"/>
+      <limit lower="0" upper="${M_PI/2}" effort="1000.0"
+      velocity="10.0" />
+      <dynamics damping="10.0"/>
     </joint>
 
     <link name="${link_prefix}_J1_dummy">
@@ -71,8 +71,8 @@
       <child link="${link_prefix}_J1_dummy"/>
       <origin xyz="0 0 0.02" rpy="0 0 0" />
       <axis xyz="1 0 0" />
-      <limit lower="${20*M_PI/180}" upper="${20.1*M_PI/180}" effort="10" velocity="0.1" />
-      <dynamics damping="50.5"/>
+      <limit lower="${20*M_PI/180}" upper="${20.1*M_PI/180}" effort="1000.0" velocity="10.0" />
+      <dynamics damping="10.0"/>
     </joint>
 
     <xacro:middle_transmission />
