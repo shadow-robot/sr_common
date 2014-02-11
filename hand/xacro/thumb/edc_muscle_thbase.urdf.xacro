@@ -67,9 +67,9 @@
       <child link="thbase"/>
       <origin xyz="${reflect*0.034} -0.0085 0.029" rpy="0 ${M_PI/4} ${joint_yaw}" />
       <axis xyz="0 0 ${reflect*-1}" />
-      <limit lower="-1.047" upper="1.047" effort="10"
-      velocity="1.0" />
-      <dynamics damping="50.5"/>
+      <limit lower="-1.047" upper="1.047" effort="1000.0"
+      velocity="10.0" />
+      <dynamics damping="10.0"/>
     </joint>
 
     <xacro:thbase_transmission />
