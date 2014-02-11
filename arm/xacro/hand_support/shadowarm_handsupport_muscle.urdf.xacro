@@ -35,8 +35,8 @@
       <origin xyz="0.08 0 0.131" rpy="0 0 0" />
       <axis xyz="0 0 -1" />
       <limit lower="-${M_PI/2}" upper="${M_PI/2}"
-      effort="10" velocity="1.0"/>
-      <dynamics damping="10.5"/>
+      effort="1000.0" velocity="10.0"/>
+      <dynamics damping="20.0"/>
     </joint>
 
     <xacro:shadowarm_handsupport_muscle_transmission />
