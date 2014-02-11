@@ -7,6 +7,7 @@
     <plugin name="sr_gazebo_ros_controller_manager" filename="libsr_gazebo_ros_controller_manager.so">
       <alwaysOn>true</alwaysOn>
       <updateRate>1400.0</updateRate>
+      <robotParam>sh_description</robotParam>
     </plugin>
   </gazebo>
 </robot>
