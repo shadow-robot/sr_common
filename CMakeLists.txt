@@ -13,3 +13,21 @@ catkin_package(
 catkin_add_gtest(test_sr_description_urdf test/test_sr_description_urdf.cpp)
 add_dependencies(test_sr_description_urdf ${catkin_EXPORTED_TARGETS})
 target_link_libraries(test_sr_description_urdf ${Boost_LIBRARIES} ${catkin_LIBRARIES} ${GTEST_LIBRARIES} pthread)
+
+install(DIRECTORY arm/
+   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/arm)
+
+install(DIRECTORY hand/
+   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/hand)
+
+install(DIRECTORY loaders/
+   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/loaders)
+
+install(DIRECTORY other/
+   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/other)
+
+install(DIRECTORY robots/
+   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/robots)
+
+install(FILES materials.urdf.xacro
+   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
