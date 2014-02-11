@@ -2,37 +2,37 @@ sa_sr_position_controller:
   type: robot_mechanism_controllers/JointPositionController
   joint: ShoulderJRotate
   pid:
-    p: 60.5
-    i: 31.0
-    d: 8.0
-    i_clamp: 30
+    d: 0.0
+    i: 0.0
+    i_clamp: 0.0
+    p: 60.0
 
 sa_ss_position_controller:
   type: robot_mechanism_controllers/JointPositionController
   joint: ShoulderJSwing
   pid:
-    p: 300.0
-    i: 160.0
-    d: 400.0
-    i_clamp: 90.0
+    d: 0.0
+    i: 0.0
+    i_clamp: 0.0
+    p: 60.0
 
 sa_es_position_controller:
   type: robot_mechanism_controllers/JointPositionController
   joint: ElbowJSwing
   pid:
-    p: 130.0
-    i: 150.0
-    d: 150.0
-    i_clamp: 90.0
+    d: 0.0
+    i: 0.0
+    i_clamp: 0.0
+    p: 60.0
 
 sa_er_position_controller:
   type: robot_mechanism_controllers/JointPositionController
   joint: ElbowJRotate
   pid:
-    p: 24.0
-    i: 18.0
-    d: 15.0
-    i_clamp: 1
+    d: 0.0
+    i: 0.0
+    i_clamp: 0.0
+    p: 60.0
 
 r_arm_cartesian_pose_controller:
   type: robot_mechanism_controllers/CartesianPoseController
