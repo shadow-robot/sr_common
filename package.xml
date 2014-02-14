@@ -1,12 +1,14 @@
 <package>
   <name>sr_description</name>
-  <version>1.2.0</version>
+  <version>1.3.0</version>
   <description>sr_description contains the description for Shadow Robot's Hand and Arm, as well as some additional models used in our robot (kinect, etc...).</description>
-  <maintainer email="software@shadowrobot.com">Ugo Cupcic</maintainer>
+  <maintainer email="software@shadowrobot.com">Shadow Robot's software team</maintainer>
 
   <license>GPL</license>
 
   <url type="website">http://ros.org/wiki/sr_description</url>
+  <url type="repository">https://github.com/shadow-robot/sr-ros-interface</url>
+  <url type="bugtracker">https://github.com/shadow-robot/sr-ros-interface/issues</url>
 
   <author>Ugo Cupcic</author>
 
