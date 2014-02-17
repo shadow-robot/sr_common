@@ -24,7 +24,7 @@
       </collision>
     </link>
     <gazebo reference="shadowarm_upperarm">
-      <material>Gazebo/Grey</material>
+      <material>LightGrey</material>
       <selfCollide>false</selfCollide>
     </gazebo>
 
