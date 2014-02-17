@@ -46,6 +46,7 @@
 	  <bumperTopicName>contacts/${link_prefix}/distal</bumperTopicName>
         </plugin>
       </sensor>
+      <selfCollide>true</selfCollide>
       <material>LightGrey</material>
     </gazebo>
 
