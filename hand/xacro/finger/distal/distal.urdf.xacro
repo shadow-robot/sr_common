@@ -43,10 +43,10 @@
         <plugin name="${link_prefix}distal_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
           <updateRate>100.0</updateRate>
 	  <frameName>${link_prefix}distal</frameName>
-	  <bumperTopicName>/rh/contacts/${link_prefix}</bumperTopicName>
+	  <bumperTopicName>contacts/${link_prefix}/distal</bumperTopicName>
         </plugin>
       </sensor>
-      <material>Gazebo/Grey</material>
+      <material>LightGrey</material>
     </gazebo>
 
     <joint name="${joint_prefix}J1" type="revolute">

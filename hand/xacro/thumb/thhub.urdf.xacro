@@ -33,20 +33,22 @@
 	</geometry>
       </collision>
     </link>
+
     <gazebo reference="thhub">
-      <sensor type="contact" name="thhub_contact_sensor">
-        <update_rate>100.0</update_rate>
+      <sensor type="contact" name="thhub_contact" >
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
         <contact>
-          <collision>thhub_collision_geom</collision>
+          <collision>thhub_collision</collision>
+          <topic>thhub_collision</topic>
         </contact>
         <plugin name="thhub_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
-          <alwaysOn>true</alwaysOn>
-          <frameName>thhub</frameName>
           <updateRate>100.0</updateRate>
-          <bumperTopicName>thhub_bumper</bumperTopicName>
+	  <frameName>thhub</frameName>
+	  <bumperTopicName>contacts/th/hub</bumperTopicName>
         </plugin>
       </sensor>
-      <material>Gazebo/Grey</material>
+      <material>LightGrey</material>
     </gazebo>
 
     <joint name="THJ3" type="revolute">

@@ -45,21 +45,22 @@
 	</geometry>
       </collision>
     </link>
+
     <gazebo reference="thbase">
-      <sensor type="contact" name="thbase_contact_sensor">
-        <update_rate>100.0</update_rate>
+      <sensor type="contact" name="thbase_contact" >
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
         <contact>
-          <collision>thbase_collision_geom</collision>
+          <collision>thbase_collision</collision>
+          <topic>thbase_collision</topic>
         </contact>
         <plugin name="thbase_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
-          <alwaysOn>true</alwaysOn>
-          <frameName>thbase</frameName>
           <updateRate>100.0</updateRate>
-          <bumperTopicName>thbase_bumper</bumperTopicName>
+	  <frameName>thbase</frameName>
+	  <bumperTopicName>contacts/th/base</bumperTopicName>
         </plugin>
       </sensor>
-
-      <material>Gazebo/Grey</material>
+      <material>LightGrey</material>
     </gazebo>
 
     <joint name="THJ5" type="revolute">

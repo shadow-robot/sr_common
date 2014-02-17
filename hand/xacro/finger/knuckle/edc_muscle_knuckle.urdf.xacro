@@ -32,17 +32,19 @@
 	</geometry>
       </collision>
     </link>
+
     <gazebo reference="${link_prefix}knuckle">
-      <sensor type="contact" name="${link_prefix}knuckle_contact_sensor">
-        <update_rate>100.0</update_rate>
+      <sensor type="contact" name="${link_prefix}knuckle_contact" >
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
         <contact>
-          <collision>${link_prefix}knuckle_collision_geom</collision>
+          <collision>${link_prefix}knuckle_collision</collision>
+          <topic>${link_prefix}knuckle_collision</topic>
         </contact>
         <plugin name="${link_prefix}knuckle_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
-          <alwaysOn>true</alwaysOn>
-          <frameName>${link_prefix}knuckle</frameName>
           <updateRate>100.0</updateRate>
-          <bumperTopicName>${link_prefix}knuckle_bumper</bumperTopicName>
+	  <frameName>${link_prefix}knuckle</frameName>
+	  <bumperTopicName>contacts/${link_prefix}/knuckle</bumperTopicName>
         </plugin>
       </sensor>
       <material>Gazebo/Grey</material>

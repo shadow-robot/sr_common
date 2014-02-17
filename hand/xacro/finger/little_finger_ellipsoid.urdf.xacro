@@ -38,20 +38,21 @@
 	</geometry>
       </collision>
     </link>
+
     <gazebo reference="lfknuckle">
-      <sensor type="contact" name="lfknuckle_contact_sensor">
-        <update_rate>100.0</update_rate>
+      <sensor type="contact" name="lfknuckle_contact" >
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
         <contact>
-          <collision>lfknuckle_collision_geom</collision>
+          <collision>lfknuckle_collision</collision>
+          <topic>lfknuckle_collision</topic>
         </contact>
         <plugin name="lfknuckle_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
-          <alwaysOn>true</alwaysOn>
-          <frameName>lfknuckle</frameName>
           <updateRate>100.0</updateRate>
-          <bumperTopicName>lfknuckle_bumper</bumperTopicName>
+	  <frameName>lfknuckle</frameName>
+	  <bumperTopicName>contacts/lf/knuckle</bumperTopicName>
         </plugin>
       </sensor>
-
       <material>Gazebo/Grey</material>
     </gazebo>
 

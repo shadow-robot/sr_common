@@ -44,21 +44,22 @@
 	</geometry>
       </collision>
     </link>
+
     <gazebo reference="thproximal">
-      <sensor type="contact" name="thproximal_contact_sensor">
-        <update_rate>100.0</update_rate>
+      <sensor type="contact" name="thproximal_contact" >
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
         <contact>
-          <collision>thproximal_collision_geom</collision>
+          <collision>thproximal_collision</collision>
+          <topic>thproximal_collision</topic>
         </contact>
         <plugin name="thproximal_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
-          <alwaysOn>true</alwaysOn>
-          <frameName>thproximal</frameName>
           <updateRate>100.0</updateRate>
-          <bumperTopicName>thproximal_bumper</bumperTopicName>
+	  <frameName>thproximal</frameName>
+	  <bumperTopicName>contacts/th/proximal</bumperTopicName>
         </plugin>
       </sensor>
-
-      <material>Gazebo/Grey</material>
+      <material>LightGrey</material>
     </gazebo>
 
     <joint name="THJ4" type="revolute">

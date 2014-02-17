@@ -31,21 +31,22 @@
 	</geometry>
       </collision>
     </link>
+
     <gazebo reference="${link_prefix}middle">
-      <sensor type="contact" name="${link_prefix}middle_contact_sensor">
-        <update_rate>100.0</update_rate>
+      <sensor type="contact" name="${link_prefix}middle_contact" >
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
         <contact>
-          <collision>${link_prefix}middle_collision_geom</collision>
+          <collision>${link_prefix}middle_collision</collision>
+          <topic>${link_prefix}middle_collision</topic>
         </contact>
         <plugin name="${link_prefix}middle_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
-          <alwaysOn>true</alwaysOn>
-          <frameName>${link_prefix}middle</frameName>
           <updateRate>100.0</updateRate>
-          <bumperTopicName>${link_prefix}middle_bumper</bumperTopicName>
+	  <frameName>${link_prefix}middle</frameName>
+	  <bumperTopicName>contacts/${link_prefix}/middle</bumperTopicName>
         </plugin>
       </sensor>
-      <material>Gazebo/Grey</material>
-      <selfCollide>true</selfCollide>
+      <material>LightGrey</material>
     </gazebo>
 
     <joint name="${joint_prefix}J2" type="revolute">
