@@ -44,19 +44,20 @@
     </link>
 
     <gazebo reference="thmiddle">
-      <sensor type="contact" name="thmiddle_contact_sensor">
-        <update_rate>100.0</update_rate>
+      <sensor type="contact" name="thmiddle_contact" >
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
         <contact>
-          <collision>thmiddle_collision_geom</collision>
+          <collision>thmiddle_collision</collision>
+          <topic>thmiddle_collision</topic>
         </contact>
         <plugin name="thmiddle_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
-          <alwaysOn>true</alwaysOn>
-          <frameName>thmiddle</frameName>
           <updateRate>100.0</updateRate>
-          <bumperTopicName>thmiddle_bumper</bumperTopicName>
+	  <frameName>thmiddle</frameName>
+	  <bumperTopicName>contacts/th/middle</bumperTopicName>
         </plugin>
       </sensor>
-      <material>Gazebo/Grey</material>
+      <material>LightGrey</material>
     </gazebo>
 
     <joint name="THJ2" type="revolute">
@@ -126,20 +127,22 @@
       </collision>
     </link>
 
-    <gazebo reference="thbiotac">
-      <sensor type="contact" name="thbiotac_contact_sensor">
-        <update_rate>100.0</update_rate>
+    <gazebo reference="thdistal">
+      <sensor type="contact" name="thdistal_contact" >
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
         <contact>
           <collision>thbiotac_collision_geom</collision>
+          <topic>thdistal_collision</topic>
         </contact>
-        <plugin name="thbiotac_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
-          <alwaysOn>true</alwaysOn>
-          <frameName>thbiotac</frameName>
+        <plugin name="thdistal_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
           <updateRate>100.0</updateRate>
-          <bumperTopicName>thbiotac_bumper</bumperTopicName>
+	  <frameName>thbiotac</frameName>
+	  <bumperTopicName>contacts/th/distal</bumperTopicName>
         </plugin>
       </sensor>
-      <material name="BiotacGreen"/>
+      <selfCollide>true</selfCollide>
+      <material>BiotacGreen</material>
     </gazebo>
 
     <joint name="th_biotac_joint" type="fixed">

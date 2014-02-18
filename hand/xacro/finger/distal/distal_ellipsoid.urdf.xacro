@@ -38,27 +38,23 @@
         </geometry>
       </collision>
     </link>
+
     <gazebo reference="${link_prefix}distal">
-      <sensor type="contact" name="${link_prefix}distal_contact_sensor">
-        <update_rate>100.0</update_rate>
+      <sensor type="contact" name="${link_prefix}distal_contact" >
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
         <contact>
-          <collision>${link_prefix}distal_collision_geom</collision>
+          <collision>${link_prefix}distal_collision</collision>
+          <topic>${link_prefix}distal_collision</topic>
         </contact>
         <plugin name="${link_prefix}distal_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
-          <alwaysOn>true</alwaysOn>
-          <frameName>${link_prefix}distal</frameName>
           <updateRate>100.0</updateRate>
-          <bumperTopicName>${link_prefix}distal_bumper</bumperTopicName>
+	  <frameName>${link_prefix}distal</frameName>
+	  <bumperTopicName>contacts/${link_prefix}/distal</bumperTopicName>
         </plugin>
       </sensor>
-
-
-      <mu1 value="500.0" />
-      <mu2 value="500.0" />
-      <kp  value="10000000.0" />
-      <kd  value="1.0" />
-      <material>Gazebo/Grey</material>
       <selfCollide>true</selfCollide>
+      <material>LightGrey</material>
     </gazebo>
 
     <joint name="${joint_prefix}J1" type="revolute">

@@ -33,21 +33,22 @@
 	</geometry>
       </collision>
     </link>
+
     <gazebo reference="thmiddle">
-      <sensor type="contact" name="thmiddle_contact_sensor">
-        <update_rate>100.0</update_rate>
+      <sensor type="contact" name="thmiddle_contact" >
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
         <contact>
-          <collision>thmiddle_collision_geom</collision>
+          <collision>thmiddle_collision</collision>
+          <topic>thmiddle_collision</topic>
         </contact>
         <plugin name="thmiddle_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
-          <alwaysOn>true</alwaysOn>
-          <frameName>thmiddle</frameName>
           <updateRate>100.0</updateRate>
-          <bumperTopicName>thmiddle_bumper</bumperTopicName>
+	  <frameName>thmiddle</frameName>
+	  <bumperTopicName>contacts/th/middle</bumperTopicName>
         </plugin>
       </sensor>
-
-      <material>Gazebo/Grey</material>
+      <material>LightGrey</material>
     </gazebo>
 
     <joint name="THJ2" type="revolute">

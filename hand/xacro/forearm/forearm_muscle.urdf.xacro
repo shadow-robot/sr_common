@@ -25,7 +25,7 @@
       </collision>
     </link>
     <gazebo reference="forearm">
-      <material>Gazebo/Grey</material>
+      <material>LightGrey</material>
       <selfCollide>false</selfCollide>
     </gazebo>
 

@@ -32,20 +32,20 @@
     </link>
 
     <gazebo reference="${link_prefix}adapter">
-      <sensor type="contact" name="${link_prefix}adapter_contact_sensor">
-        <update_rate>100.0</update_rate>
+      <sensor type="contact" name="${link_prefix}adapter_contact" >
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
         <contact>
-          <collision>${link_prefix}adapter_collision_geom</collision>
+          <collision>${link_prefix}adapter_collision</collision>
+          <topic>${link_prefix}adapter_collision</topic>
         </contact>
         <plugin name="${link_prefix}adapter_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
-          <alwaysOn>true</alwaysOn>
-          <frameName>${link_prefix}adapter</frameName>
           <updateRate>100.0</updateRate>
-          <bumperTopicName>${link_prefix}adapter_bumper</bumperTopicName>
+	  <frameName>${link_prefix}adapter</frameName>
+	  <bumperTopicName>contacts/${link_prefix}/adapter</bumperTopicName>
         </plugin>
       </sensor>
-
-      <material name="LightGrey"/>
+      <material>Gazebo/Grey</material>
     </gazebo>
 
     <joint name="${joint_prefix}J2" type="revolute">
@@ -100,20 +100,21 @@
     </link>
 
     <gazebo reference="${link_prefix}biotac">
-      <sensor type="contact" name="${link_prefix}biotac_contact_sensor">
-        <update_rate>100.0</update_rate>
+      <sensor type="contact" name="${link_prefix}biotac_contact" >
+        <always_on>1</always_on>
+        <update_rate>1000.0</update_rate>
         <contact>
-          <collision>${link_prefix}biotac_collision_geom</collision>
+          <collision>${link_prefix}biotac_collision</collision>
+          <topic>${link_prefix}biotac_collision</topic>
         </contact>
         <plugin name="${link_prefix}biotac_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
-          <alwaysOn>true</alwaysOn>
-          <frameName>${link_prefix}biotac</frameName>
           <updateRate>100.0</updateRate>
-          <bumperTopicName>${link_prefix}biotac_bumper</bumperTopicName>
+	  <frameName>${link_prefix}biotac</frameName>
+	  <bumperTopicName>contacts/${link_prefix}/biotac</bumperTopicName>
         </plugin>
       </sensor>
-
-      <material name="BiotacGreen"/>
+      <selfCollide>true</selfCollide>
+      <material>BiotacGreen</material>
     </gazebo>
 
     <joint name="${joint_prefix}_biotac_joint" type="fixed">
