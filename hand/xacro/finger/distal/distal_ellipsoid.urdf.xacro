@@ -8,7 +8,7 @@
 
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/distal/distal.transmission.xacro" />
 
-  <xacro:macro name="distal" params="link_prefix joint_prefix parent">
+  <xacro:macro name="distal_ellipsoid" params="link_prefix joint_prefix parent">
 
     <link name="${link_prefix}distal">
       <inertial>

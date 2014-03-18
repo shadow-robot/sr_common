@@ -5,7 +5,7 @@
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/middle/middle.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/distal/distal_ellipsoid.urdf.xacro" />
 
-  <xacro:macro name="finger" params="link_prefix joint_prefix parent *origin *axis">
+  <xacro:macro name="finger_ellipsoid" params="link_prefix joint_prefix parent *origin *axis">
 
     <xacro:knuckle link_prefix="${link_prefix}" joint_prefix="${joint_prefix}" parent="${parent}" >
       <insert_block name="origin" />
@@ -18,8 +18,8 @@
     <xacro:middle link_prefix="${link_prefix}" joint_prefix="${joint_prefix}" parent="${link_prefix}proximal" >
     </xacro:middle>
 
-    <xacro:distal link_prefix="${link_prefix}" joint_prefix="${joint_prefix}" parent="${link_prefix}middle" >
-    </xacro:distal>
+    <xacro:distal_ellipsoid link_prefix="${link_prefix}" joint_prefix="${joint_prefix}" parent="${link_prefix}middle" >
+    </xacro:distal_ellipsoid>
 
   </xacro:macro>
 

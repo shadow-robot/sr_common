@@ -6,7 +6,7 @@
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thmiddle.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thdistal_ellipsoid.urdf.xacro" />
 
-  <xacro:macro name="thumb" params="parent">
+  <xacro:macro name="thumb_ellipsoid" params="parent">
 
     <xacro:thbase parent="${parent}">
     </xacro:thbase>

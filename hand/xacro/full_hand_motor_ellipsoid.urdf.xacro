@@ -22,26 +22,26 @@
     <xacro:palm parent="wrist">
     </xacro:palm>
 
-    <xacro:finger link_prefix="ff" joint_prefix="FF" parent="palm">
+    <xacro:finger_ellipsoid link_prefix="ff" joint_prefix="FF" parent="palm">
       <origin xyz="0.033 0 0.095" rpy="0 0 0" />
       <axis xyz="0 -1 0" />
-    </xacro:finger>
+    </xacro:finger_ellipsoid>
 
-    <xacro:finger link_prefix="mf" joint_prefix="MF" parent="palm">
+    <xacro:finger_ellipsoid link_prefix="mf" joint_prefix="MF" parent="palm">
       <origin xyz="0.011 0 0.099" rpy="0 0 0" />
       <axis xyz="0 -1 0" />
-    </xacro:finger>
+    </xacro:finger_ellipsoid>
 
-    <xacro:finger link_prefix="rf" joint_prefix="RF" parent="palm">
+    <xacro:finger_ellipsoid link_prefix="rf" joint_prefix="RF" parent="palm">
       <origin xyz="-0.011 0 0.095" rpy="0 0 0" />
       <axis xyz="0 1 0" />
-    </xacro:finger>
+    </xacro:finger_ellipsoid>
 
-    <xacro:little_finger link_prefix="lf" joint_prefix="LF" parent="palm">
-    </xacro:little_finger>
+    <xacro:little_finger_ellipsoid link_prefix="lf" joint_prefix="LF" parent="palm">
+    </xacro:little_finger_ellipsoid>
 
-    <xacro:thumb parent="palm">
-    </xacro:thumb>
+    <xacro:thumb_ellipsoid parent="palm">
+    </xacro:thumb_ellipsoid>
 
   </xacro:macro>
 

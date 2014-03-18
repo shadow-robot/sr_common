@@ -12,7 +12,7 @@
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/distal/distal_ellipsoid.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/lfmetacarpal/lfmetacarpal.urdf.xacro" />
 
-  <xacro:macro name="little_finger" params="link_prefix joint_prefix parent">
+  <xacro:macro name="little_finger_ellipsoid" params="link_prefix joint_prefix parent">
 
     <xacro:lfmetacarpal parent="${parent}" >
     </xacro:lfmetacarpal>
