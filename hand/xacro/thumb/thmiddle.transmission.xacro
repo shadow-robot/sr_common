@@ -6,13 +6,13 @@
 
   <xacro:macro name="thmiddle_transmission">
 
-    <transmission type="sr_mechanism_model/SimpleTransmission" name="thmiddle_transmission">
-      <actuator name="THJ2" />
-      <joint name="THJ2" />
-      <mechanicalReduction>1</mechanicalReduction>
-      <motorTorqueConstant>1</motorTorqueConstant>
-      <pulsesPerRevolution>90000</pulsesPerRevolution>
-    </transmission>
+    <transmission name="thmiddle_transmission">
+	  <type>sr_mechanism_model/SimpleTransmission</type>
+	  <joint name="THJ2"/>
+	  <actuator name="THJ2">
+	    <hardwareInterface>Robot</hardwareInterface>
+	  </actuator>
+	</transmission>
 
   </xacro:macro>
 

@@ -6,13 +6,13 @@
 
   <xacro:macro name="thhub_transmission">
 
-    <transmission type="sr_mechanism_model/SimpleTransmissionForMuscle" name="thhub_transmission">
-      <actuator name="THJ3" />
-      <joint name="THJ3" />
-      <mechanicalReduction>1</mechanicalReduction>
-      <motorTorqueConstant>1</motorTorqueConstant>
-      <pulsesPerRevolution>90000</pulsesPerRevolution>
-    </transmission>
+    <transmission name="thhub_transmission">
+	  <type>sr_mechanism_model/SimpleTransmissionForMuscle</type>
+	  <joint name="THJ3"/>
+	  <actuator name="THJ3">
+	    <hardwareInterface>Robot</hardwareInterface>
+	  </actuator>
+	</transmission>
 
   </xacro:macro>
 

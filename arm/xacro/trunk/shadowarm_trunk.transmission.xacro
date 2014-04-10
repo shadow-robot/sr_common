@@ -6,13 +6,13 @@
 
   <xacro:macro name="shadowarm_trunk_transmission">
 
-    <transmission type="sr_mechanism_model/SimpleTransmission" name="trunk_rotation_transmission">
-      <actuator name="trunk_rotation" />
-      <joint name="ShoulderJRotate" />
-      <mechanicalReduction>1</mechanicalReduction>
-      <motorTorqueConstant>1</motorTorqueConstant>
-      <pulsesPerRevolution>90000</pulsesPerRevolution>
-    </transmission>
+    <transmission name="trunk_rotation_transmission">
+	  <type>sr_mechanism_model/SimpleTransmission</type>
+	  <joint name="ShoulderJRotate"/>
+	  <actuator name="trunk_rotation">
+	    <hardwareInterface>Robot</hardwareInterface>
+	  </actuator>
+	</transmission>
 
   </xacro:macro>
 

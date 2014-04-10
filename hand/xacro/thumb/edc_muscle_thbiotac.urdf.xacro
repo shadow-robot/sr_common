@@ -70,13 +70,13 @@
       <dynamics damping="10.0"/>
     </joint>
 
-    <transmission type="sr_mechanism_model/SimpleTransmissionForMuscle" name="thmiddle_transmission">
-      <actuator name="THJ2" />
-      <joint name="THJ2" />
-      <mechanicalReduction>1</mechanicalReduction>
-      <motorTorqueConstant>1</motorTorqueConstant>
-      <pulsesPerRevolution>90000</pulsesPerRevolution>
-    </transmission>
+    <transmission name="thmiddle_transmission">
+	  <type>sr_mechanism_model/SimpleTransmissionForMuscle</type>
+	  <joint name="THJ2"/>
+	  <actuator name="THJ2">
+	    <hardwareInterface>Robot</hardwareInterface>
+	  </actuator>
+	</transmission>
 
     <link name="thbiotac_J1_dummy">
       <inertial>
@@ -95,13 +95,13 @@
       <dynamics damping="10.0"/>
     </joint>
 
-    <transmission type="sr_mechanism_model/SimpleTransmissionForMuscle" name="thdistal_transmission">
-      <actuator name="THJ1" />
-      <joint name="THJ1" />
-      <mechanicalReduction>1</mechanicalReduction>
-      <motorTorqueConstant>1</motorTorqueConstant>
-      <pulsesPerRevolution>90000</pulsesPerRevolution>
-    </transmission>
+    <transmission name="thdistal_transmission">
+	  <type>sr_mechanism_model/SimpleTransmissionForMuscle</type>
+	  <joint name="THJ1"/>
+	  <actuator name="THJ1">
+	    <hardwareInterface>Robot</hardwareInterface>
+	  </actuator>
+	</transmission>
 
 
     <link name="thbiotac">

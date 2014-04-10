@@ -6,14 +6,14 @@
 
   <xacro:macro name="middle_transmission">
 
-    <transmission type="sr_mechanism_model/J0Transmission" name="${link_prefix}middle_transmission">
-      <actuator name="${joint_prefix}J0" />
-      <joint1 name="${joint_prefix}J1" />
-      <joint2 name="${joint_prefix}J2" />
-      <mechanicalReduction>1</mechanicalReduction>
-      <motorTorqueConstant>1</motorTorqueConstant>
-      <pulsesPerRevolution>90000</pulsesPerRevolution>
-    </transmission>
+    <transmission name="${link_prefix}middle_transmission">
+      <type>sr_mechanism_model/J0Transmission</type>
+      <joint1 name="${joint_prefix}J1"/>
+      <joint2 name="${joint_prefix}J2"/>
+      <actuator name="${joint_prefix}J0">
+	    <hardwareInterface>Robot</hardwareInterface>
+	  </actuator>
+	</transmission>
 
   </xacro:macro>
 
