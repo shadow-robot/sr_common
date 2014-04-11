@@ -6,12 +6,12 @@
 
   <xacro:macro name="lfmetacarpal_transmission">
 
-    <transmission name="lfmetacarpal_transmission">
-      <type>sr_mechanism_model/SimpleTransmission</type>
-      <joint name="LFJ5"/>
-	  <actuator name="LFJ5">
-	  	<hardwareInterface>Robot</hardwareInterface>
-	  </actuator>
+    <transmission type="sr_mechanism_model/SimpleTransmission" name="lfmetacarpal_transmission">
+      <actuator name="LFJ5" />
+      <joint name="LFJ5" />
+      <mechanicalReduction>1</mechanicalReduction>
+      <motorTorqueConstant>1</motorTorqueConstant>
+      <pulsesPerRevolution>90000</pulsesPerRevolution>
     </transmission>
 
   </xacro:macro>

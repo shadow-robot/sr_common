@@ -6,12 +6,12 @@
 
   <xacro:macro name="knuckle_transmission">
 
-    <transmission name="${link_prefix}knuckle_transmission">
-      <type>sr_mechanism_model/SimpleTransmission</type>
+    <transmission type="sr_mechanism_model/SimpleTransmission" name="${link_prefix}knuckle_transmission">
+      <actuator name="${joint_prefix}J4" />
       <joint name="${joint_prefix}J4" />
-	  <actuator name="${joint_prefix}J4">
-	  	<hardwareInterface>Robot</hardwareInterface>
-	  </actuator>
+      <mechanicalReduction>1</mechanicalReduction>
+      <motorTorqueConstant>1</motorTorqueConstant>
+      <pulsesPerRevolution>90000</pulsesPerRevolution>
     </transmission>
 
   </xacro:macro>

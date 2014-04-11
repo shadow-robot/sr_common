@@ -6,13 +6,13 @@
 
   <xacro:macro name="shadowarm_lowerarm_transmission">
 
-    <transmission name="elbow_abduction_transmission">
-	  <type>sr_mechanism_model/SimpleTransmission</type>
-	  <joint name="ElbowJSwing"/>
-	  <actuator name="elbow_abduction">
-	    <hardwareInterface>Robot</hardwareInterface>
-	  </actuator>
-	</transmission>
+    <transmission type="sr_mechanism_model/SimpleTransmission" name="elbow_abduction_transmission">
+      <actuator name="elbow_abduction" />
+      <joint name="ElbowJSwing" />
+      <mechanicalReduction>1</mechanicalReduction>
+      <motorTorqueConstant>1</motorTorqueConstant>
+      <pulsesPerRevolution>90000</pulsesPerRevolution>
+    </transmission>
 
   </xacro:macro>
 

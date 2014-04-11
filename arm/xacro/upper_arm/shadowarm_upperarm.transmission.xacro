@@ -5,14 +5,14 @@
        xmlns:xacro="http://ros.org/wiki/xacro">
 
   <xacro:macro name="shadowarm_upperarm_transmission">
-    
-    <transmission name="shoulder_rotation_transmission">
-	  <type>sr_mechanism_model/SimpleTransmission</type>
-	  <joint name="ShoulderJSwing"/>
-	  <actuator name="shoulder_rotation">
-	    <hardwareInterface>Robot</hardwareInterface>
-	  </actuator>
-	</transmission>
+
+    <transmission type="sr_mechanism_model/SimpleTransmission" name="shoulder_rotation_transmission">
+      <actuator name="shoulder_rotation" />
+      <joint name="ShoulderJSwing" />
+      <mechanicalReduction>1</mechanicalReduction>
+      <motorTorqueConstant>1</motorTorqueConstant>
+      <pulsesPerRevolution>90000</pulsesPerRevolution>
+    </transmission>
 
   </xacro:macro>
 

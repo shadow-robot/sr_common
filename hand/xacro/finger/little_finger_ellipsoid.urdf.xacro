@@ -65,14 +65,14 @@
       effort="1000.0" velocity="10.0"/>
       <dynamics damping="10.0"/>
     </joint>
-    
-    <transmission name="lfknuckle_transmission">
-	  <type>sr_mechanism_model/SimpleTransmission</type>
-	  <joint name="LFJ4"/>
-	  <actuator name="LFJ4">
-	    <hardwareInterface>Robot</hardwareInterface>
-	  </actuator>
-	</transmission>
+
+    <transmission type="sr_mechanism_model/SimpleTransmission" name="lfknuckle_transmission">
+      <actuator name="LFJ4" />
+      <joint name="LFJ4" />
+      <mechanicalReduction>1</mechanicalReduction>
+      <motorTorqueConstant>1</motorTorqueConstant>
+      <pulsesPerRevolution>90000</pulsesPerRevolution>
+    </transmission>
 
     <xacro:proximal link_prefix="${link_prefix}" joint_prefix="${joint_prefix}" parent="${link_prefix}knuckle" >
     </xacro:proximal>

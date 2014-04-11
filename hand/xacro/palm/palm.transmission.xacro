@@ -6,13 +6,13 @@
 
   <xacro:macro name="shadowhand_palm_transmission">
 
-    <transmission name="palm_transmission">
-	  <type>sr_mechanism_model/SimpleTransmission</type>
-	  <joint name="WRJ1"/>
-	  <actuator name="WRJ1">
-	    <hardwareInterface>Robot</hardwareInterface>
-	  </actuator>
-	</transmission>
+    <transmission type="sr_mechanism_model/SimpleTransmission" name="palm_transmission">
+      <actuator name="WRJ1" />
+      <joint name="WRJ1" />
+      <mechanicalReduction>1</mechanicalReduction>
+      <motorTorqueConstant>1</motorTorqueConstant>
+      <pulsesPerRevolution>90000</pulsesPerRevolution>
+    </transmission>
 
   </xacro:macro>
 

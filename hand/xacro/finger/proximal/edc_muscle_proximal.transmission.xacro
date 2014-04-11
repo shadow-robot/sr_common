@@ -6,13 +6,13 @@
 
   <xacro:macro name="proximal_transmission">
 
-    <transmission name="${link_prefix}proximal_transmission">
-      <type>sr_mechanism_model/SimpleTransmissionForMuscle</type>
-      <joint name="${joint_prefix}J3"/>
-	  <actuator name="${joint_prefix}J3">
-	  	<hardwareInterface>Robot</hardwareInterface>
-	  </actuator>
-	</transmission>
+    <transmission type="sr_mechanism_model/SimpleTransmissionForMuscle" name="${link_prefix}proximal_transmission">
+      <actuator name="${joint_prefix}J3" />
+      <joint name="${joint_prefix}J3" />
+      <mechanicalReduction>1</mechanicalReduction>
+      <motorTorqueConstant>1</motorTorqueConstant>
+      <pulsesPerRevolution>90000</pulsesPerRevolution>
+    </transmission>
 
   </xacro:macro>
 

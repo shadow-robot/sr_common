@@ -10,15 +10,14 @@
        compatibility with the Shadow Robot ROS software,
        even if the actual BioTAC hand doesn't even have J1.
   -->
-    
-    <transmission name="${link_prefix}middle_transmission">
-	  <type>sr_mechanism_model/J0TransmissionForMuscle</type>
+    <transmission type="sr_mechanism_model/J0TransmissionForMuscle" name="${link_prefix}middle_transmission">
+      <actuator name="${joint_prefix}J0" />
       <joint1 name="${joint_prefix}J1" /> 
       <joint2 name="${joint_prefix}J2" />
-      <actuator name="${joint_prefix}J0">
-	    <hardwareInterface>Robot</hardwareInterface>
-	  </actuator>
-	</transmission>
+      <mechanicalReduction>1</mechanicalReduction>
+      <motorTorqueConstant>1</motorTorqueConstant>
+      <pulsesPerRevolution>90000</pulsesPerRevolution>
+    </transmission>
 
   </xacro:macro>
 
