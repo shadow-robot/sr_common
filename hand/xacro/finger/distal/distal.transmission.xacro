@@ -9,9 +9,6 @@
     <transmission type="sr_mechanism_model/SimpleTransmission" name="${link_prefix}distal_transmission">
       <actuator name="${joint_prefix}J1" />
       <joint name="${joint_prefix}J1" />
-      <mechanicalReduction>1</mechanicalReduction>
-      <motorTorqueConstant>1</motorTorqueConstant>
-      <pulsesPerRevolution>90000</pulsesPerRevolution>
     </transmission>
 
   </xacro:macro>

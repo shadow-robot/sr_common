@@ -9,9 +9,6 @@
     <transmission type="sr_mechanism_model/SimpleTransmission" name="forearm_rotation_transmission">
       <actuator name="forearm_rotation" />
       <joint name="ElbowJRotate" />
-      <mechanicalReduction>1</mechanicalReduction>
-      <motorTorqueConstant>1</motorTorqueConstant>
-      <pulsesPerRevolution>90000</pulsesPerRevolution>
     </transmission>
 
   </xacro:macro>

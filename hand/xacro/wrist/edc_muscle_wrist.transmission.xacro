@@ -9,9 +9,6 @@
     <transmission type="sr_mechanism_model/SimpleTransmissionForMuscle" name="wrist_transmission">
       <actuator name="WRJ2" />
       <joint name="WRJ2" />
-      <mechanicalReduction>1</mechanicalReduction>
-      <motorTorqueConstant>1</motorTorqueConstant>
-      <pulsesPerRevolution>90000</pulsesPerRevolution>
     </transmission>
 
   </xacro:macro>

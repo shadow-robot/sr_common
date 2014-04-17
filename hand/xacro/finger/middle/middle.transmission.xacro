@@ -10,9 +10,6 @@
       <actuator name="${joint_prefix}J0" />
       <joint1 name="${joint_prefix}J1" />
       <joint2 name="${joint_prefix}J2" />
-      <mechanicalReduction>1</mechanicalReduction>
-      <motorTorqueConstant>1</motorTorqueConstant>
-      <pulsesPerRevolution>90000</pulsesPerRevolution>
     </transmission>
 
   </xacro:macro>
