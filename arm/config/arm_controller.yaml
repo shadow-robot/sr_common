@@ -1,5 +1,5 @@
 sa_sr_position_controller:
-  type: position_controllers/JointPositionController
+  type: effort_controllers/JointPositionController
   joint: ShoulderJRotate
   pid:
     d: 0.0
@@ -8,7 +8,7 @@ sa_sr_position_controller:
     p: 60.0
 
 sa_ss_position_controller:
-  type: position_controllers/JointPositionController
+  type: effort_controllers/JointPositionController
   joint: ShoulderJSwing
   pid:
     d: 0.0
@@ -17,7 +17,7 @@ sa_ss_position_controller:
     p: 60.0
 
 sa_es_position_controller:
-  type: position_controllers/JointPositionController
+  type: effort_controllers/JointPositionController
   joint: ElbowJSwing
   pid:
     d: 0.0
@@ -26,7 +26,7 @@ sa_es_position_controller:
     p: 60.0
 
 sa_er_position_controller:
-  type: position_controllers/JointPositionController
+  type: effort_controllers/JointPositionController
   joint: ElbowJRotate
   pid:
     d: 0.0
