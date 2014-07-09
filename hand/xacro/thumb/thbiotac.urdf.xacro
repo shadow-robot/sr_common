@@ -73,9 +73,6 @@
     <transmission type="sr_mechanism_model/SimpleTransmission" name="thmiddle_transmission">
       <actuator name="THJ2" />
       <joint name="THJ2" />
-      <mechanicalReduction>1</mechanicalReduction>
-      <motorTorqueConstant>1</motorTorqueConstant>
-      <pulsesPerRevolution>90000</pulsesPerRevolution>
     </transmission>
 
     <link name="thbiotac_J1_dummy">
@@ -98,9 +95,6 @@
     <transmission type="sr_mechanism_model/SimpleTransmission" name="thdistal_transmission">
       <actuator name="THJ1" />
       <joint name="THJ1" />
-      <mechanicalReduction>1</mechanicalReduction>
-      <motorTorqueConstant>1</motorTorqueConstant>
-      <pulsesPerRevolution>90000</pulsesPerRevolution>
     </transmission>
 
 
