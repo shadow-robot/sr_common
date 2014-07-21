@@ -1,6 +1,6 @@
 <package>
   <name>sr_description</name>
-  <version>1.3.1</version>
+  <version>1.3.2</version>
   <description>sr_description contains the description for Shadow Robot's Hand and Arm, as well as some additional models used in our robot (kinect, etc...).</description>
   <maintainer email="software@shadowrobot.com">Shadow Robot's software team</maintainer>
 
