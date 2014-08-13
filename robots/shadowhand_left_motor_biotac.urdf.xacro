@@ -5,11 +5,10 @@
        name="shadowhand_motor">
 
   <xacro:include filename="$(find sr_description)/materials.urdf.xacro" />
-  <xacro:include filename="$(find sr_description)/hand/xacro/full_hand_motor_biotac.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
 
-  <xacro:shadowhand_left_motor>
-  </xacro:shadowhand_left_motor>
+  <xacro:shadowhand muscletrans="false" muscle="false" bio="true" ubi="false" eli="false" reflect="-1.0" prefix="" />
 
 
 </robot>

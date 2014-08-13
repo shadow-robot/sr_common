@@ -25,5 +25,6 @@
 
   <!-- Dependencies needed only for running tests. -->
   <test_depend>gtest</test_depend>
+  <test_depend>liburdfdom-dev</test_depend>
 
 </package>

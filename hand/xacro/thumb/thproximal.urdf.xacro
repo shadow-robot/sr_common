@@ -6,73 +6,51 @@
        xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
        xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
+  <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thproximal.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thproximal.transmission.xacro" />
-
-  <!-- Right Hand -->
-  <xacro:macro name="thproximal" params="parent">
-      <xacro:thproximal_base parent="${parent}" reflect="1" />
-  </xacro:macro>
-
-  <!-- Left Hand -->
-  <xacro:macro name="thproximal_left" params="parent">
-      <xacro:thproximal_base parent="${parent}" reflect="-1" />
-  </xacro:macro>
-
-  <!-- Macro to used to generate left and right handed versions.
-  DO NOT use out side of here ie treat as a private macro -->
-  <xacro:macro name="thproximal_base" params="parent reflect">
-
-    <link name="thproximal">
+  
+  <!-- muscle is true for muscle hand or false for motor hand -->
+  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- parent is the parent link for the first joint -->
+  <xacro:macro name="thproximal" params="muscle reflect prefix parent">
+    <link name="${prefix}thproximal">
       <inertial>
-	<mass value="0.016" />
-	<origin xyz="0 0 0.019" rpy="0 0 0"/>
-	<inertia  ixx="0.1" ixy="0.0"  ixz="0.0"  iyy="0.1"  iyz="0.0"	izz="0.1" />
-      </inertial>
+				<mass value="0.040" />
+				<origin xyz="0 0 0.019" rpy="0 0 0"/>
+					<inertia  ixx="0.00496" ixy="0.0"  ixz="0.0"  iyy="0.00496"  iyz="0.0"
+				izz="0.000312" />
+			</inertial>
       <visual>
-	<origin xyz="0 0 0" rpy="0 0 0" />
-	<geometry name="thproximal_visual">
-      <mesh filename="package://sr_description/hand/model/TH3_z.dae" scale="0.001 0.001 0.001" />
-      </geometry>
-      <material name="shadow_thproximal_material">
-	  <color rgba="0.2 0.2 0.2 1.0"/>
-	</material>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry name="${prefix}thproximal_visual">
+          <mesh filename="package://sr_description/hand/model/TH3_z.dae" scale="0.001 0.001 0.001" />
+        </geometry>
+        <material name="shadow_thproximal_material">
+          <color rgba="0.2 0.2 0.2 1.0"/>
+        </material>
       </visual>
       <collision>
-	<origin xyz="0 0 0.019" rpy="0 0 0" />
-	<geometry name="thproximal_collision_geom">
-	  <box size="0.008 0.008 0.020" />
-	</geometry>
+        <origin xyz="0 0 0.020" rpy="0 0 0" />
+        <geometry name="${prefix}thproximal_collision_geom">
+          <cylinder radius="0.012" length="0.018" />
+        </geometry>
       </collision>
     </link>
 
-    <gazebo reference="thproximal">
-      <sensor type="contact" name="thproximal_contact" >
-        <always_on>1</always_on>
-        <update_rate>1000.0</update_rate>
-        <contact>
-          <collision>thproximal_collision</collision>
-          <topic>thproximal_collision</topic>
-        </contact>
-        <plugin name="thproximal_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
-          <updateRate>100.0</updateRate>
-	  <frameName>thproximal</frameName>
-	  <bumperTopicName>contacts/th/proximal</bumperTopicName>
-        </plugin>
-      </sensor>
-      <material>LightGrey</material>
-    </gazebo>
-
-    <joint name="THJ4" type="revolute">
+    <joint name="${prefix}THJ4" type="revolute">
       <parent link="${parent}"/>
-      <child link="thproximal"/>
+      <child link="${prefix}thproximal"/>
       <origin xyz="0 0 0" rpy="0 0 0" />
-      <axis xyz="${reflect*1} 0 0" />
-      <limit lower="0" upper="1.309" effort="1000.0"
-      velocity="10.0" />
-      <dynamics damping="10.0"/>
+      <axis xyz="${reflect} 0 0" />
+      <limit lower="0" upper="${70/180*M_PI}" effort="10"
+      velocity="1.0" />
+      <dynamics damping="0.1"/>
     </joint>
 
-    <xacro:thproximal_transmission />
+    <!-- extensions -->
+    <xacro:thproximal_transmission muscletrans="${muscle}" prefix="${prefix}"/>
+    <xacro:thproximal_gazebo prefix="${prefix}" />
 
   </xacro:macro>
 </robot>

@@ -1,50 +1,33 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
-
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thbase.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thproximal.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thhub.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thmiddle.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thdistal.urdf.xacro" />
 
-  <!-- Right Hand -->
-  <xacro:macro name="thumb" params="parent">
-
-    <xacro:thbase parent="${parent}">
+  <!-- muscletrans is true for muscle transmission to be used, false to use motor transmission -->
+  <!-- bio is true for biotac finger or false for standard finger -->
+  <!-- ubi is true for ubi finger or false for standard finger -->
+  <!-- eli is true for ellipsoid fingertip or false for standard finger -->
+  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- parent is the parent link for the first joint -->
+  <xacro:macro name="thumb" params="muscletrans bio ubi eli reflect prefix parent">
+		<!-- Base -->
+    <xacro:thbase muscle="${muscletrans}" prefix="${prefix}" reflect="${reflect}" parent="${parent}">
     </xacro:thbase>
-
-    <xacro:thproximal parent="thbase">
+		<!-- Proximal -->
+    <xacro:thproximal muscle="${muscletrans}" prefix="${prefix}" reflect="${reflect}" parent="${prefix}thbase">
     </xacro:thproximal>
-
-    <xacro:thumb_common />
-
-  </xacro:macro>
-
-  <!-- Left Hand -->
-  <xacro:macro name="thumb_left" params="parent">
-
-    <xacro:thbase_left parent="${parent}">
-    </xacro:thbase_left>
-
-    <xacro:thproximal_left parent="thbase">
-    </xacro:thproximal_left>
-
-    <xacro:thumb_common />
-
-  </xacro:macro>
-
-  <!-- Macro for common parts in left and right handed versions.
-  DO NOT use out side of here ie treat as a private macro -->
-  <xacro:macro name="thumb_common">
-
-    <xacro:thhub parent="thproximal">
+		<!-- Hub -->
+		<xacro:thhub muscle="${muscletrans}" prefix="${prefix}" parent="${prefix}thproximal">
     </xacro:thhub>
-
-    <xacro:thmiddle parent="thhub">
+		<!-- Middle -->
+    <xacro:thmiddle muscle="${muscletrans}" bio="${bio}" prefix="${prefix}" parent="${prefix}thhub">
     </xacro:thmiddle>
-
-    <xacro:thdistal parent="thmiddle">
+		<!-- Distal -->
+    <xacro:thdistal muscle="${muscletrans}" bio="${bio}" ubi="${ubi}" eli="${eli}" prefix="${prefix}" parent="${prefix}thmiddle">
     </xacro:thdistal>
-
   </xacro:macro>
 
 </robot>

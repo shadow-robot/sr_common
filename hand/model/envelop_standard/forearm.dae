@@ -11,7 +11,7 @@
 		<created>2012-07-09T16:29:53.272413</created>
 		<modified>2012-07-09T16:29:53.272436</modified>
 		<unit meter="1.0" name="meter"/>
-		<up_axis>Z_UP</up_axis>
+		<up_axis>Y_UP</up_axis>
 	</asset>
 	<library_effects>
 		<effect id="Material-fx" name="Material-fx">

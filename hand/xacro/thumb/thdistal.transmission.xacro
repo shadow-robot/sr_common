@@ -3,14 +3,24 @@
        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
+       
+  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <xacro:macro name="thdistal_transmission" params="muscletrans prefix" >
 
-  <xacro:macro name="thdistal_transmission">
-
-    <transmission type="sr_mechanism_model/SimpleTransmission" name="thdistal_transmission">
-      <actuator name="THJ1" />
-      <joint name="THJ1" />
-    </transmission>
-
+   <!-- muscle hand -->
+    <xacro:if value="${muscletrans}">
+      <transmission type="sr_mechanism_model/SimpleTransmissionForMuscle" name="${prefix}thdistal_transmission">
+      <actuator name="${prefix}THJ1" />
+      <joint name="${prefix}THJ1" />
+      </transmission>
+    </xacro:if> 
+    <!-- motor hand -->
+    <xacro:unless value="${muscletrans}">
+      <transmission type="sr_mechanism_model/SimpleTransmission" name="${prefix}thdistal_transmission">
+      <actuator name="${prefix}THJ1" />
+      <joint name="${prefix}THJ1" />
+      </transmission>
+    </xacro:unless> 
   </xacro:macro>
-
-</robot>
+  </robot>

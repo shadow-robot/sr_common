@@ -4,13 +4,26 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="distal_transmission">
+  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- link_prefix prepends fingername to the link names -->
+  <!-- joint_prefix prepends fingername to the joint names -->
+  <xacro:macro name="distal_transmission" params="muscletrans prefix joint_prefix link_prefix" >
 
-    <transmission type="sr_mechanism_model/SimpleTransmission" name="${link_prefix}distal_transmission">
-      <actuator name="${joint_prefix}J1" />
-      <joint name="${joint_prefix}J1" />
-    </transmission>
-
+   <!-- muscle hand -->
+    <xacro:if value="${muscletrans}">
+      <transmission type="sr_mechanism_model/SimpleTransmissionForMuscle" name="${prefix}${link_prefix}distal_transmission">
+      <actuator name="${prefix}${joint_prefix}J1" />
+      <joint name="${prefix}${joint_prefix}J1" />
+      </transmission>
+    </xacro:if> 
+    <!-- motor hand -->
+    <xacro:unless value="${muscletrans}">
+      <transmission type="sr_mechanism_model/SimpleTransmission" name="${prefix}${link_prefix}distal_transmission">
+      <actuator name="${prefix}${joint_prefix}J1" />
+      <joint name="${prefix}${joint_prefix}J1" />
+      </transmission>
+    </xacro:unless> 
   </xacro:macro>
 
 </robot>

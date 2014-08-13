@@ -5,16 +5,14 @@
        name="shadowhand_motor">
 
   <xacro:include filename="$(find sr_description)/materials.urdf.xacro" />
-  <xacro:include filename="$(find sr_description)/hand/xacro/full_hand_edc_muscle_biotac.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
 
 <!-- C6 hand with BioTAC sensor
   (C) 2012 fnh, hendrich@informatik.uni-hamburg.de
 -->
 
-  <xacro:shadowhand_muscle>
-  </xacro:shadowhand_muscle>
-
+	<xacro:shadowhand muscletrans="true" muscle="true" bio="true" ubi="false" eli="false" reflect="1.0" prefix="" />
 
   <link name="forearm_disk">
     <inertial>

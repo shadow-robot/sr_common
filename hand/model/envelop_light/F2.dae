@@ -11,7 +11,7 @@
 		<created>2012-07-23T02:18:03.236589</created>
 		<modified>2012-07-23T02:18:03.236602</modified>
 		<unit meter="1.0" name="meter"/>
-		<up_axis>Z_UP</up_axis>
+		<up_axis>Y_UP</up_axis>
 	</asset>
 	<library_effects>
 		<effect id="black_spec-fx" name="black_spec-fx">

@@ -4,29 +4,29 @@
 
   <xacro:macro name="shadowarm_trunk" params="parent">
     <link name="shadowarm_trunk">
-      <inertial>
-        <origin xyz="0 0 0.0" rpy="0 0 0" />
-        <mass value="0.5" />
-        <inertia  ixx="0.1" ixy="0.0"  ixz="0.0"  iyy="0.1"  iyz="0.0" izz="0.0" />
-      </inertial>
-      <visual>
-	<origin xyz="0 0 0.005" rpy="0 0 0" />
-	<geometry name="shadowarm_visual">
-          <mesh filename="package://sr_description/arm/model/arm_trunk.dae" scale="0.001 0.001 0.001" />
-        </geometry>
-        <material name="Grey" />
-      </visual>
-      <collision>
-	<origin xyz="0 0 0.005" rpy="0 0 0" />
-	<geometry name="shadowarm_collision_geom">
-          <mesh filename="package://sr_description/arm/model/arm_trunk.dae" scale="0.001 0.001 0.001" />
-        </geometry>
-      </collision>
-    </link>
-    <gazebo reference="shadowarm_trunk">
-      <material>LightGrey</material>
-      <selfCollide>false</selfCollide>
-    </gazebo>
+	<inertial>
+	  <origin xyz="0 0 0.26525" rpy="0 0 0" />
+	  <mass value="10" />
+	  <inertia  ixx="0.15" ixy="0.0"  ixz="0.0"  iyy="0.15"  iyz="0.0"  izz="0.02" />
+	</inertial>
+	<visual>
+	  <origin xyz="0 0 0.005" rpy="0 0 0" />
+	  <geometry name="shadowarm_trunk_visual">
+	    <mesh filename="package://sr_description/arm/model/arm_trunk.dae" scale="0.001 0.001 0.001" />
+	  </geometry>
+	  <material name="Grey" />
+	</visual>
+	<collision>
+	  <origin xyz="0 0.02 0.30" rpy="0 0 0"/>
+	  <geometry name="shadowarm_trunk_collision">
+	    <box size="0.170 0.170 0.580"/>
+	  </geometry>
+	</collision>
+      </link>
+      <gazebo reference="shadowarm_trunk">
+	<material>LightGrey</material>
+	<selfCollide>false</selfCollide>
+      </gazebo>
 
     <joint name="ShoulderJRotate" type="revolute">
       <parent link="${parent}"/>
@@ -34,8 +34,8 @@
       <origin xyz="0 0 0.01" rpy="0.0 0.0 0.0" />
       <axis xyz="0 0 1" />
       <limit lower="-${M_PI/4}" upper="${M_PI/2}"
-      effort="1000.0" velocity="10.0"/>
-      <dynamics damping="30.0"/>
+      effort="70" velocity="1.0"/>
+      <dynamics damping="5.5"/>
     </joint>
 
     <xacro:shadowarm_trunk_transmission />

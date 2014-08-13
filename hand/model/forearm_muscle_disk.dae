@@ -8,7 +8,7 @@
     <created>2013-02-21T11:51:39</created>
     <modified>2013-02-21T11:51:39</modified>
     <unit name="meter" meter="1"/>
-    <up_axis>Z_UP</up_axis>
+    <up_axis>Y_UP</up_axis>
   </asset>
 	<library_effects>
 		<effect id="black_spec-fx" name="black_spec-fx">

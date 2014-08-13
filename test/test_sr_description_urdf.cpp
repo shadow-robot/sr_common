@@ -32,7 +32,9 @@
  *  POSSIBILITY OF SUCH DAMAGE.
  *********************************************************************/
 
-/** \author Ioan Sucan */
+/** \author Ioan Sucan 
+ *  \author Guillaume Walck
+ * */
 
 #include <gtest/gtest.h>
 #include <cstdlib>
@@ -52,13 +54,45 @@ int runExternalProcess(const std::string &executable, const std::string &args)
     return system((executable + " " + args).c_str());
 }
 
+std::string getCommandOutput(std::string cmd) {
+
+    std::string data;
+    FILE * stream;
+    char buffer[MAXPATHLEN];
+
+    stream = popen(cmd.c_str(), "r");
+    if (stream) {
+			while (!feof(stream))
+				if (fgets(buffer, MAXPATHLEN, stream) != NULL) data.append(buffer);
+				pclose(stream);
+    }
+    // keep anything before first cr/lf
+    unsigned pos = data.find_first_of('\n');
+    return data.substr(0,pos);
+}
+
 int walker( char *result, int& test_result)
 {
+	std::string package_path =  getCommandOutput("rospack find sr_description");
+	
+  if (package_path.find("sr_description")==std::string::npos)
+  {
+	printf("cannot find package in path %s\n",package_path.c_str());
+    test_result = 1;
+    return 1;
+  }
+  else
+  {
+	printf("sr_description robots path : %s\n",(package_path+"/robots").c_str());
+  }
+        
   DIR           *d;
   struct dirent *dir;
-  d = opendir( "robots" );
+  d = opendir( (package_path+"/robots").c_str() );
   if( d == NULL )
   {
+    printf("no robots found\n");
+    test_result = 1;
     return 1;
   }
   while( ( dir = readdir( d ) ) )
@@ -73,17 +107,17 @@ int walker( char *result, int& test_result)
       std::string dir_name = dir->d_name;
       if (dir_name.find(std::string(".urdf.xacro")) == dir_name.size()-11)
       {
-        char pwd[MAXPATHLEN];
-        char *ret = NULL;
-        ret = getcwd( pwd, MAXPATHLEN );
-        if (!ret)
-          printf("Error reading .urdf.xacro from disk\n");
-        printf("\n\ntesting: %s\n",(std::string(pwd)+"/robots/"+dir_name).c_str());
-        printf("python `rospack find xacro`/xacro.py %s/robots/%s  > `rospack find sr_description`/test/tmp.urdf", pwd, dir_name.c_str() );
-        runExternalProcess("python `rospack find xacro`/xacro.py", std::string(pwd)+"/robots/"+dir_name+" > `rospack find sr_description`/test/tmp.urdf" );
-
-        test_result = test_result || runExternalProcess("`rospack find urdf_parser`/bin/check_urdf", "`rospack find sr_description`/test/tmp.urdf");
+        printf("\n\ntesting: %s\n",(package_path+"/robots/"+dir_name).c_str());
+        printf("python `rospack find xacro`/xacro.py %s/robots/%s  > `rospack find sr_description`/test/tmp.urdf", package_path.c_str(), dir_name.c_str() );
+        runExternalProcess("python `rospack find xacro`/xacro.py", package_path+"/robots/"+dir_name+" > `rospack find sr_description`/test/tmp.urdf" );
+				// check urdf structure
+        test_result = test_result || runExternalProcess("check_urdf", "`rospack find sr_description`/test/tmp.urdf");
+        printf("\n looking for unexpanded xacro tags\n");
+        // check for unexpanded xacros
+        test_result = test_result || not runExternalProcess("grep","'<xacro:' `rospack find sr_description`/test/tmp.urdf");
       }
+      if (test_result!=0)
+				return *result == 0;
     }
   }
   closedir( d );

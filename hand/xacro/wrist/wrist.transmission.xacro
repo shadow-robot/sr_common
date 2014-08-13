@@ -4,13 +4,25 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <xacro:macro name="shadowhand_wrist_transmission">
 
-    <transmission type="sr_mechanism_model/SimpleTransmission" name="wrist_transmission">
-      <actuator name="WRJ2" />
-      <joint name="WRJ2" />
-    </transmission>
-
+  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <xacro:macro name="shadowhand_wrist_transmission" params="muscletrans prefix" > 
+    <!-- muscle hand -->
+    <xacro:if value="${muscletrans}">
+      <transmission type="sr_mechanism_model/SimpleTransmissionForMuscle" name="${prefix}wrist_transmission">
+        <actuator name="${prefix}WRJ2" />
+        <joint name="${prefix}WRJ2" />
+      </transmission>
+    </xacro:if> 
+    <!-- motor hand -->
+    <xacro:unless value="${muscletrans}">
+      <transmission type="sr_mechanism_model/SimpleTransmission" name="${prefix}wrist_transmission">
+        <actuator name="${prefix}WRJ2" />
+        <joint name="${prefix}WRJ2" />
+      </transmission>
+    </xacro:unless> 
+    
   </xacro:macro>
 
 </robot>
