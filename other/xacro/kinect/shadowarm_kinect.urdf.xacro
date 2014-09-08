@@ -102,7 +102,7 @@
     </link>
 
     <!-- Kinect sensor for simulation -->
-<!--    <shadowarm_sim_kinect/> not working currently -->
+   <shadowarm_sim_kinect/> 
   </xacro:macro>
 
 </robot>
