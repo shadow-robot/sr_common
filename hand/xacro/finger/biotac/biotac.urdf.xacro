@@ -24,7 +24,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 1.571" />
         <geometry name="${prefix}${link_prefix}adapter_visual">
-          <mesh filename="package://sr_description/hand/model/biotacs/biotac_decimated.dae" scale="0.001 0.001 0.001" />
+          <mesh filename="package://sr_description/hand/model/biotacs/biotac_finger_adapter.dae" scale="1 1 1" />
         </geometry>
         <material name="LightGrey" />
       </visual>
