@@ -31,17 +31,46 @@
       </visual>
 
       <collision>
-        <origin xyz="${reflect*0.011} 0 0.038" rpy="0 0 0" />
+        <origin xyz="${reflect*0.011} 0.0085 0.038" rpy="0 0 0" />
         <geometry name="${prefix}palm_collision_geom">
-          <box size="0.062 0.024 0.098" />
+          <box size="0.062 0.007 0.098" />
         </geometry>
       </collision>
+      <collision>
+        <origin xyz="${reflect*0.0005} -0.0035 0.038" rpy="0 0 0" />
+        <geometry>
+          <box size="0.041 0.017 0.098" />
+        </geometry>
+      </collision>
+      <!-- palm complement below first finger -->
+      <collision>
+        <origin xyz="${reflect*0.0315} -0.0035 0.073" rpy="0 0 0" />
+        <geometry>
+          <box size="0.021 0.017 0.028" />
+        </geometry>
+      </collision> 
+      <!-- thumb pulp side -->
+      <collision>
+        <origin xyz="${reflect*0.0315} -0.0085 0.001" rpy="0 0 0" />
+        <geometry>
+          <box size="0.021 0.027 0.024" />
+        </geometry>
+      </collision> 
+      <!-- thumb pulp central -->
+      <collision>
+        <origin xyz="${reflect*0.01} -0.017 0.011" rpy="0 0 0" />
+        <geometry>
+          <box size="0.022 0.010 0.044" />
+        </geometry>
+      </collision> 
+      <!-- above middle finger-->
       <collision>
         <origin xyz="${reflect*0.011} 0 0.089" rpy="0 0 0" />
         <geometry>
           <box size="0.018 0.024 0.004" />
         </geometry>
       </collision> 
+      <!-- metacarpal side-->
       <collision>
         <origin xyz="${reflect*-0.030} 0 0.009" rpy="0 0 0" />
 	      <geometry>

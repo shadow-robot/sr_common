@@ -22,25 +22,41 @@
              <mesh filename="package://sr_description/hand/model/forearm.dae" 
              scale="0.001 0.001 0.001"/>
           </xacro:unless> 
-          
+
         </geometry>
         <material name="Grey" />
         </visual>
 
         <collision>
           <xacro:if value="${muscle}">
-            <origin xyz="0 0 0.18" rpy="0 0 0" />
+            <origin xyz="0 0 0.185" rpy="0 0 0" />
             <geometry name="${prefix}forearm_collision">
-              <cylinder radius="0.075" length="0.36"/>
+              <cylinder radius="0.075" length="0.37"/>
             </geometry>
           </xacro:if> 
           <xacro:unless value="${muscle}">
-            <origin xyz="0 0 0.09" rpy="0 0 0" />
+            <origin xyz="0 0 0.092" rpy="0 0 0" />
             <geometry name="${prefix}forearm_collision">
-              <box size="0.140 0.140 0.180" />
+              <box size="0.140 0.140 0.184" />
             </geometry>
           </xacro:unless>
         </collision>
+        <!-- wrist mount -->
+        <collision>
+          <xacro:if value="${muscle}">
+            <origin xyz="0 0 0.395" rpy="0 0 0" />
+            <geometry>
+              <box size="0.03 0.04 0.06"/>
+            </geometry>
+          </xacro:if> 
+          <xacro:unless value="${muscle}">
+            <origin xyz="0 -0.01 0.181" rpy="0 0.78 0" />
+            <geometry>
+              <box size="0.07 0.07 0.07"/>
+            </geometry>
+          </xacro:unless>
+        </collision>
+        
 
       </link>
 
