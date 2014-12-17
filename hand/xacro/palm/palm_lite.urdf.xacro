@@ -8,7 +8,7 @@
 
   <xacro:include filename="$(find sr_description)/hand/xacro/palm/palm.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/palm/palm.transmission.xacro" />
-  
+
   <!-- muscletrans is true for muscle transmission or false for motor transmission -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
@@ -79,15 +79,7 @@
       </collision> 
     </link>
 
-    <joint name="${prefix}WRJ1" type="revolute">
-      <parent link="${parent}"/>
-      <child link="${prefix}palm"/>
-      <origin xyz="0 0 0.034" rpy="0 0 0" />
-      <axis xyz="1 0 0" />
-      <limit lower="${-40/180*M_PI}" upper="${28/180*M_PI}"
-      effort="30" velocity="1.0"/>
-      <dynamics damping="0.1"/>
-    </joint>
+    <!-- No wrist joints in a Lite palm -->
 
     <!-- extensions -->
     <xacro:shadowhand_palm_transmission muscletrans="${muscletrans}" prefix="${prefix}" />

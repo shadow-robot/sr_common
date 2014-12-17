@@ -3,9 +3,9 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
        xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <xacro:include filename="$(find sr_description)/hand/xacro/forearm/forearm.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/forearm/forearm_lite.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/wrist/wrist.urdf.xacro" />
-  <xacro:include filename="$(find sr_description)/hand/xacro/palm/palm.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/palm/palm_lite.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/fingers.urdf.xacro" /> 
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thumb.urdf.xacro" />
   
@@ -21,20 +21,22 @@
   <xacro:macro name="shadowhand" params="muscletrans muscle bio ubi eli reflect prefix">
     <!-- Forearm --> 
     <xacro:forearm muscle="${muscle}" prefix="${prefix}" />
-    
+
     <!-- Wrist -->   
-		<xacro:if value="${muscle}">
-			<xacro:wrist muscletrans="${muscletrans}" prefix="${prefix}" reflect="${reflect}" parent="${prefix}forearm">
-			<origin xyz="0 0 0.4096" rpy="0 0 0" />
-			</xacro:wrist>
-		</xacro:if> 
-		<xacro:unless value="${muscle}">
-			<xacro:wrist muscletrans="false" prefix="${prefix}" reflect="${reflect}" parent="${prefix}forearm">
-			<origin xyz="0 -0.010 0.213" rpy="0 0 0" />
-			</xacro:wrist>
-		</xacro:unless> 
-    
-    
+    <!-- Completely fixed on the lite hand. Bent back at 40 degrees -->
+    <!--
+    <xacro:wrist muscletrans="false" prefix="${prefix}" reflect="${reflect}" parent="${prefix}forearm">
+        <origin xyz="0 -0.010 0.213" rpy="0 0 0" />
+    </xacro:wrist>
+    -->
+    <joint name="${prefix}WRJ1" type="fixed">
+      <parent link="${prefix}forearm"/>
+      <child link="${prefix}palm"/>
+      <!-- <origin xyz="0 -0.010 0.213" rpy="-${M_PI/4} 0 0" /> -->
+      <origin xyz="0 -0.015 0.149" rpy="-${40*M_PI/180} 0 0" />
+      <axis xyz="0 ${reflect} 0" />
+    </joint>
+
     <!-- Palm -->   
     <xacro:palm muscletrans="${muscletrans}" prefix="${prefix}" reflect="${reflect}" parent="${prefix}wrist" />
 
@@ -43,7 +45,7 @@
       <origin xyz="${reflect*0.033} 0 0.095" rpy="0 0 0" />
       <axis xyz="0 ${-1*reflect} 0" />
     </xacro:finger>
-    
+
     <!-- Middle Finger -->   
     <xacro:finger muscletrans="${muscletrans}" lf="false" bio="${bio}" ubi="${ubi}" eli="${eli}" prefix="${prefix}" reflect="${reflect}" link_prefix="mf" joint_prefix="MF" parent="${prefix}palm">
       <origin xyz="${reflect*0.011} 0 0.099" rpy="0 0 0" />
