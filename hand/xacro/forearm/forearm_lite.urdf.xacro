@@ -2,6 +2,7 @@
   <!-- muscle is true for muscle hand or false for motor hand -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <xacro:macro name="forearm" params="muscle prefix">
+      <property name="M_PI" value="3.1415926535897931" />
 
       <link name="${prefix}forearm">
         <inertial>
@@ -12,18 +13,18 @@
         </inertial>
 
         <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry name="${prefix}forearm_visual">
-          <xacro:if value="${muscle}">
-             <mesh filename="package://sr_description/hand/model/forearm_lite.dae"
-                   scale="0.001 0.001 0.001"/>
-          </xacro:if> 
-          <xacro:unless value="${muscle}">
-             <mesh filename="package://sr_description/hand/model/forearm_lite.dae"
-                   scale="1.0 1.0 1.0"/>
-          </xacro:unless>
-        </geometry>
-        <material name="Grey" />
+          <origin xyz="0 0 0" rpy="0 0 ${M_PI/2}" />
+          <geometry name="${prefix}forearm_visual">
+            <xacro:if value="${muscle}">
+               <mesh filename="package://sr_description/hand/model/forearm_lite.dae"
+                     scale="0.001 0.001 0.001"/>
+            </xacro:if>
+            <xacro:unless value="${muscle}">
+               <mesh filename="package://sr_description/hand/model/forearm_lite.dae"
+                     scale="1.0 1.0 1.0"/>
+            </xacro:unless>
+          </geometry>
+          <material name="Grey" />
         </visual>
 
         <collision>
@@ -58,10 +59,12 @@
 
       </link>
 
+      <!--
       <gazebo reference="${prefix}forearm">
         <material>LightGrey</material>
         <selfCollide>false</selfCollide>
       </gazebo>
+      -->
 
   </xacro:macro>
 
