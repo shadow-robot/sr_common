@@ -13,7 +13,8 @@
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- parent is the parent link for the first joint -->
-  <xacro:macro name="thhub" params="muscle prefix parent">
+  <!-- is_lite is this the lite hand, if so lock J3 -->
+  <xacro:macro name="thhub" params="muscle prefix parent is_lite">
     <link name="${prefix}thhub">
       <inertial>
 				<mass value="0.01" />
@@ -38,15 +39,25 @@
       </collision>
     </link>
 
-    <joint name="${prefix}THJ3" type="revolute">
-      <parent link="${parent}"/>
-      <child link="${prefix}thhub"/>
-      <origin xyz="0 0 0.038" rpy="0 0 0" />
-      <axis xyz="1 0 0" />
-      <limit lower="${-12/180*M_PI}" upper="${12/180*M_PI}" effort="10"
-      velocity="1.0" />
-      <dynamics damping="0.1"/>
-    </joint>
+    <xacro:if value="${is_lite}">
+      <joint name="${prefix}THJ3" type="fixed">
+        <parent link="${parent}"/>
+        <child link="${prefix}thhub"/>
+        <origin xyz="0 0 0.038" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+      </joint>
+    </xacro:if>
+    <xacro:unless value="${is_lite}">
+      <joint name="${prefix}THJ3" type="revolute">
+        <parent link="${parent}"/>
+        <child link="${prefix}thhub"/>
+        <origin xyz="0 0 0.038" rpy="0 0 0" />
+        <axis xyz="1 0 0" />
+        <limit lower="${-12/180*M_PI}" upper="${12/180*M_PI}" effort="10"
+        velocity="1.0" />
+        <dynamics damping="0.1"/>
+      </joint>
+    </xacro:unless>
 
 		<!-- extensions -->
 		<xacro:thhub_transmission muscletrans="${muscle}" prefix="${prefix}"/>

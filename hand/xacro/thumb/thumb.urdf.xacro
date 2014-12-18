@@ -12,7 +12,8 @@
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- parent is the parent link for the first joint -->
-  <xacro:macro name="thumb" params="muscletrans bio ubi eli reflect prefix parent">
+  <!-- is_lite is this the lite hand, if so lock J3 -->
+  <xacro:macro name="thumb" params="muscletrans bio ubi eli reflect prefix parent is_lite">
 		<!-- Base -->
     <xacro:thbase muscle="${muscletrans}" prefix="${prefix}" reflect="${reflect}" parent="${parent}">
     </xacro:thbase>
@@ -20,7 +21,7 @@
     <xacro:thproximal muscle="${muscletrans}" prefix="${prefix}" reflect="${reflect}" parent="${prefix}thbase">
     </xacro:thproximal>
 		<!-- Hub -->
-		<xacro:thhub muscle="${muscletrans}" prefix="${prefix}" parent="${prefix}thproximal">
+        <xacro:thhub muscle="${muscletrans}" prefix="${prefix}" parent="${prefix}thproximal" is_lite="${is_lite}">>
     </xacro:thhub>
 		<!-- Middle -->
     <xacro:thmiddle muscle="${muscletrans}" bio="${bio}" prefix="${prefix}" parent="${prefix}thhub">
