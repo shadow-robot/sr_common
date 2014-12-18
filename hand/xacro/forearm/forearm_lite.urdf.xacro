@@ -35,9 +35,9 @@
             </geometry>
           </xacro:if> 
           <xacro:unless value="${muscle}">
-            <origin xyz="0 0 0.092" rpy="0 0 0" />
+            <origin xyz="0 0 0.0775" rpy="0 0 0" />
             <geometry name="${prefix}forearm_collision">
-              <box size="0.140 0.140 0.184" />
+              <box size="0.109 0.120 0.155" />
             </geometry>
           </xacro:unless>
         </collision>
