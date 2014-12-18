@@ -7,8 +7,8 @@
       <link name="${prefix}forearm">
         <inertial>
           <origin xyz="0 0 0.09" rpy="0 0 0"/>
-          <!-- TODO: What is the mass of the lite forearm? -->
-          <mass value="3.0" />
+          <!-- TODO: This is a rough estimate. Total hand is 2359g -->
+          <mass value="1.8" />
           <inertia  ixx="0.108" ixy="0.0"  ixz="0.0"  iyy="0.108"  iyz="0.0"  izz="0.054" />
         </inertial>
 
