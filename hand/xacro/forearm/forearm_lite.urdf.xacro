@@ -17,7 +17,7 @@
           <geometry name="${prefix}forearm_visual">
             <xacro:if value="${muscle}">
                <mesh filename="package://sr_description/hand/model/forearm_lite.dae"
-                     scale="0.001 0.001 0.001"/>
+                     scale="1.0 1.0 1.0"/>
             </xacro:if>
             <xacro:unless value="${muscle}">
                <mesh filename="package://sr_description/hand/model/forearm_lite.dae"
