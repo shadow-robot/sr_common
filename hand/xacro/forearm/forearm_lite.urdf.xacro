@@ -43,11 +43,6 @@
         </collision>
       </link>
 
-      <gazebo reference="${prefix}forearm">
-        <material>Grey</material>
-        <selfCollide>false</selfCollide>
-      </gazebo>
-
   </xacro:macro>
 
 </robot>
