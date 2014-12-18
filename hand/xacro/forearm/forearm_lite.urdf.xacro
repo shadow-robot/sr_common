@@ -59,12 +59,10 @@
 
       </link>
 
-      <!--
       <gazebo reference="${prefix}forearm">
-        <material>LightGrey</material>
+        <material>Grey</material>
         <selfCollide>false</selfCollide>
       </gazebo>
-      -->
 
   </xacro:macro>
 
