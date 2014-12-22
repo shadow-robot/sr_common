@@ -1,6 +1,15 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(sr_robot_msgs)
-find_package(catkin REQUIRED COMPONENTS roslib message_generation std_msgs sensor_msgs)
+
+set(MSG_DEPS
+  std_msgs
+  sensor_msgs
+  geometry_msgs
+  actionlib_msgs
+  moveit_msgs
+)
+
+find_package(catkin REQUIRED COMPONENTS roslib genmsg message_generation ${MSG_DEPS})
 
 add_message_files(
   FILES
@@ -31,6 +40,7 @@ add_message_files(
   Tactile.msg
   UBI0All.msg
   UBI0.msg
+  ShadowContactStateStamped.msg
 )
 
 add_service_files(
@@ -50,11 +60,18 @@ add_service_files(
   which_fingers_are_touching.srv
 )
 
-generate_messages(DEPENDENCIES std_msgs sensor_msgs)
+## Generate actions in the 'action' folder
+add_action_files(
+  DIRECTORY action
+  FILES
+  Grasp.action
+)
+
+generate_messages(DEPENDENCIES ${MSG_DEPS})
 
 catkin_package(
   DEPENDS
-  CATKIN_DEPENDS roslib message_runtime std_msgs sensor_msgs
+  CATKIN_DEPENDS roslib message_runtime ${MSG_DEPS}
   INCLUDE_DIRS
   LIBRARIES
 )
