@@ -65,6 +65,7 @@ add_action_files(
   DIRECTORY action
   FILES
   Grasp.action
+  PlanGrasp.action
 )
 
 generate_messages(DEPENDENCIES ${MSG_DEPS})
