@@ -24,6 +24,7 @@ add_message_files(
   ControlType.msg
   EthercatDebug.msg
   FromMotorDataType.msg
+  GraspArray.msg
   JointControllerState.msg
   joint.msg
   JointMusclePositionControllerState.msg
