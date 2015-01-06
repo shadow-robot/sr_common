@@ -51,7 +51,7 @@
     </xacro:finger>
      
 		<!-- Thumb  --> 
-    <xacro:thumb muscletrans="${muscletrans}" bio="${bio}" ubi="${ubi}" eli="${eli}" prefix="${prefix}" reflect="${reflect}" parent="${prefix}palm">
+    <xacro:thumb muscletrans="${muscletrans}" bio="${bio}" ubi="${ubi}" eli="${eli}" prefix="${prefix}" reflect="${reflect}" is_lite="0" parent="${prefix}palm">
     </xacro:thumb>
 
   </xacro:macro>
