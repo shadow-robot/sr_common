@@ -1,7 +1,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro" name="arm_and_hand">
 
   <xacro:include filename="$(find sr_description)/materials.urdf.xacro" />
-  <xacro:include filename="$(find sr_description)/arm/xacro/full_arm_motor.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/arm/xacro/full_arm_motor_with_kinect.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
 
