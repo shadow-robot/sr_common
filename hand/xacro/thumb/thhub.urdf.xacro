@@ -60,8 +60,10 @@
     </xacro:unless>
 
 		<!-- extensions -->
-		<xacro:thhub_transmission muscletrans="${muscle}" prefix="${prefix}"/>
-		<xacro:thhub_gazebo prefix="${prefix}" />
+    <xacro:unless value="${is_lite}">
+        <xacro:thhub_transmission muscletrans="${muscle}" prefix="${prefix}"/>
+    </xacro:unless>
+    <xacro:thhub_gazebo prefix="${prefix}" />
   </xacro:macro>
 
 </robot>
