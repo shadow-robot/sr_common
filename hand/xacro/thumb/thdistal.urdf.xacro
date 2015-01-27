@@ -34,7 +34,7 @@
 				<origin xyz="0 0 0.02" rpy="0 0 0" />
 				<axis xyz="1 0 0" />
 				<limit lower="${20*M_PI/180}" upper="${20.1*M_PI/180}" effort="10" velocity="0.1" />
-				<dynamics damping="0.1"/>
+				<dynamics damping="0.001"/> 
 			</joint>
 			
 			<link name="${prefix}thbiotac">
@@ -178,7 +178,7 @@
 				<origin xyz="0 0 0.032" rpy="0 0 ${-M_PI/2}" />
 				<axis xyz="1 0 0" />
 				<limit lower="0" upper="${90.0*M_PI/180}" effort="10" velocity="1.0" />
-				<dynamics damping="0.1"/>
+				<dynamics damping="0.001"/> 
 			</joint>
 			<link name="${prefix}thtip">
 				<inertial>

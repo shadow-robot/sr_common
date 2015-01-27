@@ -55,7 +55,7 @@
         <axis xyz="1 0 0" />
         <limit lower="${-12/180*M_PI}" upper="${12/180*M_PI}" effort="10"
         velocity="1.0" />
-        <dynamics damping="0.1"/>
+        <dynamics damping="0.02"/>    
       </joint>
     </xacro:unless>
 

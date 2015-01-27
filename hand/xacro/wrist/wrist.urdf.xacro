@@ -11,9 +11,8 @@
       <inertial>
 		  <origin xyz="0 0 0" rpy="0 0 0" />
 		  <mass value="0.1" />
-		  <inertia  ixx="0.0120" ixy="0.0"  ixz="0.0"  iyy="0.0148"  iyz="0.0" izz="0.00438" />
+		  <inertia  ixx="0.000024" ixy="0.0"  ixz="0.0"  iyy="0.000104"  iyz="0.0" izz="0.0000867" />
       </inertial>
-
       <visual>
 		  <origin xyz="0 0 0" rpy="0 0 0" />
 		  <geometry name="${prefix}wrist_visual">
@@ -66,7 +65,7 @@
       <insert_block name="origin" />
       <axis xyz="0 ${reflect} 0" />
       <limit lower="${-30/180*M_PI}" upper="${10/180*M_PI}" effort="30" velocity="1.0"/>
-      <dynamics damping="0.1"/>
+      <dynamics damping="0.01"/>  
     </joint>
     
     <!-- extensions -->
