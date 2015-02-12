@@ -18,7 +18,7 @@
           <bumperTopicName>contacts/${prefix}${link_prefix}/middle</bumperTopicName>
         </plugin>
       </sensor>
-      <material>LightGrey</material>
+       
       <selfCollide>true</selfCollide>
     </gazebo>
   </xacro:macro>

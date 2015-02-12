@@ -22,7 +22,7 @@
       <mu2 value="500.0" />
       <kp  value="10000000.0" />
       <kd  value="1.0" />
-      <material>LightGrey</material>
+       
       <selfCollide>true</selfCollide>
     </gazebo>    
   </xacro:macro>

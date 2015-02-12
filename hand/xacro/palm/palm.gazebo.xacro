@@ -18,7 +18,7 @@
           <bumperTopicName>contacts/${prefix}palm</bumperTopicName>
         </plugin>
       </sensor>
-      <material>LightGrey</material>
+       
     </gazebo>
   </xacro:macro>
 </robot>

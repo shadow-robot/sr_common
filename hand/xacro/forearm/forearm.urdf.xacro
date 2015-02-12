@@ -61,7 +61,7 @@
       </link>
 
       <gazebo reference="${prefix}forearm">
-        <material>LightGrey</material>
+         
         <selfCollide>false</selfCollide>
       </gazebo>
    

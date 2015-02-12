@@ -18,7 +18,7 @@
           <bumperTopicName>contacts/${prefix}${link_prefix}/proximal</bumperTopicName>
         </plugin>
       </sensor>
-       <material>LightGrey</material>
+        
       <selfCollide>true</selfCollide>
     </gazebo>
   </xacro:macro>
