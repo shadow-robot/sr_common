@@ -13,6 +13,7 @@
       <transmission type="sr_mechanism_model/SimpleTransmissionForMuscle" name="${prefix}thhub_transmission">
       <actuator name="${prefix}THJ3" />
       <joint name="${prefix}THJ3" />
+      <mechanicalReduction>1</mechanicalReduction>
       </transmission>
     </xacro:if> 
     <!-- motor hand -->
@@ -20,6 +21,7 @@
       <transmission type="sr_mechanism_model/SimpleTransmission" name="${prefix}thhub_transmission">
       <actuator name="${prefix}THJ3" />
       <joint name="${prefix}THJ3" />
+      <mechanicalReduction>1</mechanicalReduction>
       </transmission>
     </xacro:unless> 
   </xacro:macro>

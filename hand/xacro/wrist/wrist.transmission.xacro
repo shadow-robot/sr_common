@@ -13,6 +13,7 @@
       <transmission type="sr_mechanism_model/SimpleTransmissionForMuscle" name="${prefix}wrist_transmission">
         <actuator name="${prefix}WRJ2" />
         <joint name="${prefix}WRJ2" />
+        <mechanicalReduction>1</mechanicalReduction>
       </transmission>
     </xacro:if> 
     <!-- motor hand -->
@@ -20,6 +21,7 @@
       <transmission type="sr_mechanism_model/SimpleTransmission" name="${prefix}wrist_transmission">
         <actuator name="${prefix}WRJ2" />
         <joint name="${prefix}WRJ2" />
+        <mechanicalReduction>1</mechanicalReduction>
       </transmission>
     </xacro:unless> 
     

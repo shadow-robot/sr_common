@@ -15,6 +15,7 @@
       <transmission type="sr_mechanism_model/SimpleTransmissionForMuscle" name="${prefix}${link_prefix}proximal_transmission">
       <actuator name="${prefix}${joint_prefix}J3" />
       <joint name="${prefix}${joint_prefix}J3" />
+      <mechanicalReduction>1</mechanicalReduction>
       </transmission>
     </xacro:if> 
     <!-- motor hand -->
@@ -22,6 +23,7 @@
       <transmission type="sr_mechanism_model/SimpleTransmission" name="${prefix}${link_prefix}proximal_transmission">
       <actuator name="${prefix}${joint_prefix}J3" />
       <joint name="${prefix}${joint_prefix}J3" />
+      <mechanicalReduction>1</mechanicalReduction>
       </transmission>
     </xacro:unless> 
   
