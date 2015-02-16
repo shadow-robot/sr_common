@@ -19,7 +19,7 @@
         </plugin>
       </sensor>
       <selfCollide>false</selfCollide>
-      <material>LightGrey</material>
+       
     </gazebo>
   </xacro:macro>
 </robot>
