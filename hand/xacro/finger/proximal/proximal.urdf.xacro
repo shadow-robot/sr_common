@@ -19,8 +19,8 @@
       <inertial>
         <mass value="0.030" />
         <origin xyz="0 0 0.0225" />
-        <inertia  ixx="0.000037" ixy="0.0"  ixz="0.0"  iyy="0.000037"  iyz="0.0"
-        izz="0.00000018" />
+        <inertia  ixx="0.0000098" ixy="0.0"  ixz="0.0"  iyy="0.00001"  iyz="0.0"
+        izz="0.0000018" />
       </inertial>
       <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
@@ -43,13 +43,17 @@
       <origin xyz="0 0 0" rpy="0 0 0" />
       <axis xyz="1 0 0" />
       <limit lower="0" upper="${M_PI/2}" effort="2"
-      velocity="1.0"/>
-      <dynamics damping="0.001"/> 
+      velocity="2.0"/>
+      <dynamics damping="0.1"/>      
     </joint>
+    <gazebo reference="${prefix}${joint_prefix}J3">
+      <provideFeedback>1</provideFeedback>
+      <implicitSpringDamper>1</implicitSpringDamper>
+    </gazebo>
 
     <!-- extensions -->
     <xacro:proximal_transmission muscletrans="${muscle}" prefix="${prefix}" joint_prefix="${joint_prefix}" link_prefix="${link_prefix}"/>
-    <xacro:proximal_gazebo prefix="${prefix}" />
+    <xacro:proximal_gazebo prefix="${prefix}" link_prefix="${link_prefix}"/>
   </xacro:macro>
 
 </robot>

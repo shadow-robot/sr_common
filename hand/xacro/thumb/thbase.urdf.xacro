@@ -18,7 +18,7 @@
       <inertial>
 				<mass value="0.010" />
 				<origin xyz="0 0 0" rpy="0 0 0"/>
-				<inertia  ixx="0.0003" ixy="0.0"  ixz="0.0"  iyy="0.0003"  iyz="0.0" izz="0.0003" />
+				<inertia  ixx="0.00000016" ixy="0.0"  ixz="0.0"  iyy="0.00000016"  iyz="0.0" izz="0.00000016" />
 			</inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -42,11 +42,15 @@
       <child link="${prefix}thbase"/>
       <origin xyz="${reflect*0.034} -0.0085 0.029" rpy="0 ${M_PI/4} ${M_PI/2-reflect*M_PI/2}" />
       <axis xyz="0 0 ${reflect*-1}" />
-      <limit lower="${-60/180*M_PI}" upper="${60/180*M_PI}" effort="10" 
-      velocity="1.0" />
-      <dynamics damping="0.001"/> 
+      <limit lower="${-60/180*M_PI}" upper="${60/180*M_PI}" effort="5.0" 
+      velocity="4.0" />
+      <dynamics damping="0.2"/>       
     </joint>
 
+    <gazebo reference="${prefix}THJ5">
+      <provideFeedback>1</provideFeedback>
+      <implicitSpringDamper>1</implicitSpringDamper>
+    </gazebo>
     <!-- extensions -->
     <xacro:thbase_transmission muscletrans="${muscle}" prefix="${prefix}"/>
     <xacro:thbase_gazebo prefix="${prefix}" />

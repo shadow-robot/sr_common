@@ -7,7 +7,7 @@
 	<inertial>
 	  <origin xyz="0 0 0.26525" rpy="0 0 0" />
 	  <mass value="10" />
-	  <inertia  ixx="0.15" ixy="0.0"  ixz="0.0"  iyy="0.15"  iyz="0.0"  izz="0.02" />
+	  <inertia  ixx="0.298" ixy="0.0"  ixz="0.0"  iyy="0.298"  iyz="0.0"  izz="0.0361" />
 	</inertial>
 	<visual>
 	  <origin xyz="0 0 0.005" rpy="0 0 0" />
@@ -38,6 +38,11 @@
       <dynamics damping="5.5"/>
     </joint>
 
+    <gazebo reference="ShoulderJRotate">
+      <provideFeedback>1</provideFeedback>
+      <implicitSpringDamper>1</implicitSpringDamper>
+    </gazebo>
+    
     <xacro:shadowarm_trunk_transmission />
 
   </xacro:macro>

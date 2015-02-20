@@ -7,7 +7,7 @@
       <inertial>
 	<origin xyz="0 0 0.1845" rpy="0 0 0" />
 	<mass value="2" />
-	<inertia  ixx="0.4" ixy="0.0"  ixz="0.0"  iyy="0.4"  iyz="0.0"  izz="0.05" />
+	<inertia  ixx="0.044" ixy="0.0"  ixz="0.0"  iyy="0.044"  iyz="0.0"  izz="0.0056" />
       </inertial>
       <visual>
 	<origin xyz="0 0.067 0" rpy="0 0 0" />
@@ -36,7 +36,10 @@
       <limit lower="0" upper="${M_PI/2}" effort="100" velocity="1.0"/>
       <dynamics damping="5.3"/>
     </joint>
-
+    <gazebo reference="ShoulderJSwing">
+      <provideFeedback>1</provideFeedback>
+      <implicitSpringDamper>1</implicitSpringDamper>
+    </gazebo>
     <xacro:shadowarm_upperarm_transmission />
 
   </xacro:macro>

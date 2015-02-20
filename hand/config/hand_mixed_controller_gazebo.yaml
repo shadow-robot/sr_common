@@ -15,7 +15,7 @@ sh_ffj0_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 sh_ffj3_mixed_position_velocity_controller:
   joint: FFJ3
@@ -34,7 +34,7 @@ sh_ffj3_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 sh_ffj4_mixed_position_velocity_controller:
   joint: FFJ4
@@ -53,7 +53,7 @@ sh_ffj4_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 sh_lfj0_mixed_position_velocity_controller:
   joint: LFJ0
@@ -72,7 +72,7 @@ sh_lfj0_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 sh_lfj3_mixed_position_velocity_controller:
   joint: LFJ3
@@ -91,7 +91,7 @@ sh_lfj3_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 sh_lfj4_mixed_position_velocity_controller:
   joint: LFJ4
@@ -110,7 +110,7 @@ sh_lfj4_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 sh_lfj5_mixed_position_velocity_controller:
   joint: LFJ5
@@ -129,7 +129,7 @@ sh_lfj5_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 sh_mfj0_mixed_position_velocity_controller:
   joint: MFJ0
@@ -148,7 +148,7 @@ sh_mfj0_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 sh_mfj3_mixed_position_velocity_controller:
   joint: MFJ3
@@ -167,7 +167,7 @@ sh_mfj3_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 sh_mfj4_mixed_position_velocity_controller:
   joint: MFJ4
@@ -186,7 +186,7 @@ sh_mfj4_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 sh_rfj0_mixed_position_velocity_controller:
   joint: RFJ0
@@ -205,7 +205,7 @@ sh_rfj0_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 sh_rfj3_mixed_position_velocity_controller:
   joint: RFJ3
@@ -224,7 +224,7 @@ sh_rfj3_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 sh_rfj4_mixed_position_velocity_controller:
   joint: RFJ4
@@ -243,7 +243,7 @@ sh_rfj4_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 sh_thj1_mixed_position_velocity_controller:
   joint: THJ1
@@ -262,7 +262,7 @@ sh_thj1_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 sh_thj2_mixed_position_velocity_controller:
   joint: THJ2
@@ -281,7 +281,7 @@ sh_thj2_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 sh_thj3_mixed_position_velocity_controller:
   joint: THJ3
@@ -300,7 +300,7 @@ sh_thj3_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 sh_thj4_mixed_position_velocity_controller:
   joint: THJ4
@@ -319,7 +319,7 @@ sh_thj4_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 sh_thj5_mixed_position_velocity_controller:
   joint: THJ5
@@ -338,7 +338,7 @@ sh_thj5_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 sh_wrj1_mixed_position_velocity_controller:
   joint: WRJ1
@@ -357,7 +357,7 @@ sh_wrj1_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 sh_wrj2_mixed_position_velocity_controller:
   joint: WRJ2
@@ -376,6 +376,6 @@ sh_wrj2_mixed_position_velocity_controller:
     i: 0.0
     i_clamp: 0.0
     max_force: 10.0
-    p: -20.0
+    p: -0.2
 
 

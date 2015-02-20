@@ -21,28 +21,33 @@
 			<!--	BIOTAC -->
 			<link name="${prefix}thbiotac_J1_dummy">
 				<inertial>
-					<origin xyz="0 0 0" rpy="0 0 0" />
-					<mass value="0.01" />
-					 <inertia  ixx="0.0007" ixy="0.0"  ixz="0.0"  iyy="0.0007"  iyz="0.0"
-        izz="0.00010" />
+          <origin xyz="0 0 0" rpy="0 0 0"/>
+          <mass value="0.001" />
+          <inertia  ixx="0.00000001" ixy="0.0"  ixz="0.0"  iyy="0.00000001"  iyz="0.0"
+				izz="0.00000001" />
         </inertial>
 			</link>
 			
 			<joint name="${prefix}THJ1" type="revolute">
 				<parent link="${parent}"/>
 				<child link="${prefix}thbiotac_J1_dummy"/>
-				<origin xyz="0 0 0.02" rpy="0 0 0" />
+				<origin xyz="0 0 0.02" rpy="0 0 ${-M_PI/2}" />
 				<axis xyz="1 0 0" />
-				<limit lower="${20*M_PI/180}" upper="${20.1*M_PI/180}" effort="10" velocity="0.1" />
-				<dynamics damping="0.001"/> 
+				<limit lower="${20*M_PI/180}" upper="${20.1*M_PI/180}" effort="0.0" velocity="2.0" />
+				<dynamics damping="0.5"/>
 			</joint>
+      
+			<gazebo reference="${prefix}THJ1">
+				<provideFeedback>1</provideFeedback>
+				<implicitSpringDamper>1</implicitSpringDamper>
+			</gazebo>
 			
 			<link name="${prefix}thbiotac">
 				<inertial>
-					<origin xyz="0 0 0" rpy="0 0 0" />
-					<mass value="0.2" />
-					 <inertia  ixx="0.0007" ixy="0.0"  ixz="0.0"  iyy="0.0007"  iyz="0.0"
-        izz="0.00010" />
+          <origin xyz="-0.009 0.0 0.035" rpy="0 0 ${-M_PI/2}" /> <!-- approximated only FIXME -->
+					<mass value="0.008" />
+					 <inertia  ixx="0.0000011" ixy="0.0"  ixz="0.0"  iyy="0.0000011"  iyz="0.0"
+        izz="0.0000005" />
 				</inertial>
 				<visual>
 					<origin xyz="0 0 0" rpy="0 0 0" />
@@ -83,8 +88,9 @@
 			<joint name="${prefix}th_biotac_joint" type="fixed">
 				<parent link="${prefix}thmiddle"/>
 				<child link="${prefix}thbiotac"/>
-				<origin xyz="0 0.0 0.01" rpy="0 0 -1.571" />
+				<origin xyz="0 0.0 0.01" rpy="0 0 ${-M_PI/2}" />
 			</joint>
+    
 				
 			
 		  <!-- extra link to imaginary sphere in fingertip for FK/IK calculations -->
@@ -100,11 +106,6 @@
 						<sphere radius="0.002" />
 					</geometry>
 				</visual>
-				<collision>
-					<geometry>
-						<box size="0.001 0.001 0.001" />
-					</geometry>
-				</collision>
 			</link>
 
 			<gazebo reference="${prefix}thtip">
@@ -124,8 +125,8 @@
 				<inertial>
 					<mass value="0.016" />
 					<origin xyz="0 0 0.01375" rpy="0 0 0"/>
-					 <inertia  ixx="0.0007" ixy="0.0"  ixz="0.0"  iyy="0.0007"  iyz="0.0"
-        izz="0.00010" />
+					 <inertia  ixx="0.0000021" ixy="0.0"  ixz="0.0"  iyy="0.0000022"  iyz="0.0"
+        izz="0.000001" />
 				</inertial>
 				<visual>
 					<origin xyz="0 0 0" rpy="0 0 0" />
@@ -177,9 +178,14 @@
 				<child link="${prefix}thdistal"/>
 				<origin xyz="0 0 0.032" rpy="0 0 ${-M_PI/2}" />
 				<axis xyz="1 0 0" />
-				<limit lower="0" upper="${90.0*M_PI/180}" effort="10" velocity="1.0" />
-				<dynamics damping="0.001"/> 
+				<limit lower="0" upper="${90.0*M_PI/180}" effort="1.0" velocity="4.0" />
+				<dynamics damping="0.2"/>      
 			</joint>
+			<gazebo reference="${prefix}THJ1">
+				<provideFeedback>1</provideFeedback>
+				<implicitSpringDamper>1</implicitSpringDamper>
+			</gazebo>
+      
 			<link name="${prefix}thtip">
 				<inertial>
 					<mass value="0.001" />
