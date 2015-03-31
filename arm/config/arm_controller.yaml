@@ -34,23 +34,8 @@ sa_er_position_controller:
     d: 5.0
     i_clamp: 5.0
 
-r_arm_cartesian_pose_controller:
-  type: robot_mechanism_controllers/CartesianPoseController
-  root_name: shadowarm_base
-  tip_name: palm
-  fb_trans:
-    p: 20.0
-    i: 0.5
-    d: 0.0
-    i_clamp: 1.0
-  fb_rot:
-    p: 0.5
-    i: 0.1
-    d: 0.0
-    i_clamp: 0.2
-
 r_arm_joint_trajectory_controller:
-  type: robot_mechanism_controllers/JointSplineTrajectoryController
+  type: position_controllers/JointTrajectoryController
   joints:
     - ShoulderJRotate
     - ShoulderJSwing

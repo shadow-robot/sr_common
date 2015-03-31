@@ -5,7 +5,7 @@ include_directories(${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS})
 
 catkin_package(
     DEPENDS
-    CATKIN_DEPENDS urdf xacro
+    CATKIN_DEPENDS urdf xacro position_controllers robot_mechanism_controllers
     INCLUDE_DIRS
     LIBRARIES
 )
