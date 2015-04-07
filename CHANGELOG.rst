@@ -2,8 +2,8 @@
 Changelog for package sr_robot_msgs
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.4.0 (2015-04-07)
+------------------
 * Add a GraspArray message.
 * Add PlanGrasp action.
 * Port the Contact message and Grasp action from GSC
