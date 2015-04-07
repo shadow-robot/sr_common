@@ -2,8 +2,8 @@
 Changelog for package sr_description
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Forthcoming
------------
+1.4.0 (2015-04-07)
+------------------
 * removing cartesian control - not implemented in ros-control + changing to the new traj controller
 * Inertia now exact values, with inertia tensor at COM (gazebo and ode support the small values now)
   Removed explicit viscous damping from sr_gazebo_plugin,
