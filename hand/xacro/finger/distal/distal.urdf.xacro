@@ -29,7 +29,7 @@
         <geometry name="${prefix}${link_prefix}distal_visual">
           <xacro:if value="${ubi}">
 			<!-- Ubi distal -->
-            <mesh filename="package://sr_description/hand/model/F1.dae" scale="0.001 0.001 0.001" />
+            <mesh filename="package://sr_description/hand/model/ubi_tactiles/ubi_tip_visual.dae" scale="0.001 0.001 0.001" />
           </xacro:if> 
           <xacro:unless value="${ubi}">
             <xacro:if value="${eli}">
@@ -56,7 +56,7 @@
         <geometry name="${prefix}${link_prefix}distal_collision_geom">
           <xacro:if value="${ubi}">
 						<!-- Ubi distal -->
-            <mesh filename="package://sr_description/hand/model/F1.dae" scale="0.001 0.001 0.001" />
+            <mesh filename="package://sr_description/hand/model/ubi_tactiles/ubi_tip_collision.dae" scale="0.001 0.001 0.001" />
           </xacro:if> 
           <xacro:unless value="${ubi}">
             <xacro:if value="${eli}">
