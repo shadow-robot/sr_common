@@ -53,6 +53,7 @@ add_service_files(
   is_hand_occupied.srv
   ManualSelfTest.srv
   NullifyDemand.srv
+  RobotTeachMode.srv
   SetDebugData.srv
   SetEffortControllerGains.srv
   SetMixedPositionVelocityPidGains.srv
