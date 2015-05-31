@@ -2,7 +2,7 @@
   <!-- muscle is true for muscle hand or false for motor hand -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <xacro:macro name="forearm" params="muscle prefix">
-    <property name="M_PI" value="3.1415926535897931" />
+    <xacro:property name="M_PI" value="3.1415926535897931" />
     <link name="${prefix}forearm">
       <inertial>
         <origin xyz="0 0 0.09" rpy="0 0 0" />

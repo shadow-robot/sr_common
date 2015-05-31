@@ -18,7 +18,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
     <link name="${prefix}${link_prefix}knuckle">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <!--<insert_block name="origin" /> -->
+        <!--<xacro:insert_block name="origin" /> -->
         <mass value="0.008" />
         <inertia ixx="0.00000026" ixy="0.0" ixz="0.0"
         iyy="0.00000026" iyz="0.0" izz="0.00000032" />
@@ -43,8 +43,8 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <parent link="${parent}" />
       <child link="${prefix}${link_prefix}knuckle" />
       <!--<origin xyz="0.033 0 0.095" rpy="0 0 0" />-->
-      <insert_block name="origin" />
-      <insert_block name="axis" />
+      <xacro:insert_block name="origin" />
+      <xacro:insert_block name="axis" />
       <limit lower="${-20/180*M_PI}" upper="${20/180*M_PI}"
       effort="2" velocity="2.0" />
       <dynamics damping="0.1" />

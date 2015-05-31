@@ -61,7 +61,7 @@
     <joint name="${prefix}WRJ2" type="revolute">
       <parent link="${parent}" />
       <child link="${prefix}wrist" />
-      <insert_block name="origin" />
+      <xacro:insert_block name="origin" />
       <axis xyz="0 ${reflect} 0" />
       <limit lower="${-30/180*M_PI}" upper="${10/180*M_PI}"
       effort="10" velocity="2.0" />

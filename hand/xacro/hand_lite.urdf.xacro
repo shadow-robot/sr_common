@@ -7,7 +7,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find sr_description)/hand/xacro/palm/palm_lite.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/fingers.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thumb.urdf.xacro" />
-  <property name="M_PI" value="3.1415926535897931" />
+  <xacro:property name="M_PI" value="3.1415926535897931" />
   <!-- muscletrans is true for muscle transmission to be used, false to use motor transmission -->
   <!-- muscle is true for muscle hand or false for motor hand -->
   <!-- bio is true for biotac finger or false for standard finger -->
