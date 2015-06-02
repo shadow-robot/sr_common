@@ -1,7 +1,9 @@
-<robot xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller" xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface" xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor" xmlns:xacro="http://ros.org/wiki/xacro" name="gazebo_kinect">
-
-<xacro:macro name="shadowarm_sim_kinect">
-    <gazebo reference="camera_link">  
+<robot xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+xmlns:xacro="http://ros.org/wiki/xacro" name="gazebo_kinect">
+  <xacro:macro name="shadowarm_sim_kinect">
+    <gazebo reference="camera_link">
       <sensor type="depth" name="kinect_camera">
         <always_on>true</always_on>
         <update_rate>20.0</update_rate>
@@ -17,15 +19,19 @@
             <far>3.0</far>
           </clip>
         </camera>
-        <plugin name="kinect_camera_controller" filename="libgazebo_ros_openni_kinect.so">
+        <plugin name="kinect_camera_controller"
+        filename="libgazebo_ros_openni_kinect.so">
           <cameraName>camera</cameraName>
           <alwaysOn>true</alwaysOn>
           <updateRate>20</updateRate>
           <imageTopicName>rgb/image_raw</imageTopicName>
-          <depthImageTopicName>depth/image_raw</depthImageTopicName>
+          <depthImageTopicName>
+          depth/image_raw</depthImageTopicName>
           <pointCloudTopicName>depth/points</pointCloudTopicName>
-          <cameraInfoTopicName>rgb/camera_info</cameraInfoTopicName>
-          <depthImageCameraInfoTopicName>depth/camera_info</depthImageCameraInfoTopicName>
+          <cameraInfoTopicName>
+          rgb/camera_info</cameraInfoTopicName>
+          <depthImageCameraInfoTopicName>
+          depth/camera_info</depthImageCameraInfoTopicName>
           <frameName>camera_depth_optical_frame</frameName>
           <baseline>0.1</baseline>
           <distortion_k1>0.0</distortion_k1>
