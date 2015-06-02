@@ -73,8 +73,14 @@
                   command="$(find xacro)/xacro.py '$(find sr_description)/robots/shadowhand_left_motor.urdf.xacro'" />
                 </group>
                 <group unless="$(optenv LEFT_HAND 0)">
-                  <param name="robot_description"
-                  command="$(find xacro)/xacro.py '$(find sr_description)/robots/shadowhand_motor.urdf.xacro'" />
+		  <group if="$(optenv BTSP_HAND 0)">
+                    <param name="robot_description"
+			   command="$(find xacro)/xacro.py '$(find sr_description)/robots/shadowhand_motor_btsp.urdf.xacro'" />
+		  </group>
+		  <group unless="$(optenv BTSP_HAND 0)">
+                    <param name="robot_description"
+			   command="$(find xacro)/xacro.py '$(find sr_description)/robots/shadowhand_motor.urdf.xacro'" />
+                  </group>
                 </group>
               </group>
             </group>

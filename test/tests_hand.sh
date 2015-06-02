@@ -20,6 +20,9 @@ SIMULATED=0  MUSCLE=0  BIOTAC_HAND=0  FF_BIOTAC=1  ELLIPSOID=0  ONE_FINGER=0  TH
 read -p "Press [Enter] key "
 SIMULATED=0  MUSCLE=0  BIOTAC_HAND=0  THFFRF_ELLIPSOID=1  ELLIPSOID=0  ONE_FINGER=0  THREE_FINGER=0  LEFT_HAND=0   roslaunch sr_description test_hand_models.launch   #shadowhand_motor_th_ff_rf_ellipsoid.urdf
 
+read -p "Press [Enter] key "
+SIMULATED=0  MUSCLE=0  BIOTAC_HAND=0 BTSP_HAND=1  ELLIPSOID=0  ONE_FINGER=0  THREE_FINGER=0  LEFT_HAND=0   roslaunch sr_description test_hand_models.launch   #shadowhand_motor_btsp.urdf
+
 
 
 read -p "Press [Enter] key "
@@ -34,13 +37,10 @@ SIMULATED=0  MUSCLE=1  BIOTAC_HAND=0  ELLIPSOID=0  ONE_FINGER=0  THREE_FINGER=0 
 read -p "Press [Enter] key "
 SIMULATED=1  MUSCLE=1  BIOTAC_HAND=0  ELLIPSOID=0  ONE_FINGER=0  THREE_FINGER=0  LEFT_HAND=1   roslaunch sr_description test_hand_models.launch   #shadowhand_left_muscle.urdf
 read -p "Press [Enter] key "
-SIMULATED=0  MUSCLE=1  BIOTAC_HAND=0  ELLIPSOID=0  ONE_FINGER=0  THREE_FINGER=0  LEFT_HAND=1   roslaunch sr_description test_hand_models.launch   #shadowhand_left_edc_muscle.urdf 
+SIMULATED=0  MUSCLE=1  BIOTAC_HAND=0  ELLIPSOID=0  ONE_FINGER=0  THREE_FINGER=0  LEFT_HAND=1   roslaunch sr_description test_hand_models.launch   #shadowhand_left_edc_muscle.urdf
 read -p "Press [Enter] key "
 SIMULATED=1  MUSCLE=1  BIOTAC_HAND=1  ELLIPSOID=0  ONE_FINGER=0  THREE_FINGER=0  LEFT_HAND=0   roslaunch sr_description test_hand_models.launch   #shadowhand_muscle_biotac.urdf
 read -p "Press [Enter] key "
 SIMULATED=0  MUSCLE=1  BIOTAC_HAND=1  ELLIPSOID=0  ONE_FINGER=0  THREE_FINGER=0  LEFT_HAND=0   roslaunch sr_description test_hand_models.launch   #shadowhand_edc_muscle_biotac.urdf
 read -p "Press [Enter] key "
 SIMULATED=0  MUSCLE=1  BIOTAC_HAND=1  ELLIPSOID=0  ONE_FINGER=0  THREE_FINGER=1  LEFT_HAND=0   roslaunch sr_description test_hand_models.launch   #sr_three_finger_edc_muscle_biotac.urdf
-
-
-

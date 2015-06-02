@@ -173,9 +173,16 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
                 scale="0.001 0.001 0.001" />
               </xacro:if>
               <xacro:unless value="${ubi}">
-                <!-- Standard distal  -->
-                <mesh filename="package://sr_description/hand/model/TH1_z.dae"
-                scale="0.001 0.001 0.001" />
+		<xacro:if value="${bt_sp}">
+		  <!-- bt sp distal  -->
+		  <mesh filename="package://sr_description/hand/model/biotacs/sp.dae"
+			scale="0.001 0.001 0.001" />
+		</xacro:if>
+		<xacro:unless value="${bt_sp}">
+                  <!-- Standard distal  -->
+                  <mesh filename="package://sr_description/hand/model/TH1_z.dae"
+			scale="0.001 0.001 0.001" />
+		</xacro:unless>
               </xacro:unless>
             </xacro:unless>
             <!--      <box size="0.015 0.015 0.015" /> -->
