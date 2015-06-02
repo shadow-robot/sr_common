@@ -102,6 +102,45 @@
     </light>
   </library_lights>
   <library_images/>
+  <library_effects>
+    <effect id="biotacgreen-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.248 0.68 0.336 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.5 0.5 0.5 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+        <extra>
+          <technique profile="GOOGLEEARTH">
+            <double_sided>1</double_sided>
+          </technique>
+        </extra>
+      </profile_COMMON>
+      <extra><technique profile="MAX3D"><double_sided>1</double_sided></technique></extra>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="biotacgreen-material" name="biotacgreen">
+      <instance_effect url="#biotacgreen-effect"/>
+    </material>
+  </library_materials>
   <library_geometries>
     <geometry id="BioTac-SP-Collision_mesh_Asm_Distal_00-mesh" name="BioTac-SP-Collision mesh^Asm Distal,00">
       <mesh>
