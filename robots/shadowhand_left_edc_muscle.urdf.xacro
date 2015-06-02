@@ -6,7 +6,7 @@ name="shadowhand_muscle">
   <xacro:include filename="$(find sr_description)/materials.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
-  <xacro:shadowhand muscletrans="true" muscle="true" bio="false"
+  <xacro:shadowhand muscletrans="true" muscle="true" bio="false" bt_sp="false"
   ubi="false" eli="false" reflect="-1.0" prefix="" />
   <link name="forearm_disk">
     <inertial>

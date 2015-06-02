@@ -7,6 +7,6 @@ name="shadowhand_motor">
   <xacro:include filename="$(find sr_description)/hand/xacro/ff_biotac_hand.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
   <!-- bio is used for all other fingers since ff is forced at bio -->
-  <xacro:shadowhand muscletrans="false" muscle="false" bio="false"
+  <xacro:shadowhand muscletrans="false" muscle="false" bio="false" bt_sp="false"
   ubi="false" eli="false" reflect="1.0" prefix="" />
 </robot>

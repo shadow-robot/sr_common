@@ -15,6 +15,6 @@
     <child link="forearm" />
     <origin xyz="0 0 0" rpy="0 0 ${M_PI}" />
   </joint>
-  <xacro:shadowhand muscletrans="false" muscle="true" bio="true"
+  <xacro:shadowhand muscletrans="false" muscle="true" bio="true" bt_sp="false"
   ubi="false" eli="false" reflect="1.0" prefix="" />
 </robot>

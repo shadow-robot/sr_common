@@ -9,6 +9,6 @@ name="shadowhand_motor">
   <!-- C6 hand with BioTAC sensor
   (C) 2012 fnh, hendrich@informatik.uni-hamburg.de
 -->
-  <xacro:shadowhand muscletrans="false" muscle="false" bio="true"
+  <xacro:shadowhand muscletrans="false" muscle="false" bio="true" bt_sp="false"
   ubi="false" eli="false" reflect="1.0" prefix="" />
 </robot>
