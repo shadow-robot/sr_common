@@ -4,7 +4,6 @@
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thhub.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thmiddle.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thdistal.urdf.xacro" />
-
   <!-- muscletrans is true for muscle transmission to be used, false to use motor transmission -->
   <!-- bio is true for biotac finger or false for standard finger -->
   <!-- ubi is true for ubi finger or false for standard finger -->
@@ -13,22 +12,25 @@
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- parent is the parent link for the first joint -->
   <!-- is_lite is this the lite hand, if so lock J3 -->
-  <xacro:macro name="thumb" params="muscletrans bio ubi eli reflect prefix parent is_lite">
-		<!-- Base -->
-    <xacro:thbase muscle="${muscletrans}" prefix="${prefix}" reflect="${reflect}" parent="${parent}">
-    </xacro:thbase>
-		<!-- Proximal -->
-    <xacro:thproximal muscle="${muscletrans}" prefix="${prefix}" reflect="${reflect}" parent="${prefix}thbase">
+  <xacro:macro name="thumb"
+  params="muscletrans bio ubi eli reflect prefix parent is_lite">
+    <!-- Base -->
+    <xacro:thbase muscle="${muscletrans}" prefix="${prefix}"
+    reflect="${reflect}" parent="${parent}"></xacro:thbase>
+    <!-- Proximal -->
+    <xacro:thproximal muscle="${muscletrans}" prefix="${prefix}"
+    reflect="${reflect}" parent="${prefix}thbase">
     </xacro:thproximal>
-		<!-- Hub -->
-        <xacro:thhub muscle="${muscletrans}" prefix="${prefix}" parent="${prefix}thproximal" is_lite="${is_lite}">>
-    </xacro:thhub>
-		<!-- Middle -->
-    <xacro:thmiddle muscle="${muscletrans}" bio="${bio}" prefix="${prefix}" parent="${prefix}thhub">
-    </xacro:thmiddle>
-		<!-- Distal -->
-    <xacro:thdistal muscle="${muscletrans}" bio="${bio}" ubi="${ubi}" eli="${eli}" prefix="${prefix}" parent="${prefix}thmiddle">
-    </xacro:thdistal>
+    <!-- Hub -->
+    <xacro:thhub muscle="${muscletrans}" prefix="${prefix}"
+    parent="${prefix}thproximal" is_lite="${is_lite}">
+    &gt;</xacro:thhub>
+    <!-- Middle -->
+    <xacro:thmiddle muscle="${muscletrans}" bio="${bio}"
+    prefix="${prefix}" parent="${prefix}thhub"></xacro:thmiddle>
+    <!-- Distal -->
+    <xacro:thdistal muscle="${muscletrans}" bio="${bio}"
+    ubi="${ubi}" eli="${eli}" prefix="${prefix}"
+    parent="${prefix}thmiddle"></xacro:thdistal>
   </xacro:macro>
-
 </robot>

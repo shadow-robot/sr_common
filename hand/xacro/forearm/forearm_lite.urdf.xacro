@@ -2,47 +2,43 @@
   <!-- muscle is true for muscle hand or false for motor hand -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <xacro:macro name="forearm" params="muscle prefix">
-      <property name="M_PI" value="3.1415926535897931" />
-
-      <link name="${prefix}forearm">
-        <inertial>
-          <origin xyz="0 0 0.09" rpy="0 0 0"/>
-          <!-- TODO: This is a rough estimate. Total hand is 2359g -->
-          <mass value="1.8" />
-          <inertia  ixx="0.108" ixy="0.0"  ixz="0.0"  iyy="0.108"  iyz="0.0"  izz="0.054" />
-        </inertial>
-
-        <visual>
-          <origin xyz="0 0 0" rpy="0 0 ${M_PI/2}" />
-          <geometry name="${prefix}forearm_visual">
-            <xacro:if value="${muscle}">
-               <mesh filename="package://sr_description/hand/model/forearm_lite.dae"
-                     scale="1.0 1.0 1.0"/>
-            </xacro:if>
-            <xacro:unless value="${muscle}">
-               <mesh filename="package://sr_description/hand/model/forearm_lite.dae"
-                     scale="1.0 1.0 1.0"/>
-            </xacro:unless>
-          </geometry>
-          <material name="Grey" />
-        </visual>
-
-        <collision>
+    <property name="M_PI" value="3.1415926535897931" />
+    <link name="${prefix}forearm">
+      <inertial>
+        <origin xyz="0 0 0.09" rpy="0 0 0" />
+        <!-- TODO: This is a rough estimate. Total hand is 2359g -->
+        <mass value="1.8" />
+        <inertia ixx="0.108" ixy="0.0" ixz="0.0" iyy="0.108"
+        iyz="0.0" izz="0.054" />
+      </inertial>
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 ${M_PI/2}" />
+        <geometry name="${prefix}forearm_visual">
           <xacro:if value="${muscle}">
-            <origin xyz="0 0 0.185" rpy="0 0 0" />
-            <geometry name="${prefix}forearm_collision">
-              <cylinder radius="0.075" length="0.37"/>
-            </geometry>
-          </xacro:if> 
+            <mesh filename="package://sr_description/hand/model/forearm_lite.dae"
+            scale="1.0 1.0 1.0" />
+          </xacro:if>
           <xacro:unless value="${muscle}">
-            <origin xyz="0 0 0.0775" rpy="0 0 0" />
-            <geometry name="${prefix}forearm_collision">
-              <box size="0.109 0.120 0.155" />
-            </geometry>
+            <mesh filename="package://sr_description/hand/model/forearm_lite.dae"
+            scale="1.0 1.0 1.0" />
           </xacro:unless>
-        </collision>
-      </link>
-
+        </geometry>
+        <material name="Grey" />
+      </visual>
+      <collision>
+        <xacro:if value="${muscle}">
+          <origin xyz="0 0 0.185" rpy="0 0 0" />
+          <geometry name="${prefix}forearm_collision">
+            <cylinder radius="0.075" length="0.37" />
+          </geometry>
+        </xacro:if>
+        <xacro:unless value="${muscle}">
+          <origin xyz="0 0 0.0775" rpy="0 0 0" />
+          <geometry name="${prefix}forearm_collision">
+            <box size="0.109 0.120 0.155" />
+          </geometry>
+        </xacro:unless>
+      </collision>
+    </link>
   </xacro:macro>
-
 </robot>
