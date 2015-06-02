@@ -10,12 +10,13 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thdistal.transmission.xacro" />
   <!-- muscle is true for muscle hand or false for motor hand -->
   <!-- bio is true for biotac finger or false for standard finger -->
+  <!-- bt_sp is true for BT_SP finger or false for standard finger -->
   <!-- ubi is true for ubi finger or false for standard finger -->
   <!-- eli is true for ellipsoid fingertip or false for standard finger -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- parent is the parent link for the first joint -->
   <xacro:macro name="thdistal"
-  params="muscle bio ubi eli prefix parent">
+  params="muscle bio bt_sp ubi eli prefix parent">
     <xacro:if value="${bio}">
       <!--    BIOTAC -->
       <link name="${prefix}thbiotac_J1_dummy">
@@ -137,13 +138,20 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
               <xacro:if value="${ubi}">
                 <!-- Ubi distal -->
                 <mesh filename="package://sr_description/hand/model/TH1_z.dae"
-                scale="0.001 0.001 0.001" />
+                      scale="0.001 0.001 0.001" />
               </xacro:if>
-              <!-- Standard distal  -->
-              <xacro:unless value="${ubi}">
-                <mesh filename="package://sr_description/hand/model/TH1_z.dae"
-                scale="0.001 0.001 0.001" />
-              </xacro:unless>
+	      <xacro:unless value="${ubi}">
+		<xacro:if value="${bt_sp}">
+		  <!-- bt sp distal  -->
+		  <mesh filename="package://sr_description/hand/model/biotacs/sp.dae"
+			scale="0.001 0.001 0.001" />
+		</xacro:if>
+		<xacro:unless value="${bt_sp}">
+		  <!-- Standard distal  -->
+                  <mesh filename="package://sr_description/hand/model/TH1_z.dae"
+			scale="0.001 0.001 0.001" />
+		</xacro:unless>
+	      </xacro:unless>
             </xacro:unless>
           </geometry>
           <material name="shadow_thmiddle_material">
