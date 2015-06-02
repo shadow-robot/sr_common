@@ -50,8 +50,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
               <xacro:unless value="${bio}">
 		<xacro:if value="${bt_sp}">
                   <!-- bt_sp distal  -->
-                  <mesh filename="package://sr_description/hand/model/biotacs/sp.dae"
-			scale="0.001 0.001 0.001" />
+                  <mesh filename="package://sr_description/hand/model/biotacs/sp.dae" />
 		</xacro:if>
 		<xacro:unless value="${bt_sp}">
                   <!-- Standard distal  -->
@@ -88,8 +87,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
               <xacro:unless value="${bio}">
 		<xacro:if value="${bt_sp}">
                   <!-- bt_sp distal  -->
-                  <mesh filename="package://sr_description/hand/model/biotacs/sp.dae"
-			scale="0.001 0.001 0.001" />
+                  <mesh filename="package://sr_description/hand/model/biotacs/sp.dae" />
 		</xacro:if>
 		<xacro:unless value="${bt_sp}">
                   <!-- Standard distal  -->
