@@ -23,7 +23,7 @@
   <run_depend>urdf</run_depend>
   <run_depend>xacro</run_depend>
   <run_depend>position_controllers</run_depend>
-  <run_depend>robot_mechanism_controllers</run_depend>
+  <run_depend>joint_trajectory_controller</run_depend>
 
   <!-- Dependencies needed only for running tests. -->
   <test_depend>gtest</test_depend>
