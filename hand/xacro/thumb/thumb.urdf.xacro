@@ -1,4 +1,4 @@
-<robot xmlns:xacro="http://ros.org/wiki/xacro">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thbase.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thproximal.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thhub.urdf.xacro" />

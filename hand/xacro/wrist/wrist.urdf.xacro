@@ -1,4 +1,4 @@
-<robot xmlns:xacro="http://ros.org/wiki/xacro">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find sr_description)/hand/xacro/wrist/wrist.transmission.xacro" />
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- muscletrans is true for muscle transmission or false for motor transmission -->
