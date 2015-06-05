@@ -36,18 +36,25 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         </geometry>
       </collision>
       <collision>
-        <origin xyz="${reflect*0.0005} -0.0035 0.038"
+        <origin xyz="${-reflect*0.002} -0.0035 0.038"
         rpy="0 0 0" />
         <geometry>
-          <box size="0.041 0.017 0.098" />
+          <box size="0.036 0.017 0.098" />
         </geometry>
       </collision>
       <!-- palm complement below first finger -->
       <collision>
-        <origin xyz="${reflect*0.0315} -0.0035 0.073"
+        <origin xyz="${reflect*0.029} -0.0035 0.082"
         rpy="0 0 0" />
         <geometry>
-          <box size="0.021 0.017 0.028" />
+          <box size="0.026 0.017 0.010" />
+        </geometry>
+      </collision>
+      <collision>
+        <origin xyz="${reflect*0.0265} -0.001 0.070"
+        rpy="0.2 0 ${reflect*0.25}" />
+        <geometry>
+          <box size="0.026 0.014 0.018" />
         </geometry>
       </collision>
       <!-- thumb pulp side -->
@@ -60,9 +67,9 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       </collision>
       <!-- thumb pulp central -->
       <collision>
-        <origin xyz="${reflect*0.01} -0.017 0.011" rpy="0 0 0" />
+        <origin xyz="${reflect*0.0125} -0.015 0.009" rpy="0 0 ${reflect*-0.48}" />
         <geometry>
-          <box size="0.022 0.010 0.044" />
+          <box size="0.022 0.005 0.040" />
         </geometry>
       </collision>
       <!-- above middle finger-->
