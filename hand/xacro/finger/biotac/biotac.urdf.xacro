@@ -160,10 +160,10 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         </geometry>
       </visual>
     </link>
-    <gazebo reference="${prefix}${link_prefix}tip">
+    <gazebo reference="${prefix}${joint_prefix}tip">
       <material name="Gazebo/RedGlow" />
     </gazebo>
-    <joint name="${prefix}${link_prefix}tip_fixed_joint"
+    <joint name="${prefix}${joint_prefix}tip"
     type="fixed">
       <parent link="${prefix}${link_prefix}middle" />
       <child link="${prefix}${link_prefix}tip" />
