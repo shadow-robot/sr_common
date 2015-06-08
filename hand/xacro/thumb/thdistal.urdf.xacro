@@ -19,7 +19,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
   params="muscle bio bt_sp ubi eli prefix parent">
     <xacro:if value="${bio}">
       <!--    BIOTAC -->
-      <link name="${prefix}thbiotac_J1_dummy">
+      <link name="${prefix}thdistal_J1_dummy">
         <inertial>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <mass value="0.001" />
@@ -29,7 +29,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       </link>
       <joint name="${prefix}THJ1" type="revolute">
         <parent link="${parent}" />
-        <child link="${prefix}thbiotac_J1_dummy" />
+        <child link="${prefix}thdistal_J1_dummy" />
         <origin xyz="0 0 0.02" rpy="0 0 ${-M_PI/2}" />
         <axis xyz="1 0 0" />
         <limit lower="${20*M_PI/180}" upper="${20.1*M_PI/180}"
@@ -40,7 +40,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <provideFeedback>1</provideFeedback>
         <implicitSpringDamper>1</implicitSpringDamper>
       </gazebo>
-      <link name="${prefix}thbiotac">
+      <link name="${prefix}thdistal">
         <inertial>
           <origin xyz="-0.009 0.0 0.035" rpy="0 0 ${-M_PI/2}" />
           <!-- approximated only FIXME -->
@@ -50,7 +50,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         </inertial>
         <visual>
           <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry name="${prefix}th_biotac_visual">
+          <geometry name="${prefix}th_distal_visual">
             <!-- <mesh filename="package://sr_description/hand/model/biotacs/biotac.stl" scale="0.0254 0.0254 0.0254" /> -->
             <mesh filename="package://sr_description/hand/model/biotacs/biotac_decimated.dae"
             scale="0.0254 0.0254 0.0254" />
@@ -58,7 +58,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
           <material name="BiotacGreen" />
         </visual>
         <collision>
-          <geometry name="${prefix}th_biotac_collision_geom">
+          <geometry name="${prefix}th_distal_collision_geom">
             <!-- <box size="0.001 0.001 0.001" /> -->
             <!-- <mesh filename="package://sr_description/hand/model/biotacs/biotac-v5.stl" scale="0.0254 0.0254 0.0254" /> -->
             <mesh filename="package://sr_description/hand/model/biotacs/biotac_decimated.dae"
@@ -71,13 +71,13 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
           <always_on>1</always_on>
           <update_rate>1000.0</update_rate>
           <contact>
-            <collision>${prefix}thbiotac_geom</collision>
-            <topic>${prefix}thbiotac_collision</topic>
+            <collision>${prefix}thdistal_geom</collision>
+            <topic>${prefix}thdistal_collision</topic>
           </contact>
-          <plugin name="${prefix}thbiotac_gazebo_ros_bumper_controller"
+          <plugin name="${prefix}thdistal_gazebo_ros_bumper_controller"
           filename="libgazebo_ros_bumper.so">
             <alwaysOn>true</alwaysOn>
-            <frameName>${prefix}thbiotac</frameName>
+            <frameName>${prefix}thdistal</frameName>
             <updateRate>100.0</updateRate>
             <bumperTopicName>
             contacts/${prefix}th/distal</bumperTopicName>
@@ -86,9 +86,9 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <selfCollide>true</selfCollide>
         <material>BiotacGreen</material>
       </gazebo>
-      <joint name="${prefix}th_biotac_joint" type="fixed">
+      <joint name="${prefix}th_distal_joint" type="fixed">
         <parent link="${prefix}thmiddle" />
-        <child link="${prefix}thbiotac" />
+        <child link="${prefix}thdistal" />
         <origin xyz="0 0.0 0.01" rpy="0 0 ${-M_PI/2}" />
       </joint>
       <!-- extra link to imaginary sphere in fingertip for FK/IK calculations -->
