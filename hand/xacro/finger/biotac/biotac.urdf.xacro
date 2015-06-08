@@ -14,7 +14,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
   <!-- parent is the parent link for the joint -->
   <xacro:macro name="biotac_middle"
   params="muscle prefix link_prefix joint_prefix parent">
-    <link name="${prefix}${link_prefix}adapter">
+    <link name="${prefix}${link_prefix}middle">
       <inertial>
         <origin xyz="0 0 0.0125" rpy="0 0 0" />
         <mass value="0.017" />
@@ -23,7 +23,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 1.571" />
-        <geometry name="${prefix}${link_prefix}adapter_visual">
+        <geometry name="${prefix}${link_prefix}middle_visual">
           <mesh filename="package://sr_description/hand/model/biotacs/biotac_finger_adapter.dae"
           scale="1 1 1" />
         </geometry>
@@ -31,35 +31,35 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       </visual>
       <collision>
         <origin xyz="0 0 0.005" rpy="0 0 0" />
-        <geometry name="${prefix}${link_prefix}adapter_collision_geom">
+        <geometry name="${prefix}${link_prefix}middle_collision_geom">
 
           <box size="0.001 0.001 0.001" />
         </geometry>
       </collision>
     </link>
-    <gazebo reference="${prefix}${link_prefix}adapter">
+    <gazebo reference="${prefix}${link_prefix}middle">
       <sensor type="contact"
-      name="${prefix}${link_prefix}adapter_contact">
+      name="${prefix}${link_prefix}middle_contact">
         <always_on>1</always_on>
         <update_rate>1000.0</update_rate>
         <contact>
           <collision>
-          ${prefix}${link_prefix}adapter_collision</collision>
-          <topic>${prefix}${link_prefix}adapter_collision</topic>
+          ${prefix}${link_prefix}middle_collision</collision>
+          <topic>${prefix}${link_prefix}middle_collision</topic>
         </contact>
-        <plugin name="${prefix}${link_prefix}adapter_gazebo_ros_bumper_controller"
+        <plugin name="${prefix}${link_prefix}middle_gazebo_ros_bumper_controller"
         filename="libgazebo_ros_bumper.so">
           <updateRate>100.0</updateRate>
-          <frameName>${prefix}${link_prefix}adapter</frameName>
+          <frameName>${prefix}${link_prefix}middle</frameName>
           <bumperTopicName>
-          contacts/${prefix}${link_prefix}/adapter</bumperTopicName>
+          contacts/${prefix}${link_prefix}/middle</bumperTopicName>
         </plugin>
       </sensor>
       <material>Gazebo/FlatBlack</material>
     </gazebo>
     <joint name="${prefix}${joint_prefix}J2" type="revolute">
       <parent link="${parent}" />
-      <child link="${prefix}${link_prefix}adapter" />
+      <child link="${prefix}${link_prefix}middle" />
       <origin xyz="0 0 0.045" rpy="0 0 0" />
       <axis xyz="1 0 0" />
       <limit lower="0" upper="${M_PI/2}" effort="2.0"
@@ -79,7 +79,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       </inertial>
     </link>
     <joint name="${prefix}${joint_prefix}J1" type="revolute">
-      <parent link="${prefix}${link_prefix}adapter" />
+      <parent link="${prefix}${link_prefix}middle" />
       <child link="${prefix}${link_prefix}_J1_dummy" />
       <origin xyz="0 0 0.02" rpy="0 0 0" />
       <axis xyz="1 0 0" />
@@ -94,7 +94,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
     <xacro:middle_transmission muscletrans="${muscle}"
     prefix="${prefix}" joint_prefix="${joint_prefix}"
     link_prefix="${link_prefix}" />
-    <link name="${prefix}${link_prefix}biotac">
+    <link name="${prefix}${link_prefix}distal">
       <inertial>
         <origin xyz="0.0 -0.009 0.035" rpy="0 0 0" />
         <!-- approximated only FIXME -->
@@ -104,14 +104,14 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry name="${prefix}${link_prefix}biotac_visual">
+        <geometry name="${prefix}${link_prefix}distal_visual">
           <!-- <mesh filename="package://sr_description/hand/model/biotacs/biotac.stl" scale="0.0254 0.0254 0.0254" /> -->
           <mesh filename="package://sr_description/hand/model/biotacs/biotac_decimated.dae"
           scale="0.0254 0.0254 0.0254" />
         </geometry>
       </visual>
       <collision>
-        <geometry name="${prefix}${link_prefix}biotac_collision_geom">
+        <geometry name="${prefix}${link_prefix}distal_collision_geom">
 
           <!-- <mesh filename="package://sr_description/hand/model/biotacs/biotac.stl" scale="0.0254 0.0254 0.0254" /> -->
           <mesh filename="package://sr_description/hand/model/biotacs/biotac_decimated.dae"
@@ -119,30 +119,30 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         </geometry>
       </collision>
     </link>
-    <gazebo reference="${prefix}${link_prefix}biotac">
+    <gazebo reference="${prefix}${link_prefix}distal">
       <sensor type="contact"
-      name="${prefix}${link_prefix}biotac_contact">
+      name="${prefix}${link_prefix}distal_contact">
         <always_on>1</always_on>
         <update_rate>1000.0</update_rate>
         <contact>
           <collision>
-          ${prefix}${link_prefix}biotac_collision</collision>
-          <topic>${prefix}${link_prefix}biotac_collision</topic>
+          ${prefix}${link_prefix}distal_collision</collision>
+          <topic>${prefix}${link_prefix}distal_collision</topic>
         </contact>
-        <plugin name="${prefix}${link_prefix}biotac_gazebo_ros_bumper_controller"
+        <plugin name="${prefix}${link_prefix}distal_gazebo_ros_bumper_controller"
         filename="libgazebo_ros_bumper.so">
           <updateRate>100.0</updateRate>
-          <frameName>${prefix}${link_prefix}biotac</frameName>
+          <frameName>${prefix}${link_prefix}distal</frameName>
           <bumperTopicName>
-          contacts/${prefix}${link_prefix}/biotac</bumperTopicName>
+          contacts/${prefix}${link_prefix}/distal</bumperTopicName>
         </plugin>
       </sensor>
       <selfCollide>true</selfCollide>
     </gazebo>
-    <joint name="${prefix}${joint_prefix}_biotac_joint"
+    <joint name="${prefix}${joint_prefix}_distal_joint"
     type="fixed">
-      <parent link="${prefix}${link_prefix}adapter" />
-      <child link="${prefix}${link_prefix}biotac" />
+      <parent link="${prefix}${link_prefix}middle" />
+      <child link="${prefix}${link_prefix}distal" />
       <origin xyz="0 0.0 0.008" rpy="0 0 0" />
     </joint>
     <!-- extra link to imaginary sphere in fingertip for FK/IK calculations -->
@@ -165,7 +165,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
     </gazebo>
     <joint name="${prefix}${link_prefix}tip_fixed_joint"
     type="fixed">
-      <parent link="${prefix}${link_prefix}adapter" />
+      <parent link="${prefix}${link_prefix}middle" />
       <child link="${prefix}${link_prefix}tip" />
       <origin xyz="0.0 -0.009 ${0.008+0.044}" rpy="0 0 -1.571" />
       <!-- approximated only FIXME -->
