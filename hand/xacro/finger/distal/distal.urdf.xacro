@@ -136,7 +136,6 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       </joint>
     </xacro:unless>
     <!-- extensions -->
-    <!--   <xacro:distal_transmission muscletrans="${muscle}" prefix="${prefix}" /> -->
     <xacro:distal_gazebo prefix="${prefix}"
     link_prefix="${link_prefix}" />
   </xacro:macro>
