@@ -1,11 +1,11 @@
 cmake_minimum_required(VERSION 2.8.3)
 project(sr_description)
-find_package(catkin REQUIRED COMPONENTS urdf xacro liburdfdom-tools liburdfdom-dev)
+find_package(catkin REQUIRED COMPONENTS urdf xacro)
 include_directories(${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS})
 
 catkin_package(
     DEPENDS
-    CATKIN_DEPENDS urdf xacro liburdfdom-tools liburdfdom-dev position_controllers joint_trajectory_controller
+    CATKIN_DEPENDS urdf xacro position_controllers joint_trajectory_controller
     INCLUDE_DIRS
     LIBRARIES
 )
