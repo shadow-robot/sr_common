@@ -63,7 +63,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
     </xacro:finger>
     <!-- No Little Finger on Lite hand -->
     <!-- Thumb  -->
-    <xacro:thumb muscletrans="${muscletrans}" bio="${bio}"
+    <xacro:thumb muscletrans="${muscletrans}" bio="${bio}" bt_sp="${bt_sp}"
     ubi="${ubi}" eli="${eli}" prefix="${prefix}"
     reflect="${reflect}" is_lite="1" parent="${prefix}palm">
     </xacro:thumb>
