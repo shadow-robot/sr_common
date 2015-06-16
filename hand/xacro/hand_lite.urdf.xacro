@@ -7,7 +7,6 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find sr_description)/hand/xacro/palm/palm_lite.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/fingers.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thumb.urdf.xacro" />
-  <xacro:property name="M_PI" value="3.1415926535897931" />
   <!-- muscletrans is true for muscle transmission to be used, false to use motor transmission -->
   <!-- muscle is true for muscle hand or false for motor hand -->
   <!-- bio is true for biotac finger or false for standard finger -->
@@ -22,15 +21,9 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:forearm muscle="${muscle}" prefix="${prefix}" />
     <!-- Wrist -->
     <!-- Completely fixed on the lite hand. Bent back at 40 degrees -->
-    <!--
-    <xacro:wrist muscletrans="false" prefix="${prefix}" reflect="${reflect}" parent="${prefix}forearm">
-        <origin xyz="0 -0.010 0.213" rpy="0 0 0" />
-    </xacro:wrist>
-    -->
     <joint name="${prefix}WRJ1" type="fixed">
       <parent link="${prefix}forearm" />
       <child link="${prefix}palm" />
-      <!-- <origin xyz="0 -0.010 0.213" rpy="-${M_PI/4} 0 0" /> -->
       <origin xyz="0 -0.015 0.149" rpy="-${40*M_PI/180} 0 0" />
       <axis xyz="0 ${reflect} 0" />
     </joint>
