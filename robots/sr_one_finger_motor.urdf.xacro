@@ -3,9 +3,10 @@ xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controlle
 xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
 xmlns:xacro="http://www.ros.org/wiki/xacro"
 name="shadowhand_motor">
+  <arg name="prefix" default=""/>
   <xacro:include filename="$(find sr_description)/materials.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/one_finger_unit.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
   <xacro:shadowhand muscletrans="false" muscle="false" bio="false" bt_sp="false"
-  ubi="false" eli="false" reflect="1.0" prefix="" />
+  ubi="false" eli="false" reflect="1.0" prefix="$(arg prefix)" />
 </robot>
