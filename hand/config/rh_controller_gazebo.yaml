@@ -1,0 +1,10 @@
+Unstaged changes after reset:
+D	sr_description/hand/config/left_hand_controller_gazebo.yaml
+M	sr_description/hand/config/lh_controller_gazebo.yaml
+M	sr_description/hand/config/rh_controller_gazebo.yaml
+D	sr_description/hand/config/right_hand_controller_gazebo.yaml
+M	sr_hand/launch/gazebo/gazebo_arm_and_hand.launch
+M	sr_hand/launch/gazebo/gazebo_hand.launch
+M	sr_hand/launch/gazebo/loaders/hand_controllers.launch
+M	sr_robot_launch/launch/left_srhand_ur10arm.launch
+M	sr_robot_launch/launch/right_srhand_ur10arm.launch

@@ -1,5 +1,4 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="arm_and_hand">
-  <arg name="prefix" default=""/>
   <xacro:include filename="$(find sr_description)/materials.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/arm/xacro/full_arm_motor.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
@@ -20,5 +19,5 @@
     <dynamics damping="3.5" />
   </joint>
   <xacro:shadowhand muscletrans="false" muscle="false" bio="false" bt_sp="false"
-  ubi="false" eli="false" reflect="1.0" prefix="$(arg prefix)" />
+  ubi="false" eli="false" reflect="1.0" prefix="rh_" />
 </robot>

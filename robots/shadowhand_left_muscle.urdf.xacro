@@ -3,12 +3,11 @@ xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controlle
 xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
 xmlns:xacro="http://www.ros.org/wiki/xacro"
 name="shadowhand_muscle">
-  <arg name="prefix" default="lh_"/>
   <xacro:include filename="$(find sr_description)/materials.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
   <xacro:shadowhand muscletrans="false" muscle="true" bio="false" bt_sp="false"
-  ubi="false" eli="false" reflect="-1.0" prefix="$(arg prefix)" />
+  ubi="false" eli="false" reflect="-1.0" prefix="lh_" />
   <link name="forearm_disk">
     <inertial>
       <origin xyz="0 0 0" />
