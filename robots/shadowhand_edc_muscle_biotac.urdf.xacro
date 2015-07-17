@@ -10,7 +10,7 @@ name="shadowhand_motor">
   (C) 2012 fnh, hendrich@informatik.uni-hamburg.de
 -->
   <xacro:shadowhand muscletrans="true" muscle="true" bio="true" bt_sp="false"
-  ubi="false" eli="false" reflect="1.0" prefix="$(arg prefix)" />
+  ubi="false" eli="false" reflect="1.0" prefix="rh_" />
   <link name="forearm_disk">
     <inertial>
       <origin xyz="0 0 0" />
