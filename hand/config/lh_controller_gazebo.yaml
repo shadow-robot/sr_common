@@ -1,4 +1,4 @@
-sh_ffj0_position_controller:
+sh_lh_ffj0_position_controller:
   joint: lh_FFJ0
   pid:
     d: 0.005
@@ -10,7 +10,7 @@ sh_ffj0_position_controller:
     max_force: 1.0
   type: sr_mechanism_controllers/SrhJointPositionController
 
-sh_ffj3_position_controller:
+sh_lh_ffj3_position_controller:
   joint: lh_FFJ3
   pid:
     d: 0.05
@@ -22,7 +22,7 @@ sh_ffj3_position_controller:
     max_force: 1.0
   type: sr_mechanism_controllers/SrhJointPositionController
 
-sh_ffj4_position_controller:
+sh_lh_ffj4_position_controller:
   joint: lh_FFJ4
   pid:
     d: 0.05
@@ -34,7 +34,7 @@ sh_ffj4_position_controller:
     max_force: 1.0
   type: sr_mechanism_controllers/SrhJointPositionController
 
-sh_lfj0_position_controller:
+sh_lh_lfj0_position_controller:
   joint: lh_LFJ0
   pid:
     d: 0.005
@@ -46,7 +46,7 @@ sh_lfj0_position_controller:
     max_force: 1.0
   type: sr_mechanism_controllers/SrhJointPositionController
 
-sh_lfj3_position_controller:
+sh_lh_lfj3_position_controller:
   joint: lh_LFJ3
   pid:
     d: 0.05
@@ -58,7 +58,7 @@ sh_lfj3_position_controller:
     max_force: 1.0
   type: sr_mechanism_controllers/SrhJointPositionController
 
-sh_lfj4_position_controller:
+sh_lh_lfj4_position_controller:
   joint: lh_LFJ4
   pid:
     d: 0.05
@@ -70,7 +70,7 @@ sh_lfj4_position_controller:
     max_force: 1.0
   type: sr_mechanism_controllers/SrhJointPositionController
 
-sh_lfj5_position_controller:
+sh_lh_lfj5_position_controller:
   joint: lh_LFJ5
   pid:
     d: 0.05
@@ -82,7 +82,7 @@ sh_lfj5_position_controller:
     max_force: 1.0
   type: sr_mechanism_controllers/SrhJointPositionController
 
-sh_mfj0_position_controller:
+sh_lh_mfj0_position_controller:
   joint: lh_MFJ0
   pid:
     d: 0.005
@@ -94,7 +94,7 @@ sh_mfj0_position_controller:
     max_force: 1.0
   type: sr_mechanism_controllers/SrhJointPositionController
 
-sh_mfj3_position_controller:
+sh_lh_mfj3_position_controller:
   joint: lh_MFJ3
   pid:
     d: 0.05
@@ -106,7 +106,7 @@ sh_mfj3_position_controller:
     max_force: 1.0
   type: sr_mechanism_controllers/SrhJointPositionController
 
-sh_mfj4_position_controller:
+sh_lh_mfj4_position_controller:
   joint: lh_MFJ4
   pid:
     d: 0.05
@@ -118,7 +118,7 @@ sh_mfj4_position_controller:
     max_force: 1.0
   type: sr_mechanism_controllers/SrhJointPositionController
 
-sh_rfj0_position_controller:
+sh_lh_rfj0_position_controller:
   joint: lh_RFJ0
   pid:
     d: 0.005
@@ -130,7 +130,7 @@ sh_rfj0_position_controller:
     max_force: 1.0
   type: sr_mechanism_controllers/SrhJointPositionController
 
-sh_rfj3_position_controller:
+sh_lh_rfj3_position_controller:
   joint: lh_RFJ3
   pid:
     d: 0.05
@@ -142,7 +142,7 @@ sh_rfj3_position_controller:
     max_force: 1.0
   type: sr_mechanism_controllers/SrhJointPositionController
 
-sh_rfj4_position_controller:
+sh_lh_rfj4_position_controller:
   joint: lh_RFJ4
   pid:
     d: 0.05
@@ -154,7 +154,7 @@ sh_rfj4_position_controller:
     max_force: 1.0
   type: sr_mechanism_controllers/SrhJointPositionController
 
-sh_thj1_position_controller:
+sh_lh_thj1_position_controller:
   joint: lh_THJ1
   pid:
     d: 0.0
@@ -166,7 +166,7 @@ sh_thj1_position_controller:
     max_force: 1.0
   type: sr_mechanism_controllers/SrhJointPositionController
 
-sh_thj2_position_controller:
+sh_lh_thj2_position_controller:
   joint: lh_THJ2
   pid:
     d: 0.0
@@ -178,7 +178,7 @@ sh_thj2_position_controller:
     max_force: 1.0
   type: sr_mechanism_controllers/SrhJointPositionController
 
-sh_thj3_position_controller:
+sh_lh_thj3_position_controller:
   joint: lh_THJ3
   pid:
     d: 0.0
@@ -190,7 +190,7 @@ sh_thj3_position_controller:
     max_force: 1.0
   type: sr_mechanism_controllers/SrhJointPositionController
 
-sh_thj4_position_controller:
+sh_lh_thj4_position_controller:
   joint: lh_THJ4
   pid:
     d: 0.0
@@ -202,7 +202,7 @@ sh_thj4_position_controller:
     max_force: 2.0
   type: sr_mechanism_controllers/SrhJointPositionController
 
-sh_thj5_position_controller:
+sh_lh_thj5_position_controller:
   joint: lh_THJ5
   pid:
     d: 0.05
@@ -214,7 +214,7 @@ sh_thj5_position_controller:
     max_force: 3.0
   type: sr_mechanism_controllers/SrhJointPositionController
 
-sh_wrj1_position_controller:
+sh_lh_wrj1_position_controller:
   joint: lh_WRJ1
   pid:
     d: 1.0
@@ -226,7 +226,7 @@ sh_wrj1_position_controller:
     max_force: 5.0
   type: sr_mechanism_controllers/SrhJointPositionController
 
-sh_wrj2_position_controller:
+sh_lh_wrj2_position_controller:
   joint: lh_WRJ2
   pid:
     d: 0.2
