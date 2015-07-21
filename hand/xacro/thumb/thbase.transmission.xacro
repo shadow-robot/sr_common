@@ -15,14 +15,18 @@
       <joint name="${prefix}THJ5" />
       <mechanicalReduction>1</mechanicalReduction>
       </transmission>
-    </xacro:if> 
+    </xacro:if>
     <!-- motor hand -->
     <xacro:unless value="${muscletrans}">
-      <transmission type="sr_mechanism_model/SimpleTransmission" name="${prefix}thbase_transmission">
-      <actuator name="${prefix}THJ5" />
-      <joint name="${prefix}THJ5" />
-      <mechanicalReduction>1</mechanicalReduction>
+      <transmission name="${prefix}thbase_transmission">
+        <type>sr_mechanism_model/SimpleTransmission</type>
+        <actuator name="${prefix}THJ5">
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+        <joint name="${prefix}THJ5">
+          <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
       </transmission>
-    </xacro:unless> 
+    </xacro:unless>
   </xacro:macro>
 </robot>

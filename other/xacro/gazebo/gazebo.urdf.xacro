@@ -4,11 +4,9 @@ xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controlle
 xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
 
   <gazebo>
-    <plugin name="sr_gazebo_ros_controller_manager"
-    filename="libsr_gazebo_ros_controller_manager.so">
-      <alwaysOn>true</alwaysOn>
-      <updateRate>1400.0</updateRate>
-      <!-- <robotParam>sh_description</robotParam> -->
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotSimType>sr_gazebo_sim/SrGazeboHWSim</robotSimType>
     </plugin>
   </gazebo>
+
 </robot>

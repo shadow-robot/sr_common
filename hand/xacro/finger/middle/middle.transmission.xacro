@@ -18,15 +18,18 @@
       <joint name="${prefix}${joint_prefix}J2" />
       <mechanicalReduction>1</mechanicalReduction>
       </transmission>
-    </xacro:if> 
+    </xacro:if>
     <!-- motor hand -->
     <xacro:unless value="${muscletrans}">
-      <transmission type="sr_mechanism_model/J0Transmission" name="${prefix}${link_prefix}middle_transmission">
-      <actuator name="${prefix}${joint_prefix}J0" />
-      <joint name="${prefix}${joint_prefix}J1" />
-      <joint name="${prefix}${joint_prefix}J2" />
-      <mechanicalReduction>1</mechanicalReduction>
+      <transmission name="${prefix}${link_prefix}middle_transmission">
+        <type>sr_mechanism_model/J0Transmission</type>
+        <actuator name="${prefix}${joint_prefix}J0">
+          <mechanicalReduction>1</mechanicalReduction>
+        </actuator>
+        <joint name="${prefix}${joint_prefix}J1">
+          <hardwareInterface>EffortJointInterface</hardwareInterface>
+        </joint>
       </transmission>
-    </xacro:unless> 
+    </xacro:unless>
   </xacro:macro>
 </robot>
