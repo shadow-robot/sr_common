@@ -29,7 +29,7 @@
         <joint name="${prefix}${joint_prefix}J1">
           <hardwareInterface>EffortJointInterface</hardwareInterface>
         </joint>
-        <!--<joint name="${prefix}${joint_prefix}J2" />-->
+        <secondJoint name="${prefix}${joint_prefix}J2" />
       </transmission>
     </xacro:unless>
   </xacro:macro>
