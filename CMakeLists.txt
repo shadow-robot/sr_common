@@ -60,6 +60,11 @@ add_service_files(
   SetPidGains.srv
   SimpleMotorFlasher.srv
   which_fingers_are_touching.srv
+  PlanTrajectoryFromList.srv
+  PlanTrajectoryFromPrefix.srv
+  PlanNamedTrajectory.srv
+  ExecutePlannedTrajectory.srv
+  ListNamedTrajectories.srv
 )
 
 ## Generate actions in the 'action' folder
