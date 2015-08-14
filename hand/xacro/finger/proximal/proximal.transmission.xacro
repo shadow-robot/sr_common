@@ -27,6 +27,7 @@
       </actuator>
       <joint name="${prefix}${joint_prefix}J3">
         <hardwareInterface>EffortJointInterface</hardwareInterface>
+        <hardwareInterface>PositionJointInterface</hardwareInterface>
       </joint>
       </transmission>
     </xacro:unless>

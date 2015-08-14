@@ -28,6 +28,7 @@
         </actuator>
         <joint name="${prefix}${joint_prefix}J1">
           <hardwareInterface>EffortJointInterface</hardwareInterface>
+          <hardwareInterface>PositionJointInterface</hardwareInterface>
         </joint>
         <secondJoint name="${prefix}${joint_prefix}J2" />
       </transmission>
