@@ -72,14 +72,14 @@ std::string getCommandOutput(std::string cmd)
   return data.substr(0, pos);
 }
 
-int walker(char *result, int& test_result)
+int walker(char *result, int *test_result)
 {
   std::string package_path =  getCommandOutput("rospack find sr_description");
 
   if (package_path.find("sr_description") == std::string::npos)
   {
     printf("cannot find package in path %s\n", package_path.c_str());
-    test_result = 1;
+    *test_result = 1;
     return 1;
   }
   else
@@ -93,7 +93,7 @@ int walker(char *result, int& test_result)
   if (d == NULL)
   {
     printf("no robots found\n");
-    test_result = 1;
+    *test_result = 1;
     return 1;
   }
   while ((dir = readdir(d)))
@@ -114,11 +114,11 @@ int walker(char *result, int& test_result)
         runExternalProcess("python `rospack find xacro`/xacro.py",
                            package_path+"/robots/"+dir_name+" > `rospack find sr_description`/test/tmp.urdf");
         // check urdf structure
-        test_result = test_result || runExternalProcess("check_urdf", "`rospack find sr_description`/test/tmp.urdf");
+        *test_result = test_result || runExternalProcess("check_urdf", "`rospack find sr_description`/test/tmp.urdf");
         printf("\n looking for unexpanded xacro tags\n");
         // check for unexpanded xacros
-        test_result = test_result ||
-                      !runExternalProcess("grep", "'<xacro:' `rospack find sr_description`/test/tmp.urdf");
+        *test_result = test_result ||
+                       !runExternalProcess("grep", "'<xacro:' `rospack find sr_description`/test/tmp.urdf");
       }
       if (test_result != 0)
         return *result == 0;
@@ -133,7 +133,7 @@ TEST(URDF, CorrectFormat)
   int test_result = 0;
 
   char buf[MAXPATHLEN] = { 0 };
-  if (walker(buf, test_result) == 0)
+  if (walker(buf, &test_result) == 0)
   {
     printf("Found: %s\n", buf);
   }
