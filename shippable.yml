@@ -2,7 +2,7 @@ language: python
 python:
   - 2.7
 
-# codecov token  and slack web hook URL (encrypted)
+# codecov token and slack web hook URL (encrypted)
 env:
   - secure: dJXlChpMWGrAwJ0TOM0rVnSti0qUWpYBtDt96fNJcsJlnoufbGNvV67oynsGZ0cBkqffVR2CSLJ4tlhqDrx0ZIBn5rNlHoEiguRWBYQbAKRgtDj4Q70qoBynwlkgz1VE3Ez88yuhSq5Sb/wl64zW3nALq2uNpNBYSQR0tdziefY8Zmi5gEGbPl3eBi+Jc9J4VlgQAG35Op/MqMlJ309/MRtjiiFmJm6zOGT7IhSNctpBiSBtn+jegG0uVrvN90aFpfMSTF3Dmc0qh9nGPNqkS/xvN89i5mDBVYz5DE3q1UDa4xw56Exyxo4+hyD/g/+yAu7t3T2r9iYb6a3+BxVW8g==
 
