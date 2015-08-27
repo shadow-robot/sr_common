@@ -6,5 +6,5 @@
 | Install tests     | [![Build Status](https://semaphoreci.com/api/v1/projects/0d437517-338d-45e9-b1f3-dfacd9a577b8/523847/shields_badge.svg)](https://semaphoreci.com/ugo/sr_common) |
 | Code Coverage     | [![codecov.io](https://img.shields.io/codecov/c/shadow-robot/sr_vision/coverage.svg)](http://codecov.io/github/shadow-robot/sr_vision?branch=indigo-devel) |
 
-# Shadow Robot Common stack
+# Shadow Robot Common packages
 This repository contains the bare minimum for communicating with the Shadow Hand from a remote computer: urdf models and messages.
