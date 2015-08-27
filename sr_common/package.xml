@@ -2,7 +2,7 @@
 <package>
   <name>sr_common</name>
   <version>0.0.0</version>
-  <description>This stack contains the bare minimum for communicating with the Shadow Hand from a remote computer: urdf models and messages.</description>
+  <description>This metapackage contains the bare minimum for communicating with the Shadow Hand from a remote computer: urdf models and messages.</description>
 
   <maintainer email="software@shadowrobot.com">Shadow Robot's software team</maintainer>
 
