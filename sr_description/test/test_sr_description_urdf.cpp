@@ -90,7 +90,7 @@ int walker(char *result, int& test_result)
   DIR           *d;
   struct dirent *dir;
   d = opendir((package_path+"/robots").c_str());
-  if(d == NULL)
+  if (d == NULL)
   {
     printf("no robots found\n");
     test_result = 1;
@@ -99,7 +99,7 @@ int walker(char *result, int& test_result)
   while ((dir = readdir(d)))
   {
     if (strcmp(dir->d_name, ".") == 0 ||
-        strcmp( dir->d_name, "..") == 0)
+        strcmp(dir->d_name, "..") == 0)
     {
       continue;
     }
@@ -110,18 +110,18 @@ int walker(char *result, int& test_result)
       {
         printf("\n\ntesting: %s\n", (package_path+"/robots/"+dir_name).c_str());
         printf("python `rospack find xacro`/xacro.py %s/robots/%s  > `rospack find sr_description`/test/tmp.urdf",
-	       package_path.c_str(), dir_name.c_str() );
+               package_path.c_str(), dir_name.c_str() );
         runExternalProcess("python `rospack find xacro`/xacro.py",
-			   package_path+"/robots/"+dir_name+" > `rospack find sr_description`/test/tmp.urdf" );
-	// check urdf structure
+                           package_path+"/robots/"+dir_name+" > `rospack find sr_description`/test/tmp.urdf");
+        // check urdf structure
         test_result = test_result || runExternalProcess("check_urdf", "`rospack find sr_description`/test/tmp.urdf");
         printf("\n looking for unexpanded xacro tags\n");
         // check for unexpanded xacros
         test_result = test_result ||
-	  !runExternalProcess("grep","'<xacro:' `rospack find sr_description`/test/tmp.urdf");
+                      !runExternalProcess("grep", "'<xacro:' `rospack find sr_description`/test/tmp.urdf");
       }
       if (test_result != 0)
-	return *result == 0;
+        return *result == 0;
     }
   }
   closedir(d);
