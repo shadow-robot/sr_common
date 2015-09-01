@@ -44,12 +44,24 @@
                 command="$(find xacro)/xacro.py '$(find sr_description)/robots/shadowhand_motor_btsp.urdf.xacro'" />
               </group>
               <group unless="$(optenv BTSP_HAND 0)">
-                <param if="$(optenv BIOTAC_HAND 0)"
-                name="$(arg robot_param)"
-                command="$(find xacro)/xacro.py '$(find sr_description)/robots/shadowhand_motor_biotac.urdf.xacro'" />
-                <param unless="$(optenv BIOTAC_HAND 0)"
-                name="$(arg robot_param)"
-                command="$(find xacro)/xacro.py '$(find sr_description)/robots/shadowhand_motor.urdf.xacro'" />
+		<group if="$(optenv HAND_LITE 0)">
+                  <param name="$(arg robot_param)"
+			 command="$(find xacro)/xacro.py '$(find sr_description)/robots/shadowhand_lite.urdf.xacro'" />
+		</group>
+		<group unless="$(optenv HAND_LITE 0)">
+		  <group if="$(optenv HAND_EXTRA_LITE 0)">
+                    <param name="$(arg robot_param)"
+			   command="$(find xacro)/xacro.py '$(find sr_description)/robots/shadowhand_extra_lite.urdf.xacro'" />
+		  </group>
+		  <group unless="$(optenv HAND_EXTRA_LITE 0)">
+                    <param if="$(optenv BIOTAC_HAND 0)"
+			   name="$(arg robot_param)"
+			   command="$(find xacro)/xacro.py '$(find sr_description)/robots/shadowhand_motor_biotac.urdf.xacro'" />
+                    <param unless="$(optenv BIOTAC_HAND 0)"
+			   name="$(arg robot_param)"
+			   command="$(find xacro)/xacro.py '$(find sr_description)/robots/shadowhand_motor.urdf.xacro'" />
+		  </group>
+		</group>
               </group>
             </group>
           </group>
