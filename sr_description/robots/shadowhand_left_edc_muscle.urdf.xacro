@@ -8,7 +8,7 @@ name="shadowhand_muscle">
   <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
   <xacro:shadowhand muscletrans="true" muscle="true" bio="false" bt_sp="false"
   ubi="false" eli="false" reflect="-1.0" prefix="lh_" />
-  <link name="forearm_disk">
+  <link name="lh_forearm_disk">
     <inertial>
       <origin xyz="0 0 0" />
       <mass value="3.0" />
@@ -17,7 +17,7 @@ name="shadowhand_muscle">
     </inertial>
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
-      <geometry name="forearm_disk_geom">
+      <geometry name="lh_forearm_disk_geom">
         <mesh filename="package://sr_description/hand/model/forearm_muscle_disk.dae"
         scale="1.0 1.0 1.0" />
       </geometry>
@@ -25,18 +25,18 @@ name="shadowhand_muscle">
     </visual>
     <collision>
       <origin xyz="0 0 0.175" rpy="0 0 0" />
-      <geometry name="forearm_disk_collision">
+      <geometry name="lh_forearm_disk_collision">
         <cylinder radius="0.07" length="0.004" />
       </geometry>
     </collision>
   </link>
-  <gazebo reference="forearm_disk">
+  <gazebo reference="lh_forearm_disk">
     <material>Gazebo/Grey</material>
     <selfCollide>false</selfCollide>
   </gazebo>
-  <joint name="forearm_disk_to_forearm" type="fixed">
-    <parent link="forearm_disk" />
-    <child link="forearm" />
+  <joint name="lh_forearm_disk_to_lh_forearm" type="fixed">
+    <parent link="lh_forearm_disk" />
+    <child link="lh_forearm" />
     <origin xyz="0 0 0.004" rpy="0 0 0" />
   </joint>
 </robot>

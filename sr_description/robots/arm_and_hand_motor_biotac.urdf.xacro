@@ -12,7 +12,7 @@
   <xacro:sr_arm_motor></xacro:sr_arm_motor>
   <joint name="arm_link" type="fixed">
     <parent link="shadowarm_handsupport" />
-    <child link="forearm" />
+    <child link="rh_forearm" />
     <origin xyz="0 0 0" rpy="0 0 ${2.35619449}" />
   </joint>
   <xacro:shadowhand muscletrans="false" muscle="false" bio="true" bt_sp="false"
