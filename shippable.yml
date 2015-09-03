@@ -13,7 +13,7 @@ install:
 script:
   - export toolset_branch="master"
   - export server_type="shippable"
-  - export used_modules="build_pr_only,check_cache,install,create_workspace,codecov_tool"
+  - export used_modules="build_pr_only,check_cache,codecov_tool"
   - export remote_shell_script="https://raw.githubusercontent.com/shadow-robot/sr-build-tools/$toolset_branch/bin/sr-run-ci-build.sh"
   - curl -s "$( echo "$remote_shell_script" | sed 's/#/%23/g' )" | bash /dev/stdin "$toolset_branch" $server_type $used_modules
 
