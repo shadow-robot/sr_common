@@ -12,19 +12,29 @@
 
    <!-- muscle hand -->
     <xacro:if value="${muscletrans}">
-      <transmission type="sr_mechanism_model/SimpleTransmissionForMuscle" name="${prefix}${link_prefix}distal_transmission">
-      <actuator name="${prefix}${joint_prefix}J1" />
-      <joint name="${prefix}${joint_prefix}J1" />
-      <mechanicalReduction>1</mechanicalReduction>
-      </transmission>
+        <transmission name="${prefix}${link_prefix}distal_transmission">
+            <type>sr_mechanism_model/SimpleTransmissionForMuscle</type>
+            <actuator name="${prefix}${joint_prefix}J1">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="${prefix}${joint_prefix}J1">
+                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>PositionJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
     </xacro:if> 
     <!-- motor hand -->
     <xacro:unless value="${muscletrans}">
-      <transmission type="sr_mechanism_model/SimpleTransmission" name="${prefix}${link_prefix}distal_transmission">
-      <actuator name="${prefix}${joint_prefix}J1" />
-      <joint name="${prefix}${joint_prefix}J1" />
-      <mechanicalReduction>1</mechanicalReduction>
-      </transmission>
+        <transmission name="${prefix}${link_prefix}distal_transmission">
+            <type>sr_mechanism_model/SimpleTransmission</type>
+            <actuator name="${prefix}${joint_prefix}J1">
+                <mechanicalReduction>1</mechanicalReduction>
+            </actuator>
+            <joint name="${prefix}${joint_prefix}J1">
+                <hardwareInterface>EffortJointInterface</hardwareInterface>
+                <hardwareInterface>PositionJointInterface</hardwareInterface>
+            </joint>
+        </transmission>
     </xacro:unless> 
   </xacro:macro>
 
