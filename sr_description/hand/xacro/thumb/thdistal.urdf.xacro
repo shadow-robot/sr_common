@@ -100,20 +100,20 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0"
           izz="0" />
         </inertial>
-        <visual>
+        <!--visual>
           <geometry>
             <sphere radius="0.002" />
           </geometry>
-        </visual>
+        </visual-->
       </link>
       <gazebo reference="${prefix}thtip">
         <material name="LightGrey" />
       </gazebo>
       <joint name="${prefix}thtip" type="fixed">
-        <parent link="${prefix}thmiddle" />
+        <parent link="${prefix}thdistal_J1_dummy" />
         <child link="${prefix}thtip" />
-        <origin xyz="-0.009 0.0 ${0.01+0.044}"
-        rpy="0 0 ${-M_PI/2}" />
+        <origin xyz="0.0 0.004 ${0.032}"
+        rpy="0 0 0" />
         <!-- approximated only FIXME -->
       </joint>
     </xacro:if>
