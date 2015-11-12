@@ -6,6 +6,13 @@ name="shadowhand_muscle">
   <xacro:include filename="$(find sr_description)/materials.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
+  <!-- hand with cylindrical base drifts in gazebo, attach it to the world -->
+  <link name="world" />
+  <joint name="lh_world_joint" type="fixed">
+    <parent link="world" />
+    <child link="lh_forearm_disk" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+  </joint>
   <xacro:shadowhand muscletrans="false" muscle="true" bio="false" bt_sp="false"
   ubi="false" eli="false" reflect="-1.0" prefix="lh_" />
   <link name="lh_forearm_disk">
