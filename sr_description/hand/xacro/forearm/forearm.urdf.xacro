@@ -34,7 +34,6 @@
           <origin xyz="0 0 0.092" rpy="0 0 0" />
           <geometry name="${prefix}forearm_collision">
             <cylinder radius="0.07" length="0.184"/>
-            <!--<box size="0.140 0.140 0.184" />-->
           </geometry>
         </xacro:unless>
       </collision>
