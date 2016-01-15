@@ -19,5 +19,5 @@
     <dynamics damping="3.5" />
   </joint>
   <xacro:shadowhand muscletrans="false" muscle="false" bio="false" bt_sp="false"
-  ubi="false" eli="false" reflect="1.0" prefix="rh_" />
+  ubi="false" eli="false" reflect="1.0" prefix="rh_" lf="true" />
 </robot>
