@@ -17,5 +17,5 @@ name="shadowhand_motor">
   (C) 2012 fnh, hendrich@informatik.uni-hamburg.de
 -->
   <xacro:shadowhand muscletrans="false" muscle="false" bio="true" bt_sp="false"
-  ubi="false" eli="false" reflect="1.0" prefix="rh_" />
+  ubi="false" eli="false" reflect="1.0" prefix="rh_" lf="true" />
 </robot>
