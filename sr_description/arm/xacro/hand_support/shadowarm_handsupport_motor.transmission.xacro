@@ -6,10 +6,14 @@
 
   <xacro:macro name="shadowarm_handsupport_motor_transmission">
 
-    <transmission type="sr_mechanism_model/SimpleTransmission" name="forearm_rotation_transmission">
-      <actuator name="forearm_rotation" />
-      <joint name="ElbowJRotate" />
-      <mechanicalReduction>1</mechanicalReduction>
+    <transmission name="forearm_rotation_transmission">
+      <type>sr_mechanism_model/SimpleTransmission</type>
+      <actuator name="forearm_rotation">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+      <joint name="ElbowJRotate">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+      </joint>
     </transmission>
 
   </xacro:macro>
