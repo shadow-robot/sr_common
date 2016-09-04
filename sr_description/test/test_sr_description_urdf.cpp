@@ -109,9 +109,9 @@ int walker(char *result, int *test_result)
       if (dir_name.find(std::string(".urdf.xacro")) == dir_name.size()-11)
       {
         printf("\n\ntesting: %s\n", (package_path+"/robots/"+dir_name).c_str());
-        printf("python `rospack find xacro`/xacro.py %s/robots/%s  > `rospack find sr_description`/test/tmp.urdf",
+        printf("python `rospack find xacro`/xacro --inorder %s/robots/%s  > `rospack find sr_description`/test/tmp.urdf",
                package_path.c_str(), dir_name.c_str() );
-        runExternalProcess("python `rospack find xacro`/xacro.py",
+        runExternalProcess("python `rospack find xacro`/xacro --inorder",
                            package_path+"/robots/"+dir_name+" > `rospack find sr_description`/test/tmp.urdf");
         // check urdf structure
         *test_result = *test_result || runExternalProcess("check_urdf", "`rospack find sr_description`/test/tmp.urdf");
