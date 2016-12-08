@@ -66,6 +66,7 @@ add_service_files(
   PlanNamedTrajectory.srv
   ExecutePlannedTrajectory.srv
   ListNamedTrajectories.srv
+  SetTeachMode.srv
 )
 
 ## Generate actions in the 'action' folder
