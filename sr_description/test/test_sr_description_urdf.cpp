@@ -58,11 +58,11 @@ std::string getCommandOutput(std::string cmd)
 {
   std::string data;
   FILE * stream;
-  char buffer[MAXPATHLEN];
 
   stream = popen(cmd.c_str(), "r");
   if (stream)
   {
+    char buffer[MAXPATHLEN];
     while (!feof(stream))
       if (fgets(buffer, MAXPATHLEN, stream) != NULL) data.append(buffer);
     pclose(stream);
@@ -109,7 +109,8 @@ int walker(char *result, int *test_result)
       if (dir_name.find(std::string(".urdf.xacro")) == dir_name.size()-11)
       {
         printf("\n\ntesting: %s\n", (package_path+"/robots/"+dir_name).c_str());
-        printf("python `rospack find xacro`/xacro --inorder %s/robots/%s  > `rospack find sr_description`/test/tmp.urdf",
+        printf("python `rospack find xacro`/xacro --inorder %s/robots/%s  > "
+               "`rospack find sr_description`/test/tmp.urdf",
                package_path.c_str(), dir_name.c_str() );
         runExternalProcess("python `rospack find xacro`/xacro --inorder",
                            package_path+"/robots/"+dir_name+" > `rospack find sr_description`/test/tmp.urdf");
