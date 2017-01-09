@@ -13,6 +13,7 @@ find_package(catkin REQUIRED COMPONENTS roslib genmsg message_generation ${MSG_D
 
 add_message_files(
   FILES
+  ActuatorStatistics.msg
   AuxSpiData.msg
   BiotacAll.msg
   Biotac.msg
@@ -21,6 +22,7 @@ add_message_files(
   command.msg
   config.msg
   contrlr.msg
+  ControllerStatistics.msg
   ControlType.msg
   EthercatDebug.msg
   FromMotorDataType.msg
@@ -31,6 +33,8 @@ add_message_files(
   JointMuscleValveControllerCommand.msg
   JointMuscleValveControllerState.msg
   joints_data.msg
+  JointStatistics.msg
+  MechanismStatistics.msg
   MidProxDataAll.msg
   MidProxData.msg
   MotorSystemControls.msg
