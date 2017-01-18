@@ -26,4 +26,4 @@ trunks:
         modules:
           - kinetic-devel-specific-module
 branch:
-  parent: indigo-devel
+  parent: kinetic-devel
