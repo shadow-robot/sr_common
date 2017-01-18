@@ -4,7 +4,7 @@ xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
 xmlns:xacro="http://www.ros.org/wiki/xacro" name="sr_arm_motor">
   <xacro:include filename="$(find sr_description)/materials.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/arm/xacro/full_arm_motor.urdf.xacro" />
-  <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
+  <!--xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" /-->
   <link name="world" />
   <joint name="arm_to_world_fixed" type="fixed">
     <parent link="world" />

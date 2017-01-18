@@ -1,4 +1,4 @@
-<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+  <robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
 xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
 xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
 xmlns:xacro="http://www.ros.org/wiki/xacro" name="full_arm_motor">
@@ -17,5 +17,10 @@ xmlns:xacro="http://www.ros.org/wiki/xacro" name="full_arm_motor">
     </xacro:shadowarm_lowerarm>
     <xacro:shadowarm_handsupport_motor parent="shadowarm_lowerarm">
     </xacro:shadowarm_handsupport_motor>
+    <gazebo>
+      <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      </plugin>
+    </gazebo>
+    
   </xacro:macro>
 </robot>
