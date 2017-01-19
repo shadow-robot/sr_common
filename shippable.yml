@@ -9,7 +9,7 @@ env:
 build:
   pre_ci_boot:
     image_name: shadowrobot/build-tools
-    image_tag: trusty-indigo
+    image_tag: xenial-kinetic
     pull: true
   ci:
     - sudo apt-get update
