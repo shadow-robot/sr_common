@@ -8,10 +8,9 @@ env:
 
 build:
   pre_ci_boot:
-    image_name: shadowrobot/ubuntu-ros-indigo-build-tools
-    image_tag: latest
+    image_name: shadowrobot/build-tools
+    image_tag: trusty-indigo
     pull: true
-    options: "-e HOME=/root"
   ci:
     - sudo apt-get update
     - sudo apt-get install curl -y
@@ -22,4 +21,3 @@ build:
     - curl -s "$( echo "$remote_shell_script" | sed 's/#/%23/g' )" | bash /dev/stdin "$toolset_branch" $server_type $used_modules
   on_failure:
     - curl -X POST --data-urlencode "payload={\"channel\":\"#bots\", \"username\":\"shippable\", \"text\":\"[$SHIPPABLE_REPO_SLUG branch $BRANCH] <$BUILD_URL|Build $SHIPPABLE_BUILD_NUMBER> failed\", \"icon_emoji\":\":monkey_face:\"}" $SLACK_WEB_HOOK_URL
-    
