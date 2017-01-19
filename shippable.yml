@@ -4,7 +4,7 @@ python:
 
 # codecov token and slack web hook URL (encrypted)
 env:
-  - secure: pIx/7vfFLElYPoXzlgzOjnmk0RBeiwYLUvsh+qz5yMpBNq7BaiwAreUcKOryF/Y2YKohyYoSun/BVVqfVfXTi9ebZ6kkFWP8xhwA4GLLnYXM193dCzIYY1qMKSq/19/6fyYStD3g1GnLeiHpKyysrIB+UMP4IYQbrmWV2tZYxPNxMcFINO/iYmYI9WXoGdSPY0hHAGbZJ+2AqoE7gkljTt/Uw+iJrl/xmKOpZ7+e5yKtDhifu7GDdO82rP+jm32CaPVi5sNyzh5CEDyBba1s3zyGschLHghUK9j7aTWYd5c/1hq+LSycrdJOP/83Rm5uGk28m5195BhwTTVwAalJkQ==
+  - secure: dJXlChpMWGrAwJ0TOM0rVnSti0qUWpYBtDt96fNJcsJlnoufbGNvV67oynsGZ0cBkqffVR2CSLJ4tlhqDrx0ZIBn5rNlHoEiguRWBYQbAKRgtDj4Q70qoBynwlkgz1VE3Ez88yuhSq5Sb/wl64zW3nALq2uNpNBYSQR0tdziefY8Zmi5gEGbPl3eBi+Jc9J4VlgQAG35Op/MqMlJ309/MRtjiiFmJm6zOGT7IhSNctpBiSBtn+jegG0uVrvN90aFpfMSTF3Dmc0qh9nGPNqkS/xvN89i5mDBVYz5DE3q1UDa4xw56Exyxo4+hyD/g/+yAu7t3T2r9iYb6a3+BxVW8g==
 
 build:
   pre_ci_boot:
