@@ -6,10 +6,14 @@
 
   <xacro:macro name="shadowarm_upperarm_transmission">
 
-    <transmission type="sr_mechanism_model/SimpleTransmission" name="shoulder_rotation_transmission">
-      <actuator name="shoulder_rotation" />
-      <joint name="ShoulderJSwing" />
-      <mechanicalReduction>1</mechanicalReduction>
+    <transmission name="shoulder_rotation_transmission">
+      <type>sr_mechanism_model/SimpleTransmission</type>
+      <actuator name="shoulder_rotation">
+        <mechanicalReduction>1</mechanicalReduction>
+      </actuator>
+      <joint name="ShoulderJSwing">
+        <hardwareInterface>EffortJointInterface</hardwareInterface>
+      </joint>
     </transmission>
 
   </xacro:macro>
