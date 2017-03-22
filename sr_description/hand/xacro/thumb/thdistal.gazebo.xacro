@@ -18,10 +18,13 @@
           <bumperTopicName>contacts/${prefix}th/distal</bumperTopicName>
         </plugin>
       </sensor>
-      <mu1 value="500.0" />
-      <mu2 value="500.0" />
-      <kp  value="10000000.0" />
-      <kd  value="1.0" />
+      <kp value="1000000.0" />
+      <kd value="100.0" />
+      <mu1 value="1.5" />
+      <mu2 value="1.5" />
+      <fdir1 value="1 0 0" />
+      <maxVel value="1.0" />
+      <minDepth value="0.002" />
        
       <selfCollide>true</selfCollide>
     </gazebo>
