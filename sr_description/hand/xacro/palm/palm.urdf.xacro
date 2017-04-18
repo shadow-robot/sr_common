@@ -92,14 +92,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <child link = "${prefix}manipulator" />
       <origin xyz="0.0 0.0 0.05" rpy="0.0 0.0 0.0" />
     </joint>
-    <link name="${prefix}manipulator">
-      <collision>
-        <geometry>
-          <box size="0.001 0.001 0.001"/>
-        </geometry>
-        <origin rpy="0 0 0" xyz="-0.001 0 0"/>
-      </collision>
-    </link>
+    <link name="${prefix}manipulator" />
     <joint name="${prefix}WRJ1" type="revolute">
       <parent link="${parent}" />
       <child link="${prefix}palm" />
