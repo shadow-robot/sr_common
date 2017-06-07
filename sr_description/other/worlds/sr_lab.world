@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <sdf version="1.4">
   <world name="default">
+    <!-- Floor -->
     <include>
       <uri>model://ground</uri>
       <pose>-0.20 0.60 0.0 0 0 2.35619</pose>
@@ -24,23 +25,26 @@
       <name>lab_table</name>
       <pose>-0.14 0.96 0.0 0 0 2.35619</pose>
     </include>
+    <!-- Rear wall -->
     <include>
       <uri>model://wall</uri>
       <static>true</static>
       <name>wall_1</name>
-      <pose>-0.71 0.17 1.0 0 0 2.35619</pose>
+      <pose>-0.48861 -0.48861 1.0 0 0 2.35619</pose>
     </include>
+    <!-- Left wall -->
     <include>
       <uri>model://wall</uri>
       <static>true</static>
       <name>wall_2</name>
-      <pose>0.83 -0.48 1.0 0 0 0.785398</pose>
+      <pose>0.46315 -0.46315 1.0 0 0 0.785398</pose>
     </include>
+    <!-- Ceiling -->
     <include>
       <uri>model://ground</uri>
       <static>true</static>
       <name>ground_2</name>
-      <pose>-0.2 0.6 2.006 0 0 2.35619</pose>
+      <pose>-0.2 0.6 1.907 0 0 2.35619</pose>
     </include>
     <physics type="ode">
       <gravity>0.000000 0.000000 -9.810000</gravity>
