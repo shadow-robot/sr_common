@@ -1,0 +1,80 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <world name="default">
+    <!-- Floor -->
+    <include>
+      <uri>model://ground</uri>
+      <pose>-0.20 0.60 0.0 0 0 2.35619</pose>
+    </include>
+    <light type="directional" name="lab_light">
+      <pose>0.86 1.96 2.5 -1.55 0 0</pose>
+      <diffuse>.8 .8 .8 1</diffuse>
+      <specular>.2 .2 .2 1</specular>
+      <attenuation>
+        <range>20</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>0 0 -1</direction>
+      <cast_shadows>true</cast_shadows>
+    </light>
+    <include>
+      <uri>model://lab_table</uri>
+      <static>true</static>
+      <name>lab_table</name>
+      <pose>-0.14 0.96 0.0 0 0 2.35619</pose>
+    </include>
+    <!-- Rear wall -->
+    <include>
+      <uri>model://wall</uri>
+      <static>true</static>
+      <name>wall_1</name>
+      <pose>-0.48861 -0.48861 1.0 0 0 2.35619</pose>
+    </include>
+    <!-- Left wall -->
+    <include>
+      <uri>model://wall</uri>
+      <static>true</static>
+      <name>wall_2</name>
+      <pose>0.46315 -0.46315 1.0 0 0 0.785398</pose>
+    </include>
+    <!-- Ceiling -->
+    <include>
+      <uri>model://ground</uri>
+      <static>true</static>
+      <name>ground_2</name>
+      <pose>-0.2 0.6 1.907 0 0 2.35619</pose>
+    </include>
+    <physics type="ode">
+      <gravity>0.000000 0.000000 -9.810000</gravity>
+      <ode>
+        <solver>
+          <type>quick</type>
+          <iters>100</iters>
+          <precon_iters>0</precon_iters>
+          <sor>1.000000</sor>
+        </solver>
+        <constraints>
+          <cfm>0.000000</cfm>
+          <erp>0.500000</erp>
+          <contact_max_correcting_vel>1000.000000</contact_max_correcting_vel>
+          <contact_surface_layer>0.00000</contact_surface_layer>
+        </constraints>
+      </ode>
+      <real_time_update_rate>0.000000</real_time_update_rate>
+      <max_step_size>0.001000</max_step_size>
+    </physics>
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.7 1 1</background>
+      <shadows>1</shadows>
+    </scene>
+    <gui fullscreen='0'>
+      <camera name='user_camera'>
+        <pose frame=''>2.8784 4.2586 1.43117 0 0.083643 -2.30699</pose>
+        <view_controller>orbit</view_controller>
+      </camera>
+    </gui>		
+  </world>
+</sdf>
