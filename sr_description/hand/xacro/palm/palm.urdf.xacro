@@ -7,6 +7,7 @@ xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
 xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
   <xacro:include filename="$(find sr_description)/hand/xacro/palm/palm.gazebo.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/palm/imu.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/palm/palm.transmission.xacro" />
   <!-- muscletrans is true for muscle transmission or false for motor transmission -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -106,6 +107,8 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <provideFeedback>1</provideFeedback>
       <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
+    <!--imu-->
+    <xacro:imu prefix="${prefix}"/>
     <!-- extensions -->
     <xacro:shadowhand_palm_transmission muscletrans="${muscletrans}"
     prefix="${prefix}" />
