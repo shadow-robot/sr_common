@@ -7,6 +7,7 @@ xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
 xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
   <xacro:include filename="$(find sr_description)/hand/xacro/palm/palm.gazebo.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/palm/imu.urdf.xacro" />
   <!-- muscletrans is true for muscle transmission or false for motor transmission -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
@@ -87,6 +88,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
     <link name="${prefix}manipulator" />
     <!-- No wrist joints in a Lite palm -->
     <!-- extensions -->
+    <xacro:imu prefix="${prefix}" />
     <xacro:shadowhand_palm_gazebo prefix="${prefix}" />
   </xacro:macro>
 </robot>
