@@ -71,6 +71,7 @@ add_service_files(
   ExecutePlannedTrajectory.srv
   ListNamedTrajectories.srv
   SetTeachMode.srv
+  SetImuScale.srv
 )
 
 ## Generate actions in the 'action' folder
