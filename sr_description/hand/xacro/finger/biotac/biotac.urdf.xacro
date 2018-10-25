@@ -13,7 +13,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
   <!-- joint_prefix prepends fingername to the joint names -->
   <!-- parent is the parent link for the joint -->
   <xacro:macro name="biotac_middle"
-  params="muscle prefix link_prefix joint_prefix parent">
+  params="muscle prefix link_prefix joint_prefix parent simple_collisions">
     <link name="${prefix}${link_prefix}middle">
       <inertial>
         <origin xyz="0 0 0.0125" rpy="0 0 0" />
@@ -29,13 +29,24 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         </geometry>
         <material name="LightGrey" />
       </visual>
-      <collision>
-        <origin xyz="0 0 0.005" rpy="0 0 0" />
-        <geometry name="${prefix}${link_prefix}middle_collision_geom">
+      <xacro:if value="${simple_collisions}">
+        <collision>
+          <origin xyz="0 0 0.005" rpy="0 0 0" />
+          <geometry name="${prefix}${link_prefix}middle_collision_geom">
 
-          <box size="0.001 0.001 0.001" />
+            <box size="0.001 0.001 0.001" />
+          </geometry>
+        </collision>
+      </xacro:if>
+      <xacro:unless value="${simple_collisions}">
+        <collision>
+        <origin xyz="0 0 0" rpy="0 0 1.571" />
+        <geometry name="${prefix}${link_prefix}middle_collision_geom">
+          <mesh filename="package://sr_description/hand/model/biotacs/biotac_finger_adapter.dae"
+          scale="1 1 1" />
         </geometry>
-      </collision>
+        </collision>
+      </xacro:unless>
     </link>
     <gazebo reference="${prefix}${link_prefix}middle">
       <sensor type="contact"

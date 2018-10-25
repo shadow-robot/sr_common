@@ -12,7 +12,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- parent is the parent link for the first joint -->
-  <xacro:macro name="thbase" params="muscle reflect prefix parent">
+  <xacro:macro name="thbase" params="muscle reflect prefix parent simple_collisions">
     <link name="${prefix}thbase">
       <inertial>
         <mass value="0.010" />
@@ -29,12 +29,22 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
           <color rgba="0.5 0.5 0.5 1.0" />
         </material>
       </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry name="${prefix}thbase_collision_geom">
-          <sphere radius="0.011" />
-        </geometry>
-      </collision>
+      <xacro:if value="${simple_collisions}">
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <geometry name="${prefix}thbase_collision_geom">
+            <sphere radius="0.011" />
+          </geometry>
+        </collision>
+      </xacro:if>
+      <xacro:unless value="${simple_collisions}">
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <geometry name="${prefix}thbase_collision_geom">
+            <box size="0.001 0.001 0.001" />
+          </geometry>
+        </collision>
+      </xacro:unless>
     </link>
     <joint name="${prefix}THJ5" type="revolute">
       <parent link="${parent}" />

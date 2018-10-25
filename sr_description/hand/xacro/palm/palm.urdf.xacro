@@ -14,7 +14,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- parent is the parent link for the joint -->
   <xacro:macro name="palm"
-  params="muscletrans prefix reflect parent">
+  params="muscletrans prefix reflect parent simple_collisions">
     <link name="${prefix}palm">
       <inertial>
         <origin xyz="0 0 0.035" rpy="0 0 0" />
@@ -30,63 +30,74 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         </geometry>
         <material name="Grey" />
       </visual>
-      <collision>
-        <origin xyz="${reflect*0.011} 0.0085 0.038" rpy="0 0 0" />
-        <geometry name="${prefix}palm_collision_geom">
-          <box size="0.062 0.007 0.098" />
-        </geometry>
-      </collision>
-      <collision>
-        <origin xyz="${-reflect*0.002} -0.0035 0.038"
-        rpy="0 0 0" />
-        <geometry>
-          <box size="0.036 0.017 0.098" />
-        </geometry>
-      </collision>
-      <!-- palm complement below first finger -->
-      <collision>
-        <origin xyz="${reflect*0.029} -0.0035 0.082"
-        rpy="0 0 0" />
-        <geometry>
-          <box size="0.026 0.017 0.010" />
-        </geometry>
-      </collision>
-      <collision>
-        <origin xyz="${reflect*0.0265} -0.001 0.070"
-        rpy="0.2 0 ${reflect*0.25}" />
-        <geometry>
-          <box size="0.026 0.014 0.018" />
-        </geometry>
-      </collision>
-      <!-- thumb pulp side -->
-      <collision>
-        <origin xyz="${reflect*0.0315} -0.0085 0.001"
-        rpy="0 0 0" />
-        <geometry>
-          <box size="0.021 0.027 0.024" />
-        </geometry>
-      </collision>
-      <!-- thumb pulp central -->
-      <collision>
-        <origin xyz="${reflect*0.0125} -0.015 0.009" rpy="0 0 ${reflect*-0.48}" />
-        <geometry>
-          <box size="0.022 0.005 0.040" />
-        </geometry>
-      </collision>
-      <!-- above middle finger-->
-      <collision>
-        <origin xyz="${reflect*0.011} 0 0.089" rpy="0 0 0" />
-        <geometry>
-          <box size="0.018 0.024 0.004" />
-        </geometry>
-      </collision>
-      <!-- metacarpal side-->
-      <collision>
-        <origin xyz="${reflect*-0.030} 0 0.009" rpy="0 0 0" />
-        <geometry>
-          <box size="0.020 0.024 0.040" />
-        </geometry>
-      </collision>
+      <xacro:if value="${simple_collisions}">
+        <collision>
+          <origin xyz="${reflect*0.011} 0.0085 0.038" rpy="0 0 0" />
+          <geometry name="${prefix}palm_collision_geom">
+            <box size="0.062 0.007 0.098" />
+          </geometry>
+        </collision>
+        <collision>
+          <origin xyz="${-reflect*0.002} -0.0035 0.038"
+          rpy="0 0 0" />
+          <geometry>
+            <box size="0.036 0.017 0.098" />
+          </geometry>
+        </collision>
+        <!-- palm complement below first finger -->
+        <collision>
+          <origin xyz="${reflect*0.029} -0.0035 0.082"
+          rpy="0 0 0" />
+          <geometry>
+            <box size="0.026 0.017 0.010" />
+          </geometry>
+        </collision>
+        <collision>
+          <origin xyz="${reflect*0.0265} -0.001 0.070"
+          rpy="0.2 0 ${reflect*0.25}" />
+          <geometry>
+            <box size="0.026 0.014 0.018" />
+          </geometry>
+        </collision>
+        <!-- thumb pulp side -->
+        <collision>
+          <origin xyz="${reflect*0.0315} -0.0085 0.001"
+          rpy="0 0 0" />
+          <geometry>
+            <box size="0.021 0.027 0.024" />
+          </geometry>
+        </collision>
+        <!-- thumb pulp central -->
+        <collision>
+          <origin xyz="${reflect*0.0125} -0.015 0.009" rpy="0 0 ${reflect*-0.48}" />
+          <geometry>
+            <box size="0.022 0.005 0.040" />
+          </geometry>
+        </collision>
+        <!-- above middle finger-->
+        <collision>
+          <origin xyz="${reflect*0.011} 0 0.089" rpy="0 0 0" />
+          <geometry>
+            <box size="0.018 0.024 0.004" />
+          </geometry>
+        </collision>
+        <!-- metacarpal side-->
+        <collision>
+          <origin xyz="${reflect*-0.030} 0 0.009" rpy="0 0 0" />
+          <geometry>
+            <box size="0.020 0.024 0.040" />
+          </geometry>
+        </collision>
+      </xacro:if>
+      <xacro:unless value="${simple_collisions}">
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <geometry name="${prefix}palm_collision_geom">
+            <mesh filename="package://sr_description/hand/model/palm.dae"
+            scale="${reflect*0.001} 0.001 0.001" />
+          </geometry>
+        </collision>
+      </xacro:unless>
     </link>
     <joint name="${prefix}ee_fixed_joint" type="fixed">
       <parent link="${prefix}palm" />

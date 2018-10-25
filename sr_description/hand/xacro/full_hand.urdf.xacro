@@ -18,30 +18,30 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- lf is true if we want a little finger, false otherwise -->
   <xacro:macro name="shadowhand"
-  params="muscletrans muscle bio bt_sp ubi eli reflect prefix lf">
+  params="muscletrans muscle bio bt_sp ubi eli reflect prefix lf simple_collisions">
     <!-- Forearm -->
-    <xacro:forearm muscle="${muscle}" prefix="${prefix}" />
+    <xacro:forearm muscle="${muscle}" prefix="${prefix}" simple_collisions="${simple_collisions}"/>
     <!-- Wrist -->
     <xacro:if value="${muscle}">
       <xacro:wrist muscletrans="${muscletrans}" prefix="${prefix}"
-      reflect="${reflect}" parent="${prefix}forearm">
+      reflect="${reflect}" parent="${prefix}forearm" simple_collisions="${simple_collisions}">
         <origin xyz="0 0 0.4096" rpy="0 0 0" />
       </xacro:wrist>
     </xacro:if>
     <xacro:unless value="${muscle}">
       <xacro:wrist muscletrans="false" prefix="${prefix}"
-      reflect="${reflect}" parent="${prefix}forearm">
+      reflect="${reflect}" parent="${prefix}forearm" simple_collisions="${simple_collisions}">
         <origin xyz="0 -0.010 0.213" rpy="0 0 0" />
       </xacro:wrist>
     </xacro:unless>
     <!-- Palm -->
     <xacro:palm muscletrans="${muscletrans}" prefix="${prefix}"
-    reflect="${reflect}" parent="${prefix}wrist" />
+    reflect="${reflect}" parent="${prefix}wrist"  simple_collisions="${simple_collisions}"/>
     <!-- First Finger -->
     <xacro:finger muscletrans="${muscletrans}" lf="false"
     bio="${bio}" bt_sp="${bt_sp}" ubi="${ubi}" eli="${eli}" prefix="${prefix}"
     reflect="${reflect}" link_prefix="ff" joint_prefix="FF"
-    parent="${prefix}palm">
+    parent="${prefix}palm" simple_collisions="${simple_collisions}">
       <origin xyz="${reflect*0.033} 0 0.095" rpy="0 0 0" />
       <axis xyz="0 ${-1*reflect} 0" />
     </xacro:finger>
@@ -49,7 +49,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:finger muscletrans="${muscletrans}" lf="false"
     bio="${bio}" bt_sp="${bt_sp}" ubi="${ubi}" eli="${eli}" prefix="${prefix}"
     reflect="${reflect}" link_prefix="mf" joint_prefix="MF"
-    parent="${prefix}palm">
+    parent="${prefix}palm" simple_collisions="${simple_collisions}">
       <origin xyz="${reflect*0.011} 0 0.099" rpy="0 0 0" />
       <axis xyz="0 ${-1*reflect} 0" />
     </xacro:finger>
@@ -57,7 +57,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:finger muscletrans="${muscletrans}" lf="false"
     bio="${bio}" bt_sp="${bt_sp}" ubi="${ubi}" eli="${eli}" prefix="${prefix}"
     reflect="${reflect}" link_prefix="rf" joint_prefix="RF"
-    parent="${prefix}palm">
+    parent="${prefix}palm" simple_collisions="${simple_collisions}">
       <origin xyz="${reflect*-0.011} 0 0.095" rpy="0 0 0" />
       <axis xyz="0 ${reflect} 0" />
     </xacro:finger>
@@ -66,7 +66,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
       <xacro:finger muscletrans="${muscletrans}" lf="true"
       bio="${bio}" bt_sp="${bt_sp}" ubi="${ubi}" eli="${eli}" prefix="${prefix}"
       reflect="${reflect}" link_prefix="lf" joint_prefix="LF"
-      parent="${prefix}palm">
+      parent="${prefix}palm" simple_collisions="${simple_collisions}">
         <origin xyz="0 0 0.06579" rpy="0 0 0" />
         <axis xyz="0 ${reflect} 0" />
       </xacro:finger>
@@ -74,7 +74,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
     <!-- Thumb  -->
     <xacro:thumb muscletrans="${muscletrans}" bio="${bio}" bt_sp="${bt_sp}"
     ubi="${ubi}" eli="${eli}" prefix="${prefix}"
-    reflect="${reflect}" is_lite="0" parent="${prefix}palm">
+    reflect="${reflect}" is_lite="0" parent="${prefix}palm" simple_collisions="${simple_collisions}">
     </xacro:thumb>
   </xacro:macro>
 </robot>

@@ -13,7 +13,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- parent is the parent link for the first joint -->
   <xacro:macro name="thproximal"
-  params="muscle reflect prefix parent">
+  params="muscle reflect prefix parent simple_collisions">
     <link name="${prefix}thproximal">
       <inertial>
         <mass value="0.040" />
@@ -31,12 +31,23 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
           <color rgba="0.2 0.2 0.2 1.0" />
         </material>
       </visual>
-      <collision>
-        <origin xyz="0 0 0.020" rpy="0 0 0" />
-        <geometry name="${prefix}thproximal_collision_geom">
-          <cylinder radius="0.012" length="0.018" />
-        </geometry>
-      </collision>
+      <xacro:if value="${simple_collisions}">
+        <collision>
+          <origin xyz="0 0 0.020" rpy="0 0 0" />
+          <geometry name="${prefix}thproximal_collision_geom">
+            <cylinder radius="0.012" length="0.018" />
+          </geometry>
+        </collision>
+      </xacro:if>
+      <xacro:unless value="${simple_collisions}">
+        <collision>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <geometry name="${prefix}thproximal_collision_geom">
+            <mesh filename="package://sr_description/hand/model/TH3_z.dae"
+            scale="0.001 0.001 0.001" />
+          </geometry>
+        </collision>
+      </xacro:unless>
     </link>
     <joint name="${prefix}THJ4" type="revolute">
       <parent link="${parent}" />

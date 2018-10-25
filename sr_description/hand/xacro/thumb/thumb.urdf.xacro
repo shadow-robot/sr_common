@@ -14,21 +14,21 @@
   <!-- parent is the parent link for the first joint -->
   <!-- is_lite is this the lite hand, if so lock J3 -->
   <xacro:macro name="thumb"
-  params="muscletrans bio bt_sp ubi eli reflect prefix parent is_lite">
+  params="muscletrans bio bt_sp ubi eli reflect prefix parent is_lite simple_collisions">
     <!-- Base -->
     <xacro:thbase muscle="${muscletrans}" prefix="${prefix}"
-    reflect="${reflect}" parent="${parent}"></xacro:thbase>
+    reflect="${reflect}" parent="${parent}" simple_collisions="${simple_collisions}"></xacro:thbase>
     <!-- Proximal -->
     <xacro:thproximal muscle="${muscletrans}" prefix="${prefix}"
-    reflect="${reflect}" parent="${prefix}thbase">
+    reflect="${reflect}" parent="${prefix}thbase" simple_collisions="${simple_collisions}">
     </xacro:thproximal>
     <!-- Hub -->
     <xacro:thhub muscle="${muscletrans}" prefix="${prefix}"
-    parent="${prefix}thproximal" is_lite="${is_lite}">
+    parent="${prefix}thproximal" is_lite="${is_lite}" simple_collisions="${simple_collisions}">
     &gt;</xacro:thhub>
     <!-- Middle -->
     <xacro:thmiddle muscle="${muscletrans}" bio="${bio}"
-    prefix="${prefix}" parent="${prefix}thhub"></xacro:thmiddle>
+    prefix="${prefix}" parent="${prefix}thhub" simple_collisions="${simple_collisions}"></xacro:thmiddle>
     <!-- Distal -->
     <xacro:thdistal muscle="${muscletrans}" bio="${bio}" bt_sp="${bt_sp}"
     ubi="${ubi}" eli="${eli}" prefix="${prefix}"

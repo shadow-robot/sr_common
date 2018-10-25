@@ -17,16 +17,16 @@
   <!-- joint_prefix prepends fingername to the joint names -->
   <!-- parent is the parent link for the first joint -->
   <xacro:macro name="finger"
-  params="muscletrans lf bio bt_sp ubi eli reflect prefix link_prefix joint_prefix parent *origin *axis">
+  params="muscletrans lf bio bt_sp ubi eli reflect prefix link_prefix joint_prefix parent *origin *axis simple_collisions" >
 
     <!-- Little finger special case -->
     <xacro:if value="${lf}">
       <xacro:lfmetacarpal muscle="${muscletrans}"
-      prefix="${prefix}" reflect="${reflect}" parent="${parent}" />
+      prefix="${prefix}" reflect="${reflect}" parent="${parent}" simple_collisions="${simple_collisions}"/>
       <!-- Knuckle -->
       <xacro:knuckle muscle="${muscletrans}" prefix="${prefix}"
       link_prefix="${link_prefix}" joint_prefix="${joint_prefix}"
-      parent="${prefix}lfmetacarpal">
+      parent="${prefix}lfmetacarpal" simple_collisions="${simple_collisions}">
         <xacro:insert_block name="origin" />
       </xacro:knuckle>
     </xacro:if>
@@ -35,27 +35,27 @@
       <!-- Knuckle -->
       <xacro:knuckle muscle="${muscletrans}" prefix="${prefix}"
       link_prefix="${link_prefix}" joint_prefix="${joint_prefix}"
-      parent="${parent}">
+      parent="${parent}" simple_collisions="${simple_collisions}">
         <xacro:insert_block name="origin" />
       </xacro:knuckle>
     </xacro:unless>
     <!-- Proximal -->
     <xacro:proximal muscle="${muscletrans}" prefix="${prefix}"
     link_prefix="${link_prefix}" joint_prefix="${joint_prefix}"
-    parent="${prefix}${link_prefix}knuckle"></xacro:proximal>
+    parent="${prefix}${link_prefix}knuckle" simple_collisions="${simple_collisions}"></xacro:proximal>
     <!-- Biotac Middle -->
     <xacro:if value="${bio}">
       <xacro:biotac_middle muscle="${muscletrans}"
       prefix="${prefix}" link_prefix="${link_prefix}"
       joint_prefix="${joint_prefix}"
-      parent="${prefix}${link_prefix}proximal">
+      parent="${prefix}${link_prefix}proximal" simple_collisions="${simple_collisions}">
       </xacro:biotac_middle>
     </xacro:if>
     <!-- Standard Middle -->
     <xacro:unless value="${bio}">
       <xacro:middle muscle="${muscletrans}" prefix="${prefix}"
       link_prefix="${link_prefix}" joint_prefix="${joint_prefix}"
-      parent="${prefix}${link_prefix}proximal"></xacro:middle>
+      parent="${prefix}${link_prefix}proximal" simple_collisions="${simple_collisions}"></xacro:middle>
     </xacro:unless>
     <!-- Distal  -->
     <!-- only if finger is not biotac  -->

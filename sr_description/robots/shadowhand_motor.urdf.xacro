@@ -14,5 +14,6 @@
       <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
     </joint>
     <xacro:shadowhand muscletrans="false" muscle="false" bio="false" bt_sp="false"
-                      ubi="false" eli="false" reflect="1.0" prefix="rh_" lf="true" />
+                      ubi="false" eli="false" reflect="1.0" prefix="rh_" lf="true"
+                      simple_collisions="true" />
 </robot>
