@@ -11,4 +11,10 @@
     <size njmax="500" nconmax="200" />
     <default class="main">
     </default>
+    <equality>
+        <joint joint1="rh_FFJ1" joint2="rh_FFJ2"/>
+        <joint joint1="rh_MFJ1" joint2="rh_MFJ2"/>
+        <joint joint1="rh_RFJ1" joint2="rh_RFJ2"/>
+        <joint joint1="rh_LFJ1" joint2="rh_LFJ2"/>
+    </equality>
 </mujoco>
