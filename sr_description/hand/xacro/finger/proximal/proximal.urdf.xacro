@@ -14,7 +14,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
   <!-- joint_prefix prepends fingername to the joint names -->
   <!-- parent is the parent link for the joint -->
   <xacro:macro name="proximal"
-  params="muscle prefix link_prefix joint_prefix parent simple_collisions">
+  params="muscle prefix link_prefix joint_prefix parent">
     <link name="${prefix}${link_prefix}proximal">
       <inertial>
         <mass value="0.030" />
@@ -30,23 +30,13 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         </geometry>
         <material name="Grey" />
       </visual>
-      <xacro:if value="${simple_collisions}">
-        <collision>
-          <origin xyz="0 0 0.025" rpy="0 0 0" />
-          <geometry name="${prefix}${link_prefix}proximal_collision_geom">
-            <cylinder radius="0.007" length="0.040" />
-          </geometry>
-        </collision>
-      </xacro:if>
-      <xacro:unless value="${simple_collisions}">
-        <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
+      <collision>
+        <origin xyz="0 0 0.025" rpy="0 0 0" />
         <geometry name="${prefix}${link_prefix}proximal_collision_geom">
-          <mesh filename="package://sr_description/hand/model/F3.dae"
-          scale="0.001 0.001 0.001" />
+
+          <cylinder radius="0.007" length="0.040" />
         </geometry>
-        </collision>
-      </xacro:unless>
+      </collision>
     </link>
     <joint name="${prefix}${joint_prefix}J3" type="revolute">
       <parent link="${parent}" />

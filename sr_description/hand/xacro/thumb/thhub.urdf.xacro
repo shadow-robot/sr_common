@@ -13,7 +13,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- parent is the parent link for the first joint -->
   <!-- is_lite is this the lite hand, if so lock J3 -->
-  <xacro:macro name="thhub" params="muscle prefix parent is_lite simple_collisions">
+  <xacro:macro name="thhub" params="muscle prefix parent is_lite">
     <link name="${prefix}thhub">
       <inertial>
         <mass value="0.005" />
@@ -30,22 +30,12 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
           <color rgba="0.7 0.7 0.7 1.0" />
         </material>
       </visual>
-      <xacro:if value="${simple_collisions}">
-        <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry name="${prefix}thhub_collision_geom">
-            <sphere radius="0.010" />
-          </geometry>
-        </collision>
-      </xacro:if>
-      <xacro:unless value="${simple_collisions}">
-        <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <geometry name="${prefix}thhub_collision_geom">
-            <box size="0.001 0.001 0.001" />
-          </geometry>
-        </collision>
-      </xacro:unless>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0" />
+        <geometry name="${prefix}thhub_collision_geom">
+          <sphere radius="0.010" />
+        </geometry>
+      </collision>
     </link>
     <xacro:if value="${is_lite}">
       <joint name="${prefix}THJ3" type="fixed">

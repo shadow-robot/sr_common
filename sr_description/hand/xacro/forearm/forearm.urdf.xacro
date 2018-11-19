@@ -2,7 +2,6 @@
   <!-- muscle is true for muscle hand or false for motor hand -->
   <!-- hand_type can be either hand_e (default) or hand_e_plus -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
-
   <xacro:macro name="dark_grey" >
     <material name="dark_grey">
       <color rgba="0.21961 0.21961 0.21961 1.0" />
@@ -14,7 +13,7 @@
     </material>
   </xacro:macro>
 
-  <xacro:macro name="forearm" params="muscle hand_type:='hand_e' prefix simple_collisions">
+  <xacro:macro name="forearm" params="muscle hand_type:='hand_e' prefix">
     <link name="${prefix}forearm">
       <inertial>
         <origin xyz="0 0 0.09" rpy="0 0 0" />
@@ -66,88 +65,46 @@
         </xacro:if>
       </xacro:unless>
 
-      <xacro:if value="${simple_collisions}">
-        <collision>
-          <xacro:if value="${muscle}">
-            <origin xyz="0 0 0.185" rpy="0 0 0" />
-            <geometry name="${prefix}forearm_collision">
-              <cylinder radius="0.075" length="0.37" />
-            </geometry>
-            <xacro:dark_grey/>
-          </xacro:if>
-          <xacro:unless value="${muscle}">
-            <xacro:if value="${hand_type == 'hand_e'}">
-              <origin xyz="0 0 0.092" rpy="0 0 0" />
-              <geometry name="${prefix}forearm_collision">
-                <cylinder radius="0.07" length="0.184"/>
-              </geometry>
-              <xacro:dark_grey/>
-            </xacro:if>
-            <xacro:if value="${hand_type == 'hand_e_plus'}">
-              <origin xyz="0 0 0" rpy="0 0 0" />
-              <geometry name="${prefix}forearm_collision">
-                <mesh filename="package://sr_description/hand/model/forearm_collision_plus.stl" scale="0.001 0.001 0.001" />
-              </geometry>
-              <xacro:dark_grey/>
-            </xacro:if>
-          </xacro:unless>
-        </collision>
-        <!-- wrist mount -->
-        <collision>
-          <xacro:if value="${muscle}">
-            <origin xyz="0 0 0.395" rpy="0 0 0" />
-            <geometry>
-              <box size="0.03 0.04 0.06" />
-            </geometry>
-          </xacro:if>
-          <xacro:unless value="${muscle}">
-            <origin xyz="0 -0.01 0.181" rpy="0 0.78 0" />
-            <geometry>
-              <box size="0.07 0.07 0.07" />
-            </geometry>
-          </xacro:unless>
-        </collision>
-      </xacro:if>
-      <xacro:unless value="${simple_collisions}">
+      <collision>
         <xacro:if value="${muscle}">
-          <collision>
-            <origin xyz="0 0 0" rpy="0 0 0" />
-            <geometry name="${prefix}forearm_collision">
-              <mesh filename="package://sr_description/hand/model/forearm_muscle.dae" scale="1.0 1.0 1.0" />
-            </geometry>
-          </collision>
+          <origin xyz="0 0 0.185" rpy="0 0 0" />
+          <geometry name="${prefix}forearm_collision">
+            <cylinder radius="0.075" length="0.37" />
+          </geometry>
+          <xacro:dark_grey/>
         </xacro:if>
         <xacro:unless value="${muscle}">
           <xacro:if value="${hand_type == 'hand_e'}">
-            <collision>
-              <origin xyz="0 0 0" rpy="0 0 0" />
-              <geometry name="${prefix}forearm_collision">
-                <mesh filename="package://sr_description/hand/model/forearm.dae" scale="0.001 0.001 0.001" />
-              </geometry>
-            </collision>
+            <origin xyz="0 0 0.092" rpy="0 0 0" />
+            <geometry name="${prefix}forearm_collision">
+              <cylinder radius="0.07" length="0.184"/>
+            </geometry>
+            <xacro:dark_grey/>
           </xacro:if>
           <xacro:if value="${hand_type == 'hand_e_plus'}">
-            <collision>
-              <origin xyz="0 0 0" rpy="0 0 0" />
-              <geometry name="${prefix}forearm_collision">
-                <mesh filename="package://sr_description/hand/model/forearm_visual_elbow_plate_plus.stl" scale="0.001 0.001 0.001" />
-              </geometry>
-            </collision>
-            <collision>
-              <origin xyz="0 0 0.015" rpy="0 0 0" />
-              <geometry>
-                <mesh filename="package://sr_description/hand/model/forearm_visual_shells_plus.stl" scale="0.001 0.001 0.001" />
-              </geometry>
-            </collision>
-            <collision>
-              <origin xyz="0 -0.010 0.1829" rpy="0 0 0" />
-              <geometry>
-                <mesh filename="package://sr_description/hand/model/forearm_visual_wrist_yaw_plus.stl" scale="0.001 0.001 0.001" />
-              </geometry>
-            </collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry name="${prefix}forearm_collision">
+              <mesh filename="package://sr_description/hand/model/forearm_collision_plus.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+            <xacro:dark_grey/>
           </xacro:if>
         </xacro:unless>
-      </xacro:unless>
+      </collision>
+      <!-- wrist mount -->
+      <collision>
+        <xacro:if value="${muscle}">
+          <origin xyz="0 0 0.395" rpy="0 0 0" />
+          <geometry>
+            <box size="0.03 0.04 0.06" />
+          </geometry>
+        </xacro:if>
+        <xacro:unless value="${muscle}">
+          <origin xyz="0 -0.01 0.181" rpy="0 0.78 0" />
+          <geometry>
+            <box size="0.07 0.07 0.07" />
+          </geometry>
+        </xacro:unless>
+      </collision>
     </link>
     <gazebo reference="${prefix}forearm">
       <selfCollide>false</selfCollide>

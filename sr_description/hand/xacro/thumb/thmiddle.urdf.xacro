@@ -12,7 +12,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
   <!-- bio is true for biotac finger or false for standard finger -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- parent is the parent link for the first joint -->
-  <xacro:macro name="thmiddle" params="muscle bio prefix parent simple_collisions">
+  <xacro:macro name="thmiddle" params="muscle bio prefix parent">
     <link name="${prefix}thmiddle">
       <inertial>
         <mass value="0.020" />
@@ -38,45 +38,26 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
           </material>
         </xacro:unless>
       </visual>
-      <xacro:if value="${simple_collisions}">
-        <collision>
-          <xacro:if value="${bio}">
-            <origin xyz="0 0 0.005" rpy="0 0 0" />
-            <geometry name="${prefix}thmiddle_collision_geom">
-              <box size="0.001 0.001 0.001" />
-            </geometry>
-          </xacro:if>
-          <xacro:unless value="${bio}">
-            <origin xyz="0 0 0.012" rpy="0 0 0" />
-            <geometry name="${prefix}thmiddle_collision_geom">
-              <cylinder radius="0.011" length="0.018" />
-            </geometry>
-          </xacro:unless>
-        </collision>
+      <collision>
+        <xacro:if value="${bio}">
+          <origin xyz="0 0 0.005" rpy="0 0 0" />
+          <geometry name="${prefix}thmiddle_collision_geom">
+            <box size="0.001 0.001 0.001" />
+          </geometry>
+        </xacro:if>
         <xacro:unless value="${bio}">
-          <collision>
-            <origin xyz="0 0 0.019" rpy="0 0 0" />
-            <geometry>
-              <sphere radius="0.011" />
-            </geometry>
-          </collision>
+          <origin xyz="0 0 0.012" rpy="0 0 0" />
+          <geometry name="${prefix}thmiddle_collision_geom">
+            <cylinder radius="0.011" length="0.018" />
+          </geometry>
         </xacro:unless>
-      </xacro:if>
-      <xacro:unless value="${simple_collisions}">
+      </collision>
+      <xacro:unless value="${bio}">
         <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <xacro:if value="${bio}">
-            <geometry name="${prefix}thmiddle_collision_geom">
-              <mesh filename="package://sr_description/hand/model/biotacs/biotac_thumb_adapter.dae"
-              scale="0.001 0.001 0.001" />
-            </geometry>
-          </xacro:if>
-          <xacro:unless value="${bio}">
-            <geometry name="${prefix}thmiddle_collision_geom">
-              <mesh filename="package://sr_description/hand/model/TH2_z.dae"
-              scale="0.001 0.001 0.001" />
-            </geometry>
-          </xacro:unless>
+          <origin xyz="0 0 0.019" rpy="0 0 0" />
+          <geometry>
+            <sphere radius="0.011" />
+          </geometry>
         </collision>
       </xacro:unless>
     </link>

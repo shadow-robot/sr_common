@@ -14,7 +14,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
   <!-- joint_prefix prepends fingername to the joint names -->
   <!-- parent is the parent link for the joint -->
   <xacro:macro name="knuckle"
-  params="muscle prefix link_prefix joint_prefix parent *origin simple_collisions">
+  params="muscle prefix link_prefix joint_prefix parent *origin">
     <link name="${prefix}${link_prefix}knuckle">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -30,23 +30,13 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         </geometry>
         <material name="LightGrey" />
       </visual>
-      <xacro:if value="${simple_collisions}">
       <collision>
         <origin xyz="0 0 0" rpy="0 1.5708 0" />
         <geometry name="${prefix}${link_prefix}knuckle_collision_geom">
+
           <cylinder radius="0.007" length="0.014" />
         </geometry>
       </collision>
-      </xacro:if>
-      <xacro:unless value="${simple_collisions}">
-        <collision>
-        <origin xyz="0 0 0.0005" rpy="0 0 0" />
-        <geometry name="${prefix}${link_prefix}knuckle_collision_geom">
-          <mesh filename="package://sr_description/hand/model/knuckle.dae"
-          scale="0.001 0.001 0.001" />
-        </geometry>
-        </collision>
-      </xacro:unless>
     </link>
     <joint name="${prefix}${joint_prefix}J4" type="revolute">
       <parent link="${parent}" />
