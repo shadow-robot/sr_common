@@ -44,23 +44,9 @@
           <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry name="${prefix}forearm_visual">
-              <mesh filename="package://sr_description/hand/model/forearm_visual_elbow_plate_plus.stl" scale="0.001 0.001 0.001" />
+              <mesh filename="package://sr_description/hand/model/forearm_visual_plus.dae" scale="0.001 0.001 0.001" />
             </geometry>
-            <xacro:light_grey/>
-          </visual>
-          <visual>
-            <origin xyz="0 0 0.015" rpy="0 0 0" />
-            <geometry>
-              <mesh filename="package://sr_description/hand/model/forearm_visual_shells_plus.stl" scale="0.001 0.001 0.001" />
-            </geometry>
-            <xacro:dark_grey/>
-          </visual>
-          <visual>
-            <origin xyz="0 -0.010 0.1829" rpy="0 0 0" />
-            <geometry>
-              <mesh filename="package://sr_description/hand/model/forearm_visual_wrist_yaw_plus.stl" scale="0.001 0.001 0.001" />
-            </geometry>
-            <xacro:light_grey/>
+            <material name="light_grey" />
           </visual>
         </xacro:if>
       </xacro:unless>
@@ -109,10 +95,5 @@
     <gazebo reference="${prefix}forearm">
       <selfCollide>false</selfCollide>
     </gazebo>
-    <xacro:if value="${hand_type == 'hand_e_plus'}">
-      <gazebo reference="${prefix}forearm">
-        <material>Gazebo/DarkGrey</material>
-      </gazebo>
-    </xacro:if>
   </xacro:macro>
 </robot>
