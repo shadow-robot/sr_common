@@ -12,7 +12,6 @@
       <color rgba="0.90000 0.90000 0.90000 1.0" />
     </material>
   </xacro:macro>
-
   <xacro:macro name="forearm" params="muscle hand_type:='hand_e' prefix">
     <link name="${prefix}forearm">
       <inertial>
@@ -50,7 +49,6 @@
           </visual>
         </xacro:if>
       </xacro:unless>
-
       <collision>
         <xacro:if value="${muscle}">
           <origin xyz="0 0 0.185" rpy="0 0 0" />
@@ -90,6 +88,18 @@
             <box size="0.07 0.07 0.07" />
           </geometry>
         </xacro:unless>
+      </collision>
+      <visual>
+        <origin rpy="0 1.57 -1.52" xyz="0.0 0 0.015"/>
+        <geometry name="${prefix}cable_extr_collision">
+          <mesh filename="package://sr_description/hand/model/cable_collistion_mesh.stl" scale="1 1 1" />
+        </geometry>
+      </visual>
+      <collision>
+        <origin rpy="0 1.57 -1.52" xyz="0.0 0 0.015"/>
+        <geometry name="${prefix}cable_extr_visualisation">
+          <mesh filename="package://sr_description/hand/model/cable_collistion_mesh.stl" scale="1 1 1" />
+        </geometry>
       </collision>
     </link>
     <gazebo reference="${prefix}forearm">
