@@ -56,13 +56,13 @@ rh_trajectory_controller:
   allow_partial_joints_goal: true
   gains:
     rh_FFJ1:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1
+      i: 0
+      d: 0.04
     rh_FFJ2:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1
+      i: 0
+      d: 0.04
     rh_FFJ3:
       p: 500
       i: 1000
@@ -72,13 +72,13 @@ rh_trajectory_controller:
       i: 1000
       d: 20
     rh_LFJ1:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1
+      i: 0
+      d: 0.04
     rh_LFJ2:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1
+      i: 0
+      d: 0.04
     rh_LFJ3:
       p: 500
       i: 1000
@@ -92,13 +92,13 @@ rh_trajectory_controller:
       i: 1000
       d: 20
     rh_MFJ1:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1
+      i: 0
+      d: 0.04
     rh_MFJ2:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1
+      i: 0
+      d: 0.04
     rh_MFJ3:
       p: 500
       i: 1000
@@ -108,13 +108,13 @@ rh_trajectory_controller:
       i: 1000
       d: 20
     rh_RFJ1:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1
+      i: 0
+      d: 0.04
     rh_RFJ2:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1
+      i: 0
+      d: 0.04
     rh_RFJ3:
       p: 500
       i: 1000

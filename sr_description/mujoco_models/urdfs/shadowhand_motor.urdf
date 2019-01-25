@@ -134,7 +134,6 @@
     </actuator>
     <joint name="rh_WRJ2">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <!-- <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface> -->
     </joint>
   </transmission>
   <link name="rh_palm">
@@ -239,7 +238,6 @@
     </actuator>
     <joint name="rh_WRJ1">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -299,7 +297,6 @@
     </actuator>
     <joint name="rh_FFJ4">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -359,7 +356,6 @@
     </actuator>
     <joint name="rh_FFJ3">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -431,9 +427,10 @@
     </actuator>
     <joint name="rh_FFJ2">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
-    <!-- <secondJoint name="${prefix}${joint_prefix}J2"/> -->
+    <!-- <joint name="rh_FFJ1">
+      <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    </joint> -->
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <gazebo reference="rh_ffmiddle">
@@ -506,7 +503,6 @@
     </actuator>
     <joint name="rh_FFJ1">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -571,7 +567,6 @@
     </actuator>
     <joint name="rh_MFJ4">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -631,7 +626,6 @@
     </actuator>
     <joint name="rh_MFJ3">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -703,9 +697,7 @@
     </actuator>
     <joint name="rh_MFJ2">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
-    <!-- <secondJoint name="${prefix}${joint_prefix}J2"/> -->
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <gazebo reference="rh_mfmiddle">
@@ -778,7 +770,6 @@
     </actuator>
     <joint name="rh_MFJ1">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -843,7 +834,6 @@
     </actuator>
     <joint name="rh_RFJ4">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -903,7 +893,6 @@
     </actuator>
     <joint name="rh_RFJ3">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -975,7 +964,6 @@
     </actuator>
     <joint name="rh_RFJ2">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
     <!-- <secondJoint name="${prefix}${joint_prefix}J2"/> -->
   </transmission>
@@ -1050,7 +1038,6 @@
     </actuator>
     <joint name="rh_RFJ1">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -1114,7 +1101,6 @@
     </actuator>
     <joint name="rh_LFJ5">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -1175,7 +1161,6 @@
     </actuator>
     <joint name="rh_LFJ4">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -1235,7 +1220,6 @@
     </actuator>
     <joint name="rh_LFJ3">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -1307,7 +1291,6 @@
     </actuator>
     <joint name="rh_LFJ2">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
     <!-- <secondJoint name="${prefix}${joint_prefix}J2"/> -->
   </transmission>
@@ -1382,7 +1365,6 @@
     </actuator>
     <joint name="rh_LFJ1">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -1448,7 +1430,6 @@
     </actuator>
     <joint name="rh_THJ5">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -1510,7 +1491,6 @@
     </actuator>
     <joint name="rh_THJ4">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -1572,7 +1552,6 @@
     </actuator>
     <joint name="rh_THJ3">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -1640,7 +1619,6 @@
     </actuator>
     <joint name="rh_THJ2">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -1739,7 +1717,6 @@
     </actuator>
     <joint name="rh_THJ1">
       <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-      <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
     </joint>
   </transmission>
 </robot>
