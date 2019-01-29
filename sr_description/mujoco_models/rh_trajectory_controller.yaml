@@ -56,98 +56,122 @@ rh_trajectory_controller:
   allow_partial_joints_goal: true
   gains:
     rh_FFJ1:
-      p: 1
-      i: 0
-      d: 0.04
+      p: 0.5
+      i: 0.1
+      d: 0.005
+      i_clamp: 0.05
     rh_FFJ2:
-      p: 1
-      i: 0
-      d: 0.04
+      p: 0.5
+      i: 0.1
+      d: 0.005
+      i_clamp: 0.05
     rh_FFJ3:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1.0
+      i: 0.2
+      d: 0.05
+      i_clamp: 0.2
     rh_FFJ4:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1.0
+      i: 0.2
+      d: 0.05
+      i_clamp: 0.2
     rh_LFJ1:
-      p: 1
-      i: 0
-      d: 0.04
+      p: 0.5
+      i: 0.1
+      d: 0.005
+      i_clamp: 0.05
     rh_LFJ2:
-      p: 1
-      i: 0
-      d: 0.04
+      p: 0.5
+      i: 0.1
+      d: 0.005
+      i_clamp: 0.05
     rh_LFJ3:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1.0
+      i: 0.2
+      d: 0.05
+      i_clamp: 0.2
     rh_LFJ4:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1.0
+      i: 0.2
+      d: 0.05
+      i_clamp: 0.2
     rh_LFJ5:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1.0
+      i: 0.2
+      d: 0.05
+      i_clamp: 0.2
     rh_MFJ1:
-      p: 1
-      i: 0
-      d: 0.04
+      p: 0.5
+      i: 0.1
+      d: 0.005
+      i_clamp: 0.05
     rh_MFJ2:
-      p: 1
-      i: 0
-      d: 0.04
+      p: 0.5
+      i: 0.1
+      d: 0.005
+      i_clamp: 0.05
     rh_MFJ3:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1.0
+      i: 0.2
+      d: 0.05
+      i_clamp: 0.2
     rh_MFJ4:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1.0
+      i: 0.2
+      d: 0.05
+      i_clamp: 0.2
     rh_RFJ1:
-      p: 1
-      i: 0
-      d: 0.04
+      p: 0.5
+      i: 0.1
+      d: 0.005
+      i_clamp: 0.05
     rh_RFJ2:
-      p: 1
-      i: 0
-      d: 0.04
+      p: 0.5
+      i: 0.1
+      d: 0.005
+      i_clamp: 0.05
     rh_RFJ3:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1.0
+      i: 0.2
+      d: 0.05
+      i_clamp: 0.2
     rh_RFJ4:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1.0
+      i: 0.2
+      d: 0.05
+      i_clamp: 0.2
     rh_THJ1:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1.0
+      i: 0.2
+      d: 0.0
+      i_clamp: 0.2
     rh_THJ2:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1.5
+      i: 0.7
+      d: 0.0
+      i_clamp: 0.4
     rh_THJ3:
-      p: 500
-      i: 1000
-      d: 20
+      p: 0.5
+      i: 0.2
+      d: 0.0
+      i_clamp: 0.2
     rh_THJ4:
-      p: 500
-      i: 1000
-      d: 20
+      p: 1.0
+      i: 0.4
+      d: 0.0
+      i_clamp: 0.3
     rh_THJ5:
-      p: 500
-      i: 1000
-      d: 20
+      p: 0.4
+      i: 0.1
+      d: 0.05
+      i_clamp: 0.4
     rh_WRJ1:
-      p: 500
-      i: 1000
-      d: 20
+      p: 10.0
+      i: 1.5
+      d: 1.0
+      i_clamp: 0.8
     rh_WRJ2:
-      p: 500
-      i: 1000
-      d: 20
+      p: 8.0
+      i: 1.5
+      d: 0.2
+      i_clamp: 0.5

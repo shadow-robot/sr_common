@@ -120,7 +120,7 @@
     <child link="rh_wrist"/>
     <origin rpy="0 0 0" xyz="0 -0.010 0.213"/>
     <axis xyz="0 1.0 0"/>
-    <limit effort="10" lower="-0.523598775598" upper="0.174532925199" velocity="2.0"/>
+    <limit effort="10.0" lower="-0.523598775598" upper="0.174532925199" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_WRJ2">
@@ -214,7 +214,7 @@
     <child link="rh_palm"/>
     <origin rpy="0 0 0" xyz="0 0 0.034"/>
     <axis xyz="1 0 0"/>
-    <limit effort="30" lower="-0.698131700798" upper="0.488692190558" velocity="2.0"/>
+    <limit effort="5.0" lower="-0.698131700798" upper="0.488692190558" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_WRJ1">
@@ -283,7 +283,7 @@
     <!--<origin xyz="0.033 0 0.095" rpy="0 0 0" />-->
     <origin rpy="0 0 0" xyz="0.033 0 0.095"/>
     <axis xyz="0 -1.0 0"/>
-    <limit effort="2" lower="-0.349065850399" upper="0.349065850399" velocity="2.0"/>
+    <limit effort="1.0" lower="-0.349065850399" upper="0.349065850399" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_FFJ4">
@@ -342,7 +342,7 @@
     <child link="rh_ffproximal"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="1 0 0"/>
-    <limit effort="2" lower="0" upper="1.57079632679" velocity="2.0"/>
+    <limit effort="1.0" lower="0" upper="1.57079632679" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_FFJ3">
@@ -413,7 +413,7 @@
     <child link="rh_ffmiddle"/>
     <origin rpy="0 0 0" xyz="0 0 0.045"/>
     <axis xyz="1 0 0"/>
-    <limit effort="2" lower="0" upper="1.57079632679" velocity="2.0"/>
+    <limit effort="1.0" lower="0" upper="1.57079632679" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_FFJ2">
@@ -478,7 +478,7 @@
     <origin rpy="0 0 0" xyz="0 0 0.025"/>
     <axis xyz="1 0 0"/>
     <!-- standard distal joint -->
-    <limit effort="2" lower="0" upper="1.57079632679" velocity="2.0"/>
+    <limit effort="1.0" lower="0" upper="1.57079632679" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_FFJ1">
@@ -553,7 +553,7 @@
     <!--<origin xyz="0.033 0 0.095" rpy="0 0 0" />-->
     <origin rpy="0 0 0" xyz="0.011 0 0.099"/>
     <axis xyz="0 -1.0 0"/>
-    <limit effort="2" lower="-0.349065850399" upper="0.349065850399" velocity="2.0"/>
+    <limit effort="1.0" lower="-0.349065850399" upper="0.349065850399" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_MFJ4">
@@ -612,7 +612,7 @@
     <child link="rh_mfproximal"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="1 0 0"/>
-    <limit effort="2" lower="0" upper="1.57079632679" velocity="2.0"/>
+    <limit effort="1.0" lower="0" upper="1.57079632679" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_MFJ3">
@@ -683,7 +683,7 @@
     <child link="rh_mfmiddle"/>
     <origin rpy="0 0 0" xyz="0 0 0.045"/>
     <axis xyz="1 0 0"/>
-    <limit effort="2" lower="0" upper="1.57079632679" velocity="2.0"/>
+    <limit effort="1.0" lower="0" upper="1.57079632679" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_MFJ2">
@@ -745,7 +745,7 @@
     <origin rpy="0 0 0" xyz="0 0 0.025"/>
     <axis xyz="1 0 0"/>
     <!-- standard distal joint -->
-    <limit effort="2" lower="0" upper="1.57079632679" velocity="2.0"/>
+    <limit effort="1.0" lower="0" upper="1.57079632679" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_MFJ1">
@@ -820,7 +820,7 @@
     <!--<origin xyz="0.033 0 0.095" rpy="0 0 0" />-->
     <origin rpy="0 0 0" xyz="-0.011 0 0.095"/>
     <axis xyz="0 1.0 0"/>
-    <limit effort="2" lower="-0.349065850399" upper="0.349065850399" velocity="2.0"/>
+    <limit effort="1.0" lower="-0.349065850399" upper="0.349065850399" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_RFJ4">
@@ -879,7 +879,7 @@
     <child link="rh_rfproximal"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="1 0 0"/>
-    <limit effort="2" lower="0" upper="1.57079632679" velocity="2.0"/>
+    <limit effort="1.0" lower="0" upper="1.57079632679" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_RFJ3">
@@ -950,7 +950,7 @@
     <child link="rh_rfmiddle"/>
     <origin rpy="0 0 0" xyz="0 0 0.045"/>
     <axis xyz="1 0 0"/>
-    <limit effort="2" lower="0" upper="1.57079632679" velocity="2.0"/>
+    <limit effort="1.0" lower="0" upper="1.57079632679" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_RFJ2">
@@ -1013,7 +1013,7 @@
     <origin rpy="0 0 0" xyz="0 0 0.025"/>
     <axis xyz="1 0 0"/>
     <!-- standard distal joint -->
-    <limit effort="2" lower="0" upper="1.57079632679" velocity="2.0"/>
+    <limit effort="1.0" lower="0" upper="1.57079632679" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_RFJ1">
@@ -1087,7 +1087,7 @@
     <child link="rh_lfmetacarpal"/>
     <origin rpy="0 0 0" xyz="-0.033 0 0.02071"/>
     <axis xyz="0.573576436 0 0.819152044"/>
-    <limit effort="2" lower="0" upper="0.785398163397" velocity="2.0"/>
+    <limit effort="1.0" lower="0" upper="0.785398163397" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_LFJ5">
@@ -1147,7 +1147,7 @@
     <!--<origin xyz="0.033 0 0.095" rpy="0 0 0" />-->
     <origin rpy="0 0 0" xyz="0 0 0.06579"/>
     <axis xyz="0 1.0 0"/>
-    <limit effort="2" lower="-0.349065850399" upper="0.349065850399" velocity="2.0"/>
+    <limit effort="1.0" lower="-0.349065850399" upper="0.349065850399" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_LFJ4">
@@ -1206,7 +1206,7 @@
     <child link="rh_lfproximal"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="1 0 0"/>
-    <limit effort="2" lower="0" upper="1.57079632679" velocity="2.0"/>
+    <limit effort="1.0" lower="0" upper="1.57079632679" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_LFJ3">
@@ -1277,7 +1277,7 @@
     <child link="rh_lfmiddle"/>
     <origin rpy="0 0 0" xyz="0 0 0.045"/>
     <axis xyz="1 0 0"/>
-    <limit effort="2" lower="0" upper="1.57079632679" velocity="2.0"/>
+    <limit effort="1.0" lower="0" upper="1.57079632679" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_LFJ2">
@@ -1340,7 +1340,7 @@
     <origin rpy="0 0 0" xyz="0 0 0.025"/>
     <axis xyz="1 0 0"/>
     <!-- standard distal joint -->
-    <limit effort="2" lower="0" upper="1.57079632679" velocity="2.0"/>
+    <limit effort="1.0" lower="0" upper="1.57079632679" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_LFJ1">
@@ -1416,7 +1416,7 @@
     <child link="rh_thbase"/>
     <origin rpy="0 0.785398163397 0.0" xyz="0.034 -0.0085 0.029"/>
     <axis xyz="0 0 -1.0"/>
-    <limit effort="5.0" lower="-1.0471975512" upper="1.0471975512" velocity="4.0"/>
+    <limit effort="3.0" lower="-1.0471975512" upper="1.0471975512" velocity="4.0"/>
     <dynamics damping="0.2"/>
   </joint>
   <gazebo reference="rh_THJ5">
@@ -1477,7 +1477,7 @@
     <child link="rh_thproximal"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="1.0 0 0"/>
-    <limit effort="3" lower="0.0" upper="1.2217304764" velocity="4.0"/>
+    <limit effort="2.0" lower="0.0" upper="1.2217304764" velocity="4.0"/>
     <dynamics damping="0.2"/>
   </joint>
   <gazebo reference="rh_THJ4">
@@ -1538,7 +1538,7 @@
     <child link="rh_thhub"/>
     <origin rpy="0 0 0" xyz="0 0 0.038"/>
     <axis xyz="1 0 0"/>
-    <limit effort="2.0" lower="-0.209439510239" upper="0.209439510239" velocity="4.0"/>
+    <limit effort="1.0" lower="-0.209439510239" upper="0.209439510239" velocity="4.0"/>
     <dynamics damping="0.2"/>
   </joint>
   <gazebo reference="rh_THJ3">
@@ -1605,7 +1605,7 @@
     <child link="rh_thmiddle"/>
     <origin rpy="0 0 0" xyz="0 0 0"/>
     <axis xyz="0 -1 0"/>
-    <limit effort="2.0" lower="-0.698131700798" upper="0.698131700798" velocity="2.0"/>
+    <limit effort="1.0" lower="-0.698131700798" upper="0.698131700798" velocity="2.0"/>
     <dynamics damping="0.1"/>
   </joint>
   <gazebo reference="rh_THJ2">

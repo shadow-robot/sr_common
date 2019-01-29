@@ -1,6 +1,6 @@
 <mujoco>
     <default class="main">
-        <joint damping="1.0" armature="0.005" margin="0.01" frictionloss="0.1"/>
+        <joint damping="1.0" armature="0.005" margin="0.01" frictionloss="0.01"/>
     </default>
     <tendon>
         <fixed name="rh_FFJ0">
