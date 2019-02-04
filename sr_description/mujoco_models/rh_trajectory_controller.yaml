@@ -60,118 +60,142 @@ rh_trajectory_controller:
       i: 0.1
       d: 0.005
       i_clamp: 0.05
+      antiwindup: true
     rh_FFJ2:
       p: 0.5
       i: 0.1
       d: 0.005
       i_clamp: 0.05
+      antiwindup: true
     rh_FFJ3:
       p: 1.0
       i: 0.2
       d: 0.05
       i_clamp: 0.2
+      antiwindup: true
     rh_FFJ4:
       p: 1.0
       i: 0.2
       d: 0.05
       i_clamp: 0.2
+      antiwindup: true
     rh_LFJ1:
       p: 0.5
       i: 0.1
       d: 0.005
       i_clamp: 0.05
+      antiwindup: true
     rh_LFJ2:
       p: 0.5
       i: 0.1
       d: 0.005
       i_clamp: 0.05
+      antiwindup: true
     rh_LFJ3:
       p: 1.0
       i: 0.2
       d: 0.05
       i_clamp: 0.2
+      antiwindup: true
     rh_LFJ4:
       p: 1.0
       i: 0.2
       d: 0.05
       i_clamp: 0.2
+      antiwindup: true
     rh_LFJ5:
       p: 1.0
       i: 0.2
       d: 0.05
       i_clamp: 0.2
+      antiwindup: true
     rh_MFJ1:
       p: 0.5
       i: 0.1
       d: 0.005
       i_clamp: 0.05
+      antiwindup: true
     rh_MFJ2:
       p: 0.5
       i: 0.1
       d: 0.005
       i_clamp: 0.05
+      antiwindup: true
     rh_MFJ3:
       p: 1.0
       i: 0.2
       d: 0.05
       i_clamp: 0.2
+      antiwindup: true
     rh_MFJ4:
       p: 1.0
       i: 0.2
       d: 0.05
       i_clamp: 0.2
+      antiwindup: true
     rh_RFJ1:
       p: 0.5
       i: 0.1
       d: 0.005
       i_clamp: 0.05
+      antiwindup: true
     rh_RFJ2:
       p: 0.5
       i: 0.1
       d: 0.005
       i_clamp: 0.05
+      antiwindup: true
     rh_RFJ3:
       p: 1.0
       i: 0.2
       d: 0.05
       i_clamp: 0.2
+      antiwindup: true
     rh_RFJ4:
       p: 1.0
       i: 0.2
       d: 0.05
       i_clamp: 0.2
+      antiwindup: true
     rh_THJ1:
       p: 1.0
       i: 0.2
       d: 0.0
       i_clamp: 0.2
+      antiwindup: true
     rh_THJ2:
       p: 1.5
       i: 0.7
       d: 0.0
       i_clamp: 0.4
+      antiwindup: true
     rh_THJ3:
       p: 0.5
       i: 0.2
       d: 0.0
       i_clamp: 0.2
+      antiwindup: true
     rh_THJ4:
       p: 1.0
       i: 0.4
       d: 0.0
       i_clamp: 0.3
+      antiwindup: true
     rh_THJ5:
       p: 0.4
       i: 0.1
       d: 0.05
       i_clamp: 0.4
+      antiwindup: true
     rh_WRJ1:
       p: 10.0
       i: 1.5
       d: 1.0
       i_clamp: 0.8
+      antiwindup: true
     rh_WRJ2:
       p: 8.0
       i: 1.5
       d: 0.2
       i_clamp: 0.5
+      antiwindup: true
