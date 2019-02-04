@@ -4,11 +4,11 @@
         <geom type="mesh" material="plastic" mesh="forearm" />
         <body name="rh_wrist" pos="0 -0.01 0.213">
             <inertial pos="0 0 0.029" quat="0.5 0.5 0.5 0.5" mass="0.1" diaginertia="6.4e-05 4.38e-05 3.5e-05" />
-            <joint name="rh_WRJ2" pos="0 0 0" axis="0 1 0" limited="true" range="-0.523599 0.174533"/>
+            <joint name="rh_WRJ2" pos="0 0 0" axis="0 1 0" limited="true" range="-0.523599 0.174533" damping="1.0"/>
             <geom type="mesh" material="metal" mesh="wrist" />
             <body name="rh_palm" pos="0 0 0.034">
                 <inertial pos="0 0 0.035" quat="0.707107 0 0 0.707107" mass="0.3" diaginertia="0.0005287 0.0003581 0.000191" />
-                <joint name="rh_WRJ1" pos="0 0 0" axis="1 0 0" limited="true" range="-0.698132 0.488692"/>
+                <joint name="rh_WRJ1" pos="0 0 0" axis="1 0 0" limited="true" range="-0.698132 0.488692" damping="1.0"/>
                 <include file="meshes/arm_and_hand_meshes/decomposed/palm/palm_geom.xml" />
                 <body name="rh_manipulator" pos="0 0 0.05">
                     <inertial pos="0 0 0.05" mass="0" diaginertia="0 0 0" />
