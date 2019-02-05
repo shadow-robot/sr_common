@@ -13,7 +13,7 @@ The simulation correctly models the under-actuation of J1 and J2 of the first, m
 * [shared_assets.xml](shared_assets.xml)
     * Contains assets (e.g. mesh and material definitions) likely to be common to dexterous hand models (Hand E, G etc.).
 * [shared_options.xml](shared_options.xml)
-    * Contains simulation options likely to be common to dexterous hand models (Hand E, G etc.). Seperate to shared_assets.xml due to Mujoco inclusion syntax (see sr_hand_e_environment.xml).
+    * Contains simulation options likely to be common to dexterous hand models (Hand E, G etc.). Seperate from shared_assets.xml due to Mujoco inclusion syntax (see sr_hand_e_environment.xml).
 * [sr_hand_e_options.xml](sr_hand_e_options.xml)
     * Contains simulation options specific to Hand E (actuator definitions, collision exemptions etc.).
 * [sr_hand_e_model.xml](sr_hand_e_model.xml)
