@@ -1,5 +1,7 @@
 # This is a python script, written for blender for batch conversion of dexterous hand collada (.dae) mesh files to .stl
 # format, for use in the Mujoco simulator.
+# Copyright (C) 2019 Shadow Robot Company Ltd - All Rights Reserved.
+# Proprietary and Confidential. Unauthorized copying of the content in this file, via any medium is strictly prohibited.
 
 import bpy
 import os
