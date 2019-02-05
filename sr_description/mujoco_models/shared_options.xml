@@ -1,20 +1,10 @@
 <mujoco>
     <compiler angle="radian" inertiafromgeom="true" coordinate="local" meshdir=""></compiler>
-
     <visual>
-        <map fogstart="3" fogend="5" force="0.1" znear="0.5"/>
+        <map fogstart="3" fogend="5" force="0.1" znear="0.1"/>
         <quality shadowsize="2048" offsamples="8"/>
         <global offwidth="800" offheight="800"/>
     </visual>
-
     <option cone="elliptic" impratio="300" timestep="0.002"/>
     <size njmax="500" nconmax="200" />
-    <default class="main">
-    </default>
-    <equality>
-        <joint joint1="rh_FFJ1" joint2="rh_FFJ2"/>
-        <joint joint1="rh_MFJ1" joint2="rh_MFJ2"/>
-        <joint joint1="rh_RFJ1" joint2="rh_RFJ2"/>
-        <joint joint1="rh_LFJ1" joint2="rh_LFJ2"/>
-    </equality>
 </mujoco>
