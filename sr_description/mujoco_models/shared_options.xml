@@ -7,4 +7,13 @@
     </visual>
     <option cone="elliptic" impratio="300" timestep="0.002"/>
     <size njmax="500" nconmax="200" />
+    <default class="main">
+        <mesh scale="0.001 0.001 0.001"/>
+        <default class="collision">
+            <geom group="3"/>
+        </default>
+        <default class="visual">
+            <geom contype="0" conaffinity="0" group="0"/>
+        </default>
+    </default>
 </mujoco>

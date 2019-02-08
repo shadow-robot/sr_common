@@ -1,7 +1,7 @@
-<mujoco model="shadowhand_motor">
+<mujoco model="shadowhand_motor_plus">
     <body name="rh_forearm" pos="0 0 0">
         <inertial pos="0 0 0.09" mass="3" diaginertia="0.0138 0.0138 0.00744" />
-        <include file="meshes/arm_and_hand_meshes/forearm.xml" />
+        <include file="meshes/arm_and_hand_meshes/forearm_plus.xml" />
         <body name="rh_wrist" pos="0 -0.01 0.213">
             <inertial pos="0 0 0.029" quat="0.5 0.5 0.5 0.5" mass="0.1" diaginertia="6.4e-05 4.38e-05 3.5e-05" />
             <joint name="rh_WRJ2" pos="0 0 0" axis="0 1 0" limited="true" range="-0.523599 0.174533" damping="1.0"/>
