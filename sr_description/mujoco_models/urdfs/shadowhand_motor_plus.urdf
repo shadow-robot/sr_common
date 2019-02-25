@@ -46,14 +46,14 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_forearm_visual">
-        <mesh filename="package://sr_description/hand/model/forearm.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/hand/model/forearm_visual_plus.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="Grey"/>
     </visual>
     <collision>
       <origin rpy="0 0 0" xyz="0 0 0.092"/>
       <geometry name="rh_forearm_collision">
-        <cylinder length="0.184" radius="0.07"/>
+        <mesh filename="package://sr_description/hand/model/forearm_collision_plus.stl" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
     <!-- wrist mount -->
