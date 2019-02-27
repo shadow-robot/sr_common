@@ -39,13 +39,13 @@
         </xacro:unless>
       </collision>
       <visual>
-        <origin rpy="0 1.57 -1.52" xyz="0.0 -0.012 0.01"/>
+        <origin rpy="0 1.57 -1.52" xyz="0.0 0.061 0.0"/>
         <geometry name="${prefix}cable_extr_collision">
           <mesh filename="package://sr_description/hand/model/cable_collistion_mesh.stl" scale="1 1 1" />
         </geometry>
       </visual>
       <collision>
-        <origin rpy="0 1.57 -1.52" xyz="0.0 -0.012 0.01"/>
+        <origin rpy="0 1.57 -1.52" xyz="0.0 0.061 0.0"/>
         <geometry name="${prefix}cable_extr_visualisation">
           <mesh filename="package://sr_description/hand/model/cable_collistion_mesh.stl" scale="1 1 1" />
         </geometry>
