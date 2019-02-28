@@ -12,7 +12,7 @@
       <color rgba="0.90000 0.90000 0.90000 1.0" />
     </material>
   </xacro:macro>
-  <xacro:macro name="forearm" params="muscle hand_type:='hand_e' prefix">
+  <xacro:macro name="forearm" params="muscle hand_type:='hand_e' prefix cable_collision:='false'">
     <link name="${prefix}forearm">
       <inertial>
         <origin xyz="0 0 0.09" rpy="0 0 0" />
@@ -89,18 +89,20 @@
           </geometry>
         </xacro:unless>
       </collision>
-      <visual>
-        <origin rpy="0 -1.57 -1.57" xyz="0.0 0.067 0.0045"/>
-        <geometry name="${prefix}cable_extr_collision">
-          <mesh filename="package://sr_description/hand/model/cable_collision_mesh.stl" scale="1 1 1" />
-        </geometry>
-      </visual>
-      <collision>
-        <origin rpy="0 -1.57 -1.57" xyz="0.0 0.067 0.0045"/>
-        <geometry name="${prefix}cable_extr_visualisation">
-          <mesh filename="package://sr_description/hand/model/cable_collision_mesh.stl" scale="1 1 1" />
-        </geometry>
-      </collision>
+      <xacro:if value="${cable_collision}">
+        <visual>
+          <origin rpy="0 -1.57 -1.57" xyz="0.0 0.067 0.0045"/>
+          <geometry name="${prefix}cable_extr_collision">
+            <mesh filename="package://sr_description/hand/model/cable_collision_mesh.stl" scale="1 1 1" />
+          </geometry>
+        </visual>
+        <collision>
+          <origin rpy="0 -1.57 -1.57" xyz="0.0 0.067 0.0045"/>
+          <geometry name="${prefix}cable_extr_visualisation">
+            <mesh filename="package://sr_description/hand/model/cable_collision_mesh.stl" scale="1 1 1" />
+          </geometry>
+        </collision>
+      </xacro:if>
     </link>
     <gazebo reference="${prefix}forearm">
       <selfCollide>false</selfCollide>

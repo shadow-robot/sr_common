@@ -1,7 +1,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- muscle is true for muscle hand or false for motor hand -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
-  <xacro:macro name="forearm" params="muscle prefix">
+  <xacro:macro name="forearm" params="muscle prefix cable_collision:='false'">
     <link name="${prefix}forearm">
       <inertial>
         <origin xyz="0 0 0.09" rpy="0 0 0" />
@@ -38,18 +38,20 @@
           </geometry>
         </xacro:unless>
       </collision>
-      <visual>
-        <origin rpy="0 -1.57 -1.57" xyz="0.0 0.055 0.0"/>
-        <geometry name="${prefix}cable_extr_collision">
-          <mesh filename="package://sr_description/hand/model/cable_collision_mesh.stl" scale="1 1 1" />
-        </geometry>
-      </visual>
-      <collision>
-        <origin rpy="0 -1.57 -1.57" xyz="0.0 0.055 0.0"/>
-        <geometry name="${prefix}cable_extr_visualisation">
-          <mesh filename="package://sr_description/hand/model/cable_collision_mesh.stl" scale="1 1 1" />
-        </geometry>
-      </collision>
+      <xacro:if value="${cable_collision}">
+        <visual>
+          <origin rpy="0 -1.57 -1.57" xyz="0.0 0.055 0.0"/>
+          <geometry name="${prefix}cable_extr_collision">
+            <mesh filename="package://sr_description/hand/model/cable_collision_mesh.stl" scale="1 1 1" />
+          </geometry>
+        </visual>
+        <collision>
+          <origin rpy="0 -1.57 -1.57" xyz="0.0 0.055 0.0"/>
+          <geometry name="${prefix}cable_extr_visualisation">
+            <mesh filename="package://sr_description/hand/model/cable_collision_mesh.stl" scale="1 1 1" />
+          </geometry>
+        </collision>
+      </xacro:if>
     </link>
   </xacro:macro>
 </robot>
