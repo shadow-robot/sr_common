@@ -1,7 +1,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- muscle is true for muscle hand or false for motor hand -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
-  <xacro:macro name="forearm" params="muscle prefix cable_collision:='false'">
+  <xacro:macro name="forearm" params="muscle prefix cable_mesh:='false'">
     <link name="${prefix}forearm">
       <inertial>
         <origin xyz="0 0 0.09" rpy="0 0 0" />
@@ -38,7 +38,7 @@
           </geometry>
         </xacro:unless>
       </collision>
-      <xacro:if value="${cable_collision}">
+      <xacro:if value="${cable_mesh}">
         <visual>
           <origin rpy="0 -1.57 -1.57" xyz="0.0 0.055 0.0"/>
           <geometry name="${prefix}cable_extr_collision">

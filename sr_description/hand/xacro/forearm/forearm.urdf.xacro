@@ -12,7 +12,7 @@
       <color rgba="0.90000 0.90000 0.90000 1.0" />
     </material>
   </xacro:macro>
-  <xacro:macro name="forearm" params="muscle hand_type:='hand_e' prefix cable_collision:='false'">
+  <xacro:macro name="forearm" params="muscle hand_type:='hand_e' prefix cable_mesh:='false'">
     <link name="${prefix}forearm">
       <inertial>
         <origin xyz="0 0 0.09" rpy="0 0 0" />
@@ -89,7 +89,7 @@
           </geometry>
         </xacro:unless>
       </collision>
-      <xacro:if value="${cable_collision}">
+      <xacro:if value="${cable_mesh}">
         <visual>
           <origin rpy="0 -1.57 -1.57" xyz="0.0 0.067 0.0045"/>
           <geometry name="${prefix}cable_extr_collision">
