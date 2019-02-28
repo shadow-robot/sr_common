@@ -17,9 +17,9 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <xacro:macro name="shadowhand"
-  params="muscletrans muscle bio bt_sp ubi eli reflect prefix extra_lite">
+  params="muscletrans muscle bio bt_sp ubi eli reflect prefix extra_lite  cable_collision:='false'">
     <!-- Forearm -->
-    <xacro:forearm muscle="${muscle}" prefix="${prefix}" />
+    <xacro:forearm muscle="${muscle}" prefix="${prefix}" cable_collision="${cable_collision}"/>
     <!-- Wrist -->
     <!-- Completely fixed on the lite hand. Bent back at 40 degrees -->
     <joint name="${prefix}WRJ1" type="fixed">
