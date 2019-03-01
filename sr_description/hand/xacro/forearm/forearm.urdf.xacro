@@ -92,13 +92,13 @@
       <xacro:if value="${cable_mesh}">
         <visual>
           <origin rpy="0 -1.57 -1.57" xyz="0.0 0.067 0.0045"/>
-          <geometry name="${prefix}cable_extr_collision">
+          <geometry name="${prefix}cable_extr_visualisation">
             <mesh filename="package://sr_description/hand/model/cable_collision_mesh.stl" scale="1 1 1" />
           </geometry>
         </visual>
         <collision>
           <origin rpy="0 -1.57 -1.57" xyz="0.0 0.067 0.0045"/>
-          <geometry name="${prefix}cable_extr_visualisation">
+          <geometry name="${prefix}cable_extr_collision">
             <mesh filename="package://sr_description/hand/model/cable_collision_mesh.stl" scale="1 1 1" />
           </geometry>
         </collision>
