@@ -49,7 +49,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
           iyy="0.0000011" iyz="0.0" izz="0.0000005" />
         </inertial>
         <visual>
-          <origin xyz="0 0 0" rpy="0 0 0" />
+          <origin xyz="0 0 0.0022" rpy="0 0 0" />
           <geometry name="${prefix}th_distal_visual">
             <!-- <mesh filename="package://sr_description/hand/model/biotacs/biotac.stl" scale="0.0254 0.0254 0.0254" /> -->
             <mesh filename="package://sr_description/hand/model/biotacs/biotac_decimated.dae"
@@ -210,7 +210,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <joint name="${prefix}thtip" type="fixed">
         <parent link="${prefix}thdistal" />
         <child link="${prefix}thtip" />
-        <origin xyz="0 0 0.0275" rpy="0 0 0" />
+        <origin xyz="0 0 0.0350" rpy="0 0 0" />
       </joint>
       <xacro:thdistal_gazebo prefix="${prefix}" />
     </xacro:unless>

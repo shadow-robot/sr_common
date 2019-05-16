@@ -494,7 +494,7 @@
   <joint name="rh_FFtip" type="fixed">
     <parent link="rh_ffdistal"/>
     <child link="rh_fftip"/>
-    <origin rpy="0 0 0" xyz="0 0 0.026"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0295"/>
   </joint>
   <transmission name="rh_ffdistal_transmission">
     <type>sr_mechanism_model/SimpleTransmission</type>
@@ -761,7 +761,7 @@
   <joint name="rh_MFtip" type="fixed">
     <parent link="rh_mfdistal"/>
     <child link="rh_mftip"/>
-    <origin rpy="0 0 0" xyz="0 0 0.026"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0295"/>
   </joint>
   <transmission name="rh_mfdistal_transmission">
     <type>sr_mechanism_model/SimpleTransmission</type>
@@ -1029,7 +1029,7 @@
   <joint name="rh_RFtip" type="fixed">
     <parent link="rh_rfdistal"/>
     <child link="rh_rftip"/>
-    <origin rpy="0 0 0" xyz="0 0 0.026"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0295"/>
   </joint>
   <transmission name="rh_rfdistal_transmission">
     <type>sr_mechanism_model/SimpleTransmission</type>
@@ -1356,7 +1356,7 @@
   <joint name="rh_LFtip" type="fixed">
     <parent link="rh_lfdistal"/>
     <child link="rh_lftip"/>
-    <origin rpy="0 0 0" xyz="0 0 0.026"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0295"/>
   </joint>
   <transmission name="rh_lfdistal_transmission">
     <type>sr_mechanism_model/SimpleTransmission</type>
@@ -1686,7 +1686,7 @@
   <joint name="rh_thtip" type="fixed">
     <parent link="rh_thdistal"/>
     <child link="rh_thtip"/>
-    <origin rpy="0 0 0" xyz="0 0 0.0275"/>
+    <origin rpy="0 0 0" xyz="0 0 0.0350"/>
   </joint>
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <gazebo reference="rh_thdistal">
