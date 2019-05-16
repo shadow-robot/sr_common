@@ -18,10 +18,10 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- lf is true if we want a little finger, false otherwise -->
   <xacro:macro name="shadowhand"
-  params="muscletrans muscle hand_type:='hand_e' bio bt_sp ubi eli reflect prefix lf">
+  params="muscletrans muscle hand_type:='hand_e' bio bt_sp ubi eli reflect prefix lf cable_mesh:='false'">
     <!--xacro:property name="hand_type" value="hand_e"/-->
     <!-- Forearm -->
-    <xacro:forearm muscle="${muscle}" hand_type="${hand_type}" prefix="${prefix}" />
+    <xacro:forearm muscle="${muscle}" hand_type="${hand_type}" prefix="${prefix}" cable_mesh="${cable_mesh}"/>
     <!-- Wrist -->
     <xacro:if value="${muscle}">
       <xacro:wrist muscletrans="${muscletrans}" prefix="${prefix}"
