@@ -1,4 +1,4 @@
-sh_rh_ffj0_variable_variable_position_controller:
+sh_rh_ffj0_variable_position_controller:
   joint: rh_FFJ0
   pid:
     d: 0.005
