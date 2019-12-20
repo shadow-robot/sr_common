@@ -1,6 +1,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- muscle is true for muscle hand or false for motor hand -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- cable_mesh is set to true when cable collision should be taken into account -->
   <xacro:macro name="forearm" params="muscle prefix cable_mesh:='false'">
     <link name="${prefix}forearm">
       <inertial>
