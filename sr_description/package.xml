@@ -7,8 +7,8 @@
   <license>GPL</license>
 
   <url type="website">http://ros.org/wiki/sr_description</url>
-  <url type="repository">https://github.com/shadow-robot/sr-ros-interface</url>
-  <url type="bugtracker">https://github.com/shadow-robot/sr-ros-interface/issues</url>
+  <url type="repository">https://github.com/shadow-robot/sr_common</url>
+  <url type="bugtracker">https://github.com/shadow-robot/sr_common/issues</url>
 
   <author>Ugo Cupcic</author>
 
