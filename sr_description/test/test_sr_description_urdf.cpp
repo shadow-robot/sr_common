@@ -116,10 +116,6 @@ int walker(char *result, int *test_result)
                            package_path+"/robots/"+dir_name+" > `rospack find sr_description`/test/tmp.urdf");
         // check urdf structure
         *test_result = *test_result || runExternalProcess("check_urdf", "`rospack find sr_description`/test/tmp.urdf");
-        printf("\n looking for unexpanded xacro tags\n");
-        // check for unexpanded xacros
-        *test_result = *test_result ||
-                       !runExternalProcess("grep", "'<xacro:' `rospack find sr_description`/test/tmp.urdf");
       }
       if (*test_result != 0)
         return *result == 0;
