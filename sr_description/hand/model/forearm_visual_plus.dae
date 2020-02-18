@@ -122,7 +122,7 @@
             <shininess>
               <float sid="shininess">32</float>
             </shininess>
-            <transparent opaque="A_ONE">
+            <transparent opaque="RGB_ZERO">
               <color>1 1 1 0</color>
             </transparent>
             <index_of_refraction>
@@ -151,7 +151,7 @@
             <shininess>
               <float sid="shininess">32</float>
             </shininess>
-            <transparent opaque="A_ONE">
+            <transparent opaque="RGB_ZERO">
               <color>1 1 1 0</color>
             </transparent>
             <index_of_refraction>
@@ -180,7 +180,7 @@
             <shininess>
               <float sid="shininess">32</float>
             </shininess>
-            <transparent opaque="A_ONE">
+            <transparent opaque="RGB_ZERO">
               <color>1 1 1 0</color>
             </transparent>
             <index_of_refraction>
