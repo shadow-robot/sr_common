@@ -4,7 +4,7 @@ name="bimanual_shadowhand_motor">
   <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
   <link name="world" />
-  <xacro:arg name="arm_x_separation" default="1.5"/>
+  <xacro:arg name="arm_x_separation" default="-0.4"/>
 
   <joint name="world_joint" type="fixed">
     <parent link="world" />
