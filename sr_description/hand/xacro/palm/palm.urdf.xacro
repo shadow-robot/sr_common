@@ -108,7 +108,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     <!--imu-->
-    <xacro:imu prefix="${prefix}"/>
+    <xacro:imu_sensor prefix="${prefix}"/>
     <!-- extensions -->
     <xacro:shadowhand_palm_transmission muscletrans="${muscletrans}"
     prefix="${prefix}" />

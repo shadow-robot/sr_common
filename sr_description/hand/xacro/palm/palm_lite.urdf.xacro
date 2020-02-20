@@ -88,7 +88,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
     <link name="${prefix}manipulator" />
     <!-- No wrist joints in a Lite palm -->
     <!-- extensions -->
-    <xacro:imu prefix="${prefix}" />
+    <xacro:imu_sensor prefix="${prefix}" />
     <xacro:shadowhand_palm_gazebo prefix="${prefix}" />
   </xacro:macro>
 </robot>
