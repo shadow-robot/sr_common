@@ -19,5 +19,5 @@ name="bimanual_shadowhand_motor">
     <origin xyz="$(arg arm_x_separation) 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
   <xacro:shadowhand muscletrans="false" muscle="false" bio="false" bt_sp="false"
-                    ubi="false" eli="false" reflect="-1.0" prefix="rh_" extra_lite="false" />
+                    ubi="false" eli="false" reflect="-1.0" prefix="lh_" extra_lite="false" />
 </robot>
