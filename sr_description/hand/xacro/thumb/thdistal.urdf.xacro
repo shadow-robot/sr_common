@@ -192,7 +192,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <child link="${prefix}thdistal" />
         <origin xyz="0 0 0.032" rpy="0 0 ${-M_PI/2}" />
         <axis xyz="1 0 0" />
-        <limit lower="-0.2618" upper="${90.0*M_PI/180}" effort="1.0"
+        <limit lower="-"${15.0*M_PI/180}"" upper="${90.0*M_PI/180}" effort="1.0"
         velocity="4.0" />
         <dynamics damping="0.2" />
       </joint>
