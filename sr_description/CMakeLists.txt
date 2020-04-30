@@ -10,9 +10,11 @@ catkin_package(
     LIBRARIES
 )
 
-catkin_add_gtest(test_sr_description_urdf test/test_sr_description_urdf.cpp)
-add_dependencies(test_sr_description_urdf ${catkin_EXPORTED_TARGETS})
-target_link_libraries(test_sr_description_urdf ${Boost_LIBRARIES} ${catkin_LIBRARIES} ${GTEST_LIBRARIES} pthread)
+if (CATKIN_ENABLE_TESTING)
+  catkin_add_gtest(test_sr_description_urdf test/test_sr_description_urdf.cpp)
+  add_dependencies(test_sr_description_urdf ${catkin_EXPORTED_TARGETS})
+  target_link_libraries(test_sr_description_urdf ${Boost_LIBRARIES} ${catkin_LIBRARIES} ${GTEST_LIBRARIES} pthread)
+endif()
 
 install(DIRECTORY arm/
    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/arm)
