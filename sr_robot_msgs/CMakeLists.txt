@@ -47,6 +47,7 @@ add_message_files(
   UBI0.msg
   ShadowContactStateStamped.msg
   AppliedWrenches.msg
+  HybridControllerStatus.msg
 )
 
 add_service_files(
