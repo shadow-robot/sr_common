@@ -163,3 +163,4 @@ sh_rh_hybrid_controller:
       
   type: sr_hybrid_controllers/SrHybridController
   joints: [rh_FFJ0, rh_FFJ3, rh_FFJ4, rh_LFJ0, rh_LFJ3, rh_LFJ4, rh_LFJ5, rh_MFJ0, rh_MFJ3, rh_MFJ4, rh_RFJ0, rh_RFJ3, rh_RFJ4, rh_THJ1, rh_THJ2, rh_THJ3, rh_THJ4, rh_THJ5, rh_WRJ1, rh_WRJ2]
+  torque_to_pwm_scaling: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
