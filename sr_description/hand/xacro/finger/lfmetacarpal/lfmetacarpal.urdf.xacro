@@ -24,7 +24,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry name="${prefix}lfmetacarpal_visual">
-          <mesh filename="package://sr_description/hand/model/lfmetacarpal.dae"
+          <mesh filename="package://sr_description/meshes/hand/lfmetacarpal.dae"
           scale="${reflect*0.001} 0.001 0.001" />
         </geometry>
         <material name="Grey" />

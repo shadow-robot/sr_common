@@ -46,7 +46,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_forearm_visual">
-        <mesh filename="package://sr_description/hand/model/forearm.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/forearm.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="Grey"/>
     </visual>
@@ -76,7 +76,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_wrist_visual">
-        <mesh filename="package://sr_description/hand/model/wrist.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/wrist.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="LightGrey"/>
     </visual>
@@ -145,7 +145,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_palm_visual">
-        <mesh filename="package://sr_description/hand/model/palm.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/palm.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="Grey"/>
     </visual>
@@ -266,7 +266,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0.0005"/>
       <geometry name="rh_ffknuckle_visual">
-        <mesh filename="package://sr_description/hand/model/knuckle.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/knuckle.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="LightGrey"/>
     </visual>
@@ -326,7 +326,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_ffproximal_visual">
-        <mesh filename="package://sr_description/hand/model/F3.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/F3.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="Grey"/>
     </visual>
@@ -385,7 +385,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_ffmiddle_visual">
-        <mesh filename="package://sr_description/hand/model/F2.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/F2.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="Grey"/>
     </visual>
@@ -460,7 +460,7 @@
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_ffdistal_visual">
         <!-- Standard distal  -->
-        <mesh filename="package://sr_description/hand/model/F1.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/F1.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="Grey"/>
     </visual>
@@ -468,7 +468,7 @@
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_ffdistal_collision_geom">
         <!-- Standard distal  -->
-        <mesh filename="package://sr_description/hand/model/F1.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/F1.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -536,7 +536,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0.0005"/>
       <geometry name="rh_mfknuckle_visual">
-        <mesh filename="package://sr_description/hand/model/knuckle.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/knuckle.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="LightGrey"/>
     </visual>
@@ -596,7 +596,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_mfproximal_visual">
-        <mesh filename="package://sr_description/hand/model/F3.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/F3.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="Grey"/>
     </visual>
@@ -655,7 +655,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_mfmiddle_visual">
-        <mesh filename="package://sr_description/hand/model/F2.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/F2.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="Grey"/>
     </visual>
@@ -727,7 +727,7 @@
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_mfdistal_visual">
         <!-- Standard distal  -->
-        <mesh filename="package://sr_description/hand/model/F1.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/F1.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="Grey"/>
     </visual>
@@ -735,7 +735,7 @@
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_mfdistal_collision_geom">
         <!-- Standard distal  -->
-        <mesh filename="package://sr_description/hand/model/F1.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/F1.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -803,7 +803,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0.0005"/>
       <geometry name="rh_rfknuckle_visual">
-        <mesh filename="package://sr_description/hand/model/knuckle.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/knuckle.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="LightGrey"/>
     </visual>
@@ -863,7 +863,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_rfproximal_visual">
-        <mesh filename="package://sr_description/hand/model/F3.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/F3.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="Grey"/>
     </visual>
@@ -922,7 +922,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_rfmiddle_visual">
-        <mesh filename="package://sr_description/hand/model/F2.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/F2.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="Grey"/>
     </visual>
@@ -995,7 +995,7 @@
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_rfdistal_visual">
         <!-- Standard distal  -->
-        <mesh filename="package://sr_description/hand/model/F1.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/F1.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="Grey"/>
     </visual>
@@ -1003,7 +1003,7 @@
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_rfdistal_collision_geom">
         <!-- Standard distal  -->
-        <mesh filename="package://sr_description/hand/model/F1.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/F1.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -1071,7 +1071,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_lfmetacarpal_visual">
-        <mesh filename="package://sr_description/hand/model/lfmetacarpal.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/lfmetacarpal.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="Grey"/>
     </visual>
@@ -1130,7 +1130,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0.0005"/>
       <geometry name="rh_lfknuckle_visual">
-        <mesh filename="package://sr_description/hand/model/knuckle.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/knuckle.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="LightGrey"/>
     </visual>
@@ -1190,7 +1190,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_lfproximal_visual">
-        <mesh filename="package://sr_description/hand/model/F3.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/F3.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="Grey"/>
     </visual>
@@ -1249,7 +1249,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_lfmiddle_visual">
-        <mesh filename="package://sr_description/hand/model/F2.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/F2.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="Grey"/>
     </visual>
@@ -1322,7 +1322,7 @@
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_lfdistal_visual">
         <!-- Standard distal  -->
-        <mesh filename="package://sr_description/hand/model/F1.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/F1.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="Grey"/>
     </visual>
@@ -1330,7 +1330,7 @@
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_lfdistal_collision_geom">
         <!-- Standard distal  -->
-        <mesh filename="package://sr_description/hand/model/F1.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/F1.dae" scale="0.001 0.001 0.001"/>
       </geometry>
     </collision>
   </link>
@@ -1459,7 +1459,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_thproximal_visual">
-        <mesh filename="package://sr_description/hand/model/TH3_z.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/TH3_z.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="shadow_thproximal_material">
         <color rgba="0.2 0.2 0.2 1.0"/>
@@ -1581,7 +1581,7 @@
     <visual>
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_thmiddle_visual">
-        <mesh filename="package://sr_description/hand/model/TH2_z.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/TH2_z.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="shadow_thmiddle_material">
         <color rgba="0.2 0.2 0.2 1.0"/>
@@ -1650,7 +1650,7 @@
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_thdistal_visual">
         <!-- Standard distal  -->
-        <mesh filename="package://sr_description/hand/model/TH1_z.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/TH1_z.dae" scale="0.001 0.001 0.001"/>
       </geometry>
       <material name="shadow_thmiddle_material">
         <color rgba="0.2 0.2 0.2 1.0"/>
@@ -1660,7 +1660,7 @@
       <origin rpy="0 0 0" xyz="0 0 0"/>
       <geometry name="rh_thmiddle_collision_geom">
         <!-- Standard distal  -->
-        <mesh filename="package://sr_description/hand/model/TH1_z.dae" scale="0.001 0.001 0.001"/>
+        <mesh filename="package://sr_description/meshes/hand/TH1_z.dae" scale="0.001 0.001 0.001"/>
         <!--      <box size="0.015 0.015 0.015" /> -->
       </geometry>
     </collision>

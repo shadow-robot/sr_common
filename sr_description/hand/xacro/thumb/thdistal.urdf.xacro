@@ -51,8 +51,8 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <visual>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry name="${prefix}th_distal_visual">
-            <!-- <mesh filename="package://sr_description/hand/model/biotacs/biotac.stl" scale="0.0254 0.0254 0.0254" /> -->
-            <mesh filename="package://sr_description/hand/model/biotacs/biotac_decimated.dae"
+            <!-- <mesh filename="package://sr_description/meshes/hand/biotacs/biotac.stl" scale="0.0254 0.0254 0.0254" /> -->
+            <mesh filename="package://sr_description/meshes/hand/biotacs/biotac_decimated.dae"
             scale="0.0254 0.0254 0.0254" />
           </geometry>
           <material name="BiotacGreen" />
@@ -60,8 +60,8 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <collision>
           <geometry name="${prefix}th_distal_collision_geom">
             <!-- <box size="0.001 0.001 0.001" /> -->
-            <!-- <mesh filename="package://sr_description/hand/model/biotacs/biotac-v5.stl" scale="0.0254 0.0254 0.0254" /> -->
-            <mesh filename="package://sr_description/hand/model/biotacs/biotac_decimated.dae"
+            <!-- <mesh filename="package://sr_description/meshes/hand/biotacs/biotac-v5.stl" scale="0.0254 0.0254 0.0254" /> -->
+            <mesh filename="package://sr_description/meshes/hand/biotacs/biotac_decimated.dae"
             scale="0.0254 0.0254 0.0254" />
           </geometry>
         </collision>
@@ -131,23 +131,23 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
           <geometry name="${prefix}thdistal_visual">
             <xacro:if value="${eli}">
               <!-- Ellispoid distal  -->
-              <mesh filename="package://sr_description/hand/model/ellipsoids/thdistal_ellipsoid_visual.dae"
+              <mesh filename="package://sr_description/meshes/hand/ellipsoids/thdistal_ellipsoid_visual.dae"
               scale="0.001 0.001 0.001" />
             </xacro:if>
             <xacro:unless value="${eli}">
               <xacro:if value="${ubi}">
                 <!-- Ubi distal -->
-                <mesh filename="package://sr_description/hand/model/TH1_z.dae"
+                <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
                       scale="0.001 0.001 0.001" />
               </xacro:if>
 	      <xacro:unless value="${ubi}">
 		<xacro:if value="${bt_sp}">
 		  <!-- bt sp distal  -->
-		  <mesh filename="package://sr_description/hand/model/biotacs/sp.dae" />
+		  <mesh filename="package://sr_description/meshes/hand/biotacs/sp.dae" />
 		</xacro:if>
 		<xacro:unless value="${bt_sp}">
 		  <!-- Standard distal  -->
-                  <mesh filename="package://sr_description/hand/model/TH1_z.dae"
+                  <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
 			scale="0.001 0.001 0.001" />
 		</xacro:unless>
 	      </xacro:unless>
@@ -162,23 +162,23 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
           <geometry name="${prefix}thmiddle_collision_geom">
             <xacro:if value="${eli}">
               <!-- Ellispoid distal  -->
-              <mesh filename="package://sr_description/hand/model/ellipsoids/thdistal_ellipsoid.dae"
+              <mesh filename="package://sr_description/meshes/hand/ellipsoids/thdistal_ellipsoid.dae"
               scale="0.001 0.001 0.001" />
             </xacro:if>
             <xacro:unless value="${eli}">
               <xacro:if value="${ubi}">
                 <!-- Ubi distal -->
-                <mesh filename="package://sr_description/hand/model/TH1_z.dae"
+                <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
                 scale="0.001 0.001 0.001" />
               </xacro:if>
               <xacro:unless value="${ubi}">
 		<xacro:if value="${bt_sp}">
 		  <!-- bt sp distal  -->
-                  <mesh filename="package://sr_description/hand/model/biotacs/sp.dae" />
+                  <mesh filename="package://sr_description/meshes/hand/biotacs/sp.dae" />
 		</xacro:if>
 		<xacro:unless value="${bt_sp}">
                   <!-- Standard distal  -->
-                  <mesh filename="package://sr_description/hand/model/TH1_z.dae"
+                  <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
 			scale="0.001 0.001 0.001" />
 		</xacro:unless>
               </xacro:unless>

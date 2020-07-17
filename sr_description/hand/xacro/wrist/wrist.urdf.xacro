@@ -16,7 +16,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry name="${prefix}wrist_visual">
-          <mesh filename="package://sr_description/hand/model/wrist.dae"
+          <mesh filename="package://sr_description/meshes/hand/wrist.dae"
           scale="${reflect*0.001} 0.001 0.001" />
         </geometry>
         <material name="LightGrey" />
