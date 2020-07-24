@@ -25,7 +25,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <visual>
         <origin xyz="0 0 0.0005" rpy="0 0 0" />
         <geometry name="${prefix}${link_prefix}knuckle_visual">
-          <mesh filename="package://sr_description/hand/model/knuckle.dae"
+          <mesh filename="package://sr_description/meshes/hand/knuckle.dae"
           scale="0.001 0.001 0.001" />
         </geometry>
         <material name="LightGrey" />
