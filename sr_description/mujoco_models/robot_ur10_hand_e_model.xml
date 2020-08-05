@@ -1,4 +1,4 @@
-<mujoco model="motor_plus_robot">
+<mujoco model="ur10_hand_robot">
     <body name="ra_base_link" pos="0 0 0">
         <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="4" diaginertia="0.01125 0.00610633 0.00610633" />
         <geom type="mesh" rgba="0.7 0.7 0.7 1" mesh="base" /> 
@@ -35,25 +35,26 @@
                                 <body name="ra_ee_link" pos="0 0.0922 0" quat="0.707107 0 0 0.707107">
                                     <inertial pos="-0.01 0 0" mass="0.001" diaginertia="1.66667e-08 1.66667e-08 1.66667e-08" />
                                     <geom size="0.005 0.005 0.005" pos="-0.01 0 0" type="box" />
-                                     <body name="ra_arm_to_hand">
-                                        <inertial pos="0.012 0.0 0.0" mass="0" euler="1.57079632679 0.0 1.57079632679" />
-                                        <body name="rh_forearm">
-                                            <inertial pos="0 0 0.09" mass="3" diaginertia="0.0138 0.0138 0.00744" />
-                                            <include file="meshes/arm_and_hand_meshes/forearm_plus.xml" />
-                                            <body name="rh_wrist" pos="0 -0.01 0.213">
-                                                <inertial pos="0 0 0.029" quat="0.5 0.5 0.5 0.5" mass="0.1" diaginertia="6.4e-05 4.38e-05 3.5e-05" />
-                                                <joint name="rh_WRJ2" axis="0 1 0" range="-0.523599 0.174533" damping="1.0" frictionloss="0.1"/>
-                                                <include file="meshes/arm_and_hand_meshes/wrist.xml" />
-                                                <body name="rh_palm" pos="0 0 0.034">
-                                                    <inertial pos="0 0 0.035" quat="0.707107 0 0 0.707107" mass="0.3" diaginertia="0.0005287 0.0003581 0.000191" />
-                                                    <joint name="rh_WRJ1" axis="1 0 0" range="-0.698132 0.488692" damping="1.0" frictionloss="0.1"/>
-                                                    <include file="meshes/arm_and_hand_meshes/palm.xml" />
-                                                    <body name="rh_manipulator" pos="0 0 0.05">
-                                                        <inertial pos="0 0 0.05" mass="0" diaginertia="0 0 0" />
-                                                    </body>
-                                                    <body name="rh_imu" pos="0.01785 0.00765 0.049125" quat="2.31079e-07 -2.31079e-07 0.707107 0.707107">
-                                                        <inertial pos="0.01785 0.00765 0.049125" quat="2.31079e-07 -2.31079e-07 0.707107 0.707107" mass="0" diaginertia="0 0 0" />
-                                                    </body>
+                                        <body name="ra_arm_to_hand" euler="1.57079632679 1.57079632679 0">
+                                        <inertial pos="-0.01 0 0" mass="0.001" diaginertia="1.66667e-08 1.66667e-08 1.66667e-08" />
+                                        <geom size="0.005 0.005 0.005" pos="0.012 0.0 0.0" type="box"  />
+                                            <body name="rh_forearm">
+                                                <inertial pos="0 0 0.09" mass="3" diaginertia="0.0138 0.0138 0.00744" />
+                                                <include file="meshes/arm_and_hand_meshes/forearm.xml" />
+                                                <body name="rh_wrist" pos="0 -0.01 0.213">
+                                                    <inertial pos="0 0 0.029" quat="0.5 0.5 0.5 0.5" mass="0.1" diaginertia="6.4e-05 4.38e-05 3.5e-05" />
+                                                    <joint name="rh_WRJ2" axis="0 1 0" range="-0.523599 0.174533" damping="1.0" frictionloss="0.1"/>
+                                                    <include file="meshes/arm_and_hand_meshes/wrist.xml" />
+                                                    <body name="rh_palm" pos="0 0 0.034">
+                                                        <inertial pos="0 0 0.035" quat="0.707107 0 0 0.707107" mass="0.3" diaginertia="0.0005287 0.0003581 0.000191" />
+                                                        <joint name="rh_WRJ1" axis="1 0 0" range="-0.698132 0.488692" damping="1.0" frictionloss="0.1"/>
+                                                        <include file="meshes/arm_and_hand_meshes/palm.xml" />
+                                                        <body name="rh_manipulator" pos="0 0 0.05">
+                                                            <inertial pos="0 0 0.05" mass="0" diaginertia="0 0 0" />
+                                                        </body>
+                                                        <body name="rh_imu" pos="0.01785 0.00765 0.049125" quat="2.31079e-07 -2.31079e-07 0.707107 0.707107">
+                                                            <inertial pos="0.01785 0.00765 0.049125" quat="2.31079e-07 -2.31079e-07 0.707107 0.707107" mass="0" diaginertia="0 0 0" />
+                                                        </body>
                                                         <body name="rh_ffknuckle" pos="0.033 0 0.095">
                                                             <inertial pos="0 0 0" quat="0.5 0.5 -0.5 0.5" mass="0.008" diaginertia="3.2e-07 2.6e-07 2.6e-07" />
                                                             <joint name="rh_FFJ4" class="FJ4" axis="0 -1 0"/>
@@ -180,19 +181,19 @@
                                                     </body>
                                                 </body>
                                             </body>
+                                        </body>
+                                    <body name="ra_tool0" pos="0 0.0922 0" quat="0.707107 -0.707107 0 0">
+                                        <inertial pos="0 0.0922 0" quat="0.707107 -0.707107 0 0" mass="0" diaginertia="0 0 0" />
                                     </body>
-                                </body>
-                                <body name="ra_tool0" pos="0 0.0922 0" quat="0.707107 -0.707107 0 0">
-                                    <inertial pos="0 0.0922 0" quat="0.707107 -0.707107 0 0" mass="0" diaginertia="0 0 0" />
                                 </body>
                             </body>
                         </body>
                     </body>
                 </body>
             </body>
-        </body>
-        <body name="ra_base" pos="0 0 0" quat="1.7949e-09 0 0 -1">
-            <inertial pos="0 0 0" quat="1.7949e-09 0 0 -1" mass="0" diaginertia="0 0 0" />
+            <body name="ra_base" pos="0 0 0" quat="1.7949e-09 0 0 -1">
+                <inertial pos="0 0 0" quat="1.7949e-09 0 0 -1" mass="0" diaginertia="0 0 0" />
+            </body>
         </body>
     </body>
 </mujoco>
