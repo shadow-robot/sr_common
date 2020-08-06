@@ -2,6 +2,7 @@
     <include file="shared_ur10_options.xml" />
     <asset>
         <include file="shared_assets.xml" />
+        <include file="shared_assets_ur10.xml" />
     </asset>
     <worldbody>
         <geom condim="3" material="mat_plane" name="floor" pos="0 0 0" size="5 5 0.001" type="plane" />

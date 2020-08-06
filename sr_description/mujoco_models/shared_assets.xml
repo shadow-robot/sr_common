@@ -9,20 +9,6 @@
     <material name="metal" reflectance="1.0" rgba="0.6 0.6 0.6 1.0" shininess="0.5" specular="1.0"/>
     <material name="plastic" rgba="0.2 0.2 0.2 1.0" shininess="0.5"/>
     <material name="rubber" rgba="0.3 0.3 0.3 1.0" shininess="0.0"/>
-    <mesh name="base" file="meshes/arm_and_hand_meshes/visual/base.stl" scale="1 1 1"/>
-    <mesh name="shoulder" file="meshes/arm_and_hand_meshes/visual/shoulder.stl" scale="1 1 1"/>
-    <mesh name="upperarm_body_link" file="meshes/arm_and_hand_meshes/visual/upperarm_body.stl" scale="1 1 1"/>
-    <mesh name="upperarm_bottom_link" file="meshes/arm_and_hand_meshes/visual/upperarm_bottom_link.stl" scale="1 1 1"/>
-    <mesh name="upperarm_top_link" file="meshes/arm_and_hand_meshes/visual/upperarm_top_link.stl" scale="1 1 1"/>
-    <mesh name="forearm_body_link" file="meshes/arm_and_hand_meshes/visual/forearm_body_link.stl" scale="1 1 1"/>
-    <mesh name="forearm_bottom_link" file="meshes/arm_and_hand_meshes/visual/forearm_bottom_link.stl" scale="1 1 1"/>
-    <mesh name="forearm_top_link" file="meshes/arm_and_hand_meshes/visual/forearm_top_link.stl" scale="1 1 1"/>
-    <mesh name="wrist1_link" file="meshes/arm_and_hand_meshes/visual/wrist1_link.stl" scale="1 1 1"/>
-    <mesh name="wrist1_base" file="meshes/arm_and_hand_meshes/visual/wrist1_base.stl" scale="1 1 1"/>
-    <mesh name="wrist2_link" file="meshes/arm_and_hand_meshes/visual/wrist2_link.stl" scale="1 1 1"/>
-    <mesh name="wrist2_base" file="meshes/arm_and_hand_meshes/visual/wrist2_base.stl" scale="1 1 1"/>
-    <mesh name="wrist3" file="meshes/arm_and_hand_meshes/visual/wrist3.stl" scale="1 1 1"/>
-    <mesh name="mount_link_50_4_M6_col" file="meshes/arm_and_hand_meshes/visual/mount_link_50_4_M6.stl" scale="1 1 1"/>
     <mesh name="F1_visual" file="meshes/arm_and_hand_meshes/visual/F1.stl"/>
     <mesh name="F1_collision" file="meshes/arm_and_hand_meshes/collision/F1.stl"/>
     <mesh name="F2_visual" file="meshes/arm_and_hand_meshes/visual/F2.stl"/>

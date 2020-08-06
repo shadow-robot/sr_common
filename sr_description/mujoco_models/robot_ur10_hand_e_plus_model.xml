@@ -38,7 +38,7 @@
                                         <body name="ra_arm_to_hand" euler="1.57079632679 1.57079632679 0">
                                         <inertial pos="-0.01 0 0" mass="0.001" diaginertia="1.66667e-08 1.66667e-08 1.66667e-08" />
                                         <geom size="0.005 0.005 0.005" pos="0.012 0.0 0.0" type="box"  />
-                                        <include file="sr_hand_e_model.xml" />
+                                        <include file="sr_hand_e_plus_model.xml" />
                                         </body>
                                     <body name="ra_tool0" pos="0 0.0922 0" quat="0.707107 -0.707107 0 0">
                                         <inertial pos="0 0.0922 0" quat="0.707107 -0.707107 0 0" mass="0" diaginertia="0 0 0" />
