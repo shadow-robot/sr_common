@@ -1,4 +1,5 @@
 <mujoco>
+<size njmax="1000" nconmax="1000" />
     <tendon>
         <fixed name="rh_FFJ0">
             <joint joint="rh_FFJ1" coef="1"/>

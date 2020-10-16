@@ -24,7 +24,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 1.571" />
         <geometry name="${prefix}${link_prefix}middle_visual">
-          <mesh filename="package://sr_description/hand/model/biotacs/biotac_finger_adapter.dae"
+          <mesh filename="package://sr_description/meshes/hand/biotacs/biotac_finger_adapter.dae"
           scale="1 1 1" />
         </geometry>
         <material name="LightGrey" />
@@ -105,16 +105,16 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry name="${prefix}${link_prefix}distal_visual">
-          <!-- <mesh filename="package://sr_description/hand/model/biotacs/biotac.stl" scale="0.0254 0.0254 0.0254" /> -->
-          <mesh filename="package://sr_description/hand/model/biotacs/biotac_decimated.dae"
+          <!-- <mesh filename="package://sr_description/meshes/hand/biotacs/biotac.stl" scale="0.0254 0.0254 0.0254" /> -->
+          <mesh filename="package://sr_description/meshes/hand/biotacs/biotac_decimated.dae"
           scale="0.0254 0.0254 0.0254" />
         </geometry>
       </visual>
       <collision>
         <geometry name="${prefix}${link_prefix}distal_collision_geom">
 
-          <!-- <mesh filename="package://sr_description/hand/model/biotacs/biotac.stl" scale="0.0254 0.0254 0.0254" /> -->
-          <mesh filename="package://sr_description/hand/model/biotacs/biotac_decimated.dae"
+          <!-- <mesh filename="package://sr_description/meshes/hand/biotacs/biotac.stl" scale="0.0254 0.0254 0.0254" /> -->
+          <mesh filename="package://sr_description/meshes/hand/biotacs/biotac_decimated.dae"
           scale="0.0254 0.0254 0.0254" />
         </geometry>
       </collision>

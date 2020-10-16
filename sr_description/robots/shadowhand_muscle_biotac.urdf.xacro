@@ -28,7 +28,7 @@ name="shadowhand_motor">
     <visual>
       <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry name="rh_forearm_disk_geom">
-        <mesh filename="package://sr_description/hand/model/forearm_muscle_disk.dae"
+        <mesh filename="package://sr_description/meshes/hand/forearm_muscle_disk.dae"
         scale="1.0 1.0 1.0" />
       </geometry>
       <material name="Grey" />
