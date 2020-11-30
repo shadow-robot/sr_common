@@ -1,1 +1,1 @@
-geometry_msgs/WrenchStamped[] wrenches
+sr_robot_msgs/WrenchWithReferenceFrame[] wrenches

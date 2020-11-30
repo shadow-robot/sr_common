@@ -46,6 +46,7 @@ add_message_files(
   UBI0All.msg
   UBI0.msg
   ShadowContactStateStamped.msg
+  WrenchWithReferenceFrame.msg
   WrenchArray.msg
   HybridControllerStatus.msg
 )
