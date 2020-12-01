@@ -1,1 +1,1 @@
-sr_robot_msgs/WrenchWithReferenceFrame[] wrenches
+sr_robot_msgs/WrenchWithChainGroupName[] wrenches

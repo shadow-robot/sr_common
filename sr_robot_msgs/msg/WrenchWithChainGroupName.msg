@@ -1,2 +1,2 @@
-string reference_frame
+string group_chain_name
 geometry_msgs/WrenchStamped wrench
