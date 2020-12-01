@@ -1,7 +1,7 @@
 # First Finger (Index finger)
 sh_ffj0_effort_controller:
   type: sr_mechanism_controllers/SrhEffortJointController
-  joint: FFJ2
+  joint: FFJ0
   max_force: 10
   friction_deadband: 0
 sh_ffj3_effort_controller:
@@ -19,7 +19,7 @@ sh_ffj4_effort_controller:
 # Middle Finger
 sh_mfj0_effort_controller:
   type: sr_mechanism_controllers/SrhEffortJointController
-  joint: MFJ2
+  joint: MFJ0
   max_force: 10
   friction_deadband: 0
 sh_mfj3_effort_controller:
@@ -37,7 +37,7 @@ sh_mfj4_effort_controller:
 # Ring Finger
 sh_rfj0_effort_controller:
   type: sr_mechanism_controllers/SrhEffortJointController
-  joint: RFJ2
+  joint: RFJ0
   max_force: 10
   friction_deadband: 0
 sh_rfj3_effort_controller:
@@ -55,7 +55,7 @@ sh_rfj4_effort_controller:
 # Little Finger
 sh_lfj0_effort_controller:
   type: sr_mechanism_controllers/SrhEffortJointController
-  joint: LFJ2
+  joint: LFJ0
   max_force: 10
   friction_deadband: 0
 sh_lfj3_effort_controller:
