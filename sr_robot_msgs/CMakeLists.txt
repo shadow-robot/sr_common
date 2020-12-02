@@ -46,7 +46,7 @@ add_message_files(
   UBI0All.msg
   UBI0.msg
   ShadowContactStateStamped.msg
-  WrenchWithChainGroupName.msg
+  WrenchWithModelGroupName.msg
   WrenchArray.msg
   HybridControllerStatus.msg
 )
