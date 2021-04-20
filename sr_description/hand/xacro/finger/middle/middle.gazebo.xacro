@@ -11,7 +11,7 @@
           <collision>${prefix}${link_prefix}middle_collision</collision>
           <topic>${prefix}${link_prefix}middle_collision</topic>
         </contact>
-        <plugin name="${prefix}${link_prefix}proximal_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
+        <plugin name="${prefix}${link_prefix}middle_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
           <alwaysOn>true</alwaysOn>
           <frameName>${prefix}${link_prefix}middle</frameName>
           <updateRate>100.0</updateRate>
