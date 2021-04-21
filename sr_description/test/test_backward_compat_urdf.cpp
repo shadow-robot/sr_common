@@ -72,14 +72,14 @@ std::string getCommandOutput(std::string cmd)
   return data.substr(0, pos);
 }
 
-int walker(char *result, int *test_result)
+int walker(std::string &result, int &test_result)
 {
   std::string package_path =  getCommandOutput("rospack find sr_description");
 
   if (package_path.find("sr_description") == std::string::npos)
   {
     printf("cannot find package in path %s\n", package_path.c_str());
-    *test_result = 1;
+    test_result = 1;
     return 1;
   }
   else
@@ -93,7 +93,7 @@ int walker(char *result, int *test_result)
   if (d == NULL)
   {
     printf("no robots found\n");
-    *test_result = 1;
+    test_result = 1;
     return 1;
   }
   while ((dir = readdir(d)))
@@ -108,38 +108,39 @@ int walker(char *result, int *test_result)
       std::string dir_name = dir->d_name;
       if (dir_name.find(std::string(".urdf.xacro")) == dir_name.size()-11)
       {
-        printf("\n\ntesting: %s\n", (package_path+"/test/backwardcompat/"+dir_name).c_str());
-        printf("xacro %s/test/backwardcompat/%s  > "
-               "`rospack find sr_description`/test/tmp.urdf",
-               package_path.c_str(), dir_name.c_str() );
-        runExternalProcess("xacro",
-                           package_path+"/test/backwardcompat/"+dir_name+" > `rospack find sr_description`/test/tmp.urdf");
+        std::string name = package_path + "/test/backwardcompat/" + dir_name;
+        printf("\n\ntesting: %s\n", name.c_str());
+        printf("xacro %s  > %s/test/tmp2.urdf\n", name.c_str(), package_path.c_str());
+        result += name;
+        result += " ";
+        runExternalProcess("xacro", name + " > " + package_path + "/test/tmp2.urdf");
         // check urdf structure
-        *test_result = *test_result || runExternalProcess("check_urdf", "`rospack find sr_description`/test/tmp.urdf");
+        test_result = test_result || runExternalProcess("check_urdf", package_path +"/test/tmp2.urdf");
       }
-      if (*test_result != 0)
-        return *result == 0;
+      if (test_result != 0)
+        return test_result;
     }
   }
   closedir(d);
-  return *result == 0;
+  return test_result;
 }
 
 TEST(URDF, CorrectFormat)
 {
   int test_result = 0;
 
-  char buf[MAXPATHLEN] = { 0 };
-  if (walker(buf, &test_result) == 0)
+  std::string result;
+  if (walker(result, test_result) == 0)
   {
-    printf("Found: %s\n", buf);
+    printf("Found: %s\n", result.c_str());
   }
   else
   {
     puts("Not found");
+    test_result = -1;
   }
 
-  EXPECT_EQ(test_result, 0);
+  EXPECT_TRUE(test_result == 0);
 }
 
 int main(int argc, char **argv)
