@@ -1,21 +1,20 @@
 settings:
   machine_type: medium
   ubuntu:
-    version: focal
+    version: bionic
   ros:
-    release: noetic
+    release: melodic
   docker:
-    image: public.ecr.aws/shadowrobot/build-tools
-    tag: focal-noetic
+    image: shadowrobot/build-tools
+    tag: bionic-melodic
   template_project_name: template_unit_tests_and_code_coverage
   toolset:
-    branch: python3
     modules:
       - check_cache
       - code_coverage
-
+  
 trunks:
-  - name: noetic-devel
+  - name: melodic-devel
     jobs:
       - name: code_coverage
       - name: style_check
