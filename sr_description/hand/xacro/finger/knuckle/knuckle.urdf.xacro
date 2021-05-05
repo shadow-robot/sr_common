@@ -44,7 +44,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <!--<origin xyz="0.033 0 0.095" rpy="0 0 0" />-->
       <xacro:insert_block name="origin" />
       <xacro:insert_block name="axis" />
-      <limit lower="${-20/180*M_PI}" upper="${20/180*M_PI}"
+      <limit lower="${-20/180*pi}" upper="${20/180*pi}"
       effort="2" velocity="2.0" />
       <dynamics damping="0.1" />
     </joint>

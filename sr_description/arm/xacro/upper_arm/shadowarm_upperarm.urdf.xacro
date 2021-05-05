@@ -17,7 +17,7 @@
         <material name="Grey" />
       </visual>
       <collision>
-        <origin xyz="0 0 0.16" rpy="0 -${M_PI} 0" />
+        <origin xyz="0 0 0.16" rpy="0 -${pi} 0" />
         <geometry name="shadowarm_upperarm_collision">
           <box size="0.170 0.133 0.470" />
         </geometry>
@@ -29,10 +29,10 @@
     <joint name="ShoulderJSwing" type="revolute">
       <parent link="${parent}" />
       <child link="shadowarm_upperarm" />
-      <origin xyz="0 -0.134 0.5305" rpy="0 -${M_PI} 0.0" />
+      <origin xyz="0 -0.134 0.5305" rpy="0 -${pi} 0.0" />
       <!-- yaw=-0.026 -->
       <axis xyz="0 -1 0" />
-      <limit lower="0" upper="${M_PI/2}" effort="100"
+      <limit lower="0" upper="${pi/2}" effort="100"
       velocity="1.0" />
       <dynamics damping="5.3" />
     </joint>

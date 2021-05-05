@@ -1,12 +1,12 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:property name="M_PI" value="3.1415926535" />
+  <xacro:property name="pi" value="3.1415926535" />
   <xacro:include filename="$(find sr_description)/other/xacro/kinect/gazebo_kinect.urdf.xacro" />
   <xacro:macro name="shadowarm_side_kinect" params="parent">
     <joint name="base_camera_joint" type="fixed">
       <!--        <origin xyz="0.00724 0.153 0.4405"
-          rpy="-${M_PI/2} 0.5236 -0.2618" /> -->
+          rpy="-${pi/2} 0.5236 -0.2618" /> -->
       <origin xyz="0.01216 0.1713 0.433"
-      rpy="-${M_PI/2} ${M_PI/4} -${M_PI/12}" />
+      rpy="-${pi/2} ${pi/4} -${pi/12}" />
       <parent link="${parent}" />
       <child link="camera_link" />
     </joint>
@@ -44,7 +44,7 @@
       </inertial>
     </link>
     <joint name="camera_depth_optical_joint" type="fixed">
-      <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
+      <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}" />
       <parent link="camera_depth_frame" />
       <child link="camera_depth_optical_frame" />
     </joint>
@@ -70,7 +70,7 @@
       </inertial>
     </link>
     <joint name="camera_rgb_optical_joint" type="fixed">
-      <origin xyz="0 0 0" rpy="${-M_PI/2} 0 ${-M_PI/2}" />
+      <origin xyz="0 0 0" rpy="${-pi/2} 0 ${-pi/2}" />
       <parent link="camera_rgb_frame" />
       <child link="camera_rgb_optical_frame" />
     </joint>

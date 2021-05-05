@@ -63,7 +63,7 @@
       <child link="${prefix}wrist" />
       <xacro:insert_block name="origin" />
       <axis xyz="0 ${reflect} 0" />
-      <limit lower="${-30/180*M_PI}" upper="${10/180*M_PI}"
+      <limit lower="${-30/180*pi}" upper="${10/180*pi}"
       effort="10" velocity="2.0" />
       <dynamics damping="0.1" />
     </joint>
