@@ -108,12 +108,12 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <axis xyz="1 0 0" />
         <xacro:if value="${bio}">
           <!-- biotac fixed distal joint -->
-          <limit lower="${20/180*M_PI}" upper="${20/180*M_PI}"
+          <limit lower="${20/180*pi}" upper="${20/180*pi}"
           effort="10" velocity="2.0" />
         </xacro:if>
         <xacro:unless value="${bio}">
           <!-- standard distal joint -->
-          <limit lower="0" upper="${M_PI/2}" effort="2"
+          <limit lower="0" upper="${pi/2}" effort="2"
           velocity="2.0" />
         </xacro:unless>
         <dynamics damping="0.1" />

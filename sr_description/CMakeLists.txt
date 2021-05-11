@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.0.2)
 project(sr_description)
 find_package(catkin REQUIRED COMPONENTS urdf xacro)
 include_directories(${Boost_INCLUDE_DIR} ${catkin_INCLUDE_DIRS})
@@ -21,6 +21,9 @@ install(DIRECTORY arm/
 
 install(DIRECTORY hand/
    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/hand)
+
+install(DIRECTORY meshes/
+   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/meshes)
 
 install(DIRECTORY loaders/
    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/loaders)
