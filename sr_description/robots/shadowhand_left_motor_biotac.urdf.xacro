@@ -13,6 +13,5 @@ name="shadowhand_motor">
     <child link="lh_forearm" />
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
-  <xacro:shadowhand muscletrans="false" muscle="false" bio="true" bt_sp="false"
-  ubi="false" eli="false" reflect="-1.0" prefix="lh_" lf="true" />
+  <xacro:shadowhand hand_type="hand_e" tip_sensors="${['bio','bio','bio','bio','bio']}" reflect="-1.0" prefix="lh_" />
 </robot>

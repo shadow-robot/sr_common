@@ -13,8 +13,7 @@ name="shadowhand_muscle">
     <child link="lh_forearm_disk" />
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
-  <xacro:shadowhand muscletrans="false" muscle="true" bio="false" bt_sp="false"
-  ubi="false" eli="false" reflect="-1.0" prefix="lh_" lf="true" />
+  <xacro:shadowhand hand_type="hand_m" reflect="-1.0" prefix="lh_" />
   <link name="lh_forearm_disk">
     <inertial>
       <origin xyz="0 0 0" />

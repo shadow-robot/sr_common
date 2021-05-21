@@ -55,13 +55,25 @@
                   <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find sr_description)/robots/shadowhand_left_motor.urdf.xacro'" />
                 </group>
                 <group unless="$(optenv LEFT_HAND 0)">
-		  <group if="$(optenv BTSP_HAND 0)">
-                    <param name="robot_description"
-			   command="$(find xacro)/xacro --inorder '$(find sr_description)/robots/shadowhand_motor_btsp.urdf.xacro'" />
-		  </group>
-		  <group unless="$(optenv BTSP_HAND 0)">
-                    <param name="robot_description"
-			   command="$(find xacro)/xacro --inorder '$(find sr_description)/robots/shadowhand_motor.urdf.xacro'" />
+                  <group if="$(optenv BTSP_HAND 0)">
+                                <param name="robot_description"
+                     command="$(find xacro)/xacro --inorder '$(find sr_description)/robots/shadowhand_motor_btsp.urdf.xacro'" />
+                  </group>
+                  <group unless="$(optenv BTSP_HAND 0)">
+                    <group if="$(optenv LITE 0)">
+                      <group if="$(optenv EXTRA_LITE 0)">
+                                   <param name="robot_description"
+                        command="$(find xacro)/xacro --inorder '$(find sr_description)/robots/shadowhand_extra_lite.urdf.xacro'" />
+                      </group>
+                      <group unless="$(optenv EXTRA_LITE 0)">
+                                   <param name="robot_description"
+                        command="$(find xacro)/xacro --inorder '$(find sr_description)/robots/shadowhand_lite.urdf.xacro'" />
+                      </group>
+                    </group>
+                    <group unless="$(optenv LITE 0)">
+                        <param name="robot_description"
+                          command="$(find xacro)/xacro --inorder '$(find sr_description)/robots/shadowhand_motor.urdf.xacro'" />
+                    </group>
                   </group>
                 </group>
               </group>
@@ -77,7 +89,7 @@
       <param name="use_gui" value="True" />
     </node>
     <!-- publish transforms of all robot links -->
-    <node name="state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
       <param name="publish_frequency" type="double" value="10.0" />
     </node>
     <node pkg="rviz" type="rviz" name="rviz" args="-d $(find sr_description)/test/hand_test.rviz" />
