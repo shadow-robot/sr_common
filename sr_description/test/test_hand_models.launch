@@ -85,11 +85,11 @@
   </group>
   <!-- publish joint values, open gui if use_gui=True -->
   <group unless="$(optenv URDF_ONLY 0)">
-    <node name="joint_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
+    <node name="joint_state_publisher_gui" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui">
       <param name="use_gui" value="True" />
     </node>
     <!-- publish transforms of all robot links -->
-    <node name="robot_state_publisher" pkg="robot_state_publisher" type="state_publisher">
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
       <param name="publish_frequency" type="double" value="10.0" />
     </node>
     <node pkg="rviz" type="rviz" name="rviz" args="-d $(find sr_description)/test/hand_test.rviz" />
