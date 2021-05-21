@@ -8,12 +8,10 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thhub.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thhub.transmission.xacro" />
-  <!-- muscle is true for muscle hand or false for motor hand -->
-  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- parent is the parent link for the first joint -->
   <!-- is_lite is this the lite hand, if so lock J3 -->
-  <xacro:macro name="thhub" params="muscle prefix parent is_lite">
+  <xacro:macro name="thhub" params="prefix:=^ parent:=^ is_lite">
     <link name="${prefix}thhub">
       <inertial>
         <mass value="0.005" />
@@ -62,9 +60,8 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
     </xacro:unless>
     <!-- extensions -->
     <xacro:unless value="${is_lite}">
-      <xacro:thhub_transmission muscletrans="${muscle}"
-      prefix="${prefix}" />
+      <xacro:thhub_transmission />
     </xacro:unless>
-    <xacro:thhub_gazebo prefix="${prefix}" />
+    <xacro:thhub_gazebo />
   </xacro:macro>
 </robot>

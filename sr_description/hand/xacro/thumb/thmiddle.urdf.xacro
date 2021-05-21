@@ -8,11 +8,10 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thmiddle.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thmiddle.transmission.xacro" />
-  <!-- muscle is true for muscle hand or false for motor hand -->
-  <!-- bio is true for biotac finger or false for standard finger -->
+  <!-- mid_sensor can have value bio for specific middle anything else for standard finger -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- parent is the parent link for the first joint -->
-  <xacro:macro name="thmiddle" params="muscle bio prefix parent">
+  <xacro:macro name="thmiddle" params="mid_sensor:=^ prefix:=^ parent">
     <link name="${prefix}thmiddle">
       <inertial>
         <mass value="0.020" />
@@ -22,13 +21,13 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <xacro:if value="${bio}">
+        <xacro:if value="${'bio' in mid_sensor}">
           <geometry name="${prefix}thmiddle_visual">
             <mesh filename="package://sr_description/meshes/hand/biotacs/biotac_thumb_adapter.dae"
             scale="0.001 0.001 0.001" />
           </geometry>
         </xacro:if>
-        <xacro:unless value="${bio}">
+        <xacro:unless value="${'bio' in mid_sensor}">
           <geometry name="${prefix}thmiddle_visual">
             <mesh filename="package://sr_description/meshes/hand/TH2_z.dae"
             scale="0.001 0.001 0.001" />
@@ -39,20 +38,20 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         </xacro:unless>
       </visual>
       <collision>
-        <xacro:if value="${bio}">
+        <xacro:if value="${'bio' in mid_sensor}">
           <origin xyz="0 0 0.005" rpy="0 0 0" />
           <geometry name="${prefix}thmiddle_collision_geom">
             <box size="0.001 0.001 0.001" />
           </geometry>
         </xacro:if>
-        <xacro:unless value="${bio}">
+        <xacro:unless value="${'bio' in mid_sensor}">
           <origin xyz="0 0 0.012" rpy="0 0 0" />
           <geometry name="${prefix}thmiddle_collision_geom">
             <cylinder radius="0.011" length="0.018" />
           </geometry>
         </xacro:unless>
       </collision>
-      <xacro:unless value="${bio}">
+      <xacro:unless value="${'bio' in mid_sensor}">
         <collision>
           <origin xyz="0 0 0.019" rpy="0 0 0" />
           <geometry>
@@ -68,7 +67,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <origin xyz="0 0 0.01" rpy="0 0 0" />
         <!-- FIXME: z offset is too large -->
       </xacro:if>
-      <xacro:unless value="${bio}">
+      <xacro:unless value="${'bio' in mid_sensor}">
         <origin xyz="0 0 0" rpy="0 0 0" />
       </xacro:unless>
       <axis xyz="0 -1 0" />
@@ -81,8 +80,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     <!-- extensions -->
-    <xacro:thmiddle_transmission muscletrans="${muscle}"
-    prefix="${prefix}" />
-    <xacro:thmiddle_gazebo prefix="${prefix}" />
+    <xacro:thmiddle_transmission />
+    <xacro:thmiddle_gazebo />
   </xacro:macro>
 </robot>

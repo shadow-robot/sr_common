@@ -7,67 +7,82 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find sr_description)/hand/xacro/palm/palm.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/fingers.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thumb.urdf.xacro" />
-  <!-- muscletrans is true for muscle transmission to be used, false to use motor transmission -->
-  <!-- muscle is true for muscle hand or false for motor hand -->
-  <!-- bio is true for biotac finger or false for standard finger -->
-  <!-- bt_sp is true for BT_SP finger or false for standard finger -->
-  <!-- eli is true for ellipsoid fingertip or false for standard finger -->
+  <!-- hand_type describes the hand type, hand_e, hand_e_plus, hand_m (muscle) -->
+  <!-- fingers describes which fingers are present, [th, ff, mf, rf, lf], default [1, 1, 1, 1, 1] -->
+  <!-- muscletrans (deprecated) is true for muscle transmission to be used, false to use motor transmission -->
+  <!-- muscle (deprecated) is true for muscle hand or false for motor hand -->
+  <!-- bio (deprecated) is true for biotac finger or false for standard finger -->
+  <!-- bt_sp (deprecated) is true for BT_SP finger or false for standard finger -->
+  <!-- eli (deprecated) is true for ellipsoid fingertip or false for standard finger -->
+  <!-- tip_sensors vector that describes the sensor std, none, bio, bt_sp, eli -->
+  <!-- mid_sensors vector that describes the sensor std, none, bio -->
+  <!-- prox_sensors vector that describes the sensor std, none -->
+  <!-- palm_sensor describes the sensor std, none -->
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
-  <!-- lf is true if we want a little finger, false otherwise -->
-  <xacro:macro name="shadowhand" params="muscletrans muscle hand_type:='hand_e' bio bt_sp eli reflect prefix lf cable_mesh:='false'">
-    <!--xacro:property name="hand_type" value="hand_e"/-->
+  <!-- lf (deprecated) is true if we want a little finger, false otherwise -->
+  <xacro:macro name="shadowhand" params="hand_type:='hand_e' reflect prefix cable_mesh:=False
+          fingers:=${[1,1,1,1,1]} tip_sensors:=${['std','std','std','std','std']} prox_sensors:=${['std','std','std','std','std']}
+          mid_sensors:=${['std','std','std','std','std']} palm_sensor:=std
+          muscletrans:=False muscle:=False lf:=True bio:=False bt_sp:=False eli:=False">
+    <!-- handle deprecated parameters -->
+    <xacro:include filename="$(find sr_description)/hand/xacro/backward_compat.urdf.xacro" />
     <!-- Forearm -->
-    <xacro:forearm muscle="${muscle}" hand_type="${hand_type}" prefix="${prefix}" cable_mesh="${cable_mesh}"/>
+    <xacro:forearm />
     <!-- Wrist -->
-    <xacro:if value="${muscle}">
-      <xacro:wrist muscletrans="${muscletrans}" prefix="${prefix}"
-      reflect="${reflect}" parent="${prefix}forearm">
+    <xacro:if value="${'hand_m' in hand_type}">
+      <xacro:wrist parent="${prefix}forearm">
         <origin xyz="0 0 0.4096" rpy="0 0 0" />
       </xacro:wrist>
     </xacro:if>
-    <xacro:unless value="${muscle}">
-      <xacro:wrist muscletrans="false" prefix="${prefix}"
-      reflect="${reflect}" parent="${prefix}forearm">
+    <xacro:unless value="${'hand_m' in hand_type}">
+      <xacro:wrist parent="${prefix}forearm">
         <origin xyz="0 -0.010 0.213" rpy="0 0 0" />
       </xacro:wrist>
     </xacro:unless>
     <!-- Palm -->
-    <xacro:palm muscletrans="${muscletrans}" prefix="${prefix}"
-    reflect="${reflect}" parent="${prefix}wrist" />
+    <xacro:palm parent="${prefix}wrist" />
     <!-- First Finger -->
-    <xacro:finger muscletrans="${muscletrans}" lf="false" bio="${bio}" bt_sp="${bt_sp}" eli="${eli}" prefix="${prefix}"
-    reflect="${reflect}" link_prefix="ff" joint_prefix="FF"
-    parent="${prefix}palm">
-      <origin xyz="${reflect*0.033} 0 0.095" rpy="0 0 0" />
-      <axis xyz="0 ${-1*reflect} 0" />
-    </xacro:finger>
+    <xacro:if value="${fingers[1] == 1}">
+      <xacro:finger link_prefix="ff" joint_prefix="FF" tip_sensor="${tip_sensors[1]}"
+                    prox_sensor="${prox_sensors[1]}" mid_sensor="${mid_sensors[1]}"
+                    parent="${prefix}palm">
+        <origin xyz="${reflect*0.033} 0 0.095" rpy="0 0 0" />
+        <axis xyz="0 ${-1*reflect} 0" />
+      </xacro:finger>
+    </xacro:if>
     <!-- Middle Finger -->
-    <xacro:finger muscletrans="${muscletrans}" lf="false" bio="${bio}" bt_sp="${bt_sp}" eli="${eli}" prefix="${prefix}"
-    reflect="${reflect}" link_prefix="mf" joint_prefix="MF"
-    parent="${prefix}palm">
-      <origin xyz="${reflect*0.011} 0 0.099" rpy="0 0 0" />
-      <axis xyz="0 ${-1*reflect} 0" />
-    </xacro:finger>
+    <xacro:if value="${fingers[2] == 1}">
+      <xacro:finger link_prefix="mf" joint_prefix="MF" tip_sensor="${tip_sensors[2]}"
+                    prox_sensor="${prox_sensors[2]}" mid_sensor="${mid_sensors[2]}"
+                    parent="${prefix}palm">
+        <origin xyz="${reflect*0.011} 0 0.099" rpy="0 0 0" />
+        <axis xyz="0 ${-1*reflect} 0" />
+      </xacro:finger>
+    </xacro:if>
     <!-- Ring Finger -->
-    <xacro:finger muscletrans="${muscletrans}" lf="false" bio="${bio}" bt_sp="${bt_sp}" eli="${eli}" prefix="${prefix}"
-    reflect="${reflect}" link_prefix="rf" joint_prefix="RF"
-    parent="${prefix}palm">
-      <origin xyz="${reflect*-0.011} 0 0.095" rpy="0 0 0" />
-      <axis xyz="0 ${reflect} 0" />
-    </xacro:finger>
+    <xacro:if value="${fingers[3] == 1}">
+      <xacro:finger link_prefix="rf" joint_prefix="RF" tip_sensor="${tip_sensors[3]}"
+                    prox_sensor="${prox_sensors[3]}" mid_sensor="${mid_sensors[3]}"
+                    parent="${prefix}palm">
+        <origin xyz="${reflect*-0.011} 0 0.095" rpy="0 0 0" />
+        <axis xyz="0 ${reflect} 0" />
+      </xacro:finger>
+    </xacro:if>
     <!-- Little Finger  -->
-    <xacro:if value="${lf}">
-      <xacro:finger muscletrans="${muscletrans}" lf="true" bio="${bio}" bt_sp="${bt_sp}" eli="${eli}" prefix="${prefix}"
-      reflect="${reflect}" link_prefix="lf" joint_prefix="LF"
-      parent="${prefix}palm">
+    <xacro:if value="${fingers[4] == 1}">
+      <xacro:finger link_prefix="lf" joint_prefix="LF" tip_sensor="${tip_sensors[4]}"
+                    prox_sensor="${prox_sensors[4]}" mid_sensor="${mid_sensors[4]}"
+                    parent="${prefix}palm">
         <origin xyz="0 0 0.06579" rpy="0 0 0" />
         <axis xyz="0 ${reflect} 0" />
       </xacro:finger>
     </xacro:if>
     <!-- Thumb  -->
-    <xacro:thumb muscletrans="${muscletrans}" bio="${bio}" bt_sp="${bt_sp}" eli="${eli}" prefix="${prefix}"
-    reflect="${reflect}" is_lite="0" parent="${prefix}palm">
-    </xacro:thumb>
+    <xacro:if value="${fingers[0] == 1}">
+      <xacro:thumb is_lite="0" parent="${prefix}palm" tip_sensor="${tip_sensors[0]}"
+                   prox_sensor="${prox_sensors[0]}" mid_sensor="${mid_sensors[0]}" />
+    </xacro:if>
+
   </xacro:macro>
 </robot>
