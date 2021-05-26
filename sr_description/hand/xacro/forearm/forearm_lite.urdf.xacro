@@ -12,7 +12,7 @@
         iyz="0.0" izz="0.054" />
       </inertial>
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 ${pi/2}" />
+        <origin xyz="0 0 0" rpy="0 0 ${M_PI/2}" />
         <geometry name="${prefix}forearm_visual">
           <xacro:if value="${muscle}">
             <mesh filename="package://sr_description/meshes/hand/forearm_lite.dae"

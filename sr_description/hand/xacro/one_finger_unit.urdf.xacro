@@ -43,7 +43,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
       <parent link="${prefix}forearm" />
       <child link="${prefix}palm" />
       <origin xyz="${reflect*0.011} 0.010 0.22"
-      rpy="0 0 ${pi}" />
+      rpy="0 0 ${M_PI}" />
     </joint>
     <!-- mfknuckle is at [0.011 -0.01 0.346] from the bottom of forearm -->
     <!-- Middle Finger -->
