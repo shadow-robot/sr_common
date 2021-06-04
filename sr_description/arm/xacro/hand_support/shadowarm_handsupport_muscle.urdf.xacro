@@ -9,9 +9,9 @@
         iyz="0.0" izz="0.0018" />
       </inertial>
       <visual>
-        <origin xyz="0 0 -0.04" rpy="${pi/2} 0 0" />
+        <origin xyz="0 0 -0.04" rpy="0 0 0" />
         <geometry name="shadowarm_handsupport_visual">
-          <mesh filename="package://sr_description/arm/model/elbow_rotate_muscle.mesh"
+          <mesh filename="package://sr_description/arm/model/elbow_rotate_muscle.dae"
           scale="0.001 0.001 0.001" />
         </geometry>
         <material name="LightGrey" />

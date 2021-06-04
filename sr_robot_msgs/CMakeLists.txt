@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 2.8.3)
+cmake_minimum_required(VERSION 3.0.2)
 project(sr_robot_msgs)
 
 set(MSG_DEPS
@@ -45,6 +45,9 @@ add_message_files(
   Tactile.msg
   UBI0All.msg
   UBI0.msg
+  MSTSensor.msg
+  MSTFinger.msg
+  MSTPalm.msg
   ShadowContactStateStamped.msg
   WrenchWithModelGroupName.msg
   WrenchArray.msg
