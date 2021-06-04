@@ -9,12 +9,11 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
   <xacro:include filename="$(find sr_description)/hand/xacro/palm/palm.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/palm/imu.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/palm/palm.transmission.xacro" />
-  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- parent is the parent link for the joint -->
   <xacro:macro name="palm"
-  params="muscletrans prefix reflect parent">
+  params="prefix:=^ reflect:=^ parent">
     <link name="${prefix}palm">
       <inertial>
         <origin xyz="0 0 0.035" rpy="0 0 0" />
@@ -108,10 +107,9 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     <!--imu-->
-    <xacro:imu_sensor prefix="${prefix}"/>
+    <xacro:imu_sensor />
     <!-- extensions -->
-    <xacro:shadowhand_palm_transmission muscletrans="${muscletrans}"
-    prefix="${prefix}" />
-    <xacro:shadowhand_palm_gazebo prefix="${prefix}" />
+    <xacro:shadowhand_palm_transmission />
+    <xacro:shadowhand_palm_gazebo />
   </xacro:macro>
 </robot>

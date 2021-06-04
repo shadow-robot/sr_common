@@ -9,13 +9,12 @@ name="bimanual_shadowhand_motor">
     <child link="rh_forearm" />
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
-  <xacro:shadowhand muscletrans="false" muscle="false" bio="false" bt_sp="false"
-  ubi="false" eli="false" reflect="1.0" prefix="rh_" lf="true" />
+  <xacro:shadowhand hand_type="hand_e" reflect="1.0" prefix="rh_" />
   <joint name="right_hand_to_left_hand" type="fixed">
     <parent link="rh_forearm" />
     <child link="lh_forearm" />
     <origin xyz="0.4 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
-  <xacro:shadowhand muscletrans="false" muscle="false" bio="false" bt_sp="false"
-  ubi="false" eli="false" reflect="-1.0" prefix="lh_" lf="true" />
+  <xacro:shadowhand hand_type="hand_e" reflect="-1.0" prefix="lh_" />
+
 </robot>
