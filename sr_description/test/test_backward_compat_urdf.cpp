@@ -140,7 +140,7 @@ TEST(URDF, CorrectFormat)
     test_result = -1;
   }
 
-  EXPECT_TRUE(test_result == 0);
+  EXPECT_EQ(test_result, 0);
 }
 
 int main(int argc, char **argv)
