@@ -8,13 +8,12 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/knuckle/knuckle.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/knuckle/knuckle.transmission.xacro" />
-  <!-- muscle is true for muscle hand or false for motor hand -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- link_prefix prepends fingername to the link names -->
   <!-- joint_prefix prepends fingername to the joint names -->
   <!-- parent is the parent link for the joint -->
   <xacro:macro name="knuckle"
-  params="muscle prefix link_prefix joint_prefix parent *origin">
+  params="prefix:=^ link_prefix:=^ joint_prefix:=^ parent *origin">
     <link name="${prefix}${link_prefix}knuckle">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -53,10 +52,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     <!-- extensions -->
-    <xacro:knuckle_transmission muscletrans="${muscle}"
-    prefix="${prefix}" joint_prefix="${joint_prefix}"
-    link_prefix="${link_prefix}" />
-    <xacro:knuckle_gazebo prefix="${prefix}"
-    link_prefix="${link_prefix}" />
+    <xacro:knuckle_transmission />
+    <xacro:knuckle_gazebo />
   </xacro:macro>
 </robot>

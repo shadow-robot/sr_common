@@ -8,11 +8,10 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thbase.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thbase.transmission.xacro" />
-  <!-- muscle is true for muscle hand or false for motor hand -->
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- parent is the parent link for the first joint -->
-  <xacro:macro name="thbase" params="muscle reflect prefix parent">
+  <xacro:macro name="thbase" params="reflect:=^ prefix:=^ parent">
     <link name="${prefix}thbase">
       <inertial>
         <mass value="0.010" />
@@ -51,8 +50,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     <!-- extensions -->
-    <xacro:thbase_transmission muscletrans="${muscle}"
-    prefix="${prefix}" />
-    <xacro:thbase_gazebo prefix="${prefix}" />
+    <xacro:thbase_transmission />
+    <xacro:thbase_gazebo />
   </xacro:macro>
 </robot>

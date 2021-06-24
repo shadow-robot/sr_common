@@ -2,7 +2,7 @@
   <!-- muscle is true for muscle hand or false for motor hand -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- cable_mesh is set to true when cable collision should be taken into account -->
-  <xacro:macro name="forearm" params="muscle prefix cable_mesh:='false'">
+  <xacro:macro name="forearm" params="hand_type:=^ prefix:=^ cable_mesh:=^">
     <link name="${prefix}forearm">
       <inertial>
         <origin xyz="0 0 0.09" rpy="0 0 0" />
@@ -14,11 +14,11 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 ${pi/2}" />
         <geometry name="${prefix}forearm_visual">
-          <xacro:if value="${muscle}">
+          <xacro:if value="${hand_type == 'hand_m'}">
             <mesh filename="package://sr_description/meshes/hand/forearm_lite.dae"
             scale="1.0 1.0 1.0" />
           </xacro:if>
-          <xacro:unless value="${muscle}">
+          <xacro:unless value="${hand_type == 'hand_m'}">
             <mesh filename="package://sr_description/meshes/hand/forearm_lite.dae"
             scale="1.0 1.0 1.0" />
           </xacro:unless>
@@ -26,13 +26,13 @@
         <material name="Grey" />
       </visual>
       <collision>
-        <xacro:if value="${muscle}">
+        <xacro:if value="${hand_type == 'hand_m'}">
           <origin xyz="0 0 0.185" rpy="0 0 0" />
           <geometry name="${prefix}forearm_collision">
             <cylinder radius="0.075" length="0.37" />
           </geometry>
         </xacro:if>
-        <xacro:unless value="${muscle}">
+        <xacro:unless value="${hand_type == 'hand_m'}">
           <origin xyz="0 0 0.065" rpy="0 0 0" />
           <geometry name="${prefix}forearm_collision">
             <box size="0.120 0.109 0.130" />

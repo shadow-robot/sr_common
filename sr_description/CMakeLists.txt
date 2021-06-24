@@ -12,8 +12,11 @@ catkin_package(
 
 if (CATKIN_ENABLE_TESTING)
   catkin_add_gtest(test_sr_description_urdf test/test_sr_description_urdf.cpp)
+  catkin_add_gtest(test_backward_compat_urdf test/test_backward_compat_urdf.cpp)
   add_dependencies(test_sr_description_urdf ${catkin_EXPORTED_TARGETS})
+  add_dependencies(test_backward_compat_urdf ${catkin_EXPORTED_TARGETS})
   target_link_libraries(test_sr_description_urdf ${Boost_LIBRARIES} ${catkin_LIBRARIES} ${GTEST_LIBRARIES} pthread)
+  target_link_libraries(test_backward_compat_urdf ${Boost_LIBRARIES} ${catkin_LIBRARIES} ${GTEST_LIBRARIES} pthread)
 endif()
 
 install(DIRECTORY arm/

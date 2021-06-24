@@ -15,6 +15,5 @@
     <child link="rh_forearm" />
     <origin xyz="0 0 0" rpy="0 0 ${2.35619449}" />
   </joint>
-  <xacro:shadowhand muscletrans="false" muscle="false" bio="false" bt_sp="false"
-  ubi="false" eli="false" reflect="1.0" prefix="rh_" lf="true" />
+  <xacro:shadowhand hand_type="hand_e" reflect="1.0" prefix="rh_" />
 </robot>

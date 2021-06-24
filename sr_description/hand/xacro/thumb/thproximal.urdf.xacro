@@ -8,12 +8,11 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thproximal.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thproximal.transmission.xacro" />
-  <!-- muscle is true for muscle hand or false for motor hand -->
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- parent is the parent link for the first joint -->
   <xacro:macro name="thproximal"
-  params="muscle reflect prefix parent">
+  params="reflect:=^ prefix:=^ parent">
     <link name="${prefix}thproximal">
       <inertial>
         <mass value="0.040" />
@@ -52,8 +51,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     <!-- extensions -->
-    <xacro:thproximal_transmission muscletrans="${muscle}"
-    prefix="${prefix}" />
-    <xacro:thproximal_gazebo prefix="${prefix}" />
+    <xacro:thproximal_transmission />
+    <xacro:thproximal_gazebo />
   </xacro:macro>
 </robot>

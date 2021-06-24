@@ -4,7 +4,7 @@ xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
 xmlns:xacro="http://www.ros.org/wiki/xacro"
 name="shadowhand_motor">
   <xacro:include filename="$(find sr_description)/materials.urdf.xacro" />
-  <xacro:include filename="$(find sr_description)/hand/xacro/th_ff_rf_ellipsoid_hand.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
   <!-- hand with cylindrical base drifts in gazebo, attach it to the world -->
   <link name="world" />
@@ -13,7 +13,5 @@ name="shadowhand_motor">
     <child link="rh_forearm" />
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
-  <!-- eli is used for other fingers since th, ff and rf are forced to eli -->
-  <xacro:shadowhand muscletrans="false" muscle="false" bio="false" bt_sp="false"
-  ubi="false" eli="false" reflect="1.0" prefix="rh_" />
+  <xacro:shadowhand hand_type="hand_e" tip_sensors="${['eli','eli','std','eli','std']}" reflect="1.0" prefix="rh_" />
 </robot>

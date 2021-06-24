@@ -16,8 +16,7 @@ name="shadowhand_motor">
   <!-- C6 hand with BioTAC sensor
   (C) 2012 fnh, hendrich@informatik.uni-hamburg.de
 -->
-  <xacro:shadowhand muscletrans="true" muscle="true" bio="true" bt_sp="false"
-  ubi="false" eli="false" reflect="1.0" prefix="rh_" lf="true" />
+  <xacro:shadowhand hand_type="hand_mt" tip_sensors="${['bio','bio','bio','bio','bio']}" reflect="1.0" prefix="rh_" />
   <link name="rh_forearm_disk">
     <inertial>
       <origin xyz="0 0 0" />

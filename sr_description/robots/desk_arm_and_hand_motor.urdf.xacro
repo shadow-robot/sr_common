@@ -18,6 +18,5 @@
     <limit lower="0" upper="0" effort="10" velocity="1.0" />
     <dynamics damping="3.5" />
   </joint>
-  <xacro:shadowhand muscletrans="false" muscle="false" bio="false" bt_sp="false"
-  ubi="false" eli="false" reflect="1.0" prefix="rh_" lf="true" />
+  <xacro:shadowhand hand_type="hand_e" reflect="1.0" prefix="rh_" />
 </robot>

@@ -7,13 +7,12 @@ xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
 xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/middle/middle.transmission.xacro" />
-  <!-- muscle is true for muscle hand or false for motor hand -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- link_prefix prepends fingername to the link names -->
   <!-- joint_prefix prepends fingername to the joint names -->
   <!-- parent is the parent link for the joint -->
   <xacro:macro name="biotac_middle"
-  params="muscle prefix link_prefix joint_prefix parent">
+  params="prefix:=^ link_prefix:=^ joint_prefix:=^ tip_sensor:=^|'std' mid_sensor:=^|standard parent">
     <link name="${prefix}${link_prefix}middle">
       <inertial>
         <origin xyz="0 0 0.0125" rpy="0 0 0" />
@@ -38,6 +37,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       </collision>
     </link>
     <gazebo reference="${prefix}${link_prefix}middle">
+      <xacro:unless value="${'none' in mid_sensor}" >
       <sensor type="contact"
       name="${prefix}${link_prefix}middle_contact">
         <always_on>1</always_on>
@@ -55,8 +55,10 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
           contacts/${prefix}${link_prefix}/middle</bumperTopicName>
         </plugin>
       </sensor>
+      </xacro:unless>
       <material>Gazebo/FlatBlack</material>
     </gazebo>
+
     <joint name="${prefix}${joint_prefix}J2" type="revolute">
       <parent link="${parent}" />
       <child link="${prefix}${link_prefix}middle" />
@@ -91,9 +93,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <provideFeedback>1</provideFeedback>
       <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
-    <xacro:middle_transmission muscletrans="${muscle}"
-    prefix="${prefix}" joint_prefix="${joint_prefix}"
-    link_prefix="${link_prefix}" />
+    <xacro:middle_transmission />
     <link name="${prefix}${link_prefix}distal">
       <inertial>
         <origin xyz="0.0 -0.009 0.035" rpy="0 0 0" />
@@ -120,6 +120,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       </collision>
     </link>
     <gazebo reference="${prefix}${link_prefix}distal">
+      <xacro:unless value="${'none' in tip_sensor}" >
       <sensor type="contact"
       name="${prefix}${link_prefix}distal_contact">
         <always_on>1</always_on>
@@ -137,6 +138,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
           contacts/${prefix}${link_prefix}/distal</bumperTopicName>
         </plugin>
       </sensor>
+      </xacro:unless>
       <selfCollide>true</selfCollide>
     </gazebo>
     <joint name="${prefix}${joint_prefix}_distal_joint"

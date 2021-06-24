@@ -8,16 +8,12 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thdistal.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thdistal.transmission.xacro" />
-  <!-- muscle is true for muscle hand or false for motor hand -->
-  <!-- bio is true for biotac finger or false for standard finger -->
-  <!-- bt_sp is true for BT_SP finger or false for standard finger -->
-  <!-- ubi is true for ubi finger or false for standard finger -->
-  <!-- eli is true for ellipsoid fingertip or false for standard finger -->
+  <!-- tip_sensor describes the sensor std, none, bio, bt_sp, ubi, eli -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- parent is the parent link for the first joint -->
   <xacro:macro name="thdistal"
-  params="muscle bio bt_sp ubi eli prefix parent">
-    <xacro:if value="${bio}">
+    params="tip_sensor:=^|std prefix:=^ parent">
+    <xacro:if value="${'bio' in tip_sensor}">
       <!--    BIOTAC -->
       <link name="${prefix}thdistal_J1_dummy">
         <inertial>
@@ -117,7 +113,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <!-- approximated only FIXME -->
       </joint>
     </xacro:if>
-    <xacro:unless value="${bio}">
+    <xacro:unless value="${'bio' in tip_sensor}">
       <!-- common -->
       <link name="${prefix}thdistal">
         <inertial>
@@ -129,29 +125,25 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <visual>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry name="${prefix}thdistal_visual">
-            <xacro:if value="${eli}">
+            <xacro:unless value="${tip_sensor in ['bt_sp','ubi','eli']}">
+              <!-- Standard distal  -->
+              <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
+                    scale="0.001 0.001 0.001" />
+            </xacro:unless>
+            <xacro:if value="${'eli' in tip_sensor}">
               <!-- Ellispoid distal  -->
               <mesh filename="package://sr_description/meshes/hand/ellipsoids/thdistal_ellipsoid_visual.dae"
               scale="0.001 0.001 0.001" />
             </xacro:if>
-            <xacro:unless value="${eli}">
-              <xacro:if value="${ubi}">
-                <!-- Ubi distal -->
-                <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
-                      scale="0.001 0.001 0.001" />
-              </xacro:if>
-	      <xacro:unless value="${ubi}">
-		<xacro:if value="${bt_sp}">
-		  <!-- bt sp distal  -->
-		  <mesh filename="package://sr_description/meshes/hand/biotacs/sp.dae" />
-		</xacro:if>
-		<xacro:unless value="${bt_sp}">
-		  <!-- Standard distal  -->
-                  <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
-			scale="0.001 0.001 0.001" />
-		</xacro:unless>
-	      </xacro:unless>
-            </xacro:unless>
+            <xacro:if value="${'ubi' in tip_sensor}">
+              <!-- Ubi distal -->
+              <mesh filename="package://sr_description/meshes/hand/ubi_tactiles/ubi_thtip_visual.dae"
+                    scale="0.001 0.001 0.001" />
+            </xacro:if>
+            <xacro:if value="${'bt_sp' in tip_sensor}">
+              <!-- bt sp distal  -->
+              <mesh filename="package://sr_description/meshes/hand/biotacs/sp.dae" />
+            </xacro:if>
           </geometry>
           <material name="shadow_thmiddle_material">
             <color rgba="0.2 0.2 0.2 1.0" />
@@ -160,29 +152,25 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <collision>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry name="${prefix}thmiddle_collision_geom">
-            <xacro:if value="${eli}">
+            <xacro:unless value="${tip_sensor in ['bt_sp','ubi','eli']}">
+              <!-- Standard distal  -->
+              <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
+                    scale="0.001 0.001 0.001" />
+            </xacro:unless>
+            <xacro:if value="${'eli' in tip_sensor}">
               <!-- Ellispoid distal  -->
               <mesh filename="package://sr_description/meshes/hand/ellipsoids/thdistal_ellipsoid.dae"
               scale="0.001 0.001 0.001" />
             </xacro:if>
-            <xacro:unless value="${eli}">
-              <xacro:if value="${ubi}">
-                <!-- Ubi distal -->
-                <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
-                scale="0.001 0.001 0.001" />
-              </xacro:if>
-              <xacro:unless value="${ubi}">
-		<xacro:if value="${bt_sp}">
-		  <!-- bt sp distal  -->
-                  <mesh filename="package://sr_description/meshes/hand/biotacs/sp.dae" />
-		</xacro:if>
-		<xacro:unless value="${bt_sp}">
-                  <!-- Standard distal  -->
-                  <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
-			scale="0.001 0.001 0.001" />
-		</xacro:unless>
-              </xacro:unless>
-            </xacro:unless>
+            <xacro:if value="${'ubi' in tip_sensor}">
+              <!-- Ubi distal -->
+              <mesh filename="package://sr_description/meshes/hand/ubi_tactiles/ubi_thtip_collision.stl"
+              scale="0.001 0.001 0.001" />
+            </xacro:if>
+            <xacro:if value="${'bt_sp' in tip_sensor}">
+              <!-- bt sp distal  -->
+                          <mesh filename="package://sr_description/meshes/hand/biotacs/sp.dae" />
+            </xacro:if>
             <!--      <box size="0.015 0.015 0.015" /> -->
           </geometry>
         </collision>
@@ -212,10 +200,9 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <child link="${prefix}thtip" />
         <origin xyz="0 0 0.0275" rpy="0 0 0" />
       </joint>
-      <xacro:thdistal_gazebo prefix="${prefix}" />
+      <xacro:thdistal_gazebo />
     </xacro:unless>
     <!-- extensions -->
-    <xacro:thdistal_transmission muscletrans="${muscle}"
-    prefix="${prefix}" />
+    <xacro:thdistal_transmission />
   </xacro:macro>
 </robot>
