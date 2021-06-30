@@ -32,7 +32,7 @@
       <child link="shadowarm_handsupport" />
       <origin xyz="0.08 0 0.125" rpy="0.0 0 0" />
       <axis xyz="0 0 -1" />
-      <limit lower="-${M_PI/2}" upper="${M_PI/2}" effort="30"
+      <limit lower="-${pi/2}" upper="${pi/2}" effort="30"
       velocity="1.0" />
       <dynamics damping="5.5" />
     </joint>

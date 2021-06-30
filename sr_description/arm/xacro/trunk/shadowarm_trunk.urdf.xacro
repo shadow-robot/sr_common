@@ -31,7 +31,7 @@
       <child link="shadowarm_trunk" />
       <origin xyz="0 0 0.01" rpy="0.0 0.0 0.0" />
       <axis xyz="0 0 1" />
-      <limit lower="-${M_PI/4}" upper="${M_PI/2}" effort="70"
+      <limit lower="-${pi/4}" upper="${pi/2}" effort="70"
       velocity="1.0" />
       <dynamics damping="5.5" />
     </joint>
