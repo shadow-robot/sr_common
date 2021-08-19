@@ -5,4 +5,6 @@ float64 i_clamp
 float64 max_force
 float64 deadband
 int32 friction_deadband
+int32 positive_threshold
+int32 negative_threshold
 ---
