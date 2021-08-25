@@ -16,8 +16,8 @@
                     <mechanicalReduction>1</mechanicalReduction>
                 </actuator>
                 <joint name="${prefix}LFJ5">
-                    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-                    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+                    <hardwareInterface>EffortJointInterface</hardwareInterface>
+                    <hardwareInterface>PositionJointInterface</hardwareInterface>
                 </joint>
             </transmission>
         </xacro:if>
@@ -29,8 +29,8 @@
                     <mechanicalReduction>1</mechanicalReduction>
                 </actuator>
                 <joint name="${prefix}LFJ5">
-                    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
-                    <hardwareInterface>hardware_interface/PositionJointInterface</hardwareInterface>
+                    <hardwareInterface>EffortJointInterface</hardwareInterface>
+                    <hardwareInterface>PositionJointInterface</hardwareInterface>
                 </joint>
             </transmission>
         </xacro:unless>
