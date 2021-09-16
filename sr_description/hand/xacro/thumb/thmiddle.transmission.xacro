@@ -29,7 +29,7 @@
                     <mechanicalReduction>1</mechanicalReduction>
                 </actuator>
                 <joint name="${prefix}THJ2">
-                    <hardwareInterface>EffortJointInterface</hardwareInterface>
+                    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
                     <hardwareInterface>PositionJointInterface</hardwareInterface>
                 </joint>
             </transmission>

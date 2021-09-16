@@ -36,7 +36,7 @@
                     <mechanicalReduction>1</mechanicalReduction>
                 </actuator>
                 <joint name="${prefix}${joint_prefix}J1">
-                    <hardwareInterface>EffortJointInterface</hardwareInterface>
+                    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
                     <hardwareInterface>PositionJointInterface</hardwareInterface>
                 </joint>
                 <secondJoint name="${prefix}${joint_prefix}J2"/>
