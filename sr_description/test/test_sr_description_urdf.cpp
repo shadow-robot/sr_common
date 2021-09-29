@@ -56,7 +56,7 @@ void walker(const std::string& sub_folder)
   DIR           *d;
   struct dirent *dir;
   d = opendir(root_path.c_str());
-  ASSERT_TRUE(d != NULL) << "no robots found";
+  ASSERT_TRUE(d != NULL) << "Path does not exist: " << root_path;
   while ((dir = readdir(d)))
   {
     if (strcmp(dir->d_name, ".") == 0 ||
