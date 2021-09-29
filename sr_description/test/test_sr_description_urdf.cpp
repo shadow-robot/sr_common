@@ -59,11 +59,6 @@ void walker(const std::string& sub_folder)
   ASSERT_TRUE(d != NULL) << "Path does not exist: " << root_path;
   while ((dir = readdir(d)))
   {
-    if (strcmp(dir->d_name, ".") == 0 ||
-        strcmp(dir->d_name, "..") == 0)
-    {
-      continue;
-    }
     if (dir->d_type != DT_DIR)
     {
       std::string file_name = dir->d_name;
