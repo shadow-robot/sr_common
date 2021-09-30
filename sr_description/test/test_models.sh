@@ -27,7 +27,7 @@ function launch {
 	echo "***********************************************"
 
 	start_rostopic $1
-	roslaunch sr_description test_models.launch robot:=$1.urdf.xacro rviz_config:=$RVIZ_CONFIG
+	roslaunch sr_description test_models.launch robot:=$(rospack find sr_description)/robots/$1.urdf.xacro rviz_config:=$RVIZ_CONFIG
 	stop_rostopic
 
 	sleep 0.2  # Some time to Ctrl-C before next launch
