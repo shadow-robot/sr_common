@@ -3,7 +3,6 @@
   <xacro:macro name="thhub_gazebo" params="prefix:=^">
     <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
     <gazebo reference="${prefix}thhub">
-      <!-- hub is inside the proximal and not exposed so bumper seems useless
       <sensor type="contact" name="${prefix}thhub_contact">
         <always_on>1</always_on>
         <update_rate>1000.0</update_rate>
@@ -17,8 +16,8 @@
           <updateRate>100.0</updateRate>
           <bumperTopicName>contacts/${prefix}th/hub</bumperTopicName>
         </plugin>
-      </sensor> -->
-      <selfCollide>false</selfCollide>
+      </sensor>
+      <selfCollide>true</selfCollide>
     </gazebo>
   </xacro:macro>
 </robot>

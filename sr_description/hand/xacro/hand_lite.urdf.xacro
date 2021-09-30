@@ -8,28 +8,28 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/fingers.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thumb.urdf.xacro" />
 
-  <!-- hand_type describes the hand type, hand_e, hand_e_plus, hand_m (muscle) -->
-  <!-- extra_lite (deprecated) describes if the hand is extra_lite -->
+  <!-- hand_type can be: hand_e, hand_e_plus, hand_m (muscle), hand_mt (muscletrans) -->
+  <!-- fingers: dict specifying available fingers, default: dict(th=1, ff=1, mf=1, rf=1, lf=1) -->
+  <!-- tip_sensors: dict specifying the fingertip (tactile) sensors per finger: std, none, bio, bt_sp, eli -->
+  <!-- mid_sensors: dict specifying the middle-phalange (tactile) sensors per finger: std, none, bio -->
+  <!-- prox_sensors: dict specifying the proximal (tactile) sensors per finger: std, none -->
+  <!-- palm_sensor: specifies the palm tactile sensor: std, none -->
+  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- extra_lite (deprecated) describes if the hand is extra_lite, i.e. without MF -->
   <!-- muscletrans (deprecated) is true for muscle transmission to be used, false to use motor transmission -->
   <!-- muscle (deprecated) is true for muscle hand or false for motor hand -->
   <!-- bio (deprecated) is true for biotac finger or false for standard finger -->
   <!-- bt_sp (deprecated) is true for BT_SP finger or false for standard finger -->
   <!-- eli (deprecated) is true for ellipsoid fingertip or false for standard finger -->
-  <!-- tip_sensors vector that describes the sensor std, none, bio, bt_sp, eli -->
-  <!-- mid_sensors vector that describes the sensor std, none, bio -->
-  <!-- prox_sensors vector that describes the sensor std, none -->
-  <!-- palm_sensor describes the sensor none, bumper -->
-  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
-  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
-  <xacro:macro name="shadowhand" params="hand_type:='hand_e' reflect prefix cable_mesh:=False
-          fingers:=${[1,1,1,1]} tip_sensors:=${['std','std','std','std']} prox_sensors:=${['std','std','std','std']}
-          mid_sensors:=${['std','std','std','std']} palm_sensor:=std
-          muscletrans:=False muscle:=False lf:=True extra_lite:=False bio:=False bt_sp:=False eli:=False">
+  <xacro:macro name="shadowhand" params="hand_type:='hand_e' reflect prefix cable_mesh:=False fingers:=${[1,1,1,1]}
+          tip_sensors:=${4 * ['std']} mid_sensors:=${4 * ['std']} prox_sensors:=${4 * ['std']} palm_sensor:=std
+          extra_lite:=^|False muscletrans:=^|False muscle:=^|False bio:=^|False bt_sp:=^|False eli:=^|False">
     <!-- handle deprecated parameters -->
     <xacro:include filename="$(find sr_description)/hand/xacro/backward_compat.urdf.xacro" />
 
     <xacro:if value="${extra_lite}">
-      <xacro:property name="fingers" value="${[1,0,1,1]}"/>
+      <xacro:property name="fingers" value="${[1,1,0,1]}" />
     </xacro:if>
 
     <!-- Forearm -->

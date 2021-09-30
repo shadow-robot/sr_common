@@ -63,7 +63,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
     <joint name="${prefix}THJ2" type="revolute">
       <parent link="${parent}" />
       <child link="${prefix}thmiddle" />
-      <xacro:if value="${bio}">
+      <xacro:if value="${'bio' in mid_sensor}">
         <origin xyz="0 0 0.01" rpy="0 0 0" />
         <!-- FIXME: z offset is too large -->
       </xacro:if>

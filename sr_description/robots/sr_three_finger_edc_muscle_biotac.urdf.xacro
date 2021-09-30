@@ -13,5 +13,5 @@ name="shadowhand_motor">
     <child link="rh_forearm" />
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
-  <xacro:shadowhand hand_type="hand_m" fingers="${[1,1,1,0,0]}" tip_sensors="${['bio','bio','bio','std','std']}" reflect="1.0" prefix="rh_" />
+  <xacro:shadowhand hand_type="hand_mt" fingers="${[1,1,1,0,0]}" tip_sensors="${['bio','bio','bio','std','std']}" reflect="1.0" prefix="rh_" />
 </robot>

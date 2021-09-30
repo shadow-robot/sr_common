@@ -42,7 +42,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
             </xacro:if>
           </xacro:if>
         </geometry>
-        <material name="Grey" />
+        <!-- <material name="Grey" /> -->
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -72,16 +72,9 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <child link="${prefix}${link_prefix}distal" />
         <origin xyz="0 0 0.025" rpy="0 0 0" />
         <axis xyz="1 0 0" />
-        <xacro:if value="${bio}">
-          <!-- biotac fixed distal joint -->
-          <limit lower="${20/180*pi}" upper="${20/180*pi}"
-          effort="10" velocity="2.0" />
-        </xacro:if>
-        <xacro:unless value="${bio}">
-          <!-- standard distal joint -->
-          <limit lower="0" upper="${pi/2}" effort="2"
-          velocity="2.0" />
-        </xacro:unless>
+        <!-- standard distal joint -->
+        <limit lower="0" upper="${pi/2}" effort="2"
+        velocity="2.0" />
         <dynamics damping="0.1" />
       </joint>
       <gazebo reference="${prefix}${joint_prefix}J1">

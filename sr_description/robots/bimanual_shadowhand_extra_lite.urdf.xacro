@@ -11,11 +11,11 @@ name="bimanual_shadowhand_motor">
     <child link="rh_forearm" />
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
-  <xacro:shadowhand hand_type="hand_e" fingers="${[1,0,1,1]}" reflect="1.0" prefix="rh_" />
+  <xacro:shadowhand hand_type="hand_e" fingers="${[1,1,0,1]}" reflect="1.0" prefix="rh_" />
   <joint name="right_hand_to_left_hand" type="fixed">
     <parent link="rh_forearm" />
     <child link="lh_forearm" />
     <origin xyz="$(arg arm_x_separation) 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
-  <xacro:shadowhand hand_type="hand_e" fingers="${[1,0,1,1]}" reflect="-1.0" prefix="lh_" />
+  <xacro:shadowhand hand_type="hand_e" fingers="${[1,1,0,1]}" reflect="-1.0" prefix="lh_" />
 </robot>
