@@ -1,0 +1,16 @@
+<launch>
+  <arg name="rviz_config" default="test_hands.rviz" />
+  <param name="robot_description" command="xacro '$(find sr_description)/robots/$(arg robot)'" />
+
+  <!-- publish joint values and open rviz -->
+  <group unless="$(optenv URDF_ONLY 0)">
+    <!-- open joint_state_publisher_gui -->
+    <node name="joint_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+
+    <!-- publish transforms of all robot links -->
+    <node name="state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />
+
+    <!-- run rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" required="true" args="-d $(dirname)/$(arg rviz_config)" />
+  </group>
+</launch>

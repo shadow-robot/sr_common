@@ -1,0 +1,30 @@
+#!/bin/bash
+# Launch all the existing hand models in RVIZ for visual inspection.
+
+source ./test_models.sh
+
+launch shadowhand_motor
+launch shadowhand_left_motor
+launch shadowhand_lite
+launch shadowhand_extra_lite
+
+launch shadowhand_motor_ellipsoid
+
+launch shadowhand_motor_biotac
+launch shadowhand_left_motor_biotac
+
+launch shadowhand_motor_ff_biotac
+launch shadowhand_motor_th_ff_rf_ellipsoid
+
+launch shadowhand_motor_btsp
+
+launch sr_three_finger_motor
+launch sr_one_finger_motor
+
+launch shadowhand_muscle
+launch shadowhand_edc_muscle
+launch shadowhand_left_muscle
+launch shadowhand_left_edc_muscle
+launch shadowhand_muscle_biotac
+launch shadowhand_edc_muscle_biotac
+launch sr_three_finger_edc_muscle_biotac
