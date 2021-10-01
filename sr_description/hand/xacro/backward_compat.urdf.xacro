@@ -1,8 +1,8 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:property name="lf" default="${None}" />
   <xacro:property name="extra_lite" default="${None}" />
-  <xacro:if value="${[p for p in [muscle, muscletrans, extra_lite, lf, bio, bt_sp, eli] if p is not None]}">
-    ${xacro.warning('Deprecated use of shadowhand macro: \nReplace parameters muscle, muscletrans, lf, extra_lite with hand_type and fingers\nand parameters bio, bt_sp, eli with [tip|mid|prox|palm]_sensors.')}
+  <xacro:if value="${[p for p in [extra_lite, lf, bio, bt_sp, eli] if p is not None]}">
+    ${xacro.warning('Deprecated use of shadowhand macro: \nReplace parameters lf, extra_lite with fingers\nand parameters bio, bt_sp, eli with [tip|mid|prox|palm]_sensors.')}
   </xacro:if>
 
   <!-- for backward compatibility define new params from old ones -->
@@ -23,15 +23,6 @@
     <xacro:property name="prox_sensors" value="${['std', 'std', 'std', 'std', 'std']}" />
     <xacro:property name="mid_sensors" value="${['std', 'std', 'std', 'std', 'std']}" />
     <xacro:property name="tip_sensors" value="${['eli', 'eli', 'eli', 'eli', 'eli']}" />
-  </xacro:if>
-
-  <xacro:if value="${muscle}">
-    <xacro:if value="${muscletrans}">
-      <xacro:property name="hand_type" value="hand_mt" />
-    </xacro:if>
-    <xacro:unless value="${muscletrans}">
-      <xacro:property name="hand_type" value="hand_m" />
-    </xacro:unless>
   </xacro:if>
 
   <xacro:if value="${lf is None}">

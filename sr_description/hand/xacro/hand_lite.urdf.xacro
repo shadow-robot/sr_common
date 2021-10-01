@@ -8,7 +8,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/fingers.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thumb.urdf.xacro" />
 
-  <!-- hand_type can be: hand_e, hand_e_plus, hand_m (muscle), hand_mt (muscletrans) -->
+  <!-- hand_type can be: motor, motor+, muscle (muscle), muscletrans (muscletrans) -->
   <!-- fingers: dict specifying available fingers, default: dict(th=1, ff=1, mf=1, rf=1, lf=1) -->
   <!-- tip_sensors: dict specifying the fingertip (tactile) sensors per finger: std, none, bio, bt_sp, eli -->
   <!-- mid_sensors: dict specifying the middle-phalange (tactile) sensors per finger: std, none, bio -->
@@ -22,10 +22,11 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- bio (deprecated) is true for biotac finger or false for standard finger -->
   <!-- bt_sp (deprecated) is true for BT_SP finger or false for standard finger -->
   <!-- eli (deprecated) is true for ellipsoid fingertip or false for standard finger -->
-  <xacro:macro name="shadowhand" params="hand_type:='hand_e' reflect prefix cable_mesh:=False fingers:=${[1,1,1,1]}
+  <xacro:macro name="shadowhand" params="hand_type:='motor' reflect prefix cable_mesh:=False fingers:=${[1,1,1,1]}
           tip_sensors:=${4 * ['std']} mid_sensors:=${4 * ['std']} prox_sensors:=${4 * ['std']} palm_sensor:=std
           extra_lite:=^|${None} muscletrans:=^|${None} muscle:=^|${None} bio:=^|${None} bt_sp:=^|${None} eli:=^|${None}">
-    <!-- handle deprecated parameters -->
+    <!-- Unify hand type parameter, also handling deprecated muscletrans, muscle -->
+    <xacro:include filename="$(find sr_description)/hand/xacro/process_hand_type_parameter.xacro" />
     <xacro:include filename="$(find sr_description)/hand/xacro/backward_compat.urdf.xacro" />
 
     <xacro:if value="${extra_lite}">

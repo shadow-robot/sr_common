@@ -8,7 +8,7 @@
     <xacro:macro name="thhub_transmission" params="hand_type:=^ prefix:=^">
 
         <!-- muscle hand -->
-        <xacro:if value="${hand_type == 'hand_mt'}">
+        <xacro:if value="${hand_type == 'muscletrans'}">
             <transmission name="${prefix}thhub_transmission">
                 <type>sr_mechanism_model/SimpleTransmissionForMuscle</type>
                 <actuator name="${prefix}THJ3">
@@ -21,7 +21,7 @@
             </transmission>
         </xacro:if>
         <!-- motor hand -->
-        <xacro:unless value="${hand_type == 'hand_mt'}">
+        <xacro:unless value="${hand_type == 'muscletrans'}">
             <transmission name="${prefix}thhub_transmission">
                 <type>sr_mechanism_model/SimpleTransmission</type>
                 <actuator name="${prefix}THJ3">

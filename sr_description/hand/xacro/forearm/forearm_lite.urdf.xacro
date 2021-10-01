@@ -14,11 +14,11 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 ${pi/2}" />
         <geometry name="${prefix}forearm_visual">
-          <xacro:if value="${hand_type == 'hand_m'}">
+          <xacro:if value="${hand_type == 'muscle'}">
             <mesh filename="package://sr_description/meshes/hand/forearm_lite.dae"
             scale="1.0 1.0 1.0" />
           </xacro:if>
-          <xacro:unless value="${hand_type == 'hand_m'}">
+          <xacro:unless value="${hand_type == 'muscle'}">
             <mesh filename="package://sr_description/meshes/hand/forearm_lite.dae"
             scale="1.0 1.0 1.0" />
           </xacro:unless>
@@ -26,13 +26,13 @@
         <material name="Grey" />
       </visual>
       <collision>
-        <xacro:if value="${hand_type == 'hand_m'}">
+        <xacro:if value="${hand_type == 'muscle'}">
           <origin xyz="0 0 0.185" rpy="0 0 0" />
           <geometry name="${prefix}forearm_collision">
             <cylinder radius="0.075" length="0.37" />
           </geometry>
         </xacro:if>
-        <xacro:unless value="${hand_type == 'hand_m'}">
+        <xacro:unless value="${hand_type == 'muscle'}">
           <origin xyz="0 0 0.065" rpy="0 0 0" />
           <geometry name="${prefix}forearm_collision">
             <box size="0.120 0.109 0.130" />

@@ -4,7 +4,7 @@ xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
 xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find sr_description)/hand/xacro/forearm/forearm.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/fingers.urdf.xacro" />
-  <!-- hand_type describes the hand type, hand_e, hand_e_plus, hand_m (muscle) -->
+  <!-- hand_type describes the hand type, motor, motor+, muscle (muscle) -->
   <!-- muscletrans (deprecated) is true for muscle transmission to be used, false to use motor transmission -->
   <!-- muscle (deprecated) is true for muscle hand or false for motor hand -->
   <!-- muscle is true for muscle hand or false for motor hand -->
@@ -17,7 +17,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- palm_sensor describes the sensor none, bumper -->
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
-  <xacro:macro name="shadowhand" params="hand_type:='hand_e' reflect prefix cable_mesh:=False
+  <xacro:macro name="shadowhand" params="hand_type:='motor' reflect prefix cable_mesh:=False
           tip_sensor:=std mid_sensor:=std prox_sensor:=std palm_sensor:=std
           muscletrans:=${None} muscle:=${None} bio:=${None} bt_sp:=${None} eli:=${None}">
     <xacro:property name="tip_sensors" value="${5 * [tip_sensor]}" />
