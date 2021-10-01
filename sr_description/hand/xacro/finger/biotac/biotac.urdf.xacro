@@ -12,7 +12,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
   <!-- joint_prefix prepends fingername to the joint names -->
   <!-- parent is the parent link for the joint -->
   <xacro:macro name="biotac_middle"
-  params="prefix:=^ link_prefix:=^ joint_prefix:=^ tip_sensor:=^|'std' mid_sensor:=^|standard parent">
+  params="prefix:=^ link_prefix:=^ joint_prefix:=^ tip_sensor:=^|std mid_sensor:=^|std parent">
     <link name="${prefix}${link_prefix}middle">
       <inertial>
         <origin xyz="0 0 0.0125" rpy="0 0 0" />

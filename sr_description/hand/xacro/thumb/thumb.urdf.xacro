@@ -12,7 +12,7 @@
   <!-- parent is the parent link for the first joint -->
   <!-- is_lite is this the lite hand, if so lock J3 -->
   <xacro:macro name="thumb"
-  params=" tip_sensor:=^|'std' mid_sensor:=^|'std' prox_sensor:=^|'std' reflect:=^ prefix:=^ parent is_lite">
+  params=" tip_sensor:=^|std mid_sensor:=^|std prox_sensor:=^|std reflect:=^ prefix:=^ parent is_lite">
     <xacro:if value="${tip_sensor == 'bio'}">
       <xacro:property name="mid_sensor" value="bio" />
     </xacro:if>

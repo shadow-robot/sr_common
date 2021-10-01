@@ -15,7 +15,7 @@
   <!-- joint_prefix prepends fingername to the joint names -->
   <!-- parent is the parent link for the first joint -->
   <xacro:macro name="finger"
-  params="tip_sensor:=^|'std' mid_sensor:=^|'std' prox_sensor:=^|'std' reflect:=^ prefix:=^ link_prefix joint_prefix parent *origin *axis">
+  params="tip_sensor:=^|std mid_sensor:=^|std prox_sensor:=^|std reflect:=^ prefix:=^ link_prefix joint_prefix parent *origin *axis">
 
     <!-- Little finger special case -->
     <xacro:if value="${'lf' in link_prefix}">
@@ -34,18 +34,16 @@
     </xacro:unless>
     <!-- Proximal -->
     <xacro:proximal parent="${prefix}${link_prefix}knuckle"></xacro:proximal>
-    <!-- Biotac Middle -->
+    <!-- BioTac combines Middle + Distal -->
     <xacro:if value="${'bio' in tip_sensor}">
       <xacro:biotac_middle parent="${prefix}${link_prefix}proximal">
       </xacro:biotac_middle>
     </xacro:if>
-    <!-- Standard Middle -->
+    <!-- Non-BioTac -->
     <xacro:unless value="${'bio' in tip_sensor}">
+      <!-- Middle -->
       <xacro:middle parent="${prefix}${link_prefix}proximal"></xacro:middle>
-    </xacro:unless>
-    <!-- Distal  -->
-    <!-- only if finger is not biotac  -->
-    <xacro:unless value="${'bio' in tip_sensor}">
+      <!-- Distal  -->
       <xacro:distal parent="${prefix}${link_prefix}middle"></xacro:distal>
     </xacro:unless>
   </xacro:macro>

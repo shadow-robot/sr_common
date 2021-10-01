@@ -18,9 +18,11 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <xacro:macro name="shadowhand" params="hand_type:='hand_e' reflect prefix cable_mesh:=False
-          fingers:=${[1,1,1,1]} tip_sensors:=${['std','std','std','std']} prox_sensors:=${['std','std','std','std']}
-          mid_sensors:=${['std','std','std','std']} palm_sensor:=std
-          muscletrans:=False muscle:=False lf:=True extra_lite:=False bio:=False bt_sp:=False eli:=False">
+          tip_sensor:=std mid_sensor:=std prox_sensor:=std palm_sensor:=std
+          muscletrans:=False muscle:=False bio:=False bt_sp:=False eli:=False">
+    <xacro:property name="tip_sensors" value="${5 * [tip_sensor]}" />
+    <xacro:property name="mid_sensors" value="${5 * [mid_sensor]}" />
+    <xacro:property name="prox_sensors" value="${5 * [prox_sensor]}" />
     <xacro:include filename="$(find sr_description)/hand/xacro/backward_compat.urdf.xacro" />
     <!-- Forearm -->
     <xacro:forearm />
@@ -55,13 +57,11 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
     <!-- mfknuckle is at [0.011 -0.01 0.346] from the bottom of forearm -->
     <!-- Middle Finger -->
     <!-- TODO: Check if offset is the same for muscle hand -->
-    <xacro:if value="${fingers[2] == 1}">
-      <xacro:finger link_prefix="mf" joint_prefix="MF" tip_sensor="${tip_sensors[2]}"
-                    prox_sensor="${prox_sensors[2]}" mid_sensor="${mid_sensors[2]}"
-                    parent="${prefix}palm">
-        <origin xyz="0.0 0 0.116" rpy="0 0 0" />
-        <axis xyz="0 ${-1*reflect} 0" />
-      </xacro:finger>
-    </xacro:if>
+    <xacro:finger link_prefix="mf" joint_prefix="MF" tip_sensor="${tip_sensors[2]}"
+                  prox_sensor="${prox_sensors[2]}" mid_sensor="${mid_sensors[2]}"
+                  parent="${prefix}palm">
+      <origin xyz="0.0 0 0.116" rpy="0 0 0" />
+      <axis xyz="0 ${-1*reflect} 0" />
+    </xacro:finger>
   </xacro:macro>
 </robot>
