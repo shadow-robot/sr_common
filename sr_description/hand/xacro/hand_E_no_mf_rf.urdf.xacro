@@ -8,6 +8,8 @@
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- lf is true if we want a little finger, false otherwise -->
   <xacro:macro name="shadowhand" params="muscletrans muscle bio bt_sp eli reflect prefix lf">
+    ${xacro.warning("The file hand_E_no_mf_rf.urdf.xacro is deprecated", print_location=False)}
+    ${xacro.warning("Use full_hand.urdf.xacro instead with fingers='th ff lf'")}
     <!-- forward to generic macro -->
     <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
     <xacro:shadowhand fingers="${[1, 1, 0, 0, 1 if lf else 0]}" reflect="${reflect}" prefix="${prefix}" />

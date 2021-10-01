@@ -7,6 +7,8 @@
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <xacro:macro name="shadowhand" params="muscletrans muscle bio bt_sp eli reflect prefix">
+    ${xacro.warning("The file ff_biotac_hand.urdf.xacro is deprecated", print_location=False)}
+    ${xacro.warning("Use full_hand.urdf.xacro instead with tip_sensors=dict(ff='bio')")}
     <!-- Ensure tip_sensors is defined before usage below -->
     <xacro:property name="tip_sensors" default="${5 * ['std']}" />
     <!-- translate old parameters to new ones, eventually updating tip_sensors -->
