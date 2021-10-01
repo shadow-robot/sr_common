@@ -20,7 +20,7 @@
   <!-- lf (deprecated) is true if we want a little finger, false otherwise -->
   <xacro:macro name="shadowhand" params="hand_type:='hand_e' reflect prefix cable_mesh:=False fingers:=${[1,1,1,1,1]}
           tip_sensors:=${5 * ['std']} mid_sensors:=${5 * ['std']} prox_sensors:=${5 * ['std']} palm_sensor:=std
-          muscletrans:=^|False muscle:=^|False lf:=^|True bio:=^|False bt_sp:=^|False eli:=^|False">
+          muscletrans:=^|${None} muscle:=^|${None} lf:=^|${None} bio:=^|${None} bt_sp:=^|${None} eli:=^|${None}">
     <!-- handle deprecated parameters -->
     <xacro:include filename="$(find sr_description)/hand/xacro/backward_compat.urdf.xacro" />
     <!-- Forearm -->

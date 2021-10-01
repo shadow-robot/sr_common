@@ -24,7 +24,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- eli (deprecated) is true for ellipsoid fingertip or false for standard finger -->
   <xacro:macro name="shadowhand" params="hand_type:='hand_e' reflect prefix cable_mesh:=False fingers:=${[1,1,1,1]}
           tip_sensors:=${4 * ['std']} mid_sensors:=${4 * ['std']} prox_sensors:=${4 * ['std']} palm_sensor:=std
-          extra_lite:=^|False muscletrans:=^|False muscle:=^|False bio:=^|False bt_sp:=^|False eli:=^|False">
+          extra_lite:=^|${None} muscletrans:=^|${None} muscle:=^|${None} bio:=^|${None} bt_sp:=^|${None} eli:=^|${None}">
     <!-- handle deprecated parameters -->
     <xacro:include filename="$(find sr_description)/hand/xacro/backward_compat.urdf.xacro" />
 

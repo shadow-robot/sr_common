@@ -19,7 +19,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <xacro:macro name="shadowhand" params="hand_type:='hand_e' reflect prefix cable_mesh:=False
           tip_sensor:=std mid_sensor:=std prox_sensor:=std palm_sensor:=std
-          muscletrans:=False muscle:=False bio:=False bt_sp:=False eli:=False">
+          muscletrans:=${None} muscle:=${None} bio:=${None} bt_sp:=${None} eli:=${None}">
     <xacro:property name="tip_sensors" value="${5 * [tip_sensor]}" />
     <xacro:property name="mid_sensors" value="${5 * [mid_sensor]}" />
     <xacro:property name="prox_sensors" value="${5 * [prox_sensor]}" />
