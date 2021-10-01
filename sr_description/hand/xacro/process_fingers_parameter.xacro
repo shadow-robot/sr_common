@@ -1,4 +1,5 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:include filename="$(find sr_description)/hand/xacro/validate_macros.xacro" />
 	<xacro:if value="${fingers.lower() == 'all'}">
 		<xacro:property name="fingers" value="${list(_all_finger_tokens_)}" />
 	</xacro:if>
@@ -8,9 +9,8 @@
 	</xacro:unless>
 	<!-- Normalize finger tokens to lower case -->
 	<xacro:property name="fingers" value="${[f.lower() for f in fingers]}" lazy_eval="false" />
-	<!-- Validate for invalid finger tokens -->
-	<xacro:property name="_unknown_finger_tokens_" value="${python.set(fingers) - _all_finger_tokens_}" />
-	<xacro:if value="${_unknown_finger_tokens_}">${xacro.error('Unknown finger specifiers: ' + ', '.join(_unknown_finger_tokens_))}</xacro:if>
+	<!-- Validate finger tokens -->
+	<xacro:validate_tokens tokens="${fingers}" valid="${_all_finger_tokens_}" name="finger specifier" />
 	<!-- Handle deprecated lf parameter -->
 	<xacro:property name="lf" default="${None}" />
 	<xacro:if value="${lf is not None}">

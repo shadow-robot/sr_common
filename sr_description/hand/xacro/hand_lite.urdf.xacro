@@ -30,8 +30,8 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
     <!-- Process fingers parameter, also handling deprecated extra_lite -->
     <xacro:property name="_all_finger_tokens_" value="${python.set('th ff mf rf'.split())}" />
     <xacro:include filename="$(find sr_description)/hand/xacro/process_fingers_parameter.xacro" />
-    <!-- handle deprecated parameters -->
-    <xacro:include filename="$(find sr_description)/hand/xacro/backward_compat.urdf.xacro" />
+    <!-- Process sensor parameters -->
+    <xacro:include filename="$(find sr_description)/hand/xacro/process_sensor_parameters.xacro" />
 
     <!-- Forearm -->
     <xacro:forearm />

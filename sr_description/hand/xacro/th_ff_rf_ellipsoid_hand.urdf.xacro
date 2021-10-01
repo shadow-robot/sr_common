@@ -12,7 +12,7 @@
     <!-- Ensure tip_sensors is defined before usage below -->
     <xacro:property name="tip_sensors" default="${5 * ['std']}" />
     <!-- translate old parameters to new ones, eventually updating tip_sensors -->
-    <xacro:include filename="$(find sr_description)/hand/xacro/backward_compat.urdf.xacro" />
+    <xacro:include filename="$(find sr_description)/hand/xacro/process_sensor_parameters.xacro" />
     <!-- forward to generic macro -->
     <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
     <!-- Enforce ellipsoid sensor on First and Ring Finger as well as Thumb -->
