@@ -31,12 +31,12 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
                   scale="0.001 0.001 0.001" />
           </xacro:unless>
           <xacro:if value="${tip_sensor in ['bt_sp','eli']}">
-            <xacro:if value="${'eli' in tip_sensor}">
+            <xacro:if value="${tip_sensor == 'eli'}">
               <!-- Ellispoid distal  -->
               <mesh filename="package://sr_description/meshes/hand/ellipsoids/distal_ellipsoid_visual.dae"
 		    scale="0.001 0.001 0.001" />
             </xacro:if>
-            <xacro:if value="${'bt_sp' in tip_sensor}">
+            <xacro:if value="${tip_sensor == 'bt_sp'}">
               <!-- bt_sp distal  -->
               <mesh filename="package://sr_description/meshes/hand/biotacs/sp.dae" />
             </xacro:if>
@@ -48,12 +48,12 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry name="${prefix}${link_prefix}distal_collision_geom">
           <xacro:if value="${tip_sensor in ['bt_sp','eli']}">
-            <xacro:if value="${'eli' in tip_sensor}">
+            <xacro:if value="${tip_sensor == 'eli'}">
               <!-- Ellispoid distal  -->
               <mesh filename="package://sr_description/meshes/hand/ellipsoids/distal_ellipsoid.dae"
                     scale="0.001 0.001 0.001" />
             </xacro:if>
-            <xacro:if value="${'bt_sp' in tip_sensor}">
+            <xacro:if value="${tip_sensor == 'bt_sp'}">
               <!-- bt_sp distal  -->
               <mesh filename="package://sr_description/meshes/hand/biotacs/sp.dae" />
             </xacro:if>
@@ -66,7 +66,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         </geometry>
       </collision>
     </link>
-    <xacro:unless value="${'bio' in tip_sensor}">
+    <xacro:unless value="${tip_sensor == 'bio'}">
       <joint name="${prefix}${joint_prefix}J1" type="revolute">
         <parent link="${parent}" />
         <child link="${prefix}${link_prefix}distal" />

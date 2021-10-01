@@ -13,7 +13,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
   <!-- parent is the parent link for the first joint -->
   <xacro:macro name="thdistal"
     params="tip_sensor:=^|std prefix:=^ parent">
-    <xacro:if value="${'bio' in tip_sensor}">
+    <xacro:if value="${tip_sensor == 'bio'}">
       <!--    BIOTAC -->
       <link name="${prefix}thdistal_J1_dummy">
         <inertial>
@@ -113,7 +113,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <!-- approximated only FIXME -->
       </joint>
     </xacro:if>
-    <xacro:unless value="${'bio' in tip_sensor}">
+    <xacro:unless value="${tip_sensor == 'bio'}">
       <!-- common -->
       <link name="${prefix}thdistal">
         <inertial>
@@ -130,12 +130,12 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
               <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
                     scale="0.001 0.001 0.001" />
             </xacro:unless>
-            <xacro:if value="${'eli' in tip_sensor}">
+            <xacro:if value="${tip_sensor == 'eli'}">
               <!-- Ellispoid distal  -->
               <mesh filename="package://sr_description/meshes/hand/ellipsoids/thdistal_ellipsoid_visual.dae"
               scale="0.001 0.001 0.001" />
             </xacro:if>
-            <xacro:if value="${'bt_sp' in tip_sensor}">
+            <xacro:if value="${tip_sensor == 'bt_sp'}">
               <!-- bt sp distal  -->
               <mesh filename="package://sr_description/meshes/hand/biotacs/sp.dae" />
             </xacro:if>
@@ -152,12 +152,12 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
               <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
                     scale="0.001 0.001 0.001" />
             </xacro:unless>
-            <xacro:if value="${'eli' in tip_sensor}">
+            <xacro:if value="${tip_sensor == 'eli'}">
               <!-- Ellispoid distal  -->
               <mesh filename="package://sr_description/meshes/hand/ellipsoids/thdistal_ellipsoid.dae"
               scale="0.001 0.001 0.001" />
             </xacro:if>
-            <xacro:if value="${'bt_sp' in tip_sensor}">
+            <xacro:if value="${tip_sensor == 'bt_sp'}">
               <!-- bt sp distal  -->
               <mesh filename="package://sr_description/meshes/hand/biotacs/sp.dae" />
             </xacro:if>

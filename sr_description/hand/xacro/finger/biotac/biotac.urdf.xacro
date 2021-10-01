@@ -37,7 +37,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       </collision>
     </link>
     <gazebo reference="${prefix}${link_prefix}middle">
-      <xacro:unless value="${'none' in mid_sensor}" >
+      <xacro:unless value="${mid_sensor == 'none'}">
       <sensor type="contact"
       name="${prefix}${link_prefix}middle_contact">
         <always_on>1</always_on>
@@ -120,7 +120,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       </collision>
     </link>
     <gazebo reference="${prefix}${link_prefix}distal">
-      <xacro:unless value="${'none' in tip_sensor}" >
+      <xacro:unless value="${tip_sensor == 'none'}">
       <sensor type="contact"
       name="${prefix}${link_prefix}distal_contact">
         <always_on>1</always_on>

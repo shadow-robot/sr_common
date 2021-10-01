@@ -21,13 +21,13 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <xacro:if value="${'bio' in mid_sensor}">
+        <xacro:if value="${mid_sensor == 'bio'}">
           <geometry name="${prefix}thmiddle_visual">
             <mesh filename="package://sr_description/meshes/hand/biotacs/biotac_thumb_adapter.dae"
             scale="0.001 0.001 0.001" />
           </geometry>
         </xacro:if>
-        <xacro:unless value="${'bio' in mid_sensor}">
+        <xacro:unless value="${mid_sensor == 'bio'}">
           <geometry name="${prefix}thmiddle_visual">
             <mesh filename="package://sr_description/meshes/hand/TH2_z.dae"
             scale="0.001 0.001 0.001" />
@@ -38,20 +38,20 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         </xacro:unless>
       </visual>
       <collision>
-        <xacro:if value="${'bio' in mid_sensor}">
+        <xacro:if value="${mid_sensor == 'bio'}">
           <origin xyz="0 0 0.005" rpy="0 0 0" />
           <geometry name="${prefix}thmiddle_collision_geom">
             <box size="0.001 0.001 0.001" />
           </geometry>
         </xacro:if>
-        <xacro:unless value="${'bio' in mid_sensor}">
+        <xacro:unless value="${mid_sensor == 'bio'}">
           <origin xyz="0 0 0.012" rpy="0 0 0" />
           <geometry name="${prefix}thmiddle_collision_geom">
             <cylinder radius="0.011" length="0.018" />
           </geometry>
         </xacro:unless>
       </collision>
-      <xacro:unless value="${'bio' in mid_sensor}">
+      <xacro:unless value="${mid_sensor == 'bio'}">
         <collision>
           <origin xyz="0 0 0.019" rpy="0 0 0" />
           <geometry>
@@ -63,11 +63,11 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
     <joint name="${prefix}THJ2" type="revolute">
       <parent link="${parent}" />
       <child link="${prefix}thmiddle" />
-      <xacro:if value="${'bio' in mid_sensor}">
+      <xacro:if value="${mid_sensor == 'bio'}">
         <origin xyz="0 0 0.01" rpy="0 0 0" />
         <!-- FIXME: z offset is too large -->
       </xacro:if>
-      <xacro:unless value="${'bio' in mid_sensor}">
+      <xacro:unless value="${mid_sensor == 'bio'}">
         <origin xyz="0 0 0" rpy="0 0 0" />
       </xacro:unless>
       <axis xyz="0 -1 0" />

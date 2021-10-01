@@ -10,7 +10,7 @@
     <xacro:macro name="knuckle_transmission" params="hand_type:=^ prefix:=^ joint_prefix:=^ link_prefix:=^">
 
         <!-- muscle hand -->
-        <xacro:if value="${'hand_mt' in hand_type}">
+        <xacro:if value="${hand_type == 'hand_mt'}">
             <transmission name="${prefix}${link_prefix}knuckle_transmission">
                 <type>sr_mechanism_model/SimpleTransmissionForMuscle</type>
                 <actuator name="${prefix}${joint_prefix}J4">
@@ -23,7 +23,7 @@
             </transmission>
         </xacro:if>
         <!-- motor hand -->
-        <xacro:unless value="${'hand_mt' in hand_type}">
+        <xacro:unless value="${hand_type == 'hand_mt'}">
             <transmission name="${prefix}${link_prefix}knuckle_transmission">
                 <type>sr_mechanism_model/SimpleTransmission</type>
                 <actuator name="${prefix}${joint_prefix}J4">

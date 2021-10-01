@@ -26,12 +26,12 @@
     <!-- Forearm -->
     <xacro:forearm />
     <!-- Wrist -->
-    <xacro:if value="${'hand_m' in hand_type}">
+    <xacro:if value="${hand_type.startswith('hand_m')}">
       <xacro:wrist parent="${prefix}forearm">
         <origin xyz="0 0 0.4096" rpy="0 0 0" />
       </xacro:wrist>
     </xacro:if>
-    <xacro:unless value="${'hand_m' in hand_type}">
+    <xacro:unless value="${hand_type.startswith('hand_m')}">
       <xacro:wrist parent="${prefix}forearm">
         <origin xyz="0 -0.010 0.213" rpy="0 0 0" />
       </xacro:wrist>
