@@ -5,27 +5,27 @@
   <xacro:if value="${old_tip_sensor==1}">
     <xacro:if value="${bio}">
       <xacro:property name="palm_sensor" value="std"/>
-      <xacro:property name="prox_sensor" value="${[std, std, std, std ,std]}"/>
-      <xacro:property name="mid_sensor" value="${[bio, bio, bio, bio ,bio]}"/>
-      <xacro:property name="tip_sensor" value="${[bio, bio, bio, bio ,bio]}"/>
+      <xacro:property name="prox_sensors" value="${['std','std','std','std','std']}"/>
+      <xacro:property name="mid_sensors" value="${['bio','bio','bio','bio','bio']}"/>
+      <xacro:property name="tip_sensors" value="${['bio','bio','bio','bio','bio']}"/>
     </xacro:if>
     <xacro:if value="${bt_sp}">
       <xacro:property name="palm_sensor" value="std"/>
-      <xacro:property name="prox_sensor" value="${[std, std, std, std ,std]}"/>
-      <xacro:property name="mid_sensor" value="${[std, std, std, std ,std]}"/>
-      <xacro:property name="tip_sensor" value="${[bt_sp, bt_sp, bt_sp, bt_sp ,bt_sp]}"/>
+      <xacro:property name="prox_sensors" value="${['std','std','std','std','std']}"/>
+      <xacro:property name="mid_sensors" value="${['std','std','std','std','std']}"/>
+      <xacro:property name="tip_sensors" value="${['bt_sp','bt_sp','bt_sp','bt_sp','bt_sp']}"/>
     </xacro:if>
     <xacro:if value="${ubi}">
       <xacro:property name="palm_sensor" value="ubi_fabric"/>
-      <xacro:property name="prox_sensor" value="${[ubi, ubi, ubi, ubi ,ubi]}"/>
-      <xacro:property name="mid_sensor" value="${[ubi, ubi, ubi, ubi ,ubi]}"/>
-      <xacro:property name="tip_sensor" value="${[ubi, ubi, ubi, ubi ,ubi]}"/>
+      <xacro:property name="prox_sensors" value="${['ubi','ubi,'ubi','ubi','ubi']}"/>
+      <xacro:property name="mid_sensors" value="${['ubi','ubi,'ubi','ubi','ubi']}"/>
+      <xacro:property name="tip_sensors" value="${['ubi','ubi,'ubi','ubi','ubi']}"/>
     </xacro:if>
     <xacro:if value="${eli}">
       <xacro:property name="palm_sensor" value="std"/>
-      <xacro:property name="prox_sensor" value="${[std, std, std, std ,std]}"/>
-      <xacro:property name="mid_sensor" value="${[std, std, std, std ,std]}"/>
-      <xacro:property name="tip_sensor" value="${[eli, eli, eli, eli ,eli]}"/>
+      <xacro:property name="prox_sensors" value="${['std','std','std','std','std']}"/>
+      <xacro:property name="mid_sensors" value="${['std','std','std','std','std']}"/>
+      <xacro:property name="tip_sensors" value="${['eli','eli','eli','eli','eli']}"/>
     </xacro:if>
   </xacro:if>
 
