@@ -1,7 +1,7 @@
 /*********************************************************************
 * Software License Agreement (BSD License)
 *
-*  Copyright (c) 2008, Willow Garage, Inc.
+*  Copyright (c) 2021, Bielefeld University
 *  All rights reserved.
 *
 *  Redistribution and use in source and binary forms, with or without
@@ -14,7 +14,7 @@
 *     copyright notice, this list of conditions and the following
 *     disclaimer in the documentation and/or other materials provided
 *     with the distribution.
-*   * Neither the name of the Willow Garage nor the names of its
+*   * Neither the name of Bielefeld University nor the names of its
 *     contributors may be used to endorse or promote products derived
 *     from this software without specific prior written permission.
 *
@@ -32,114 +32,51 @@
 *  POSSIBILITY OF SUCH DAMAGE.
 *********************************************************************/
 
-/** \author Ioan Sucan
-*  \author Guillaume Walck
-* */
+/** \author Robert Haschke */
 
 #include <gtest/gtest.h>
-#include <cstdlib>
-
 #include <dirent.h>
-#include <sys/types.h>
-#include <sys/param.h>
-#include <sys/stat.h>
-#include <unistd.h>
-#include <stdio.h>
+#include <cstdio>
 #include <string>
-
 #include <iostream>
+
+#include <ros/package.h>
 
 int runExternalProcess(const std::string &executable, const std::string &args)
 {
   return system((executable + " " + args).c_str());
 }
 
-std::string getCommandOutput(std::string cmd)
+/* Search sr_description/sub_folder for *.urdf.xacro files, run xacro on them and check the result with check_urdf */
+void walker(const std::string& sub_folder)
 {
-  std::string data;
-  FILE * stream;
-
-  stream = popen(cmd.c_str(), "r");
-  if (stream)
-  {
-    char buffer[MAXPATHLEN];
-    while (!feof(stream))
-      if (fgets(buffer, MAXPATHLEN, stream) != NULL) data.append(buffer);
-    pclose(stream);
-  }
-  // keep anything before first cr/lf
-  unsigned pos = data.find_first_of('\n');
-  return data.substr(0, pos);
-}
-
-int walker(char *result, int *test_result)
-{
-  std::string package_path =  getCommandOutput("rospack find sr_description");
-
-  if (package_path.find("sr_description") == std::string::npos)
-  {
-    printf("cannot find package in path %s\n", package_path.c_str());
-    *test_result = 1;
-    return 1;
-  }
-  else
-  {
-    printf("sr_description robots path : %s\n", (package_path+"/robots").c_str());
-  }
+  std::string root_path = ros::package::getPath("sr_description") + "/" + sub_folder;
+  std::string tmp_name = std::tmpnam(nullptr);
 
   DIR           *d;
   struct dirent *dir;
-  d = opendir((package_path+"/robots").c_str());
-  if (d == NULL)
-  {
-    printf("no robots found\n");
-    *test_result = 1;
-    return 1;
-  }
+  d = opendir(root_path.c_str());
+  ASSERT_TRUE(d != NULL) << "Path does not exist: " << root_path;
   while ((dir = readdir(d)))
   {
-    if (strcmp(dir->d_name, ".") == 0 ||
-        strcmp(dir->d_name, "..") == 0)
-    {
-      continue;
-    }
     if (dir->d_type != DT_DIR)
     {
-      std::string dir_name = dir->d_name;
-      if (dir_name.find(std::string(".urdf.xacro")) == dir_name.size()-11)
+      std::string file_name = dir->d_name;
+      if (file_name.find(std::string(".urdf.xacro")) == file_name.size()-11)
       {
-        printf("\n\ntesting: %s\n", (package_path+"/robots/"+dir_name).c_str());
-        printf("xacro --inorder %s/robots/%s  > "
-               "`rospack find sr_description`/test/tmp.urdf",
-               package_path.c_str(), dir_name.c_str() );
-        runExternalProcess("xacro --inorder",
-                           package_path+"/robots/"+dir_name+" > `rospack find sr_description`/test/tmp.urdf");
-        // check urdf structure
-        *test_result = *test_result || runExternalProcess("check_urdf", "`rospack find sr_description`/test/tmp.urdf");
+        std::string name = root_path + "/" + file_name;
+        printf("Processing: %s\n", name.c_str());
+        EXPECT_EQ(runExternalProcess("xacro", name + " > " + tmp_name), 0) << "xacro failed on " << name;
+        EXPECT_EQ(runExternalProcess("check_urdf", tmp_name), 0) << "check_urdf failed for " << name;
       }
-      if (*test_result != 0)
-        return *result == 0;
     }
   }
   closedir(d);
-  return *result == 0;
 }
 
 TEST(URDF, CorrectFormat)
 {
-  int test_result = 0;
-
-  char buf[MAXPATHLEN] = { 0 };
-  if (walker(buf, &test_result) == 0)
-  {
-    printf("Found: %s\n", buf);
-  }
-  else
-  {
-    puts("Not found");
-  }
-
-  EXPECT_EQ(test_result, 0);
+  walker("robots");
 }
 
 int main(int argc, char **argv)
