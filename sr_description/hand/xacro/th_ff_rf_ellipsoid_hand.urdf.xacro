@@ -16,7 +16,7 @@
     <!-- forward to generic macro -->
     <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
     <!-- Enforce ellipsoid sensor on First and Ring Finger as well as Thumb -->
-    <xacro:shadowhand fingers="${5 * [1]}" reflect="${reflect}" prefix="${prefix}"
+    <xacro:shadowhand fingers="all" reflect="${reflect}" prefix="${prefix}"
     tip_sensors="${['eli', 'eli', tip_sensors[2], 'eli', tip_sensors[4]]}"/>
   </xacro:macro>
 </robot>

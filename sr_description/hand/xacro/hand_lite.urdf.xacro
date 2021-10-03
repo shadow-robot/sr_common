@@ -9,7 +9,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thumb.urdf.xacro" />
 
   <!-- hand_type can be: motor, motor+, muscle (muscle), muscletrans (muscletrans) -->
-  <!-- fingers: dict specifying available fingers, default: dict(th=1, ff=1, mf=1, rf=1, lf=1) -->
+  <!-- fingers: list-like string specifying available fingers, default: 'th ff mf rf' -->
   <!-- tip_sensors: dict specifying the fingertip (tactile) sensors per finger: std, none, bio, bt_sp, eli -->
   <!-- mid_sensors: dict specifying the middle-phalange (tactile) sensors per finger: std, none, bio -->
   <!-- prox_sensors: dict specifying the proximal (tactile) sensors per finger: std, none -->
@@ -22,16 +22,16 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- bio (deprecated) is true for biotac finger or false for standard finger -->
   <!-- bt_sp (deprecated) is true for BT_SP finger or false for standard finger -->
   <!-- eli (deprecated) is true for ellipsoid fingertip or false for standard finger -->
-  <xacro:macro name="shadowhand" params="hand_type:='motor' reflect prefix cable_mesh:=False fingers:=${[1,1,1,1]}
+  <xacro:macro name="shadowhand" params="hand_type:='motor' reflect prefix cable_mesh:=False fingers:=all
           tip_sensors:=${4 * ['std']} mid_sensors:=${4 * ['std']} prox_sensors:=${4 * ['std']} palm_sensor:=std
           extra_lite:=^|${None} muscletrans:=^|${None} muscle:=^|${None} bio:=^|${None} bt_sp:=^|${None} eli:=^|${None}">
     <!-- Unify hand type parameter, also handling deprecated muscletrans, muscle -->
     <xacro:include filename="$(find sr_description)/hand/xacro/process_hand_type_parameter.xacro" />
+    <!-- Process fingers parameter, also handling deprecated extra_lite -->
+    <xacro:property name="_all_finger_tokens_" value="${python.set('th ff mf rf'.split())}" />
+    <xacro:include filename="$(find sr_description)/hand/xacro/process_fingers_parameter.xacro" />
+    <!-- handle deprecated parameters -->
     <xacro:include filename="$(find sr_description)/hand/xacro/backward_compat.urdf.xacro" />
-
-    <xacro:if value="${extra_lite}">
-      <xacro:property name="fingers" value="${[1,1,0,1]}" />
-    </xacro:if>
 
     <!-- Forearm -->
     <xacro:forearm />
@@ -46,7 +46,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
     <!-- Palm -->
     <xacro:palm parent="${prefix}wrist" />
     <!-- First Finger -->
-    <xacro:if value="${fingers[1] == 1}">
+    <xacro:if value="${'ff' in fingers}">
       <xacro:finger link_prefix="ff" joint_prefix="FF" tip_sensor="${tip_sensors[1]}"
                     prox_sensor="${prox_sensors[1]}" mid_sensor="${mid_sensors[1]}"
                     parent="${prefix}palm">
@@ -55,7 +55,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
       </xacro:finger>
     </xacro:if>
     <!-- Middle Finger -->
-    <xacro:if value="${fingers[2] == 1}">
+    <xacro:if value="${'mf' in fingers}">
       <xacro:finger link_prefix="mf" joint_prefix="MF" tip_sensor="${tip_sensors[2]}"
                     prox_sensor="${prox_sensors[2]}" mid_sensor="${mid_sensors[2]}"
                     parent="${prefix}palm">
@@ -64,7 +64,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
       </xacro:finger>
     </xacro:if>
     <!-- Ring Finger -->
-    <xacro:if value="${fingers[3] == 1}">
+    <xacro:if value="${'rf' in fingers}">
       <xacro:finger link_prefix="rf" joint_prefix="RF" tip_sensor="${tip_sensors[3]}"
                     prox_sensor="${prox_sensors[3]}" mid_sensor="${mid_sensors[3]}"
                     parent="${prefix}palm">
@@ -74,7 +74,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
     </xacro:if>
     <!-- No Little Finger on Lite hand -->
     <!-- Thumb  -->
-    <xacro:if value="${fingers[0] == 1}">
+    <xacro:if value="${'th' in fingers}">
       <xacro:thumb is_lite="1" parent="${prefix}palm" tip_sensor="${tip_sensors[0]}"
                    prox_sensor="${prox_sensors[0]}" mid_sensor="${mid_sensors[0]}" />
     </xacro:if>

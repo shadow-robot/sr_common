@@ -11,6 +11,6 @@
     ${xacro.warning("Use full_hand.urdf.xacro instead with fingers='th ff mf'")}
     <!-- forward to generic macro -->
     <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
-    <xacro:shadowhand fingers="${[1,1,1,0,0]}" reflect="${reflect}" prefix="${prefix}" />
+    <xacro:shadowhand fingers="th ff mf" reflect="${reflect}" prefix="${prefix}" />
   </xacro:macro>
 </robot>

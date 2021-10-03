@@ -20,6 +20,8 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:macro name="shadowhand" params="hand_type:='motor' reflect prefix cable_mesh:=False
           tip_sensor:=std mid_sensor:=std prox_sensor:=std palm_sensor:=std
           muscletrans:=${None} muscle:=${None} bio:=${None} bt_sp:=${None} eli:=${None}">
+    <!-- Unify hand type parameter, also handling deprecated muscletrans, muscle -->
+    <xacro:include filename="$(find sr_description)/hand/xacro/process_hand_type_parameter.xacro" />
     <xacro:property name="tip_sensors" value="${5 * [tip_sensor]}" />
     <xacro:property name="mid_sensors" value="${5 * [mid_sensor]}" />
     <xacro:property name="prox_sensors" value="${5 * [prox_sensor]}" />

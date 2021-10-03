@@ -5,7 +5,7 @@
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/fingers.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thumb.urdf.xacro" />
   <!-- hand_type can be: motor, motor+, muscle (muscle), muscletrans (muscletrans) -->
-  <!-- fingers: dict specifying available fingers, default: dict(th=1, ff=1, mf=1, rf=1, lf=1) -->
+  <!-- fingers: list-like string specifying available fingers, default: 'th ff mf rf lf' -->
   <!-- tip_sensors: dict specifying the fingertip (tactile) sensors per finger: std, none, bio, bt_sp, eli -->
   <!-- mid_sensors: dict specifying the middle-phalange (tactile) sensors per finger: std, none, bio -->
   <!-- prox_sensors: dict specifying the proximal (tactile) sensors per finger: std, none -->
@@ -18,11 +18,15 @@
   <!-- bt_sp (deprecated) is true for BT_SP finger or false for standard finger -->
   <!-- eli (deprecated) is true for ellipsoid fingertip or false for standard finger -->
   <!-- lf (deprecated) is true if we want a little finger, false otherwise -->
-  <xacro:macro name="shadowhand" params="hand_type:='motor' reflect prefix cable_mesh:=False fingers:=${[1,1,1,1,1]}
+  <xacro:macro name="shadowhand" params="hand_type:='motor' reflect prefix cable_mesh:=False fingers:=all
           tip_sensors:=${5 * ['std']} mid_sensors:=${5 * ['std']} prox_sensors:=${5 * ['std']} palm_sensor:=std
           muscletrans:=^|${None} muscle:=^|${None} lf:=^|${None} bio:=^|${None} bt_sp:=^|${None} eli:=^|${None}">
     <!-- Unify hand type parameter, also handling deprecated muscletrans, muscle -->
     <xacro:include filename="$(find sr_description)/hand/xacro/process_hand_type_parameter.xacro" />
+    <!-- Process fingers parameter, also handling deprecated lf -->
+    <xacro:property name="_all_finger_tokens_" value="${python.set('th ff mf rf lf'.split())}" />
+    <xacro:include filename="$(find sr_description)/hand/xacro/process_fingers_parameter.xacro" />
+    <!-- handle deprecated parameters -->
     <xacro:include filename="$(find sr_description)/hand/xacro/backward_compat.urdf.xacro" />
     <!-- Forearm -->
     <xacro:forearm />
@@ -40,35 +44,35 @@
     <!-- Palm -->
     <xacro:palm parent="${prefix}wrist" />
     <!-- First Finger -->
-    <xacro:if value="${fingers[1] == 1}">
+    <xacro:if value="${'ff' in fingers}">
       <xacro:finger link_prefix="ff" joint_prefix="FF" tip_sensor="${tip_sensors[1]}" prox_sensor="${prox_sensors[1]}" mid_sensor="${mid_sensors[1]}" parent="${prefix}palm">
         <origin xyz="${reflect*0.033} 0 0.095" rpy="0 0 0" />
         <axis xyz="0 ${-1*reflect} 0" />
       </xacro:finger>
     </xacro:if>
     <!-- Middle Finger -->
-    <xacro:if value="${fingers[2] == 1}">
+    <xacro:if value="${'mf' in fingers}">
       <xacro:finger link_prefix="mf" joint_prefix="MF" tip_sensor="${tip_sensors[2]}" prox_sensor="${prox_sensors[2]}" mid_sensor="${mid_sensors[2]}" parent="${prefix}palm">
         <origin xyz="${reflect*0.011} 0 0.099" rpy="0 0 0" />
         <axis xyz="0 ${-1*reflect} 0" />
       </xacro:finger>
     </xacro:if>
     <!-- Ring Finger -->
-    <xacro:if value="${fingers[3] == 1}">
+    <xacro:if value="${'rf' in fingers}">
       <xacro:finger link_prefix="rf" joint_prefix="RF" tip_sensor="${tip_sensors[3]}" prox_sensor="${prox_sensors[3]}" mid_sensor="${mid_sensors[3]}" parent="${prefix}palm">
         <origin xyz="${reflect*-0.011} 0 0.095" rpy="0 0 0" />
         <axis xyz="0 ${reflect} 0" />
       </xacro:finger>
     </xacro:if>
     <!-- Little Finger  -->
-    <xacro:if value="${fingers[4] == 1 and lf}">
+    <xacro:if value="${'lf' in fingers}">
       <xacro:finger link_prefix="lf" joint_prefix="LF" tip_sensor="${tip_sensors[4]}" prox_sensor="${prox_sensors[4]}" mid_sensor="${mid_sensors[4]}" parent="${prefix}palm">
         <origin xyz="0 0 0.06579" rpy="0 0 0" />
         <axis xyz="0 ${reflect} 0" />
       </xacro:finger>
     </xacro:if>
     <!-- Thumb  -->
-    <xacro:if value="${fingers[0] == 1}">
+    <xacro:if value="${'th' in fingers}">
       <xacro:thumb is_lite="0" parent="${prefix}palm" tip_sensor="${tip_sensors[0]}" prox_sensor="${prox_sensors[0]}" mid_sensor="${mid_sensors[0]}" />
     </xacro:if>
 

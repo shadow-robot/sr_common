@@ -1,8 +1,6 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:property name="lf" default="${None}" />
-  <xacro:property name="extra_lite" default="${None}" />
-  <xacro:if value="${[p for p in [extra_lite, lf, bio, bt_sp, eli] if p is not None]}">
-    ${xacro.warning('Deprecated use of shadowhand macro: \nReplace parameters lf, extra_lite with fingers\nand parameters bio, bt_sp, eli with [tip|mid|prox|palm]_sensors.')}
+  <xacro:if value="${[p for p in [bio, bt_sp, eli] if p is not None]}">
+    ${xacro.warning('Deprecated use of shadowhand macro: Replace parameters bio, bt_sp, eli with [tip|mid|prox|palm]_sensors.')}
   </xacro:if>
 
   <!-- for backward compatibility define new params from old ones -->
@@ -24,9 +22,4 @@
     <xacro:property name="mid_sensors" value="${['std', 'std', 'std', 'std', 'std']}" />
     <xacro:property name="tip_sensors" value="${['eli', 'eli', 'eli', 'eli', 'eli']}" />
   </xacro:if>
-
-  <xacro:if value="${lf is None}">
-    <xacro:property name="lf" value="True" />
-  </xacro:if>
-
 </robot>
