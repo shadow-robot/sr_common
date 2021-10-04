@@ -135,12 +135,6 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
               scale="0.001 0.001 0.001" />
             </xacro:if>
             <xacro:unless value="${eli}">
-              <xacro:if value="${ubi}">
-                <!-- Ubi distal -->
-                <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
-                      scale="0.001 0.001 0.001" />
-              </xacro:if>
-	      <xacro:unless value="${ubi}">
 		<xacro:if value="${bt_sp}">
 		  <!-- bt sp distal  -->
 		  <mesh filename="package://sr_description/meshes/hand/biotacs/sp.dae" />
@@ -150,7 +144,6 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
                   <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
 			scale="0.001 0.001 0.001" />
 		</xacro:unless>
-	      </xacro:unless>
             </xacro:unless>
           </geometry>
           <material name="shadow_thmiddle_material">
@@ -166,12 +159,6 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
               scale="0.001 0.001 0.001" />
             </xacro:if>
             <xacro:unless value="${eli}">
-              <xacro:if value="${ubi}">
-                <!-- Ubi distal -->
-                <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
-                scale="0.001 0.001 0.001" />
-              </xacro:if>
-              <xacro:unless value="${ubi}">
 		<xacro:if value="${bt_sp}">
 		  <!-- bt sp distal  -->
                   <mesh filename="package://sr_description/meshes/hand/biotacs/sp.dae" />
@@ -181,7 +168,6 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
                   <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
 			scale="0.001 0.001 0.001" />
 		</xacro:unless>
-              </xacro:unless>
             </xacro:unless>
             <!--      <box size="0.015 0.015 0.015" /> -->
           </geometry>

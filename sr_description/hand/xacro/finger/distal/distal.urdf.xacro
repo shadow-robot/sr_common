@@ -30,12 +30,6 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry name="${prefix}${link_prefix}distal_visual">
-          <xacro:if value="${ubi}">
-            <!-- Ubi distal -->
-            <mesh filename="package://sr_description/meshes/hand/ubi_tactiles/ubi_tip_visual.dae"
-		  scale="0.001 0.001 0.001" />
-          </xacro:if>
-          <xacro:unless value="${ubi}">
             <xacro:if value="${eli}">
               <!-- Ellispoid distal  -->
               <mesh filename="package://sr_description/meshes/hand/ellipsoids/distal_ellipsoid_visual.dae"
@@ -59,20 +53,12 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 		</xacro:unless>
               </xacro:unless>
             </xacro:unless>
-          </xacro:unless>
         </geometry>
         <!-- <material name="Grey" /> -->
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry name="${prefix}${link_prefix}distal_collision_geom">
-
-          <xacro:if value="${ubi}">
-            <!-- Ubi distal -->
-            <mesh filename="package://sr_description/meshes/hand/ubi_tactiles/ubi_tip_collision.dae"
-            scale="0.001 0.001 0.001" />
-          </xacro:if>
-          <xacro:unless value="${ubi}">
             <xacro:if value="${eli}">
               <!-- Ellispoid distal  -->
               <mesh filename="package://sr_description/meshes/hand/ellipsoids/distal_ellipsoid.dae"
@@ -96,7 +82,6 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 		</xacro:unless>
               </xacro:unless>
             </xacro:unless>
-          </xacro:unless>
         </geometry>
       </collision>
     </link>
