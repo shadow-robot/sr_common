@@ -62,8 +62,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
     <!-- mfknuckle is at [0.011 -0.01 0.346] from the bottom of forearm -->
     <!-- Middle Finger -->
     <!-- TODO: Check if offset is the same for muscle hand -->
-    <xacro:finger link_prefix="mf" joint_prefix="MF" tip_sensor="${tip_sensors[2]}"
-                  prox_sensor="${prox_sensors[2]}" mid_sensor="${mid_sensors[2]}"
+    <xacro:finger link_prefix="mf" joint_prefix="MF" tip_sensor="${tip_sensors.mf}" prox_sensor="${prox_sensors.mf}" mid_sensor="${mid_sensors.mf}"
                   parent="${prefix}palm">
       <origin xyz="0.0 0 0.116" rpy="0 0 0" />
       <axis xyz="0 ${-1*reflect} 0" />

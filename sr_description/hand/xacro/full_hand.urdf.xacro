@@ -46,35 +46,35 @@
     <xacro:palm parent="${prefix}wrist" />
     <!-- First Finger -->
     <xacro:if value="${'ff' in fingers}">
-      <xacro:finger link_prefix="ff" joint_prefix="FF" tip_sensor="${tip_sensors[1]}" prox_sensor="${prox_sensors[1]}" mid_sensor="${mid_sensors[1]}" parent="${prefix}palm">
+      <xacro:finger link_prefix="ff" joint_prefix="FF" tip_sensor="${tip_sensors.ff}" prox_sensor="${prox_sensors.ff}" mid_sensor="${mid_sensors.ff}" parent="${prefix}palm">
         <origin xyz="${reflect*0.033} 0 0.095" rpy="0 0 0" />
         <axis xyz="0 ${-1*reflect} 0" />
       </xacro:finger>
     </xacro:if>
     <!-- Middle Finger -->
     <xacro:if value="${'mf' in fingers}">
-      <xacro:finger link_prefix="mf" joint_prefix="MF" tip_sensor="${tip_sensors[2]}" prox_sensor="${prox_sensors[2]}" mid_sensor="${mid_sensors[2]}" parent="${prefix}palm">
+      <xacro:finger link_prefix="mf" joint_prefix="MF" tip_sensor="${tip_sensors.mf}" prox_sensor="${prox_sensors.mf}" mid_sensor="${mid_sensors.mf}" parent="${prefix}palm">
         <origin xyz="${reflect*0.011} 0 0.099" rpy="0 0 0" />
         <axis xyz="0 ${-1*reflect} 0" />
       </xacro:finger>
     </xacro:if>
     <!-- Ring Finger -->
     <xacro:if value="${'rf' in fingers}">
-      <xacro:finger link_prefix="rf" joint_prefix="RF" tip_sensor="${tip_sensors[3]}" prox_sensor="${prox_sensors[3]}" mid_sensor="${mid_sensors[3]}" parent="${prefix}palm">
+      <xacro:finger link_prefix="rf" joint_prefix="RF" tip_sensor="${tip_sensors.rf}" prox_sensor="${prox_sensors.rf}" mid_sensor="${mid_sensors.rf}" parent="${prefix}palm">
         <origin xyz="${reflect*-0.011} 0 0.095" rpy="0 0 0" />
         <axis xyz="0 ${reflect} 0" />
       </xacro:finger>
     </xacro:if>
     <!-- Little Finger  -->
     <xacro:if value="${'lf' in fingers}">
-      <xacro:finger link_prefix="lf" joint_prefix="LF" tip_sensor="${tip_sensors[4]}" prox_sensor="${prox_sensors[4]}" mid_sensor="${mid_sensors[4]}" parent="${prefix}palm">
+      <xacro:finger link_prefix="lf" joint_prefix="LF" tip_sensor="${tip_sensors.lf}" prox_sensor="${prox_sensors.lf}" mid_sensor="${mid_sensors.lf}" parent="${prefix}palm">
         <origin xyz="0 0 0.06579" rpy="0 0 0" />
         <axis xyz="0 ${reflect} 0" />
       </xacro:finger>
     </xacro:if>
     <!-- Thumb  -->
     <xacro:if value="${'th' in fingers}">
-      <xacro:thumb is_lite="0" parent="${prefix}palm" tip_sensor="${tip_sensors[0]}" prox_sensor="${prox_sensors[0]}" mid_sensor="${mid_sensors[0]}" />
+      <xacro:thumb is_lite="0" parent="${prefix}palm" tip_sensor="${tip_sensors.th}" prox_sensor="${prox_sensors.th}" mid_sensor="${mid_sensors.th}" />
     </xacro:if>
 
   </xacro:macro>

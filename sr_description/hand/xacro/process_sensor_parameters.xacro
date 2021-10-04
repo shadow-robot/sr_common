@@ -39,15 +39,19 @@
 		<!-- None acts as marker indicating that we didn't find the correct type specifier yet -->
 		<!-- Finally, _tmp_ should become a list of (finger, sensor) pairs -->
 		<xacro:property name="_tmp_" value="${None}" />
+		<!-- Formatter for preferred dict-like string -->
+		<xacro:property name="_fmt_pair_" value="{f}={sensor}" />
 		<!-- Handle list input of single items -->
 		<xacro:if value="${_tmp_ is None and python.isinstance(value, list)}">
 			<!-- Transform into list of (finger,sensor) pairs -->
-			<xacro:property name="_tmp_" value="${python.zip(valid_finger_tokens, value)}" lazy_eval="false" />
+			<xacro:property name="_tmp_" value="${list(python.zip(valid_finger_tokens, value))}" lazy_eval="false" />
+			${xacro.warning('Deprecated specifier (list) used for ' + name + '. Replace with: ' + name + '="' + ' '.join([_fmt_pair_.format(f=k, sensor=v) for k,v in _tmp_]) + '"')}
 		</xacro:if>
 		<!-- Handle dict input -->
 		<xacro:if value="${_tmp_ is None and python.isinstance(value, dict)}">
 			<!-- Transform dict into list -->
-			<xacro:property name="_tmp_" value="${value.items()}" lazy_eval="false" />
+			<xacro:property name="_tmp_" value="${list(value.items())}" lazy_eval="false" />
+			${xacro.warning('Deprecated specifier (dict) used for ' + name + '. Replace with: ' + name + '="' + ' '.join([_fmt_pair_.format(f=k, sensor=v) for k,v in _tmp_]) + '"')}
 		</xacro:if>
 		<!-- Handle dict-like string: 'th=bio, ff=bio, mf=std, rf=std, lf=none' -->
 		<xacro:if value="${_tmp_ is None and '=' in value}">
@@ -71,10 +75,8 @@
 		<xacro:validate_tokens tokens="${_tmp_.keys()}" valid="${valid_finger_tokens}" name="finger specifier" />
 		<!-- Validate sensor tokens -->
 		<xacro:validate_tokens tokens="${_tmp_.values()}" valid="${valid_sensor_tokens}" name="tactile sensor specifier" />
-		<!-- Finally transform into desired type (a list) -->
-		<xacro:property name="${name}" value="${[v.lower() for k, v in _tmp_.items()]}" scope="parent" />
 		<!-- Finally transform into desired type (a dotified dict) -->
-		<xacro:property name="${name}_unused" value="${xacro.dotify(dict([(k.lower(), v.lower()) for k, v in _tmp_.items()]))}" scope="parent" />
+		<xacro:property name="${name}" value="${xacro.dotify(dict([(k.lower(), v.lower()) for k, v in _tmp_.items()]))}" scope="parent" />
 	</xacro:macro>
 	<xacro:transform_to_type name="tip_sensors" value="${tip_sensors}" />
 	<xacro:transform_to_type name="mid_sensors" value="${mid_sensors}" />
