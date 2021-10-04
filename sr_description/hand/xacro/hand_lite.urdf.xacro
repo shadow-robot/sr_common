@@ -11,12 +11,10 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- muscle is true for muscle hand or false for motor hand -->
   <!-- bio is true for biotac finger or false for standard finger -->
   <!-- bt_sp is true for BT_SP finger or false for standard finger -->
-  <!-- ubi is true for ubi finger or false for standard finger -->
   <!-- eli is true for ellipsoid fingertip or false for standard finger -->
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
-  <xacro:macro name="shadowhand"
-  params="muscletrans muscle bio bt_sp ubi eli reflect prefix extra_lite  cable_mesh:='false'">
+  <xacro:macro name="shadowhand" params="muscletrans muscle bio bt_sp eli reflect prefix extra_lite  cable_mesh:='false'">
     <!-- Forearm -->
     <xacro:forearm muscle="${muscle}" prefix="${prefix}" cable_mesh="${cable_mesh}"/>
     <!-- Wrist -->
@@ -31,8 +29,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
     <xacro:palm muscletrans="${muscletrans}" prefix="${prefix}"
     reflect="${reflect}" parent="${prefix}wrist" />
     <!-- First Finger -->
-    <xacro:finger muscletrans="${muscletrans}" lf="false"
-    bio="${bio}" bt_sp="${bt_sp}" ubi="${ubi}" eli="${eli}" prefix="${prefix}"
+    <xacro:finger muscletrans="${muscletrans}" lf="false" bio="${bio}" bt_sp="${bt_sp}" eli="${eli}" prefix="${prefix}"
     reflect="${reflect}" link_prefix="ff" joint_prefix="FF"
     parent="${prefix}palm">
       <origin xyz="${reflect*0.033} 0 0.095" rpy="0 0 0" />
@@ -40,8 +37,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
     </xacro:finger>
     <!-- Middle Finger -->
     <xacro:unless value="${extra_lite}">
-      <xacro:finger muscletrans="${muscletrans}" lf="false"
-		    bio="${bio}" bt_sp="${bt_sp}" ubi="${ubi}" eli="${eli}" prefix="${prefix}"
+      <xacro:finger muscletrans="${muscletrans}" lf="false" bio="${bio}" bt_sp="${bt_sp}" eli="${eli}" prefix="${prefix}"
 		    reflect="${reflect}" link_prefix="mf" joint_prefix="MF"
 		    parent="${prefix}palm">
 	<origin xyz="${reflect*0.011} 0 0.099" rpy="0 0 0" />
@@ -49,8 +45,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
       </xacro:finger>
     </xacro:unless>
     <!-- Ring Finger -->
-    <xacro:finger muscletrans="${muscletrans}" lf="false"
-    bio="${bio}" bt_sp="${bt_sp}" ubi="${ubi}" eli="${eli}" prefix="${prefix}"
+    <xacro:finger muscletrans="${muscletrans}" lf="false" bio="${bio}" bt_sp="${bt_sp}" eli="${eli}" prefix="${prefix}"
     reflect="${reflect}" link_prefix="rf" joint_prefix="RF"
     parent="${prefix}palm">
       <origin xyz="${reflect*-0.011} 0 0.095" rpy="0 0 0" />
@@ -58,8 +53,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
     </xacro:finger>
     <!-- No Little Finger on Lite hand -->
     <!-- Thumb  -->
-    <xacro:thumb muscletrans="${muscletrans}" bio="${bio}" bt_sp="${bt_sp}"
-    ubi="${ubi}" eli="${eli}" prefix="${prefix}"
+    <xacro:thumb muscletrans="${muscletrans}" bio="${bio}" bt_sp="${bt_sp}" eli="${eli}" prefix="${prefix}"
     reflect="${reflect}" is_lite="1" parent="${prefix}palm">
     </xacro:thumb>
   </xacro:macro>

@@ -14,6 +14,5 @@ name="shadowhand_motor">
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
   <!-- bio is used for all other fingers since ff is forced at bio -->
-  <xacro:shadowhand muscletrans="false" muscle="false" bio="false" bt_sp="false"
-  ubi="false" eli="false" reflect="1.0" prefix="rh_" />
+  <xacro:shadowhand muscletrans="false" muscle="false" bio="false" bt_sp="false" eli="false" reflect="1.0" prefix="rh_" />
 </robot>
