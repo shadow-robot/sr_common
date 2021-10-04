@@ -17,7 +17,7 @@ name="shadowhand_motor">
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
 
-  <xacro:shadowhand hand_type="muscle" tip_sensors="${['bio','bio','bio','bio','bio']}" reflect="1.0" prefix="rh_" />
+  <xacro:shadowhand hand_type="muscle" tip_sensors="bio" reflect="1.0" prefix="rh_" />
   <link name="rh_forearm_disk">
     <inertial>
       <origin xyz="0 0 0" />
