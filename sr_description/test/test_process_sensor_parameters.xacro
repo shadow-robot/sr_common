@@ -1,0 +1,41 @@
+<test xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:macro name="test" params="tip_sensors:=std mid_sensors:=std prox_sensors:=std palm_sensor:=std
+	                                 bio:=${None} bt_sp:=${None} eli:=${None}">
+		<xacro:include filename="$(find sr_description)/hand/xacro/process_sensor_parameters.xacro" />
+	tip_sensors: ${tip_sensors}
+	mid_sensors: ${mid_sensors}
+	prox_sensors: ${prox_sensors}
+	palm_sensor: ${palm_sensor}
+	</xacro:macro>
+	<group input="no param">
+		<xacro:test />
+	</group>
+	<group input="deprecated param = false">
+		<xacro:test bio="false" />
+	</group>
+	<group input="deprecated param = true">
+		<xacro:test bio="true" />
+		<xacro:test bt_sp="true" />
+		<xacro:test eli="true" />
+	</group>
+	<group input="single string">
+		<xacro:test tip_sensors="bio" />
+	</group>
+	<xacro:property name="input" value="bio bio none none none" />
+	<group input="list-like string: ${input}">
+		<xacro:test tip_sensors="${input}" />
+	</group>
+	<xacro:property name="input" value="TH=bio, ff=none, mfx=eli" />
+	<group input="dict-like string: ${input}">
+		<xacro:test tip_sensors="${input}" />
+	</group>
+	<xacro:property name="input" value="${['bio', 'eli', 'none']}" />
+	<group input="list: ${input}">
+		<xacro:test tip_sensors="${input}" />
+	</group>
+	<xacro:property name="input" value="${dict(lf='bio', mf='eli', th='none')}" />
+	<group input="dict: ${input}">
+		<xacro:property name="default_sensor" value="none" />
+		<xacro:test tip_sensors="${input}" />
+	</group>
+</test>

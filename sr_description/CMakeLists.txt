@@ -16,6 +16,8 @@ if (CATKIN_ENABLE_TESTING)
   include_directories(${urdf_INCLUDE_DIRS})
   catkin_add_gtest(test_sr_description_urdf test/test_sr_description_urdf.cpp)
   target_link_libraries(test_sr_description_urdf ${urdf_LIBRARIES})
+
+  catkin_add_nosetests(test)
 endif()
 
 install(DIRECTORY arm/

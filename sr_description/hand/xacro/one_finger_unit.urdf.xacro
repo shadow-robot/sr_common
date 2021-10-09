@@ -4,19 +4,33 @@ xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
 xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find sr_description)/hand/xacro/forearm/forearm.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/fingers.urdf.xacro" />
-  <xacro:property name="pi" value="3.1415926535897931" />
-  <!-- muscletrans is true for muscle transmission to be used, false to use motor transmission -->
+  <!-- hand_type describes the hand type, motor, motor+, muscle (muscle) -->
+  <!-- muscletrans (deprecated) is true for muscle transmission to be used, false to use motor transmission -->
+  <!-- muscle (deprecated) is true for muscle hand or false for motor hand -->
   <!-- muscle is true for muscle hand or false for motor hand -->
-  <!-- bio is true for biotac finger or false for standard finger -->
-  <!-- bt_sp is true for BT_SP finger or false for standard finger -->
-  <!-- ubi is true for ubi finger or false for standard finger -->
-  <!-- eli is true for ellipsoid fingertip or false for standard finger -->
+  <!-- bio (deprecated) is true for biotac finger or false for standard finger -->
+  <!-- bt_sp (deprecated) is true for BT_SP finger or false for standard finger -->
+  <!-- eli (deprecated) is true for ellipsoid fingertip or false for standard finger -->
+  <!-- tip_sensor describes the sensor none, bio, bt_sp, eli -->
+  <!-- mid_sensor describes the sensor none, bio -->
+  <!-- prox_sensor describes the sensor none, bumper -->
+  <!-- palm_sensor describes the sensor none, bumper -->
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
-  <xacro:macro name="shadowhand"
-  params="muscletrans muscle bio bt_sp ubi eli reflect prefix">
+  <xacro:macro name="shadowhand" params="hand_type:='motor' reflect prefix cable_mesh:=False
+          tip_sensor:=std mid_sensor:=std prox_sensor:=std palm_sensor:=std
+          muscletrans:=${None} muscle:=${None} bio:=${None} bt_sp:=${None} eli:=${None}">
+    <!-- Unify hand type parameter, also handling deprecated muscletrans, muscle -->
+    <xacro:include filename="$(find sr_description)/hand/xacro/process_hand_type_parameter.xacro" />
+    <!-- Translate [tip|mid|prox]_sensor to plural form handled in process_sensor_parameters.xacro -->
+    <xacro:property name="tip_sensors" value="${tip_sensor}" />
+    <xacro:property name="mid_sensors" value="${mid_sensor}" />
+    <xacro:property name="prox_sensors" value="${prox_sensor}" />
+    <!-- Process sensor parameters -->
+    <xacro:include filename="$(find sr_description)/hand/xacro/process_sensor_parameters.xacro" />
+
     <!-- Forearm -->
-    <xacro:forearm muscle="${muscle}" prefix="${prefix}" />
+    <xacro:forearm />
     <!-- Dummy Palm -->
     <link name="${prefix}palm">
       <inertial>
@@ -48,10 +62,8 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
     <!-- mfknuckle is at [0.011 -0.01 0.346] from the bottom of forearm -->
     <!-- Middle Finger -->
     <!-- TODO: Check if offset is the same for muscle hand -->
-    <xacro:finger muscletrans="${muscletrans}" lf="false"
-    bio="${bio}" bt_sp="${bt_sp}" ubi="${ubi}" eli="${eli}" prefix="${prefix}"
-    reflect="${reflect}" link_prefix="mf" joint_prefix="MF"
-    parent="${prefix}palm">
+    <xacro:finger link_prefix="mf" joint_prefix="MF" tip_sensor="${tip_sensors.mf}" prox_sensor="${prox_sensors.mf}" mid_sensor="${mid_sensors.mf}"
+                  parent="${prefix}palm">
       <origin xyz="0.0 0 0.116" rpy="0 0 0" />
       <axis xyz="0 ${-1*reflect} 0" />
     </xacro:finger>

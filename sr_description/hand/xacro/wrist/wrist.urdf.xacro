@@ -1,11 +1,10 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find sr_description)/hand/xacro/wrist/wrist.transmission.xacro" />
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
-  <!-- muscletrans is true for muscle transmission or false for motor transmission -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- parent is the parent joint -->
   <xacro:macro name="wrist"
-  params="muscletrans prefix reflect parent *origin">
+  params="prefix:=^ reflect:=^ parent *origin">
     <link name="${prefix}wrist">
       <inertial>
         <origin xyz="0 0 0.029" rpy="0 0 0" />
@@ -72,7 +71,6 @@
       <implicitSpringDamper>1</implicitSpringDamper>
     </gazebo>
     <!-- extensions -->
-    <xacro:shadowhand_wrist_transmission muscletrans="${muscletrans}"
-    prefix="${prefix}" />
+    <xacro:shadowhand_wrist_transmission />
   </xacro:macro>
 </robot>

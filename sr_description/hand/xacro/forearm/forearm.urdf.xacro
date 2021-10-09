@@ -1,6 +1,5 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <!-- muscle is true for muscle hand or false for motor hand -->
-  <!-- hand_type can be either hand_e (default) or hand_e_plus -->
+  <!-- hand_type can be either motor (default), muscle, motor+ -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- cable_mesh is set to true when cable collision should be taken into account -->
   <xacro:macro name="dark_grey" >
@@ -13,7 +12,7 @@
       <color rgba="0.90000 0.90000 0.90000 1.0" />
     </material>
   </xacro:macro>
-  <xacro:macro name="forearm" params="muscle hand_type:='hand_e' prefix cable_mesh:='false'">
+  <xacro:macro name="forearm" params="hand_type:=^ prefix:=^ cable_mesh:=^">
     <link name="${prefix}forearm">
       <inertial>
         <origin xyz="0 0 0.09" rpy="0 0 0" />
@@ -21,7 +20,7 @@
         <inertia ixx="0.0138" ixy="0.0" ixz="0.0" iyy="0.0138"
         iyz="0.0" izz="0.00744" />
       </inertial>
-      <xacro:if value="${muscle}">
+      <xacro:if value="${hand_type.startswith('muscle')}">
         <visual>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry name="${prefix}forearm_visual">
@@ -30,8 +29,8 @@
           <material name="Grey" />
         </visual>
       </xacro:if>
-      <xacro:unless value="${muscle}">
-        <xacro:if value="${hand_type == 'hand_e'}">
+      <xacro:unless value="${hand_type.startswith('muscle')}">
+        <xacro:if value="${hand_type == 'motor'}">
           <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry name="${prefix}forearm_visual">
@@ -40,7 +39,7 @@
             <material name="Grey" />
           </visual>
         </xacro:if>
-        <xacro:if value="${hand_type == 'hand_e_plus'}">
+        <xacro:if value="${hand_type == 'motor+'}">
           <visual>
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry name="${prefix}forearm_visual">
@@ -51,22 +50,22 @@
         </xacro:if>
       </xacro:unless>
       <collision>
-        <xacro:if value="${muscle}">
+        <xacro:if value="${hand_type.startswith('muscle')}">
           <origin xyz="0 0 0.185" rpy="0 0 0" />
           <geometry name="${prefix}forearm_collision">
             <cylinder radius="0.075" length="0.37" />
           </geometry>
           <xacro:dark_grey/>
         </xacro:if>
-        <xacro:unless value="${muscle}">
-          <xacro:if value="${hand_type == 'hand_e'}">
+        <xacro:unless value="${hand_type.startswith('muscle')}">
+          <xacro:if value="${hand_type == 'motor'}">
             <origin xyz="0 0 0.092" rpy="0 0 0" />
             <geometry name="${prefix}forearm_collision">
               <cylinder radius="0.07" length="0.184"/>
             </geometry>
             <xacro:dark_grey/>
           </xacro:if>
-          <xacro:if value="${hand_type == 'hand_e_plus'}">
+          <xacro:if value="${hand_type == 'motor+'}">
             <origin xyz="0 0 0" rpy="0 0 0" />
             <geometry name="${prefix}forearm_collision">
               <mesh filename="package://sr_description/meshes/hand/forearm_collision_plus.stl" scale="0.001 0.001 0.001" />
@@ -77,13 +76,13 @@
       </collision>
       <!-- wrist mount -->
       <collision>
-        <xacro:if value="${muscle}">
+        <xacro:if value="${hand_type.startswith('muscle')}">
           <origin xyz="0 0 0.395" rpy="0 0 0" />
           <geometry>
             <box size="0.03 0.04 0.06" />
           </geometry>
         </xacro:if>
-        <xacro:unless value="${muscle}">
+        <xacro:unless value="${hand_type.startswith('muscle')}">
           <origin xyz="0 -0.01 0.181" rpy="0 0.78 0" />
           <geometry>
             <box size="0.07 0.07 0.07" />
