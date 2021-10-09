@@ -9,7 +9,7 @@ set(MSG_DEPS
   moveit_msgs
 )
 
-find_package(catkin REQUIRED COMPONENTS roslib genmsg message_generation ${MSG_DEPS})
+find_package(catkin REQUIRED COMPONENTS roslib message_generation ${MSG_DEPS})
 
 add_message_files(
   FILES
