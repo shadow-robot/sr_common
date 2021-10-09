@@ -1,7 +1,7 @@
 <!-- Map deprecated hand_type values onto new ones -->
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 	<!-- Translate deprecated parameters 'muscle' and 'muscletrans' -->
-	<xacro:if value="${muscle}">
+	<!--xacro:if value="${muscle}">
 		<xacro:if value="${muscletrans}">
 			<xacro:property name="hand_type" value="muscletrans" />
 			${xacro.warning('Parameter "muscletrans" is deprecated. Please use hand_type="muscletrans" instead!')}
@@ -10,17 +10,20 @@
 			<xacro:property name="hand_type" value="muscle" />
 			${xacro.warning('Parameter "muscle" is deprecated. Please use hand_type="muscle" instead!')}
 		</xacro:unless>
-	</xacro:if>
+	</xacro:if-->
 	<!-- Unset deprecated parameters, now that we have translated them to hand_type -->
-	<xacro:property name="muscletrans" remove="true" />
-	<xacro:property name="muscle" remove="true" />
+	<!--xacro:property name="muscletrans" remove="true" />
+	<xacro:property name="muscle" remove="true" /-->
 	<!-- Normalize hand_type to be lower case -->
 	<xacro:property name="hand_type" value="${hand_type.lower()}" lazy_eval="false" />
 	<!-- Unify hand_type names, mapping hand_e -> motor, hand_e_plus -> motor+ -->
 	<xacro:if value="${hand_type.lower() == 'hand_e'}">
-		<xacro:property name="hand_type" value="motor" />
+		<xacro:property name="hand_type" value="E" />
 	</xacro:if>
-	<xacro:if value="${hand_type.lower() == 'hand_e_plus'}">
-		<xacro:property name="hand_type" value="motor+" />
+	<xacro:if value="${hand_type.lower() == 'hand_lite'}">
+		<xacro:property name="hand_type" value="G" />
+	</xacro:if>
+	<xacro:if value="${hand_type.lower() == 'hand_extra_lite'}">
+		<xacro:property name="hand_type" value="G-" />
 	</xacro:if>
 </robot>

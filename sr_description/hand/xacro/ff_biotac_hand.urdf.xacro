@@ -8,13 +8,13 @@
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <xacro:macro name="shadowhand" params="muscletrans muscle bio bt_sp eli reflect prefix">
     ${xacro.warning("The file ff_biotac_hand.urdf.xacro is deprecated", print_location=False)}
-    ${xacro.warning("Use full_hand.urdf.xacro instead with tip_sensors='ff=bio'")}
+    ${xacro.warning("Use full_hand.urdf.xacro instead with tip_sensors='ff=bt_2p'")}
     <!-- translate old parameters to new ones, eventually initializing tip_sensors -->
     <xacro:include filename="$(find sr_description)/hand/xacro/process_sensor_parameters.xacro" />
     <!-- forward to generic macro -->
     <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
     <!-- Enforce BioTac on First Finger -->
     <xacro:shadowhand fingers="all" reflect="${reflect}" prefix="${prefix}"
-    tip_sensors="${' '.join([k+'='+v for k, v in tip_sensors.items()] + ['ff=bio'])}"/>
+    tip_sensors="${' '.join([k+'='+v for k, v in tip_sensors.items()] + ['ff=bt_2p'])}"/>
   </xacro:macro>
 </robot>

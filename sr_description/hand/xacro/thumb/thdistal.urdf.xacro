@@ -8,12 +8,12 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thdistal.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thdistal.transmission.xacro" />
-  <!-- tip_sensor describes the sensor std, none, bio, bt_sp, eli -->
+  <!-- tip_sensor describes the sensor none, bt_2p, bt_sp, eli -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- parent is the parent link for the first joint -->
   <xacro:macro name="thdistal"
     params="tip_sensor:=^|std prefix:=^ parent">
-    <xacro:if value="${tip_sensor == 'bio'}">
+    <xacro:if value="${tip_sensor == 'bt_2p'}">
       <!--    BIOTAC -->
       <link name="${prefix}thdistal_J1_dummy">
         <inertial>
@@ -113,7 +113,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <!-- approximated only FIXME -->
       </joint>
     </xacro:if>
-    <xacro:unless value="${tip_sensor == 'bio'}">
+    <xacro:unless value="${tip_sensor == 'bt_2p'}">
       <!-- common -->
       <link name="${prefix}thdistal">
         <inertial>

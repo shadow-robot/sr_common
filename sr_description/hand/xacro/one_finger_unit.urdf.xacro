@@ -2,7 +2,7 @@
 xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
 xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
 xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:include filename="$(find sr_description)/hand/xacro/forearm/forearm.urdf.xacro" />
+  <xacro:include filename="forearm_e.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/fingers.urdf.xacro" />
   <!-- hand_type describes the hand type, motor, motor+, muscle (muscle) -->
   <!-- muscletrans (deprecated) is true for muscle transmission to be used, false to use motor transmission -->
@@ -11,8 +11,8 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- bio (deprecated) is true for biotac finger or false for standard finger -->
   <!-- bt_sp (deprecated) is true for BT_SP finger or false for standard finger -->
   <!-- eli (deprecated) is true for ellipsoid fingertip or false for standard finger -->
-  <!-- tip_sensor describes the sensor none, bio, bt_sp, eli -->
-  <!-- mid_sensor describes the sensor none, bio -->
+  <!-- tip_sensor describes the sensor none, bt_2p, bt_sp, eli -->
+  <!-- mid_sensor describes the sensor none, bt_2p -->
   <!-- prox_sensor describes the sensor none, bumper -->
   <!-- palm_sensor describes the sensor none, bumper -->
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->

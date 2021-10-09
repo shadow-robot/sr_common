@@ -1,14 +1,14 @@
 <process_sensor_parameters xmlns:xacro="http://www.ros.org/wiki/xacro">
 	<xacro:include filename="$(find sr_description)/hand/xacro/validate_macros.xacro" />
 	<!-- Set defaults -->
-	<xacro:property name="default_tactile_sensor" default="std" />
-	<xacro:property name="tip_sensors" default="${default_tactile_sensor}" />
+	<xacro:property name="default_tactile_sensor" default="none" />
+	<xacro:property name="tip_sensors" default="${pst}" />
 	<xacro:property name="mid_sensors" default="${default_tactile_sensor}" />
 	<xacro:property name="prox_sensors" default="${default_tactile_sensor}" />
 	<xacro:property name="palm_sensor" default="${default_tactile_sensor}" />
 	<!---->
 	<!-- Translate deprecated sensor parameters -->
-	<xacro:macro name="translate_from_deprecated" params="name value tip:=${None} mid:=std prox:=std palm:=std">
+	<xacro:macro name="translate_from_deprecated" params="name value tip:=${None} mid:=none prox:=none palm:=std">
 		<xacro:if value="${value}">
 			<xacro:if value="${tip is None}">
 				<!-- tip defaults to name -->

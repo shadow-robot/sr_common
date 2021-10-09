@@ -4,8 +4,8 @@
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thhub.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thmiddle.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thdistal.urdf.xacro" />
-  <!-- tip_sensor describes the sensor none, bio, bt_sp, eli -->
-  <!-- mid_sensor describes the sensor none, bio -->
+  <!-- tip_sensor describes the sensor none, bt_2p, bt_sp, eli -->
+  <!-- mid_sensor describes the sensor none, bt_2p -->
   <!-- prox_sensor describes the sensor none, standard -->
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
@@ -13,8 +13,8 @@
   <!-- is_lite is this the lite hand, if so lock J3 -->
   <xacro:macro name="thumb"
   params=" tip_sensor:=^|std mid_sensor:=^|std prox_sensor:=^|std reflect:=^ prefix:=^ parent is_lite">
-    <xacro:if value="${tip_sensor == 'bio'}">
-      <xacro:property name="mid_sensor" value="bio" />
+    <xacro:if value="${tip_sensor == 'bt_2p'}">
+      <xacro:property name="mid_sensor" value="bt_2p" />
     </xacro:if>
     <!-- Base -->
     <xacro:thbase parent="${parent}" />
