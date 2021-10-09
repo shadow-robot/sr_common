@@ -5,17 +5,9 @@
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/distal/distal.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/lfmetacarpal/lfmetacarpal.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/biotac/biotac.urdf.xacro" />
-  <!-- lf is true for little finger or false for standard finger -->
-  <!-- tip_sensor describes the sensor none, bt_2p, bt_sp, eli -->
-  <!-- mid_sensor describes the sensor none, bt_2p -->
-  <!-- prox_sensor describes the sensor none, standard -->
-  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
-  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
-  <!-- link_prefix prepends fingername to the link names -->
-  <!-- joint_prefix prepends fingername to the joint names -->
-  <!-- parent is the parent link for the first joint -->
-  <xacro:macro name="finger"
-  params="tip_sensor:=^|std mid_sensor:=^|std prox_sensor:=^|std reflect:=^ prefix:=^ link_prefix joint_prefix parent *origin *axis">
+
+  <xacro:macro name="finger" params="tip_sensor:=^|std mid_sensor:=^|std prox_sensor:=^|std reflect:=^ prefix:=^
+                                     link_prefix joint_prefix parent *origin *axis">
 
     <!-- Little finger special case -->
     <xacro:if value="${link_prefix == 'lf'}">

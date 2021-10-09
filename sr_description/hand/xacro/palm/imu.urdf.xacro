@@ -6,7 +6,6 @@
       <child link = "${prefix}imu"/>
       <origin xyz="0.01785 0.00765 0.049125" rpy="-1.5707963 3.141592 0.0"/>
     </joint>
-
     <sensor name="${prefix}imu" update_rate="100">
       <parent link="${prefix}imu"/>
       <origin xyz="0 0 0" rpy="0 0 0"/>

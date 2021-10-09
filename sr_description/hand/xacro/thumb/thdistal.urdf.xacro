@@ -8,9 +8,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thdistal.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thdistal.transmission.xacro" />
-  <!-- tip_sensor describes the sensor none, bt_2p, bt_sp, eli -->
-  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
-  <!-- parent is the parent link for the first joint -->
+
   <xacro:macro name="thdistal"
     params="tip_sensor:=^|std prefix:=^ parent">
     <xacro:if value="${tip_sensor == 'bt_2p'}">

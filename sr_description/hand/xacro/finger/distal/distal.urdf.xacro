@@ -13,8 +13,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
   <!-- link_prefix prepends fingername to the link names -->
   <!-- joint_prefix prepends fingername to the joint names -->
   <!-- parent is the parent link for the joint -->
-  <xacro:macro name="distal"
-  params="prefix:=^ link_prefix:=^ joint_prefix:=^ tip_sensor:=^|std parent">
+  <xacro:macro name="distal" params="prefix:=^ link_prefix:=^ joint_prefix:=^ tip_sensor:=^|std parent">
     <link name="${prefix}${link_prefix}distal">
       <inertial>
         <mass value="0.012" />
@@ -25,46 +24,28 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry name="${prefix}${link_prefix}distal_visual">
-          <!-- Do we need to instantiate the standard distal? -->
-          <xacro:property name="standard" value="true" />
-          <xacro:if value="${tip_sensor == 'eli'}">
-            <!-- Ellispoid distal  -->
-            <mesh filename="package://sr_description/meshes/hand/ellipsoids/distal_ellipsoid_visual.dae"
-                  scale="0.001 0.001 0.001" />
-            <xacro:property name="standard" value="false" />
+          <xacro:if value="${tip_sensor == 'pst'}">
+            <mesh filename="package://sr_description/meshes/components/f_distal/pst/f_distal_pst.stl" scale="0.001 0.001 0.001" />
           </xacro:if>
           <xacro:if value="${tip_sensor == 'bt_sp'}">
-            <!-- bt_sp distal  -->
-            <mesh filename="package://sr_description/meshes/hand/biotacs/sp.dae" />
-            <xacro:property name="standard" value="false" />
+            <mesh filename="package://sr_description/meshes/components/f_distal/bt_sp/f_distal_bt_sp.stl" />
           </xacro:if>
-          <xacro:if value="${standard}">
-            <!-- Standard distal  -->
-            <mesh filename="package://sr_description/meshes/hand/F1.dae" scale="0.001 0.001 0.001" />
+          <xacro:if value="${tip_sensor == 'bt_2p'}">
+            <mesh filename="package://sr_description/meshes/components/f_distal/bt_2p/f_distal_bt_2p.dae" />
           </xacro:if>
         </geometry>
-        <!-- <material name="Grey" /> -->
       </visual>
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry name="${prefix}${link_prefix}distal_collision_geom">
-          <!-- Do we need to instantiate the standard distal? -->
-          <xacro:property name="standard" value="true" />
-          <xacro:if value="${tip_sensor == 'eli'}">
-            <!-- Ellispoid distal  -->
-            <mesh filename="package://sr_description/meshes/hand/ellipsoids/distal_ellipsoid.dae"
-                  scale="0.001 0.001 0.001" />
-            <xacro:property name="standard" value="false" />
+          <xacro:if value="${tip_sensor == 'pst'}">
+            <mesh filename="package://sr_description/meshes/components/f_distal/pst/f_distal_pst.stl" scale="0.001 0.001 0.001" />
           </xacro:if>
           <xacro:if value="${tip_sensor == 'bt_sp'}">
-            <!-- bt_sp distal  -->
-            <mesh filename="package://sr_description/meshes/hand/biotacs/sp.dae" />
-            <xacro:property name="standard" value="false" />
+            <mesh filename="package://sr_description/meshes/components/f_distal/bt_sp/f_distal_bt_sp.stl" />
           </xacro:if>
-          <xacro:if value="${standard}">
-            <!-- Standard distal  -->
-            <mesh filename="package://sr_description/meshes/hand/F1.dae"
-                  scale="0.001 0.001 0.001" />
+          <xacro:if value="${tip_sensor == 'bt_2p'}">
+            <mesh filename="package://sr_description/meshes/components/f_distal/bt_2p/f_distal_bt_2p.dae" />
           </xacro:if>
         </geometry>
       </collision>
