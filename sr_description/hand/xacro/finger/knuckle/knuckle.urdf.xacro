@@ -9,7 +9,7 @@
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/knuckle/knuckle.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/knuckle/knuckle.transmission.xacro" />
 
-  <xacro:macro name="knuckle" params="prefix:=^ link_prefix:=^ joint_prefix:=^ parent *origin">
+  <xacro:macro name="knuckle" params="hand_type:=^ hand_version:=^ prefix:=^ link_prefix:=^ joint_prefix:=^ parent *origin">
     <link name="${prefix}${link_prefix}knuckle">
       <inertial>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -19,7 +19,7 @@
       <visual>
         <origin xyz="0 0 0.0005" rpy="0 0 0" />
         <geometry name="${prefix}${link_prefix}knuckle_visual">
-          <mesh filename="package://sr_description/meshes/hand/knuckle.dae" scale="0.001 0.001 0.001" />
+          <mesh filename="package://sr_description/meshes/products/${hand_type}/${hand_version}/f_knuckle_${hand_version}.dae" scale="0.001 0.001 0.001" />
         </geometry>
         <material name="LightGrey" />
       </visual>

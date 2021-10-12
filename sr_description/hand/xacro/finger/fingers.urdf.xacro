@@ -4,39 +4,38 @@
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/middle/middle.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/distal/distal.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/lfmetacarpal/lfmetacarpal.urdf.xacro" />
-  <xacro:include filename="$(find sr_description)/hand/xacro/finger/biotac/biotac.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/finger/middle/middle_and_distal_bt_2p.urdf.xacro" />
 
-  <xacro:macro name="finger" params="tip_sensor:=^|pst mid_sensor:=^|none prox_sensor:=^|none reflect:=^ prefix:=^
+  <xacro:macro name="finger" params="hand_type:=^ hand_version:=^ tip_sensor:=^|pst mid_sensor:=^|none prox_sensor:=^|none reflect:=^ prefix:=^
                                      link_prefix joint_prefix parent *origin *axis">
 
     <!-- Little finger special case -->
     <xacro:if value="${link_prefix == 'lf'}">
       <xacro:lfmetacarpal parent="${parent}" />
       <!-- Knuckle -->
-      <xacro:knuckle parent="${prefix}lfmetacarpal">
+      <xacro:knuckle hand_type="${hand_type}" hand_version="${hand_version}" parent="${prefix}lfmetacarpal">
         <xacro:insert_block name="origin" />
       </xacro:knuckle>
     </xacro:if>
     <!-- Standard finger -->
     <xacro:unless value="${link_prefix == 'lf'}">
       <!-- Knuckle -->
-      <xacro:knuckle parent="${parent}">
+      <xacro:knuckle hand_type="${hand_type}" hand_version="${hand_version}" parent="${parent}">
         <xacro:insert_block name="origin" />
       </xacro:knuckle>
     </xacro:unless>
     <!-- Proximal -->
-    <xacro:proximal parent="${prefix}${link_prefix}knuckle"></xacro:proximal>
+    <xacro:proximal hand_type="${hand_type}" hand_version="${hand_version}" parent="${prefix}${link_prefix}knuckle"/>
     <!-- BioTac combines Middle + Distal -->
     <xacro:if value="${tip_sensor == 'bt_2p'}">
-      <xacro:biotac_middle parent="${prefix}${link_prefix}proximal">
-      </xacro:biotac_middle>
+      <xacro:middle_and_distal_bt_2p hand_type="${hand_type}" hand_version="${hand_version}" parent="${prefix}${link_prefix}proximal"/>
     </xacro:if>
     <!-- Non-BioTac -->
     <xacro:unless value="${tip_sensor == 'bt_2p'}">
       <!-- Middle -->
-      <xacro:middle parent="${prefix}${link_prefix}proximal"></xacro:middle>
+      <xacro:middle hand_type="${hand_type}" hand_version="${hand_version}" parent="${prefix}${link_prefix}proximal"/>
       <!-- Distal  -->
-      <xacro:distal parent="${prefix}${link_prefix}middle"></xacro:distal>
+      <xacro:distal parent="${prefix}${link_prefix}middle"/>
     </xacro:unless>
   </xacro:macro>
 </robot>
