@@ -1,11 +1,4 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <!-- muscletrans is true for muscle transmission to be used, false to use motor transmission -->
-  <!-- muscle is true for muscle hand or false for motor hand -->
-  <!-- bio is true for biotac finger or false for standard finger -->
-  <!-- bt_sp is true for BT_SP finger or false for standard finger -->
-  <!-- eli is true for ellipsoid fingertip or false for standard finger -->
-  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
-  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <xacro:macro name="shadowhand" params="muscletrans muscle bio bt_sp eli reflect prefix">
     ${xacro.warning("The file three_fingers_hand_RF.urdf.xacro is deprecated", print_location=False)}
     ${xacro.warning("Use full_hand.urdf.xacro instead with fingers='th ff rf'")}

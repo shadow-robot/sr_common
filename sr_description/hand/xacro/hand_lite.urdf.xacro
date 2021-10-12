@@ -8,7 +8,7 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/fingers.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thumb.urdf.xacro" />
 
-  <!-- hand_type can be: motor, motor+, muscle (muscle), muscletrans (muscletrans) -->
+  <!-- hand_type can be: hand_e, hand_g, hand_c -->
   <!-- fingers: list-like string specifying available fingers, default: 'th ff mf rf' -->
   <!-- tip_sensors: plain or dict-like string specifying the fingertip (tactile) sensors: 'th=bt_2p ff=bt_sp mf=pst rf=pst, lf=pst' -->
   <!-- mid_sensors: plain or dict-like string specifying the middle-phalange (tactile) sensors -->
