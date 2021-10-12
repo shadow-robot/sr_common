@@ -11,7 +11,7 @@
   <!-- link_prefix prepends fingername to the link names -->
   <!-- joint_prefix prepends fingername to the joint names -->
   <!-- parent is the parent link for the joint -->
-  <xacro:macro name="biotac_middle" params="prefix:=^ link_prefix:=^ joint_prefix:=^ tip_sensor:=^|none mid_sensor:=^|none parent">
+  <xacro:macro name="biotac_middle" params="prefix:=^ link_prefix:=^ joint_prefix:=^ tip_sensor:=^|pst mid_sensor:=^|none parent">
     <link name="${prefix}${link_prefix}middle">
       <inertial>
         <origin xyz="0 0 0.0125" rpy="0 0 0" />

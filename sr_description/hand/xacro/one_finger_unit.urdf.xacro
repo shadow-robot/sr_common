@@ -11,14 +11,14 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- bio (deprecated) is true for biotac finger or false for standard finger -->
   <!-- bt_sp (deprecated) is true for BT_SP finger or false for standard finger -->
   <!-- eli (deprecated) is true for ellipsoid fingertip or false for standard finger -->
-  <!-- tip_sensor describes the sensor none, bt_2p, bt_sp, eli -->
-  <!-- mid_sensor describes the sensor none, bt_2p -->
+  <!-- tip_sensor describes the sensor bt_2p, bt_sp, pst -->
+  <!-- mid_sensor describes the sensor -->
   <!-- prox_sensor describes the sensor none, bumper -->
   <!-- palm_sensor describes the sensor none, bumper -->
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <xacro:macro name="shadowhand" params="hand_type:='motor' reflect prefix cable_mesh:=False
-          tip_sensor:=std mid_sensor:=std prox_sensor:=std palm_sensor:=std
+          tip_sensor:=pst mid_sensor:=none prox_sensor:=none palm_sensor:=none
           muscletrans:=${None} muscle:=${None} bio:=${None} bt_sp:=${None} eli:=${None}">
     <!-- Unify hand type parameter, also handling deprecated muscletrans, muscle -->
     <xacro:include filename="$(find sr_description)/hand/xacro/process_hand_type_parameter.xacro" />

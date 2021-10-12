@@ -10,10 +10,10 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
 
   <!-- hand_type can be: motor, motor+, muscle (muscle), muscletrans (muscletrans) -->
   <!-- fingers: list-like string specifying available fingers, default: 'th ff mf rf' -->
-  <!-- tip_sensors: plain or dict-like string specifying the fingertip (tactile) sensors: 'th=bt_2p ff=bt_sp mf=eli rf=none, lf=none' -->
+  <!-- tip_sensors: plain or dict-like string specifying the fingertip (tactile) sensors: 'th=bt_2p ff=bt_sp mf=pst rf=pst, lf=pst' -->
   <!-- mid_sensors: plain or dict-like string specifying the middle-phalange (tactile) sensors -->
   <!-- prox_sensors: plain or dict-like string specifying the proximal (tactile) sensors -->
-  <!-- palm_sensor: specifies the palm tactile sensor: none -->
+  <!-- palm_sensor: specifies the palm tactile sensor -->
   <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
   <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
   <!-- extra_lite (deprecated) describes if the hand is extra_lite, i.e. without MF -->

@@ -6,7 +6,7 @@
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/lfmetacarpal/lfmetacarpal.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/biotac/biotac.urdf.xacro" />
 
-  <xacro:macro name="finger" params="tip_sensor:=^|std mid_sensor:=^|std prox_sensor:=^|std reflect:=^ prefix:=^
+  <xacro:macro name="finger" params="tip_sensor:=^|pst mid_sensor:=^|none prox_sensor:=^|none reflect:=^ prefix:=^
                                      link_prefix joint_prefix parent *origin *axis">
 
     <!-- Little finger special case -->

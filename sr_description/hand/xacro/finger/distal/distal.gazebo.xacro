@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:macro name="distal_gazebo" params="prefix:=^ link_prefix:=^ tip_sensor:=^|none ns:=^|''">
+  <xacro:macro name="distal_gazebo" params="prefix:=^ link_prefix:=^ tip_sensor:=^|pst ns:=^|''">
     <gazebo reference="${prefix}${link_prefix}distal">
       <xacro:unless value="${'none' in tip_sensor}" >
         <sensor type="contact" name="${prefix}${link_prefix}distal_contact">

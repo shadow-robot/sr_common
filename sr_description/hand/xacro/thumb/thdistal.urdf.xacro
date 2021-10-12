@@ -9,8 +9,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thdistal.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thdistal.transmission.xacro" />
 
-  <xacro:macro name="thdistal"
-    params="tip_sensor:=^|std prefix:=^ parent">
+  <xacro:macro name="thdistal" params="tip_sensor:=^|pst prefix:=^ parent">
     <xacro:if value="${tip_sensor == 'bt_2p'}">
       <!--    BIOTAC -->
       <link name="${prefix}thdistal_J1_dummy">
