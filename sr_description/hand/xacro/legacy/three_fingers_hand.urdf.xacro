@@ -1,9 +1,9 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:macro name="shadowhand" params="muscletrans muscle bio bt_sp eli reflect prefix">
     ${xacro.warning("The file three_fingers_hand.urdf.xacro is deprecated", print_location=False)}
-    ${xacro.warning("Use full_hand.urdf.xacro instead with fingers='th ff mf'")}
+    ${xacro.warning("Use hand.urdf.xacro instead with fingers='th ff mf'")}
     <!-- forward to generic macro -->
-    <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
-    <xacro:shadowhand fingers="th ff mf" reflect="${reflect}" prefix="${prefix}" />
+    <xacro:include filename="$(find sr_description)/hand/xacro/hand.urdf.xacro" />
+    <xacro:sr_hand fingers="th ff mf" reflect="${reflect}" prefix="${prefix}" />
   </xacro:macro>
 </robot>

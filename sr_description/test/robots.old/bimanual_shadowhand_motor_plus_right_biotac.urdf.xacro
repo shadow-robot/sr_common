@@ -1,7 +1,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"
 name="bimanual_shadowhand_motor">
   <xacro:include filename="$(find sr_description)/materials.urdf.xacro" />
-  <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/hand.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
   <link name="world" />
   <joint name="world_joint" type="fixed">
@@ -9,11 +9,11 @@ name="bimanual_shadowhand_motor">
     <child link="rh_forearm" />
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
-  <xacro:shadowhand muscletrans="false" muscle="false" hand_type="hand_e_plus" bio="false" bt_sp="true" eli="false" reflect="1.0" prefix="rh_" lf="true" />
+  <xacro:sr_hand muscletrans="false" muscle="false" hand_type="hand_e_plus" bio="false" bt_sp="true" eli="false" reflect="1.0" prefix="rh_" lf="true" />
   <joint name="right_hand_to_left_hand" type="fixed">
     <parent link="rh_forearm" />
     <child link="lh_forearm" />
     <origin xyz="0.4 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
-  <xacro:shadowhand muscletrans="false" muscle="false" hand_type="hand_e_plus" bio="false" bt_sp="false" eli="false" reflect="-1.0" prefix="lh_" lf="true" />
+  <xacro:sr_hand muscletrans="false" muscle="false" hand_type="hand_e_plus" bio="false" bt_sp="false" eli="false" reflect="-1.0" prefix="lh_" lf="true" />
 </robot>

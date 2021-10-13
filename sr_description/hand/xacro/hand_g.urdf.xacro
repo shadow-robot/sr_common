@@ -1,10 +1,11 @@
 <robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
-xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:include filename="$(find sr_description)/hand/xacro/forearm/forearm_lite.urdf.xacro" />
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find sr_description)/hand/xacro/forearm/forearm_g.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/wrist/wrist.urdf.xacro" />
-  <xacro:include filename="$(find sr_description)/hand/xacro/palm/palm_lite.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/palm/palm_g.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/fingers.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thumb.urdf.xacro" />
 
@@ -14,20 +15,13 @@ xmlns:xacro="http://www.ros.org/wiki/xacro">
   <!-- mid_sensors: plain or dict-like string specifying the middle-phalange (tactile) sensors -->
   <!-- prox_sensors: plain or dict-like string specifying the proximal (tactile) sensors -->
   <!-- palm_sensor: specifies the palm tactile sensor -->
-  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
-  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
-  <!-- extra_lite (deprecated) describes if the hand is extra_lite, i.e. without MF -->
-  <!-- muscletrans (deprecated) is true for muscle transmission to be used, false to use motor transmission -->
-  <!-- muscle (deprecated) is true for muscle hand or false for motor hand -->
-  <!-- bio (deprecated) is true for biotac finger or false for standard finger -->
-  <!-- bt_sp (deprecated) is true for BT_SP finger or false for standard finger -->
-  <!-- eli (deprecated) is true for ellipsoid fingertip or false for standard finger -->
-  <xacro:macro name="shadowhand" params="hand_type:='motor' reflect prefix cable_mesh:=False fingers:=all
-          tip_sensors:=pst mid_sensors:=none prox_sensors:=none palm_sensor:=none
-          extra_lite:=^|${None} muscletrans:=^|${None} muscle:=^|${None} bio:=^|${None} bt_sp:=^|${None} eli:=^|${None}">
-    <!-- Unify hand type parameter, also handling deprecated muscletrans, muscle -->
+  <xacro:macro name="sr_hand_e" params="hand_version:=^ reflect:=^ prefix:=^ fingers:=^|all tip_sensors:=^|pst
+               prox_sensors:=^|none mid_sensors:=^|none palm_sensor:=^|none">
+
+    <!-- Unify hand type parameter -->
+    <xacro:property name="hand_type" value="hand_g" />
     <xacro:include filename="$(find sr_description)/hand/xacro/process_hand_type_parameter.xacro" />
-    <!-- Process fingers parameter, also handling deprecated extra_lite -->
+    <!-- Process fingers parameter, also handling deprecated -->
     <xacro:property name="_all_finger_tokens_" value="${python.set('th ff mf rf'.split())}" />
     <xacro:include filename="$(find sr_description)/hand/xacro/process_fingers_parameter.xacro" />
     <!-- Process sensor parameters -->

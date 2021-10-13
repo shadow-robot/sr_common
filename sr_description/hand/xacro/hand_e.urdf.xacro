@@ -1,13 +1,22 @@
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:xacro="http://www.ros.org/wiki/xacro">
+
   <xacro:include filename="$(find sr_description)/hand/xacro/forearm/forearm_e.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/wrist/wrist.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/palm/palm_e.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/fingers.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thumb.urdf.xacro" />
 
-  <xacro:macro name="sr_hand_e"
-               params="hand_version:=^ reflect:=^ prefix:=^ fingers:=^|all tip_sensors:=^|bt_sp prox_sensors:=^|none
-                      mid_sensors:=^|none palm_sensor:=^|none">
+  <!-- hand_type can be: hand_e, hand_g, hand_c -->
+  <!-- fingers: list-like string specifying available fingers, default: 'th ff mf rf' -->
+  <!-- tip_sensors: plain or dict-like string specifying the fingertip (tactile) sensors: 'th=bt_2p ff=bt_sp mf=pst rf=pst, lf=pst' -->
+  <!-- mid_sensors: plain or dict-like string specifying the middle-phalange (tactile) sensors -->
+  <!-- prox_sensors: plain or dict-like string specifying the proximal (tactile) sensors -->
+  <!-- palm_sensor: specifies the palm tactile sensor -->
+  <xacro:macro name="sr_hand_e" params="hand_version:=^ reflect:=^ prefix:=^ fingers:=^|all tip_sensors:=^|pst
+               prox_sensors:=^|none mid_sensors:=^|none palm_sensor:=^|none">
 
     <!-- Unify hand type parameter -->
     <xacro:property name="hand_type" value="hand_e" />
@@ -63,6 +72,5 @@
       <xacro:thumb is_lite="0" parent="${prefix}palm" tip_sensor="${tip_sensors.th}" prox_sensor="${prox_sensors.th}"
                    mid_sensor="${mid_sensors.th}" />
     </xacro:if>
-
   </xacro:macro>
 </robot>

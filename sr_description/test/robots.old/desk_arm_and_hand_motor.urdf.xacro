@@ -1,7 +1,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="arm_and_hand">
   <xacro:include filename="$(find sr_description)/materials.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/arm/xacro/full_arm_motor.urdf.xacro" />
-  <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/hand.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
   <link name="world" />
   <joint name="arm_to_world_fixed" type="fixed">
@@ -18,5 +18,5 @@
     <limit lower="0" upper="0" effort="10" velocity="1.0" />
     <dynamics damping="3.5" />
   </joint>
-  <xacro:shadowhand muscletrans="false" muscle="false" bio="false" bt_sp="false" eli="false" reflect="1.0" prefix="rh_" lf="true" />
+  <xacro:sr_hand muscletrans="false" muscle="false" bio="false" bt_sp="false" eli="false" reflect="1.0" prefix="rh_" lf="true" />
 </robot>

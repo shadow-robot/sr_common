@@ -4,7 +4,7 @@ xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
 xmlns:xacro="http://www.ros.org/wiki/xacro"
 name="shadowhand_motor">
   <xacro:include filename="$(find sr_description)/materials.urdf.xacro" />
-  <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/hand.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
   <!-- C6 hand with BioTAC sensor
   (C) 2012 fnh, hendrich@informatik.uni-hamburg.de
@@ -17,7 +17,7 @@ name="shadowhand_motor">
     <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
   </joint>
 
-  <xacro:shadowhand hand_type="muscle" tip_sensors="bt_2p" reflect="1.0" prefix="rh_" />
+  <xacro:sr_hand hand_type="muscle" tip_sensors="bt_2p" reflect="1.0" prefix="rh_" />
   <link name="rh_forearm_disk">
     <inertial>
       <origin xyz="0 0 0" />

@@ -4,7 +4,7 @@ xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
 xmlns:xacro="http://www.ros.org/wiki/xacro"
 name="shadowhand_motor">
   <xacro:include filename="$(find sr_description)/materials.urdf.xacro" />
-  <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/hand/xacro/hand.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
   <!-- hand with cylindrical base drifts in gazebo, attach it to the world -->
   <link name="world" />
@@ -16,5 +16,5 @@ name="shadowhand_motor">
   <!-- C6 hand with BioTAC sensor
   (C) 2012 fnh, hendrich@informatik.uni-hamburg.de
 -->
-  <xacro:shadowhand muscletrans="false" muscle="false" bio="true" bt_sp="false" eli="false" reflect="1.0" prefix="rh_" lf="true" />
+  <xacro:sr_hand muscletrans="false" muscle="false" bio="true" bt_sp="false" eli="false" reflect="1.0" prefix="rh_" lf="true" />
 </robot>

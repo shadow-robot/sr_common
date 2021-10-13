@@ -1,13 +1,13 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:macro name="shadowhand" params="muscletrans muscle bt_2p bt_sp eli reflect prefix">
     ${xacro.warning("The file th_ff_rf_ellipsoid_hand.urdf.xacro is deprecated", print_location=False)}
-    ${xacro.warning("Use full_hand.urdf.xacro instead with tip_sensors='th=eli ff=eli rf=eli'")}
+    ${xacro.warning("Use hand.urdf.xacro instead with tip_sensors='th=eli ff=eli rf=eli'")}
     <!-- translate old parameters to new ones, eventually initializing tip_sensors -->
     <xacro:include filename="$(find sr_description)/hand/xacro/process_sensor_parameters.xacro" />
     <!-- forward to generic macro -->
-    <xacro:include filename="$(find sr_description)/hand/xacro/full_hand.urdf.xacro" />
+    <xacro:include filename="$(find sr_description)/hand/xacro/hand.urdf.xacro" />
     <!-- Enforce ellipsoid sensor on First and Ring Finger as well as Thumb -->
-    <xacro:shadowhand fingers="all" reflect="${reflect}" prefix="${prefix}"
+    <xacro:sr_hand fingers="all" reflect="${reflect}" prefix="${prefix}"
     tip_sensors="${' '.join([k+'='+v for k, v in tip_sensors.items()] + ['ff=eli','rf=eli','th=eli'])}"/>
   </xacro:macro>
 </robot>
