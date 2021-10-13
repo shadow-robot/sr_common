@@ -1,21 +1,17 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:include filename="$(find sr_description)/hand/xacro/wrist/wrist.transmission.xacro" />
-  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
-  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
-  <!-- parent is the parent joint -->
-  <xacro:macro name="wrist"
-  params="prefix:=^ reflect:=^ parent *origin">
+
+  <xacro:macro name="wrist" params="hand_type:=^ hand_version:=^ prefix:=^ reflect:=^ parent *origin">
     <link name="${prefix}wrist">
       <inertial>
         <origin xyz="0 0 0.029" rpy="0 0 0" />
         <mass value="0.1" />
-        <inertia ixx="0.000035" ixy="0.0" ixz="0.0" iyy="0.000064"
-        iyz="0.0" izz="0.0000438" />
+        <inertia ixx="0.000035" ixy="0.0" ixz="0.0" iyy="0.000064" iyz="0.0" izz="0.0000438" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry name="${prefix}wrist_visual">
-          <mesh filename="package://sr_description/meshes/hand/wrist.dae"
+          <mesh filename="package://sr_description/meshes/products/${hand_type}/${hand_version}/wrist_${hand_version}.dae"
           scale="${reflect*0.001} 0.001 0.001" />
         </geometry>
         <material name="LightGrey" />
@@ -39,15 +35,13 @@
         </geometry>
       </collision>
       <collision>
-        <origin xyz="${reflect*-0.021} 0 0.011"
-        rpy="0 ${reflect*0.7854} 0" />
+        <origin xyz="${reflect*-0.021} 0 0.011" rpy="0 ${reflect*0.7854} 0" />
         <geometry>
           <box size="0.027 0.018 0.010" />
         </geometry>
       </collision>
       <collision>
-        <origin xyz="${reflect*0.026} 0 0.010"
-        rpy="0 ${reflect*-0.7854} 0" />
+        <origin xyz="${reflect*0.026} 0 0.010" rpy="0 ${reflect*-0.7854} 0" />
         <geometry>
           <box size="0.027 0.018 0.010" />
         </geometry>
@@ -62,8 +56,7 @@
       <child link="${prefix}wrist" />
       <xacro:insert_block name="origin" />
       <axis xyz="0 ${reflect} 0" />
-      <limit lower="${-30/180*pi}" upper="${10/180*pi}"
-      effort="10" velocity="2.0" />
+      <limit lower="${-30/180*pi}" upper="${10/180*pi}" effort="10" velocity="2.0" />
       <dynamics damping="0.1" />
     </joint>
     <gazebo reference="${prefix}WRJ2">
