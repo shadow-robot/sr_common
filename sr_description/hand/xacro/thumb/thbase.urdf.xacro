@@ -8,9 +8,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thbase.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thbase.transmission.xacro" />
-  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
-  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
-  <!-- parent is the parent link for the first joint -->
+
   <xacro:macro name="thbase" params="reflect:=^ prefix:=^ parent">
     <link name="${prefix}thbase">
       <inertial>
@@ -38,7 +36,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
     <joint name="${prefix}THJ5" type="revolute">
       <parent link="${parent}" />
       <child link="${prefix}thbase" />
-      <origin xyz="${reflect*0.034} -0.0085 0.029"
+      <origin xyz="${reflect*0.034} -0.00858 0.029"
       rpy="0 ${pi/4} ${pi/2-reflect*pi/2}" />
       <axis xyz="0 0 ${reflect*-1}" />
       <limit lower="${-60/180*pi}" upper="${60/180*pi}"

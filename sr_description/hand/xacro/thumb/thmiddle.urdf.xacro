@@ -8,8 +8,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thmiddle.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thmiddle.transmission.xacro" />
-  <!-- mid_sensor can have value bt_2p for specific middle anything else for standard finger -->
-  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+
   <!-- parent is the parent link for the first joint -->
   <xacro:macro name="thmiddle" params="mid_sensor:=^ prefix:=^ parent">
     <link name="${prefix}thmiddle">
@@ -23,13 +22,13 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <origin xyz="0 0 0" rpy="0 0 0" />
         <xacro:if value="${mid_sensor == 'bt_2p'}">
           <geometry name="${prefix}thmiddle_visual">
-            <mesh filename="package://sr_description/meshes/hand/biotacs/biotac_thumb_adapter.dae"
+            <mesh filename="package://sr_description/meshes/components/th_distal/bt_2p/th_distal_bt_2p_adapter.dae"
             scale="0.001 0.001 0.001" />
           </geometry>
         </xacro:if>
         <xacro:unless value="${mid_sensor == 'bt_2p'}">
           <geometry name="${prefix}thmiddle_visual">
-            <mesh filename="package://sr_description/meshes/hand/TH2_z.dae"
+            <mesh filename="package://sr_description/meshes/products/${hand_type}/${hand_version}/th_middle_${hand_version}.dae"
             scale="0.001 0.001 0.001" />
           </geometry>
           <material name="shadow_thmiddle_material">
@@ -71,8 +70,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <origin xyz="0 0 0" rpy="0 0 0" />
       </xacro:unless>
       <axis xyz="0 -1 0" />
-      <limit lower="${-40/180*pi}" upper="${40/180*pi}"
-      effort="2.0" velocity="2.0" />
+      <limit lower="${-40/180*pi}" upper="${40/180*pi}" effort="2.0" velocity="2.0" />
       <dynamics damping="0.1" />
     </joint>
     <gazebo reference="${prefix}THJ2">

@@ -25,10 +25,12 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry name="${prefix}${link_prefix}distal_visual">
           <xacro:if value="${tip_sensor == 'pst'}">
-            <mesh filename="package://sr_description/meshes/components/f_distal/pst/f_distal_pst.stl" scale="0.001 0.001 0.001" />
+            <mesh filename="package://sr_description/meshes/components/f_distal/pst/f_distal_pst.stl"
+                  scale="0.001 0.001 0.001" />
           </xacro:if>
           <xacro:if value="${tip_sensor == 'bt_sp'}">
-            <mesh filename="package://sr_description/meshes/components/f_distal/bt_sp/f_distal_bt_sp.stl" />
+            <mesh filename="package://sr_description/meshes/components/f_distal/bt_sp/f_distal_bt_sp.stl"
+                  scale="0.001 0.001 0.001" />
           </xacro:if>
           <xacro:if value="${tip_sensor == 'bt_2p'}">
             <mesh filename="package://sr_description/meshes/components/f_distal/bt_2p/f_distal_bt_2p.dae" />
@@ -39,10 +41,12 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry name="${prefix}${link_prefix}distal_collision_geom">
           <xacro:if value="${tip_sensor == 'pst'}">
-            <mesh filename="package://sr_description/meshes/components/f_distal/pst/f_distal_pst.stl" scale="0.001 0.001 0.001" />
+            <mesh filename="package://sr_description/meshes/components/f_distal/pst/f_distal_pst.stl"
+                  scale="0.001 0.001 0.001" />
           </xacro:if>
           <xacro:if value="${tip_sensor == 'bt_sp'}">
-            <mesh filename="package://sr_description/meshes/components/f_distal/bt_sp/f_distal_bt_sp.stl" />
+            <mesh filename="package://sr_description/meshes/components/f_distal/bt_sp/f_distal_bt_sp.stl"
+                  scale="0.001 0.001 0.001" />
           </xacro:if>
           <xacro:if value="${tip_sensor == 'bt_2p'}">
             <mesh filename="package://sr_description/meshes/components/f_distal/bt_2p/f_distal_bt_2p.dae" />

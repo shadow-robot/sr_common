@@ -9,7 +9,7 @@
   <xacro:include filename="$(find sr_description)/hand/xacro/palm/palm.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/palm/imu.urdf.xacro" />
 
-  <xacro:macro name="palm" params="prefix:=^ reflect:=^ parent">
+  <xacro:macro name="palm" params="hand_type:=^ hand_version:=^ prefix:=^ reflect:=^ parent">
     <link name="${prefix}palm">
       <inertial>
         <origin xyz="0 0 0.035" rpy="0 0 0" />

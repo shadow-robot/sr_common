@@ -11,7 +11,6 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
   <xacro:macro name="thdistal" params="tip_sensor:=^|pst prefix:=^ parent">
     <xacro:if value="${tip_sensor == 'bt_2p'}">
-      <!--    BIOTAC -->
       <link name="${prefix}thdistal_J1_dummy">
         <inertial>
           <origin xyz="0 0 0" rpy="0 0 0" />
@@ -44,17 +43,14 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <visual>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry name="${prefix}th_distal_visual">
-            <!-- <mesh filename="package://sr_description/meshes/hand/biotacs/biotac.stl" scale="0.0254 0.0254 0.0254" /> -->
-            <mesh filename="package://sr_description/meshes/hand/biotacs/biotac_decimated.dae"
+            <mesh filename="package://sr_description/meshes/components/th_distal/bt_2p/th_distal_bt_2p.dae"
             scale="0.0254 0.0254 0.0254" />
           </geometry>
           <material name="BiotacGreen" />
         </visual>
         <collision>
           <geometry name="${prefix}th_distal_collision_geom">
-            <!-- <box size="0.001 0.001 0.001" /> -->
-            <!-- <mesh filename="package://sr_description/meshes/hand/biotacs/biotac-v5.stl" scale="0.0254 0.0254 0.0254" /> -->
-            <mesh filename="package://sr_description/meshes/hand/biotacs/biotac_decimated.dae"
+            <mesh filename="package://sr_description/meshes/components/th_distal/bt_2p/th_distal_bt_2p.dae"
             scale="0.0254 0.0254 0.0254" />
           </geometry>
         </collision>
@@ -85,7 +81,6 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <origin xyz="0 0.0 0.01" rpy="0 0 ${-pi/2}" />
       </joint>
       <!-- extra link to imaginary sphere in fingertip for FK/IK calculations -->
-      <!-- remove visual and collision once the correct position is found -->
       <link name="${prefix}thtip">
         <inertial>
           <mass value="0.001" />
@@ -93,11 +88,6 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
           <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0"
           izz="0" />
         </inertial>
-        <!--visual>
-          <geometry>
-            <sphere radius="0.002" />
-          </geometry>
-        </visual-->
       </link>
       <gazebo reference="${prefix}thtip">
         <material name="LightGrey" />
@@ -105,8 +95,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <joint name="${prefix}thtip" type="fixed">
         <parent link="${prefix}thdistal_J1_dummy" />
         <child link="${prefix}thtip" />
-        <origin xyz="0.0 0.004 ${0.032}"
-        rpy="0 0 0" />
+        <origin xyz="0.0 0.004 ${0.032}" rpy="0 0 0" />
         <!-- approximated only FIXME -->
       </joint>
     </xacro:if>
@@ -122,22 +111,16 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <visual>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry name="${prefix}thdistal_visual">
-            <!-- Do we need to instantiate the standard distal? -->
-            <xacro:property name="standard" value="true" />
-            <xacro:if value="${tip_sensor == 'eli'}">
-              <!-- Ellispoid distal  -->
-              <mesh filename="package://sr_description/meshes/hand/ellipsoids/thdistal_ellipsoid_visual.dae"
+            <xacro:if value="${tip_sensor == 'pst'}">
+              <mesh filename="package://sr_description/meshes/components/th_distal/pst/th_distal_pst.stl"
                     scale="0.001 0.001 0.001" />
-              <xacro:property name="standard" value="false" />
             </xacro:if>
             <xacro:if value="${tip_sensor == 'bt_sp'}">
-              <!-- bt sp distal  -->
-              <mesh filename="package://sr_description/meshes/hand/biotacs/sp.dae" />
-              <xacro:property name="standard" value="false" />
+              <mesh filename="package://sr_description/meshes/components/th_distal/bt_sp/th_distal_bt_sp.stl"
+                    scale="0.001 0.001 0.001" />
             </xacro:if>
-            <xacro:if value="${standard}">
-              <!-- Standard distal  -->
-              <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
+            <xacro:if value="${tip_sensor == 'bt_2p'}">
+              <mesh filename="package://sr_description/meshes/components/th_distal/bt_2p/th_distal_bt_2p.dae"
                     scale="0.001 0.001 0.001" />
             </xacro:if>
           </geometry>
@@ -148,24 +131,18 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <collision>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry name="${prefix}thmiddle_collision_geom">
-            <!-- Do we need to instantiate the standard distal? -->
-            <xacro:property name="standard" value="true" />
-            <xacro:if value="${tip_sensor == 'eli'}">
-              <!-- Ellispoid distal  -->
-              <mesh filename="package://sr_description/meshes/hand/ellipsoids/thdistal_ellipsoid.dae"
+            <xacro:if value="${tip_sensor == 'pst'}">
+              <mesh filename="package://sr_description/meshes/components/th_distal/pst/th_distal_pst.stl"
                     scale="0.001 0.001 0.001" />
-              <xacro:property name="standard" value="false" />
             </xacro:if>
             <xacro:if value="${tip_sensor == 'bt_sp'}">
-              <!-- bt sp distal  -->
-              <mesh filename="package://sr_description/meshes/hand/biotacs/sp.dae" />
-              <xacro:property name="standard" value="false" />
+              <mesh filename="package://sr_description/meshes/components/th_distal/bt_sp/th_distal_bt_sp.stl"
+                    scale="0.001 0.001 0.001" />
             </xacro:if>
-            <xacro:if value="${standard}">
-              <!-- Standard distal  -->
-              <mesh filename="package://sr_description/meshes/hand/TH1_z.dae" scale="0.001 0.001 0.001" />
+            <xacro:if value="${tip_sensor == 'bt_2p'}">
+              <mesh filename="package://sr_description/meshes/components/th_distal/bt_2p/th_distal_bt_2p.dae"
+                    scale="0.001 0.001 0.001" />
             </xacro:if>
-            <!-- <box size="0.015 0.015 0.015" /> -->
           </geometry>
         </collision>
       </link>
