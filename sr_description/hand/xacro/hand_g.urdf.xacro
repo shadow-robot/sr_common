@@ -15,7 +15,7 @@
   <!-- mid_sensors: plain or dict-like string specifying the middle-phalange (tactile) sensors -->
   <!-- prox_sensors: plain or dict-like string specifying the proximal (tactile) sensors -->
   <!-- palm_sensor: specifies the palm tactile sensor -->
-  <xacro:macro name="sr_hand_e" params="hand_version:=^ reflect:=^ prefix:=^ fingers:=^|all tip_sensors:=^|pst
+  <xacro:macro name="sr_hand_g" params="hand_version:=^ reflect:=^ prefix:=^ fingers:=^|all tip_sensors:=^|pst
                prox_sensors:=^|none mid_sensors:=^|none palm_sensor:=^|none">
 
     <!-- Unify hand type parameter -->

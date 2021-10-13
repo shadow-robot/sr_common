@@ -4,8 +4,7 @@
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
 
   <xacro:macro name="sr_hand"
-               params="hand_type:='hand_e' hand_version:='E3M5' side fingers tip_sensors prox_sensors mid_sensors
-                      palm_sensor">
+               params="hand_type hand_version side fingers tip_sensors prox_sensors mid_sensors palm_sensor">
 
     <xacro:if value="${side == 'right'}">
       <xacro:property name="reflect" value="1" />
@@ -17,17 +16,17 @@
     </xacro:if>
 
     <!-- Selecting hand according with hand_type -->
-    <xacro:if value="${hand_type.startswith('hand_e')}">
+    <xacro:if value="${hand_type == 'hand_e'}">
        <xacro:include filename="$(find sr_description)/hand/xacro/hand_e.urdf.xacro" />
        <xacro:sr_hand_e />
     </xacro:if>
-    <!--xacro:if value="${hand_version.startswith('G')}">
+    <xacro:if value="${hand_type == 'hand_g'}">
        <xacro:include filename="$(find sr_description)/hand/xacro/hand_g.urdf.xacro" />
        <xacro:sr_hand_g />
     </xacro:if>
-    <xacro:if value="${hand_version.startswith('C')}">
+    <!--xacro:if value="${hand_type == 'hand_c'}">
        <xacro:include filename="$(find sr_description)/hand/xacro/hand_c.urdf.xacro" />
-       <xacro:sr_hand_m />
+       <xacro:sr_hand_c />
     </xacro:if-->
   </xacro:macro>
 </robot>

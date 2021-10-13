@@ -12,7 +12,7 @@
     <xacro:arg name="hand_version" default="E3M5"/>
     <xacro:arg name="side" default="right"/>
     <xacro:arg name="fingers" default="all"/>
-    <xacro:arg name="tip_sensors" default="bt_sp"/>
+    <xacro:arg name="tip_sensors" default="pst"/>
     <xacro:arg name="mid_sensors" default="none"/>
     <xacro:arg name="prox_sensors" default="none"/>
     <xacro:arg name="palm_sensor" default="none"/>
