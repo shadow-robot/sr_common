@@ -1,8 +1,8 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"
 name="bimanual_shadowhand_motor">
-  <xacro:include filename="$(find sr_description)/materials.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/other/xacro/materials.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/hand.urdf.xacro" />
-  <xacro:include filename="$(find sr_description)/other/xacro/gazebo/gazebo.urdf.xacro" />
+  <xacro:include filename="$(find sr_description)/other/xacro/gazebo.urdf.xacro" />
   <link name="world" />
   <xacro:arg name="arm_x_separation" default="-0.4"/>
 
