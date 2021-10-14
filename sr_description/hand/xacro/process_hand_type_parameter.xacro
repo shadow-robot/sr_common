@@ -23,4 +23,7 @@
 	<xacro:if value="${hand_type.lower() == 'hand_g'}">
 		<xacro:property name="hand_type" value="G" />
 	</xacro:if>
+	<xacro:if value="${hand_type.lower() == 'hand_c'}">
+		<xacro:property name="hand_type" value="C" />
+	</xacro:if>
 </robot>

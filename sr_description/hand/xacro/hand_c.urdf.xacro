@@ -1,9 +1,5 @@
-<robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
-       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       xmlns:xacro="http://www.ros.org/wiki/xacro">
-
-  <xacro:include filename="$(find sr_description)/hand/xacro/forearm/forearm_e.urdf.xacro" />
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:include filename="$(find sr_description)/hand/xacro/forearm/forearm_c.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/wrist/wrist.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/palm/palm_e.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/fingers.urdf.xacro" />
@@ -15,11 +11,11 @@
   <!-- mid_sensors: plain or dict-like string specifying the middle-phalange (tactile) sensors -->
   <!-- prox_sensors: plain or dict-like string specifying the proximal (tactile) sensors -->
   <!-- palm_sensor: specifies the palm tactile sensor -->
-  <xacro:macro name="sr_hand_e" params="hand_version:=^ reflect:=^ prefix:=^ fingers:=^|all tip_sensors:=^|pst
+  <xacro:macro name="sr_hand_c" params="hand_version:=^ reflect:=^ prefix:=^ fingers:=^|all tip_sensors:=^|pst
                prox_sensors:=^|none mid_sensors:=^|none palm_sensor:=^|none">
 
     <!-- Unify hand type parameter -->
-    <xacro:property name="hand_type" value="hand_e" />
+    <xacro:property name="hand_type" value="hand_c" />
     <xacro:include filename="$(find sr_description)/hand/xacro/process_hand_type_parameter.xacro" />
     <!-- Process fingers parameter, also handling deprecated lf -->
     <xacro:property name="_all_finger_tokens_" value="${python.set('th ff mf rf lf'.split())}" />
@@ -31,7 +27,7 @@
     <xacro:forearm />
     <!-- Wrist -->
     <xacro:wrist parent="${prefix}forearm">
-      <origin xyz="0 -0.010 0.21301" rpy="0 0 0" />
+      <origin xyz="0 0 0.4096" rpy="0 0 0" />
     </xacro:wrist>
     <!-- Palm -->
     <xacro:palm parent="${prefix}wrist" />

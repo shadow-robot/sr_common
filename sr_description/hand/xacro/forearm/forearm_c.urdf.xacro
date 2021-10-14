@@ -20,7 +20,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry name="${prefix}forearm_visual">
-          <mesh filename="package://sr_description/meshes/products/hand_m/C6M2/forearm.dae" scale="1.0 1.0 1.0" />
+          <mesh filename="package://sr_description/meshes/products/${hand_type}/${hand_version}/forearm_${hand_version}.dae"/>
         </geometry>
         <material name="Grey" />
       </visual>
