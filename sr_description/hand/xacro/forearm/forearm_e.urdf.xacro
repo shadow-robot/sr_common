@@ -29,7 +29,6 @@
         <geometry name="${prefix}forearm_collision">
           <mesh filename="package://sr_description/meshes/products/${hand_type}/${hand_version}/forearm_collision_${hand_version}.stl" scale="0.001 0.001 0.001" />
         </geometry>
-        <xacro:dark_grey/>
       </collision>
       <!-- wrist mount -->
       <collision>
