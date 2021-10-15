@@ -1,0 +1,39 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
+       xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       name="shadowhand_motor">
+
+  <xacro:include filename="$(find sr_description)/other/xacro/materials.urdf.xacro"/>
+  <xacro:include filename="$(find sr_description)/hand/xacro/hand.urdf.xacro"/>
+  <xacro:include filename="$(find sr_description)/other/xacro/gazebo.urdf.xacro"/>
+
+  <xacro:arg name="hand_type" default="hand_e"/>
+  <xacro:arg name="hand_version" default="E3M5"/>
+  <xacro:arg name="side" default="right"/>
+  <xacro:arg name="fingers" default="all"/>
+  <xacro:arg name="tip_sensors" default="pst"/>
+  <xacro:arg name="mid_sensors" default="none"/>
+  <xacro:arg name="prox_sensors" default="none"/>
+  <xacro:arg name="palm_sensor" default="none"/>
+
+  <link name="world" />
+  <xacro:if value="${'$(arg side)' == 'right'}">
+    <joint name="rh_world_joint" type="fixed">
+      <parent link="world" />
+      <child link="rh_forearm" />
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+    </joint>
+  </xacro:if>
+  <xacro:if value="${'$(arg side)' == 'left'}">
+    <joint name="lh_world_joint" type="fixed">
+      <parent link="world" />
+      <child link="lh_forearm" />
+      <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0" />
+    </joint>
+  </xacro:if>
+  <xacro:sr_hand hand_type="$(arg hand_type)" hand_version="$(arg hand_version)" side="$(arg side)"
+                 fingers="$(arg fingers)" tip_sensors="$(arg tip_sensors)" mid_sensors="$(arg mid_sensors)"
+                 prox_sensors="$(arg prox_sensors)" palm_sensor="$(arg palm_sensor)"/>
+
+</robot>
