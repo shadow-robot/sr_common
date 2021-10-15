@@ -11,7 +11,7 @@
       <visual>
         <origin xyz="0 0 0" rpy="0 0 ${pi/2}" />
         <geometry name="${prefix}forearm_visual">
-          <mesh filename="package://sr_description/meshes/products/${hand_type}/${hand_version}/forearm_${hand_version}.dae" scale="1.0 1.0 1.0" />
+          <mesh filename="package://sr_description/meshes/components/forearm/forearm_${hand_version}.dae" scale="1.0 1.0 1.0" />
         </geometry>
         <material name="Grey" />
       </visual>
@@ -25,13 +25,13 @@
       <!--visual>
         <origin rpy="0 -1.57 -1.57" xyz="0.0 0.055 0.0"/>
         <geometry name="${prefix}cable_extr_visualisation">
-          <mesh filename="package://sr_description/meshes/products/${hand_type}/${hand_version}/cable_connector_base_${hand_version}.stl" scale="1 1 1" />
+          <mesh filename="package://sr_description/meshes/components/cable_connector/cable_connector_base_${hand_version}.stl" scale="1 1 1" />
         </geometry>
       </visual>
       <collision>
         <origin rpy="0 -1.57 -1.57" xyz="0.0 0.055 0.0"/>
         <geometry name="${prefix}cable_extr_collision">
-          <mesh filename="package://sr_description/meshes/products/${hand_type}/${hand_version}/cable_connector_base_${hand_version}.stl" scale="1 1 1" />
+          <mesh filename="package://sr_description/components/cable_connector/cable_connector_base_${hand_version}.stl" scale="1 1 1" />
         </geometry>
       </collision-->
     </link>

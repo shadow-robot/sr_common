@@ -19,7 +19,7 @@
       <visual>
         <origin xyz="0 0 0.0005" rpy="0 0 0" />
         <geometry name="${prefix}${link_prefix}knuckle_visual">
-          <mesh filename="package://sr_description/meshes/products/${hand_type}/${hand_version}/f_knuckle_${hand_version}.dae" scale="0.001 0.001 0.001" />
+          <mesh filename="package://sr_description/meshes/components/f_knuckle/f_knuckle_${hand_version}.dae" scale="0.001 0.001 0.001" />
         </geometry>
         <material name="LightGrey" />
       </visual>

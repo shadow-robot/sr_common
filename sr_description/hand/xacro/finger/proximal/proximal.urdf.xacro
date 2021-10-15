@@ -19,7 +19,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry name="${prefix}${link_prefix}proximal_visual">
-          <mesh filename="package://sr_description/meshes/products/${hand_type}/${hand_version}/f_proximal_${hand_version}.dae"
+          <mesh filename="package://sr_description/meshes/components/f_proximal/f_proximal_${hand_version}.dae"
                 scale="0.001 0.001 0.001" />
         </geometry>
         <material name="Grey" />

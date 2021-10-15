@@ -28,7 +28,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         </xacro:if>
         <xacro:unless value="${mid_sensor == 'bt_2p'}">
           <geometry name="${prefix}thmiddle_visual">
-            <mesh filename="package://sr_description/meshes/products/${hand_type}/${hand_version}/th_middle_${hand_version}.dae"
+            <mesh filename="package://sr_description/meshes/components/th_middle/th_middle_${hand_version}.dae"
             scale="0.001 0.001 0.001" />
           </geometry>
           <material name="shadow_thmiddle_material">
