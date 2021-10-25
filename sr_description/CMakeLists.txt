@@ -32,5 +32,5 @@ install(DIRECTORY loaders/
 install(DIRECTORY robots/
    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/robots)
 
-install(FILES materials.urdf.xacro
+install(FILES other/xacro/materials.urdf.xacro
    DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION})
