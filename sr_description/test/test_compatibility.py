@@ -37,7 +37,7 @@
 
 # Author: Robert Haschke <rhaschke@techfak.uni-bielefeld.de>
 
-from __future__ import print_function
+from __future__ import absolute_import, print_function
 
 import ast
 import re
@@ -54,6 +54,7 @@ try:
 except ImportError:
     # subTest was introduced in 3.4 only. Provide a dummy fallback.
     from contextlib import contextmanager
+    
     @contextmanager
     def subTest(msg):
         print(msg)
