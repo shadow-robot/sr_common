@@ -54,7 +54,7 @@ try:
 except ImportError:
     # subTest was introduced in 3.4 only. Provide a dummy fallback.
     from contextlib import contextmanager
-    
+
     @contextmanager
     def subTest(msg):
         print(msg)
