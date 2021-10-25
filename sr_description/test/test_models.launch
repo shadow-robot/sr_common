@@ -1,6 +1,6 @@
 <launch>
   <arg name="rviz_config" default="test_hands.rviz" />
-  <param name="robot_description" command="xacro '$(arg robot)'" />
+  <param name="robot_description" command="cat $(arg robot)" />
 
   <!-- publish joint values and open rviz -->
   <group unless="$(optenv URDF_ONLY 0)">
