@@ -1,0 +1,24 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+	<xacro:property name="allowed_hand_types" value="${python.list(['hand_e','hand_g','hand_c'])}"/>
+  <xacro:property name="allowed_hand_versions" value="${python.list(['E3M5','E2M3','C6M2'])}"/>
+  <xacro:property name="allowed_sides" value="${python.list(['right','left'])}"/>
+  <xacro:property name="allowed_fingers" value="${python.list(['th','ff','mf','rf','lf','all'])}"/>
+  
+  <xacro:unless value="${hand_type.lower() in allowed_hand_types}">
+    ${xacro.error("Parameter 'hand_type' ("+hand_type+") not within allowed values "+python.str(allowed_hand_types))}
+  </xacro:unless>
+
+	<xacro:unless value="${hand_version in allowed_hand_versions}">
+    ${xacro.error("Parameter 'hand_version' ("+hand_version+") not within allowed values "+python.str(allowed_hand_versions))}
+  </xacro:unless>
+
+	<xacro:unless value="${side.lower() in allowed_sides}">
+    ${xacro.error("Parameter 'side' ("+side+") not within allowed values "+python.str(allowed_sides))}
+  </xacro:unless>
+
+  <xacro:unless value="${python.len(python.set(python.list(fingers.split(',')))-python.set(allowed_fingers)) == 0}">
+    ${xacro.error("Parameter 'fingers' ("+python.str(python.set(python.list(fingers.split(',')))-python.set(allowed_fingers))+") not within allowed values "+python.str(allowed_fingers))}
+  </xacro:unless>
+
+</robot>
