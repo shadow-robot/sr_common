@@ -45,3 +45,10 @@ function launch {
 RVIZ_CONFIG="$(basename $0)"
 RVIZ_CONFIG="${RVIZ_CONFIG%%.*}.rviz"
 
+if ! rostopic list > /dev/null ; then
+	echo "We suggest to run your own roscore. Then the processed filename will be displayed as a text marker in rviz."
+	echo
+fi
+echo "We will iterate through some URDF files now. Ctrl-C or close rviz to forward to the next one."
+echo "Hold Ctrl-C for a while to ultimately stop."
+read -p "Press [Enter] to start."
