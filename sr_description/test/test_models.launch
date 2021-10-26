@@ -5,7 +5,7 @@
   <!-- publish joint values and open rviz -->
   <group unless="$(optenv URDF_ONLY 0)">
     <!-- open joint_state_publisher_gui -->
-    <node name="joint_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" />
+    <node name="joint_publisher" pkg="joint_state_publisher_gui" type="joint_state_publisher_gui" required="true" />
 
     <!-- publish transforms of all robot links -->
     <node name="state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" />

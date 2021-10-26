@@ -15,7 +15,7 @@ pose:
   orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}
 scale: {x: 0.0, y: 0.0, z: 0.1}
 color: {r: 0.0, g: 0.0, b: 0.0, a: 1.0}
-text: '$1'" &
+text: '$1 $2 $3 $4 $5 $6'" &
 
 	ROSTOPIC_PID=$!          # Get PID from background process
 	trap stop_rostopic EXIT  # Ensure rostopic is killed on exit
@@ -34,9 +34,9 @@ function launch {
 	done
 	echo "***********************************************"
 
-	start_rostopic $1
+	start_rostopic $1 $2 $3 $4 $5 $6
 	roslaunch sr_description test_models.launch robot:="$(rospack find sr_description)/test/robot_description" rviz_config:=$RVIZ_CONFIG
-	#rm "robot_description"
+	rm "robot_description"
 	stop_rostopic
 
 	sleep 0.2  # Some time to Ctrl-C before next launch
