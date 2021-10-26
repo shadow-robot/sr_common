@@ -6,6 +6,8 @@
   <xacro:macro name="sr_hand"
                params="hand_type hand_version side fingers tip_sensors prox_sensors mid_sensors palm_sensor">
 
+  <xacro:include filename="$(find sr_description)/hand/xacro/validate_xacro.xacro" />
+
     <xacro:if value="${side == 'right'}">
       <xacro:property name="reflect" value="1" />
       <xacro:property name="prefix" value="rh_" />
