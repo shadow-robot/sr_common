@@ -2,7 +2,7 @@
        xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       name="bumanual_shadowhand_motor">
+       name="bimanual_shadowhand_motor">
 
   <xacro:include filename="$(find sr_description)/other/xacro/materials.urdf.xacro"/>
   <xacro:include filename="$(find sr_description)/hand/xacro/hand.urdf.xacro"/>

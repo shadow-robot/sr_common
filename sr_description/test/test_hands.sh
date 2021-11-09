@@ -15,12 +15,15 @@ launch sr_hand tip_sensors:="bt_sp"
 # Testing 'bt_2p' tip sensors
 launch sr_hand tip_sensors:="bt_2p"
 
+# Testing 'bt_2p' tip sensors
+launch sr_hand tip_sensors:="pst"
+
 # Testing custom finger set
 launch sr_hand fingers:="th,ff,mf,rf"
 launch sr_hand fingers:="th,ff,mf"
 
-# Testing muscle hand
+# Testing hand lite
 launch sr_hand hand_type:="hand_g" hand_version:="G1M5"
 
-# Testing hand lite
+# Testing muscle hand
 launch sr_hand hand_type:="hand_c" hand_version:="C6M2"
