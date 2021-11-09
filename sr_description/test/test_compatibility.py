@@ -188,7 +188,7 @@ class TestEquality(unittest.TestCase):
     def generate_test_params(self):
         path = os.path.dirname(__file__)
         old_path = os.path.join(path, 'robots.old')
-        new_path = os.path.join(path, os.pardir, 'robots')
+        new_path = os.path.join(path, 'robots.new')
 
         for name in os.listdir(old_path):
             old_file = os.path.join(old_path, name)
