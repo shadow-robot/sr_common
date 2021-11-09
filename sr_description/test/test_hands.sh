@@ -15,9 +15,6 @@ launch sr_hand tip_sensors:="bt_sp"
 # Testing 'bt_2p' tip sensors
 launch sr_hand tip_sensors:="bt_2p"
 
-# Testing 'bt_2p' tip sensors
-launch sr_hand tip_sensors:="pst"
-
 # Testing custom finger set
 launch sr_hand fingers:="th,ff,mf,rf"
 launch sr_hand fingers:="th,ff,mf"
