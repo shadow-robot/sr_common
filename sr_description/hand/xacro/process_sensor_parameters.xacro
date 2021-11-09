@@ -6,7 +6,6 @@
 	<xacro:property name="mid_sensors" default="${default_tactile_sensor}" />
 	<xacro:property name="prox_sensors" default="${default_tactile_sensor}" />
 	<xacro:property name="palm_sensor" default="${default_tactile_sensor}" />
-	<!---->
 	<!-- Translate deprecated sensor parameters -->
 	<xacro:macro name="translate_from_deprecated" params="name value tip:=${None} mid:=none prox:=none palm:=none">
 		<xacro:if value="${value}">
@@ -31,7 +30,6 @@
 	<!-- Ellipsoid sensor -->
 	<xacro:property name="eli" default="${None}" />
 	<xacro:translate_from_deprecated name="eli" value="${eli}" />
-	<!---->
 	<!-- Transform sensor parameter into proper type -->
 	<xacro:macro name="transform_to_type" params="name value default_tactile_sensor:=^|none
 				valid_finger_tokens:=^|${'th ff mf rf lf'.split()}
