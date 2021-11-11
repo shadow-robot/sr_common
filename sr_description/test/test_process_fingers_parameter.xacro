@@ -3,7 +3,7 @@
 	<xacro:macro name="test" params="msg:='' fingers:=all lf:=${None} extra_lite:=${None}">
 		<xacro:property name="input" value="${fingers}" lazy_eval="false" />
 		<xacro:include filename="$(find sr_description)/hand/xacro/process_fingers_parameter.xacro" />
-	${input} ${msg} : ${fingers}
+		${input} ${msg} : ${fingers}
 	</xacro:macro>
 	<xacro:test />
 	<xacro:test fingers="FF RF lF"/>

@@ -10,12 +10,8 @@
   <url type="repository">https://github.com/shadow-robot/sr_common</url>
   <url type="bugtracker">https://github.com/shadow-robot/sr_common/issues</url>
 
-  <author>Ugo Cupcic</author>
-
   <!-- Dependencies which this package needs to build itself. -->
   <buildtool_depend>catkin</buildtool_depend>
-
-  <!-- Dependencies needed to compile this package. -->
 
   <!-- Dependencies needed after this package is compiled. -->
   <run_depend>xacro</run_depend>

@@ -1,3 +1,0 @@
-<launch>
-  <param name="support_description" command="xacro '$(find sr_description)/other/xacro/desk/desk_robot.urdf.xacro'" />
-</launch>

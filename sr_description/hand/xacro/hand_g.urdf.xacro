@@ -9,7 +9,6 @@
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/fingers.urdf.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thumb.urdf.xacro" />
 
-  <!-- hand_type can be: hand_e, hand_g, hand_c -->
   <!-- fingers: list-like string specifying available fingers, default: 'th ff mf rf' -->
   <!-- tip_sensors: plain or dict-like string specifying the fingertip (tactile) sensors: 'th=bt_2p ff=bt_sp mf=pst rf=pst, lf=pst' -->
   <!-- mid_sensors: plain or dict-like string specifying the middle-phalange (tactile) sensors -->
@@ -18,10 +17,7 @@
   <xacro:macro name="sr_hand_g" params="hand_version:=^ reflect:=^ prefix:=^ fingers:=^|all tip_sensors:=^|pst
                prox_sensors:=^|none mid_sensors:=^|none palm_sensor:=^|none">
 
-    <!-- Unify hand type parameter -->
-    <xacro:property name="hand_type" value="hand_g" />
-    <xacro:include filename="$(find sr_description)/hand/xacro/process_hand_type_parameter.xacro" />
-    <!-- Process fingers parameter, also handling deprecated -->
+    <!-- Process fingers parameter -->
     <xacro:property name="_all_finger_tokens_" value="${python.set('th ff mf rf'.split())}" />
     <xacro:include filename="$(find sr_description)/hand/xacro/process_fingers_parameter.xacro" />
     <!-- Process sensor parameters -->

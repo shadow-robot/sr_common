@@ -1,25 +1,20 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"
-xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
-xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-xmlns:joint="http://playerstage.sourceforge.net/gazebo/xmlschema/#slider"
-xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
-xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
+       xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:joint="http://playerstage.sourceforge.net/gazebo/xmlschema/#slider"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+       xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
+       xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/distal/distal.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/distal/distal.transmission.xacro" />
-  <!-- tip_sensor describes the sensor bt_2p, bt_sp, pst -->
-  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
-  <!-- link_prefix prepends fingername to the link names -->
-  <!-- joint_prefix prepends fingername to the joint names -->
-  <!-- parent is the parent link for the joint -->
+
   <xacro:macro name="distal" params="prefix:=^ link_prefix:=^ joint_prefix:=^ tip_sensor:=^|pst parent">
     <link name="${prefix}${link_prefix}distal">
       <inertial>
         <mass value="0.012" />
         <origin xyz="0 0 0.012" />
-        <inertia ixx="0.00000094" ixy="0.0" ixz="0.0"
-		 iyy="0.0000011" iyz="0.0" izz="0.00000053" />
+        <inertia ixx="0.00000094" ixy="0.0" ixz="0.0" iyy="0.0000011" iyz="0.0" izz="0.00000053" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -61,8 +56,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
         <origin xyz="0 0 0.025" rpy="0 0 0" />
         <axis xyz="1 0 0" />
         <!-- standard distal joint -->
-        <limit lower="0" upper="${pi/2}" effort="2"
-        velocity="2.0" />
+        <limit lower="0" upper="${pi/2}" effort="2" velocity="2.0" />
         <dynamics damping="0.1" />
       </joint>
       <gazebo reference="${prefix}${joint_prefix}J1">
@@ -72,8 +66,7 @@ xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
       <link name="${prefix}${link_prefix}tip">
         <inertial>
           <mass value="0.001" />
-          <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0"
-          iyz="0.0" izz="0.0" />
+          <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
         </inertial>
       </link>
       <joint name="${prefix}${joint_prefix}tip" type="fixed">
