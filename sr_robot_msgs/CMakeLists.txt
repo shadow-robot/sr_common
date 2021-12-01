@@ -52,7 +52,7 @@ add_message_files(
   WrenchWithModelGroupName.msg
   WrenchArray.msg
   HybridControllerStatus.msg
-  HybridControllerIKerror.msg
+  HybridControllerCartesianError.msg
 )
 
 add_service_files(
