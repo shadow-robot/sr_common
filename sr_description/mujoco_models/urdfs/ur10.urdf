@@ -208,10 +208,10 @@
   </link>
   <joint name="ra_ee_fixed_joint" type="fixed">
     <parent link="ra_wrist_3_link"/>
-    <child link="ra_ee_link"/>
+    <child link="ra_flange"/>
     <origin rpy="0.0 -1.57079632679 1.57079632679" xyz="0.0 0.0 0.0"/>
   </joint>
-  <link name="ra_ee_link">
+  <link name="ra_flange">
     <collision>
       <geometry>
         <box size="0.01 0.01 0.01"/>
@@ -296,7 +296,7 @@
   <gazebo reference="ra_wrist_2_link">
     <selfCollide>true</selfCollide>
   </gazebo>
-  <gazebo reference="ra_ee_link">
+  <gazebo reference="ra_flange">
     <selfCollide>true</selfCollide>
   </gazebo>
   <!-- ROS base_link to UR 'Base' Coordinates transform -->
