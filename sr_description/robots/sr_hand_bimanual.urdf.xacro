@@ -41,7 +41,7 @@
                  fingers="$(arg left_fingers)" tip_sensors="$(arg left_tip_sensors)" mid_sensors="$(arg left_mid_sensors)"
                  prox_sensors="$(arg left_prox_sensors)" palm_sensor="$(arg left_palm_sensor)"/>
 
-  <joint name="right_hand_to_hand" type="fixed">
+  <joint name="right_hand_to_left_hand" type="fixed">
     <parent link="rh_forearm" />
     <child link="lh_forearm" />
     <origin xyz="$(arg arm_x_separation) 0.0 0.0" rpy="0.0 0.0 0.0" />
