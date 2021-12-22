@@ -5,8 +5,8 @@ uint32 TRAJECTORY_MODE=0
 uint32 TEACH_MODE=1
 #Position controller running, but no traj controller (this is useful to teleoperate the arm or to move freely certain joints of the hands)
 uint32 POSITION_MODE=2
-#Grasp controller running
-uint32 GRASP_MODE=3
+#Direct PWM control running
+uint32 DIRECT_PWM_MODE=3
 
 #request fields
 uint32 teach_mode
