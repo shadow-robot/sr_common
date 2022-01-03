@@ -1,0 +1,7 @@
+<validate xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:macro name="validate_tokens" params="tokens valid name">
+		<!-- Check that list of tokens is valid -->
+		<xacro:property name="_unknown_tokens_" value="${python.set(tokens) - python.set(valid)}" />
+		<xacro:if value="${_unknown_tokens_}">${xacro.error('Unknown '+name+': '+', '.join(_unknown_tokens_)+'. The set of available specifiers is: '+', '.join(valid))}</xacro:if>
+	</xacro:macro>
+</validate>

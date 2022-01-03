@@ -1,0 +1,21 @@
+<test xmlns:xacro="http://www.ros.org/wiki/xacro">
+	<xacro:property name="_all_finger_tokens_" value="${python.set('th ff mf rf lf'.split())}" />
+	<xacro:macro name="test" params="msg:='' fingers:=all lf:=${None} extra_lite:=${None}">
+		<xacro:property name="input" value="${fingers}" lazy_eval="false" />
+		<xacro:include filename="$(find sr_description)/hand/xacro/process_fingers_parameter.xacro" />
+		${input} ${msg} : ${fingers}
+	</xacro:macro>
+	<xacro:test />
+	<xacro:test fingers="FF RF lF"/>
+	<xacro:test msg="lf=false" fingers="FF RF lF" lf="false"/>
+	<xacro:test msg="lf=false" lf="false" />
+	<xacro:test msg="lf=true" lf="true" />
+	<!-- Use non-default set of finger tokens -->
+	<xacro:property name="_all_finger_tokens_" value="${python.set('a b c'.split())}" />
+	<xacro:test msg="_all_finger_tokens_='a b c'" />
+	<!-- lite hand finger tokens -->
+	<xacro:property name="_all_finger_tokens_" value="${python.set('th ff mf rf'.split())}" />
+	<xacro:test msg="lite" />
+	<xacro:test msg="lite extra_lite=true" extra_lite="true" />
+	<xacro:test msg="lite extra_lite=false" extra_lite="false" />
+</test>
