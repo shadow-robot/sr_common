@@ -20,7 +20,7 @@
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry name="${prefix}${link_prefix}distal_visual">
           <xacro:if value="${tip_sensor == 'pst'}">
-            <mesh filename="package://sr_description/meshes/components/f_distal/pst/f_distal_pst.stl"
+            <mesh filename="package://sr_description/meshes/components/f_distal/pst/f_distal_pst.dae"
                   scale="0.001 0.001 0.001" />
           </xacro:if>
           <xacro:if value="${tip_sensor == 'bt_sp'}">
@@ -36,7 +36,7 @@
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry name="${prefix}${link_prefix}distal_collision_geom">
           <xacro:if value="${tip_sensor == 'pst'}">
-            <mesh filename="package://sr_description/meshes/components/f_distal/pst/f_distal_pst.stl"
+            <mesh filename="package://sr_description/meshes/components/f_distal/pst/f_distal_pst.dae"
                   scale="0.001 0.001 0.001" />
           </xacro:if>
           <xacro:if value="${tip_sensor == 'bt_sp'}">
