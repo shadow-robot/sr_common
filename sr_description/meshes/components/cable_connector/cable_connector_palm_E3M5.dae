@@ -5,143 +5,17 @@
       <author>Blender User</author>
       <authoring_tool>Blender 3.0.1 commit date:2022-01-25, commit time:17:19, hash:dc2d18018171</authoring_tool>
     </contributor>
-    <created>2022-02-08T11:17:08</created>
-    <modified>2022-02-08T11:17:08</modified>
+    <created>2022-02-10T09:31:08</created>
+    <modified>2022-02-10T09:31:08</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
-  <library_cameras>
-    <camera id="Camera_001-camera" name="Camera.001">
-      <optics>
-        <technique_common>
-          <perspective>
-            <xfov sid="xfov">39.59775</xfov>
-            <aspect_ratio>1.777778</aspect_ratio>
-            <znear sid="znear">0.1</znear>
-            <zfar sid="zfar">100</zfar>
-          </perspective>
-        </technique_common>
-      </optics>
-      <extra>
-        <technique profile="blender">
-          <shiftx sid="shiftx" type="float">0</shiftx>
-          <shifty sid="shifty" type="float">0</shifty>
-          <dof_distance sid="dof_distance" type="float">10</dof_distance>
-        </technique>
-      </extra>
-    </camera>
-    <camera id="Camera-camera" name="Camera">
-      <optics>
-        <technique_common>
-          <perspective>
-            <xfov sid="xfov">39.59775</xfov>
-            <aspect_ratio>1.777778</aspect_ratio>
-            <znear sid="znear">0.1</znear>
-            <zfar sid="zfar">100</zfar>
-          </perspective>
-        </technique_common>
-      </optics>
-      <extra>
-        <technique profile="blender">
-          <shiftx sid="shiftx" type="float">0</shiftx>
-          <shifty sid="shifty" type="float">0</shifty>
-          <dof_distance sid="dof_distance" type="float">10</dof_distance>
-        </technique>
-      </extra>
-    </camera>
-  </library_cameras>
-  <library_lights>
-    <light id="Light_001-light" name="Light.001">
-      <technique_common>
-        <point>
-          <color sid="color">1000 1000 1000</color>
-          <constant_attenuation>1</constant_attenuation>
-          <linear_attenuation>0</linear_attenuation>
-          <quadratic_attenuation>0.00111109</quadratic_attenuation>
-        </point>
-      </technique_common>
-      <extra>
-        <technique profile="blender">
-          <type sid="type" type="int">0</type>
-          <flag sid="flag" type="int">0</flag>
-          <mode sid="mode" type="int">1</mode>
-          <gamma sid="blender_gamma" type="float">1</gamma>
-          <red sid="red" type="float">1</red>
-          <green sid="green" type="float">1</green>
-          <blue sid="blue" type="float">1</blue>
-          <shadow_r sid="blender_shadow_r" type="float">0</shadow_r>
-          <shadow_g sid="blender_shadow_g" type="float">0</shadow_g>
-          <shadow_b sid="blender_shadow_b" type="float">0</shadow_b>
-          <energy sid="blender_energy" type="float">1000</energy>
-          <dist sid="blender_dist" type="float">29.99998</dist>
-          <spotsize sid="spotsize" type="float">75</spotsize>
-          <spotblend sid="spotblend" type="float">0.15</spotblend>
-          <att1 sid="att1" type="float">0</att1>
-          <att2 sid="att2" type="float">1</att2>
-          <falloff_type sid="falloff_type" type="int">2</falloff_type>
-          <clipsta sid="clipsta" type="float">0.04999995</clipsta>
-          <clipend sid="clipend" type="float">30.002</clipend>
-          <bias sid="bias" type="float">1</bias>
-          <soft sid="soft" type="float">3</soft>
-          <bufsize sid="bufsize" type="int">2880</bufsize>
-          <samp sid="samp" type="int">3</samp>
-          <buffers sid="buffers" type="int">1</buffers>
-          <area_shape sid="area_shape" type="int">1</area_shape>
-          <area_size sid="area_size" type="float">0.1</area_size>
-          <area_sizey sid="area_sizey" type="float">0.1</area_sizey>
-          <area_sizez sid="area_sizez" type="float">1</area_sizez>
-        </technique>
-      </extra>
-    </light>
-    <light id="Light-light" name="Light">
-      <technique_common>
-        <point>
-          <color sid="color">1000 1000 1000</color>
-          <constant_attenuation>1</constant_attenuation>
-          <linear_attenuation>0</linear_attenuation>
-          <quadratic_attenuation>0.00111109</quadratic_attenuation>
-        </point>
-      </technique_common>
-      <extra>
-        <technique profile="blender">
-          <type sid="type" type="int">0</type>
-          <flag sid="flag" type="int">0</flag>
-          <mode sid="mode" type="int">1</mode>
-          <gamma sid="blender_gamma" type="float">1</gamma>
-          <red sid="red" type="float">1</red>
-          <green sid="green" type="float">1</green>
-          <blue sid="blue" type="float">1</blue>
-          <shadow_r sid="blender_shadow_r" type="float">0</shadow_r>
-          <shadow_g sid="blender_shadow_g" type="float">0</shadow_g>
-          <shadow_b sid="blender_shadow_b" type="float">0</shadow_b>
-          <energy sid="blender_energy" type="float">1000</energy>
-          <dist sid="blender_dist" type="float">29.99998</dist>
-          <spotsize sid="spotsize" type="float">75</spotsize>
-          <spotblend sid="spotblend" type="float">0.15</spotblend>
-          <att1 sid="att1" type="float">0</att1>
-          <att2 sid="att2" type="float">1</att2>
-          <falloff_type sid="falloff_type" type="int">2</falloff_type>
-          <clipsta sid="clipsta" type="float">0.04999995</clipsta>
-          <clipend sid="clipend" type="float">30.002</clipend>
-          <bias sid="bias" type="float">1</bias>
-          <soft sid="soft" type="float">3</soft>
-          <bufsize sid="bufsize" type="int">2880</bufsize>
-          <samp sid="samp" type="int">3</samp>
-          <buffers sid="buffers" type="int">1</buffers>
-          <area_shape sid="area_shape" type="int">1</area_shape>
-          <area_size sid="area_size" type="float">0.1</area_size>
-          <area_sizey sid="area_sizey" type="float">0.1</area_sizey>
-          <area_sizez sid="area_sizez" type="float">1</area_sizez>
-        </technique>
-      </extra>
-    </light>
-  </library_lights>
   <library_images/>
   <library_geometries>
     <geometry id="cable_connector_palm_E3M5-mesh" name="cable_connector_palm_E3M5">
       <mesh>
         <source id="cable_connector_palm_E3M5-mesh-positions">
-          <float_array id="cable_connector_palm_E3M5-mesh-positions-array" count="84">23.68411 23.95628 4.347712 23.29755 10.86026 27.02741 33.68265 23.95628 4.518117 33.2961 10.86026 27.19781 23.71296 24.87076 2.654866 33.7115 24.87075 2.825271 23.74265 25.68771 0.9128577 33.74119 25.68772 1.083287 23.77308 26.40453 -0.8726677 33.77163 26.40454 -0.7022374 23.80416 27.01891 -2.695956 33.80271 27.01891 -2.525551 23.83577 27.52887 -4.551155 33.83433 27.52886 -4.38075 23.86784 27.93275 -6.432298 33.86639 27.93274 -6.261892 23.90024 28.22926 -8.333321 33.89879 28.22926 -8.162904 23.93288 28.41745 -10.2481 33.93142 28.41745 -10.07768 23.96564 28.49672 -12.17046 33.96419 28.49672 -12.00004 24.11651 28.61028 -21.02219 34.11505 28.61028 -20.85177 24.14343 19.13335 -22.60153 34.14197 19.13335 -22.43111 23.30607 9.994232 26.52747 33.30463 9.994227 26.69787</float_array>
+          <float_array id="cable_connector_palm_E3M5-mesh-positions-array" count="84">23.68411 23.95628 4.347712 23.29755 10.86026 27.02741 33.68265 23.95628 4.518117 33.2961 10.86026 27.19781 23.71296 24.87076 2.654866 33.7115 24.87075 2.825271 23.74265 25.68771 0.9128577 33.74119 25.68772 1.083287 23.77308 26.40453 -0.8726677 33.77163 26.40454 -0.7022374 23.80416 27.01891 -2.695956 33.80271 27.01891 -2.525551 23.83577 27.52887 -4.551155 33.83433 27.52886 -4.38075 23.86784 27.93275 -6.432298 33.86639 27.93274 -6.261892 23.90024 28.22926 -8.333321 33.89879 28.22926 -8.162904 23.93288 28.41745 -10.2481 33.93142 28.41745 -10.07768 23.96564 28.49672 -12.17046 33.96419 28.49672 -12.00004 24.11651 28.61028 -21.02219 34.11505 28.61028 -20.85177 24.14343 19.13335 -22.60153 34.14197 19.13335 -22.43111 23.30607 9.994233 26.52747 33.30463 9.994228 26.69787</float_array>
           <technique_common>
             <accessor source="#cable_connector_palm_E3M5-mesh-positions-array" count="28" stride="3">
               <param name="X" type="float"/>
@@ -151,7 +25,7 @@
           </technique_common>
         </source>
         <source id="cable_connector_palm_E3M5-mesh-normals">
-          <float_array id="cable_connector_palm_E3M5-mesh-normals-array" count="156">-0.008519768 0.8660257 0.4999269 -0.008519649 0.8660256 0.4999272 -0.008097648 0.8798606 0.4751629 -0.008097648 0.8798614 0.4751614 -0.007236242 0.9054063 0.4244846 -0.007234096 0.9054002 0.4244976 -0.006349444 0.9280267 0.3724597 -0.006349384 0.9280266 0.37246 -0.005440115 0.94766 0.3192352 -0.005442023 0.9476642 0.3192225 -0.004515349 0.9642459 0.2649708 -0.004515349 0.964245 0.2649738 -0.00357598 0.9777258 0.2098556 -0.00357604 0.9777252 0.2098588 -0.002626299 0.9880567 0.154069 -0.002625286 0.9880561 0.1540728 -0.001666784 0.9952062 0.09778469 -0.001667022 0.9952062 0.09778469 -7.02181e-4 0.9991512 0.04118961 -7.02186e-4 0.9991515 0.04118329 -2.18587e-4 0.9999178 0.01282501 -2.18778e-4 0.9999178 0.01282364 0.0168097 0.1644071 -0.9862494 0.01680999 0.1644073 -0.9862493 0.003115534 -0.9831391 -0.1828331 0.003116428 -0.983139 -0.1828334 -0.01475769 -0.5000043 0.8658973 -0.01475793 -0.5000061 0.8658962 -0.9998548 -6.35187e-7 -0.01704156 -0.9998548 -5.1809e-6 -0.01704168 -0.9998549 7.92017e-7 -0.0170415 -0.9998548 -7.44021e-6 -0.01704084 -0.9998548 2.98876e-6 -0.01704251 -0.9998549 3.20533e-6 -0.01704126 -0.9998549 -2.2936e-6 -0.01704102 -0.9998548 -5.84892e-6 -0.01704031 -0.9998548 4.957e-6 -0.01704245 -0.9998549 0 -0.01704186 -0.9998549 -3.03587e-6 -0.01704126 -0.9998549 1.21556e-6 -0.01704132 0.9998549 0 0.01704132 0.9998548 0 0.01704198 0.9998549 5.05145e-7 0.01704138 0.9998549 4.27376e-6 0.0170418 0.9998549 3.48687e-6 0.01704138 0.9998548 -2.79008e-6 0.01704108 0.9998549 -3.2415e-6 0.01704138 0.9998549 4.55379e-6 0.01704114 0.9998549 0 0.01704043 0.9998549 0 0.01704156 0.9998548 2.77054e-6 0.01704144 0.9998548 -8.31431e-6 0.01704198</float_array>
+          <float_array id="cable_connector_palm_E3M5-mesh-normals-array" count="156">-0.008520245 0.8660258 0.4999269 -0.008520126 0.8660253 0.4999275 -0.008097231 0.8798591 0.4751659 -0.008098065 0.8798632 0.4751582 -0.007236361 0.9054061 0.424485 -0.007233679 0.9053995 0.4244992 -0.006349623 0.9280278 0.3724569 -0.006349563 0.9280265 0.3724601 -0.005440652 0.9476609 0.3192324 -0.005442202 0.9476634 0.3192251 -0.004515051 0.9642435 0.2649796 -0.004515886 0.9642459 0.264971 -0.003575623 0.9777259 0.2098557 -0.003575623 0.9777266 0.2098526 -0.002625942 0.9880571 0.1540659 -0.002624928 0.9880555 0.154076 -0.001666665 0.9952062 0.09778475 -0.001666605 0.9952065 0.09778165 -7.02046e-4 0.9991511 0.04118967 -7.02028e-4 0.9991511 0.04118973 -2.18582e-4 0.9999178 0.01282507 -2.18584e-4 0.9999178 0.01282364 0.0168097 0.1644071 -0.9862494 0.01680999 0.1644072 -0.9862494 0.003115415 -0.983139 -0.1828333 0.00311625 -0.983139 -0.1828333 -0.01475697 -0.5000076 0.8658953 -0.01475709 -0.5000058 0.8658964 -0.9998549 -6.35187e-7 -0.01704156 -0.9998549 -5.18093e-6 -0.01704138 -0.9998548 7.92017e-7 -0.0170415 -0.9998548 -3.72009e-6 -0.01704114 -0.9998548 -9.96255e-7 -0.01704126 -0.9998549 2.93822e-6 -0.0170409 -0.9998548 0 -0.01704269 -0.9998549 -6.46456e-6 -0.01703846 -0.9998548 2.9742e-6 -0.01704454 -0.9998549 2.83551e-6 -0.01704108 -0.9998548 2.65638e-6 -0.01704293 -0.9998549 -1.62074e-6 -0.01703941 0.9998549 0 0.01704049 0.9998548 4.66053e-6 0.01704561 0.9998549 1.01029e-6 0.01704126 0.9998549 -8.54753e-6 0.01704347 0.9998548 7.22277e-6 0.01704138 0.9998548 -4.65016e-6 0.01704108 0.9998549 -3.24149e-6 0.01704329 0.9998549 3.03587e-6 0.01703929 0.9998548 4.25325e-6 0.01704031 0.9998548 0 0.0170415 0.9998549 -6.46462e-6 0.01704126 0.9998548 2.867e-7 0.01704186</float_array>
           <technique_common>
             <accessor source="#cable_connector_palm_E3M5-mesh-normals-array" count="52" stride="3">
               <param name="X" type="float"/>
@@ -176,22 +50,6 @@
       <node id="cable_connector_palm_E3M5" name="cable_connector_palm_E3M5" type="NODE">
         <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
         <instance_geometry url="#cable_connector_palm_E3M5-mesh" name="cable_connector_palm_E3M5"/>
-      </node>
-      <node id="Light_001" name="Light.001" type="NODE">
-        <matrix sid="transform">-0.2908646 -0.7711008 0.5663932 4.076245 0.9551712 -0.1998834 0.2183912 1.005454 -0.055189 0.6045247 0.7946723 5.903862 0 0 0 1</matrix>
-        <instance_light url="#Light_001-light"/>
-      </node>
-      <node id="Camera_001" name="Camera.001" type="NODE">
-        <matrix sid="transform">0.6859207 -0.3240135 0.6515582 7.358891 0.7276763 0.3054209 -0.6141704 -6.925791 -4.01133e-9 0.8953956 0.4452714 4.958309 0 0 0 1</matrix>
-        <instance_camera url="#Camera_001-camera"/>
-      </node>
-      <node id="Camera" name="Camera" type="NODE">
-        <matrix sid="transform">0.6859207 -0.3240135 0.6515582 7.358891 0.7276763 0.3054208 -0.6141704 -6.925791 0 0.8953956 0.4452714 4.958309 0 0 0 1</matrix>
-        <instance_camera url="#Camera-camera"/>
-      </node>
-      <node id="Light" name="Light" type="NODE">
-        <matrix sid="transform">-0.2908646 -0.7711008 0.5663932 4.076245 0.9551712 -0.1998834 0.2183912 1.005454 -0.05518906 0.6045247 0.7946723 5.903862 0 0 0 1</matrix>
-        <instance_light url="#Light-light"/>
       </node>
     </visual_scene>
   </library_visual_scenes>
