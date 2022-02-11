@@ -26,7 +26,7 @@
       <collision>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry name="${prefix}forearm_collision">
-          <mesh filename="package://sr_description/meshes/components/forearm/forearm_collision_${hand_version}.stl" scale="0.001 0.001 0.001" />
+          <mesh filename="package://sr_description/meshes/components/forearm/forearm_collision_${hand_version}.dae" scale="0.001 0.001 0.001" />
         </geometry>
       </collision>
       <!-- wrist mount -->
@@ -40,13 +40,13 @@
       <!--visual>
         <origin rpy="0 -1.57 -1.57" xyz="0.0 0.067 0.0045"/>
         <geometry name="${prefix}cable_extr_visualisation">
-          <mesh filename="package://sr_description/meshes/components/cable_connector/cable_connector_base_${hand_version}.stl" scale="0.001 0.001 0.001" />
+          <mesh filename="package://sr_description/meshes/components/cable_connector/cable_connector_base_${hand_version}.dae" scale="0.001 0.001 0.001" />
         </geometry>
       </visual>
       <collision>
         <origin rpy="0 -1.57 -1.57" xyz="0.0 0.067 0.0045"/>
         <geometry name="${prefix}cable_extr_collision">
-          <mesh filename="package://sr_description/meshes/components/cable_connector/cable_connector_base_${hand_version}.stl" scale="0.001 0.001 0.001" />
+          <mesh filename="package://sr_description/meshes/components/cable_connector/cable_connector_base_${hand_version}.dae" scale="0.001 0.001 0.001" />
         </geometry>
       </collision-->
     </link>
