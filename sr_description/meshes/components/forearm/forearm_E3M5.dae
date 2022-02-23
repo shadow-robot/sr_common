@@ -91,9 +91,6 @@
   </library_effects>
   <library_images/>
   <library_materials>
-    <material id="Material_006_002-material" name="Material_006_002">
-      <instance_effect url="#Material_006_002-effect"/>
-    </material>
     <material id="Material_001-material" name="Material_001">
       <instance_effect url="#Material_001-effect"/>
     </material>
