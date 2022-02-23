@@ -43,51 +43,11 @@
 				</technique>
 			</profile_COMMON>
 		</effect>
-    <effect id="Material_001-effect">
-      <profile_COMMON>
-        <technique sid="common">
-          <lambert>
-            <emission>
-              <color sid="emission">0 0 0 1</color>
-            </emission>
-            <diffuse>
-              <color sid="diffuse">0.80848 0.80848 0.80848 1</color>
-            </diffuse>
-            <index_of_refraction>
-              <float sid="ior">1</float>
-            </index_of_refraction>
-          </lambert>
-        </technique>
-      </profile_COMMON>
-    </effect>
-    <effect id="Material_006-effect">
-      <profile_COMMON>
-        <technique sid="common">
-          <lambert>
-            <emission>
-              <color sid="emission">0 0 0 1</color>
-            </emission>
-            <diffuse>
-              <color sid="diffuse">0.21961 0.21961 0.21961 1</color>
-            </diffuse>
-            <index_of_refraction>
-              <float sid="ior">1</float>
-            </index_of_refraction>
-          </lambert>
-        </technique>
-      </profile_COMMON>
-    </effect>
 	</library_effects>
 	<library_materials>
 		<material id="osg2mat0" name="osg2mat0">
 			<instance_effect url="#osg2mat0-fx"/>
 		</material>
-    <material id="Material_001-material" name="Material_001">
-      <instance_effect url="#Material_001-effect"/>
-    </material>
-    <material id="Material_006-material" name="Material_006">
-      <instance_effect url="#Material_006-effect"/>
-    </material>
 	</library_materials>
 	<library_geometries>
 		<geometry id="wrist_001" name="wrist_001">
@@ -134,8 +94,9 @@
 				<instance_geometry url="#wrist_001">
 					<bind_material>
 						<technique_common>
-							<instance_material symbol="Material_001-material" target="#Material_001-material"/>
-              				<instance_material symbol="Material_006-material" target="#Material_006-material"/>
+							<instance_material symbol="osg2mat0" target="#osg2mat0">
+								<bind_vertex_input input_semantic="TEXCOORD" input_set="1" semantic="CHANNEL1"/>
+							</instance_material>
 						</technique_common>
 					</bind_material>
 				</instance_geometry>
