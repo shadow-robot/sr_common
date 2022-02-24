@@ -3,24 +3,28 @@
 
 source ./test_models.sh
 
-# Testing default hand - hand_type:="hand_e" hand_version:="E3M5" side:="right" fingers:="all" tip_sensors:="pst"
-launch sr_hand
+launch shadowhand_motor
+launch shadowhand_left_motor
+launch shadowhand_lite
+launch shadowhand_extra_lite
 
-# Testing left side
-launch sr_hand side:="left"
+launch shadowhand_motor_ellipsoid
 
-# Testing 'bt_sp' tip sensors
-launch sr_hand tip_sensors:="bt_sp"
+launch shadowhand_motor_biotac
+launch shadowhand_left_motor_biotac
 
-# Testing 'bt_2p' tip sensors
-launch sr_hand tip_sensors:="bt_2p"
+launch shadowhand_motor_ff_biotac
+launch shadowhand_motor_th_ff_rf_ellipsoid
 
-# Testing custom finger set
-launch sr_hand fingers:="th,ff,mf,rf"
-launch sr_hand fingers:="th,ff,mf"
+launch shadowhand_motor_btsp
 
-# Testing hand lite
-launch sr_hand hand_type:="hand_g" hand_version:="G1M5"
+launch sr_three_finger_motor
+launch sr_one_finger_motor
 
-# Testing muscle hand
-launch sr_hand hand_type:="hand_c" hand_version:="C6M2"
+launch shadowhand_muscle
+launch shadowhand_edc_muscle
+launch shadowhand_left_muscle
+launch shadowhand_left_edc_muscle
+launch shadowhand_muscle_biotac
+launch shadowhand_edc_muscle_biotac
+launch sr_three_finger_edc_muscle_biotac

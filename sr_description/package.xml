@@ -1,7 +1,7 @@
 <package>
   <name>sr_description</name>
   <version>1.4.0</version>
-  <description>sr_description contains the description for Shadow Robot's Hands.</description>
+  <description>sr_description contains the description for Shadow Robot's Hand and Arm, as well as some additional models used in our robot (kinect, etc...).</description>
   <maintainer email="software@shadowrobot.com">Shadow Robot's software team</maintainer>
 
   <license>GPL</license>
@@ -10,8 +10,12 @@
   <url type="repository">https://github.com/shadow-robot/sr_common</url>
   <url type="bugtracker">https://github.com/shadow-robot/sr_common/issues</url>
 
+  <author>Ugo Cupcic</author>
+
   <!-- Dependencies which this package needs to build itself. -->
   <buildtool_depend>catkin</buildtool_depend>
+
+  <!-- Dependencies needed to compile this package. -->
 
   <!-- Dependencies needed after this package is compiled. -->
   <run_depend>xacro</run_depend>
