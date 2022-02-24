@@ -36,7 +36,7 @@
           <box size="0.07 0.07 0.07" />
         </geometry>
       </collision>
-      <!-- cable connector -->
+      <!-- TODO: Make a decision on whether to add the connector or not -->
       <!--visual>
         <origin rpy="0 -1.57 -1.57" xyz="0.0 0.067 0.0045"/>
         <geometry name="${prefix}cable_extr_visualisation">
