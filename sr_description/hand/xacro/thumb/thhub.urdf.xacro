@@ -1,20 +1,25 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"
-       xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
-       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-       xmlns:joint="http://playerstage.sourceforge.net/gazebo/xmlschema/#slider"
-       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
-       xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
+xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+xmlns:joint="http://playerstage.sourceforge.net/gazebo/xmlschema/#slider"
+xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
+xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thhub.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thhub.transmission.xacro" />
-
-  <xacro:macro name="thhub" params="prefix:=^ parent:=^ is_lite">
+  <!-- muscle is true for muscle hand or false for motor hand -->
+  <!-- reflect is either 1 (for right hand) or -1 (for left hand) -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- parent is the parent link for the first joint -->
+  <!-- is_lite is this the lite hand, if so lock J3 -->
+  <xacro:macro name="thhub" params="muscle prefix parent is_lite">
     <link name="${prefix}thhub">
       <inertial>
         <mass value="0.005" />
         <origin xyz="0 0 0" rpy="0 0 0" />
-        <inertia ixx="0.000001" ixy="0.0" ixz="0.0" iyy="0.000001" iyz="0.0" izz="0.0000003" />
+        <inertia ixx="0.000001" ixy="0.0" ixz="0.0" iyy="0.000001"
+        iyz="0.0" izz="0.0000003" />
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
@@ -46,7 +51,8 @@
         <child link="${prefix}thhub" />
         <origin xyz="0 0 0.038" rpy="0 0 0" />
         <axis xyz="1 0 0" />
-        <limit lower="${-12/180*pi}" upper="${12/180*pi}" effort="2.0" velocity="4.0" />
+        <limit lower="${-12/180*pi}" upper="${12/180*pi}"
+        effort="2.0" velocity="4.0" />
         <dynamics damping="0.2" />
       </joint>
       <gazebo reference="${prefix}THJ3">
@@ -56,8 +62,9 @@
     </xacro:unless>
     <!-- extensions -->
     <xacro:unless value="${is_lite}">
-      <xacro:thhub_transmission />
+      <xacro:thhub_transmission muscletrans="${muscle}"
+      prefix="${prefix}" />
     </xacro:unless>
-    <xacro:thhub_gazebo />
+    <xacro:thhub_gazebo prefix="${prefix}" />
   </xacro:macro>
 </robot>

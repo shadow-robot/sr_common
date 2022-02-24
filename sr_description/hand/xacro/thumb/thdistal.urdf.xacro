@@ -1,16 +1,24 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro"
-       xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
-       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-       xmlns:joint="http://playerstage.sourceforge.net/gazebo/xmlschema/#slider"
-       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
-       xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
-       xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
+xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+xmlns:joint="http://playerstage.sourceforge.net/gazebo/xmlschema/#slider"
+xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+xmlns:body="http://playerstage.sourceforge.net/gazebo/xmlschema/#body"
+xmlns:geom="http://playerstage.sourceforge.net/gazebo/xmlschema/#geom">
 
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thdistal.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thdistal.transmission.xacro" />
-
-  <xacro:macro name="thdistal" params="tip_sensor:=^|pst prefix:=^ parent">
-    <xacro:if value="${tip_sensor == 'bt_2p'}">
+  <!-- muscle is true for muscle hand or false for motor hand -->
+  <!-- bio is true for biotac finger or false for standard finger -->
+  <!-- bt_sp is true for BT_SP finger or false for standard finger -->
+  <!-- ubi is true for ubi finger or false for standard finger -->
+  <!-- eli is true for ellipsoid fingertip or false for standard finger -->
+  <!-- prefix can be anything but usually is "r_" or  "l_" for right and left hands distinction -->
+  <!-- parent is the parent link for the first joint -->
+  <xacro:macro name="thdistal"
+  params="muscle bio bt_sp ubi eli prefix parent">
+    <xacro:if value="${bio}">
+      <!--    BIOTAC -->
       <link name="${prefix}thdistal_J1_dummy">
         <inertial>
           <origin xyz="0 0 0" rpy="0 0 0" />
@@ -24,7 +32,8 @@
         <child link="${prefix}thdistal_J1_dummy" />
         <origin xyz="0 0 0.02" rpy="0 0 ${-pi/2}" />
         <axis xyz="1 0 0" />
-        <limit lower="${20*pi/180}" upper="${20.1*pi/180}" effort="0.0" velocity="2.0" />
+        <limit lower="${20*pi/180}" upper="${20.1*pi/180}"
+        effort="0.0" velocity="2.0" />
         <dynamics damping="0.5" />
       </joint>
       <gazebo reference="${prefix}THJ1">
@@ -36,19 +45,23 @@
           <origin xyz="-0.009 0.0 0.035" rpy="0 0 ${-pi/2}" />
           <!-- approximated only FIXME -->
           <mass value="0.008" />
-          <inertia ixx="0.0000011" ixy="0.0" ixz="0.0" iyy="0.0000011" iyz="0.0" izz="0.0000005" />
+          <inertia ixx="0.0000011" ixy="0.0" ixz="0.0"
+          iyy="0.0000011" iyz="0.0" izz="0.0000005" />
         </inertial>
         <visual>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry name="${prefix}th_distal_visual">
-            <mesh filename="package://sr_description/meshes/components/th_distal/bt_2p/th_distal_bt_2p.dae"
+            <!-- <mesh filename="package://sr_description/meshes/hand/biotacs/biotac.stl" scale="0.0254 0.0254 0.0254" /> -->
+            <mesh filename="package://sr_description/meshes/hand/biotacs/biotac_decimated.dae"
             scale="0.0254 0.0254 0.0254" />
           </geometry>
           <material name="BiotacGreen" />
         </visual>
         <collision>
           <geometry name="${prefix}th_distal_collision_geom">
-            <mesh filename="package://sr_description/meshes/components/th_distal/bt_2p/th_distal_bt_2p.dae"
+            <!-- <box size="0.001 0.001 0.001" /> -->
+            <!-- <mesh filename="package://sr_description/meshes/hand/biotacs/biotac-v5.stl" scale="0.0254 0.0254 0.0254" /> -->
+            <mesh filename="package://sr_description/meshes/hand/biotacs/biotac_decimated.dae"
             scale="0.0254 0.0254 0.0254" />
           </geometry>
         </collision>
@@ -61,11 +74,13 @@
             <collision>${prefix}thdistal_geom</collision>
             <topic>${prefix}thdistal_collision</topic>
           </contact>
-          <plugin name="${prefix}thdistal_gazebo_ros_bumper_controller" filename="libgazebo_ros_bumper.so">
+          <plugin name="${prefix}thdistal_gazebo_ros_bumper_controller"
+          filename="libgazebo_ros_bumper.so">
             <alwaysOn>true</alwaysOn>
             <frameName>${prefix}thdistal</frameName>
             <updateRate>100.0</updateRate>
-            <bumperTopicName>contacts/${prefix}th/distal</bumperTopicName>
+            <bumperTopicName>
+            contacts/${prefix}th/distal</bumperTopicName>
           </plugin>
         </sensor>
         <selfCollide>true</selfCollide>
@@ -77,12 +92,19 @@
         <origin xyz="0 0.0 0.01" rpy="0 0 ${-pi/2}" />
       </joint>
       <!-- extra link to imaginary sphere in fingertip for FK/IK calculations -->
+      <!-- remove visual and collision once the correct position is found -->
       <link name="${prefix}thtip">
         <inertial>
           <mass value="0.001" />
           <origin xyz="0 0 0" rpy="0 0 0" />
-          <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0" />
+          <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0"
+          izz="0" />
         </inertial>
+        <!--visual>
+          <geometry>
+            <sphere radius="0.002" />
+          </geometry>
+        </visual-->
       </link>
       <gazebo reference="${prefix}thtip">
         <material name="LightGrey" />
@@ -90,33 +112,46 @@
       <joint name="${prefix}thtip" type="fixed">
         <parent link="${prefix}thdistal_J1_dummy" />
         <child link="${prefix}thtip" />
-        <origin xyz="0.0 0.004 ${0.032}" rpy="0 0 0" />
+        <origin xyz="0.0 0.004 ${0.032}"
+        rpy="0 0 0" />
         <!-- approximated only FIXME -->
       </joint>
     </xacro:if>
-    <xacro:unless value="${tip_sensor == 'bt_2p'}">
+    <xacro:unless value="${bio}">
       <!-- common -->
       <link name="${prefix}thdistal">
         <inertial>
           <mass value="0.016" />
           <origin xyz="0 0 0.01375" rpy="0 0 0" />
-          <inertia ixx="0.0000021" ixy="0.0" ixz="0.0" iyy="0.0000022" iyz="0.0" izz="0.000001" />
+          <inertia ixx="0.0000021" ixy="0.0" ixz="0.0"
+          iyy="0.0000022" iyz="0.0" izz="0.000001" />
         </inertial>
         <visual>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry name="${prefix}thdistal_visual">
-            <xacro:if value="${tip_sensor == 'pst'}">
-              <mesh filename="package://sr_description/meshes/components/th_distal/pst/th_distal_pst.dae"
-                    scale="0.001 0.001 0.001" />
+            <xacro:if value="${eli}">
+              <!-- Ellispoid distal  -->
+              <mesh filename="package://sr_description/meshes/hand/ellipsoids/thdistal_ellipsoid_visual.dae"
+              scale="0.001 0.001 0.001" />
             </xacro:if>
-            <xacro:if value="${tip_sensor == 'bt_sp'}">
-              <mesh filename="package://sr_description/meshes/components/th_distal/bt_sp/th_distal_bt_sp.dae"
-                    scale="0.001 0.001 0.001" />
-            </xacro:if>
-            <xacro:if value="${tip_sensor == 'bt_2p'}">
-              <mesh filename="package://sr_description/meshes/components/th_distal/bt_2p/th_distal_bt_2p.dae"
-                    scale="0.001 0.001 0.001" />
-            </xacro:if>
+            <xacro:unless value="${eli}">
+              <xacro:if value="${ubi}">
+                <!-- Ubi distal -->
+                <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
+                      scale="0.001 0.001 0.001" />
+              </xacro:if>
+	      <xacro:unless value="${ubi}">
+		<xacro:if value="${bt_sp}">
+		  <!-- bt sp distal  -->
+		  <mesh filename="package://sr_description/meshes/hand/biotacs/sp.dae" />
+		</xacro:if>
+		<xacro:unless value="${bt_sp}">
+		  <!-- Standard distal  -->
+                  <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
+			scale="0.001 0.001 0.001" />
+		</xacro:unless>
+	      </xacro:unless>
+            </xacro:unless>
           </geometry>
           <material name="shadow_thmiddle_material">
             <color rgba="0.2 0.2 0.2 1.0" />
@@ -125,18 +160,30 @@
         <collision>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry name="${prefix}thmiddle_collision_geom">
-            <xacro:if value="${tip_sensor == 'pst'}">
-              <mesh filename="package://sr_description/meshes/components/th_distal/pst/th_distal_pst.dae"
-                    scale="0.001 0.001 0.001" />
+            <xacro:if value="${eli}">
+              <!-- Ellispoid distal  -->
+              <mesh filename="package://sr_description/meshes/hand/ellipsoids/thdistal_ellipsoid.dae"
+              scale="0.001 0.001 0.001" />
             </xacro:if>
-            <xacro:if value="${tip_sensor == 'bt_sp'}">
-              <mesh filename="package://sr_description/meshes/components/th_distal/bt_sp/th_distal_bt_sp.dae"
-                    scale="0.001 0.001 0.001" />
-            </xacro:if>
-            <xacro:if value="${tip_sensor == 'bt_2p'}">
-              <mesh filename="package://sr_description/meshes/components/th_distal/bt_2p/th_distal_bt_2p.dae"
-                    scale="0.001 0.001 0.001" />
-            </xacro:if>
+            <xacro:unless value="${eli}">
+              <xacro:if value="${ubi}">
+                <!-- Ubi distal -->
+                <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
+                scale="0.001 0.001 0.001" />
+              </xacro:if>
+              <xacro:unless value="${ubi}">
+		<xacro:if value="${bt_sp}">
+		  <!-- bt sp distal  -->
+                  <mesh filename="package://sr_description/meshes/hand/biotacs/sp.dae" />
+		</xacro:if>
+		<xacro:unless value="${bt_sp}">
+                  <!-- Standard distal  -->
+                  <mesh filename="package://sr_description/meshes/hand/TH1_z.dae"
+			scale="0.001 0.001 0.001" />
+		</xacro:unless>
+              </xacro:unless>
+            </xacro:unless>
+            <!--      <box size="0.015 0.015 0.015" /> -->
           </geometry>
         </collision>
       </link>
@@ -145,7 +192,8 @@
         <child link="${prefix}thdistal" />
         <origin xyz="0 0 0.032" rpy="0 0 ${-pi/2}" />
         <axis xyz="1 0 0" />
-        <limit lower="-${15.0*pi/180}" upper="${90.0*pi/180}" effort="1.0" velocity="4.0" />
+        <limit lower="-${15.0*pi/180}" upper="${90.0*pi/180}" effort="1.0"
+        velocity="4.0" />
         <dynamics damping="0.2" />
       </joint>
       <gazebo reference="${prefix}THJ1">
@@ -155,7 +203,8 @@
       <link name="${prefix}thtip">
         <inertial>
           <mass value="0.001" />
-          <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0" iyz="0.0" izz="0.0" />
+          <inertia ixx="0.0" ixy="0.0" ixz="0.0" iyy="0.0"
+          iyz="0.0" izz="0.0" />
         </inertial>
       </link>
       <joint name="${prefix}thtip" type="fixed">
@@ -163,9 +212,10 @@
         <child link="${prefix}thtip" />
         <origin xyz="0 0 0.0275" rpy="0 0 0" />
       </joint>
-      <xacro:thdistal_gazebo />
+      <xacro:thdistal_gazebo prefix="${prefix}" />
     </xacro:unless>
     <!-- extensions -->
-    <xacro:thdistal_transmission />
+    <xacro:thdistal_transmission muscletrans="${muscle}"
+    prefix="${prefix}" />
   </xacro:macro>
 </robot>
