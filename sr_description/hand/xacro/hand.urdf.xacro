@@ -1,0 +1,34 @@
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro"
+       xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
+       xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
+       xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
+
+  <xacro:macro name="sr_hand" params="hand_type hand_version side fingers tip_sensors prox_sensors mid_sensors palm_sensor">
+
+    <!-- Process hand type, version and side parameters -->
+    <xacro:include filename="$(find sr_description)/hand/xacro/process_hand_type_version_side_parameters.xacro" />
+
+    <xacro:if value="${side == 'right'}">
+      <xacro:property name="reflect" value="1" />
+      <xacro:property name="prefix" value="rh_" />
+    </xacro:if>
+    <xacro:if value="${side == 'left'}">
+      <xacro:property name="reflect" value="-1" />
+      <xacro:property name="prefix" value="lh_" />
+    </xacro:if>
+
+    <!-- Selecting hand according with hand_type -->
+    <xacro:if value="${hand_type == 'E'}">
+       <xacro:include filename="$(find sr_description)/hand/xacro/hand_e.urdf.xacro" />
+       <xacro:sr_hand_e />
+    </xacro:if>
+    <xacro:if value="${hand_type == 'G'}">
+       <xacro:include filename="$(find sr_description)/hand/xacro/hand_g.urdf.xacro" />
+       <xacro:sr_hand_g />
+    </xacro:if>
+    <xacro:if value="${hand_type == 'C'}">
+       <xacro:include filename="$(find sr_description)/hand/xacro/hand_c.urdf.xacro" />
+       <xacro:sr_hand_c />
+    </xacro:if>
+  </xacro:macro>
+</robot>
