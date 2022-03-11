@@ -9,7 +9,7 @@
       <color rgba="0.90000 0.90000 0.90000 1.0" />
     </material>
   </xacro:macro>
-  <xacro:macro name="forearm" params="hand_type:=^ hand_version:=^ prefix:=^">
+  <xacro:macro name="forearm" params="hand_type:=^ hand_version:=^ prefix:=^ arm:=^">
     <link name="${prefix}forearm">
       <inertial>
         <origin xyz="0 0 0.09" rpy="0 0 0" />
@@ -36,6 +36,15 @@
           <box size="0.07 0.07 0.07" />
         </geometry>
       </collision>
+      <!-- mounting plate in case there is an arm -->
+      <xacro:if value="${arm}">
+        <visual>
+          <origin xyz="-0.07 -0.07 -0.012" rpy="0 0 0" />
+          <geometry name="${prefix}mounting_plate">
+            <mesh filename="package://sr_description/meshes/components/mounting_plate/ur_hand_e_mounting_plate.dae" scale="0.001 0.001 0.001" />
+          </geometry>
+        </visual>
+      </xacro:if>
       <!-- TODO: Make a decision on whether to add the connector or not -->
       <!--visual>
         <origin rpy="0 -1.57 -1.57" xyz="0.0 0.067 0.0045"/>
