@@ -15,7 +15,7 @@
   <!-- prox_sensors: plain or dict-like string specifying the proximal (tactile) sensors -->
   <!-- palm_sensor: specifies the palm tactile sensor -->
   <xacro:macro name="sr_hand_g" params="hand_version:=^ reflect:=^ prefix:=^ fingers:=^|all tip_sensors:=^|pst
-               prox_sensors:=^|none mid_sensors:=^|none palm_sensor:=^|none">
+               prox_sensors:=^|none mid_sensors:=^|none palm_sensor:=^|none mounting_plate:=^|false">
 
     <!-- Process fingers parameter -->
     <xacro:property name="_all_finger_tokens_" value="${python.set('th ff mf rf'.split())}" />

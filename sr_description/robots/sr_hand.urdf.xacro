@@ -16,7 +16,7 @@
   <xacro:arg name="mid_sensors" default="none"/>
   <xacro:arg name="prox_sensors" default="none"/>
   <xacro:arg name="palm_sensor" default="none"/>
-  <xacro:arg name="arm" default="false"/>
+  <xacro:arg name="mounting_plate" default="false"/>
 
   <link name="world" />
   <xacro:if value="${'$(arg side)' == 'right'}">
@@ -35,6 +35,6 @@
   </xacro:if>
   <xacro:sr_hand hand_type="$(arg hand_type)" hand_version="$(arg hand_version)" side="$(arg side)"
                  fingers="$(arg fingers)" tip_sensors="$(arg tip_sensors)" mid_sensors="$(arg mid_sensors)"
-                 prox_sensors="$(arg prox_sensors)" palm_sensor="$(arg palm_sensor)" arm="$(arg arm)"/>
+                 prox_sensors="$(arg prox_sensors)" palm_sensor="$(arg palm_sensor)" mounting_plate="$(arg mounting_plate)"/>
 
 </robot>
