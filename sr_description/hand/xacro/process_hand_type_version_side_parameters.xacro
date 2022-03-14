@@ -3,7 +3,7 @@
 	<xacro:property name="allowed_hand_types" value="${python.set('hand_e hand_g hand_c'.split())}" />
 	<xacro:property name="allowed_hand_versions" value="${python.set('E3M5 E2M3 C6M2 G1M5'.split())}"/>
     <xacro:property name="allowed_sides" value="${python.set('right left'.split())}"/>
-    <xacro:property name="allowed_mounting_plate" value="${python.set('false true'.split())}"/>
+    <!--xacro:property name="allowed_mounting_plate" value="${python.set('false true'.split())}"/-->
 
 	<!-- Validate hand type -->
 	<xacro:validate_tokens tokens="${python.set([hand_type])}" valid="${allowed_hand_types}" name="hand type specifier" />
@@ -20,7 +20,7 @@
 	<xacro:validate_tokens tokens="${python.set([side])}" valid="${allowed_sides}" name="hand side specifier" />
 
     <!-- Validate mounting plate options -->
-    <xacro:validate_tokens tokens="${python.set([mounting_plate])}" valid="${allowed_mounting_plate}" name="hand mounting_plate specifier" />
+    <!--xacro:validate_tokens tokens="${python.set([mounting_plate])}" valid="${allowed_mounting_plate}" name="hand mounting_plate specifier" /-->
 
 	<!-- Normalize hand_type to be lower case -->
 	<xacro:property name="hand_type" value="${hand_type.lower()}" lazy_eval="false" />
