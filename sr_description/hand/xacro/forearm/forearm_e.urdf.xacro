@@ -9,6 +9,12 @@
       <color rgba="0.90000 0.90000 0.90000 1.0" />
     </material>
   </xacro:macro>
+  <xacro:if value="${mounting_plate}">
+    <xacro:property name="mounting_plate_offset" value="-0.0055" />
+  </xacro:if">
+  <xacro:unless value="${mounting_plate}">
+    <xacro:property name="mounting_plate_offset" value="0.0" />
+  </xacro:if">
   <xacro:macro name="forearm" params="hand_type:=^ hand_version:=^ prefix:=^ mounting_plate:=^">
     <link name="${prefix}forearm">
       <inertial>
@@ -17,21 +23,21 @@
         <inertia ixx="0.0138" ixy="0.0" ixz="0.0" iyy="0.0138" iyz="0.0" izz="0.00744" />
       </inertial>
       <visual>
-        <origin xyz="0 0 0.0055" rpy="0 0 0" />
+        <origin xyz="0 0 ${mounting_plate_offset}" rpy="0 0 0" />
         <geometry name="${prefix}forearm_visual">
           <mesh filename="package://sr_description/meshes/components/forearm/forearm_${hand_version}.dae" scale="0.001 0.001 0.001" />
         </geometry>
         <xacro:light_grey/>
       </visual>
       <collision>
-        <origin xyz="0 0 0.0055" rpy="0 0 0" />
+        <origin xyz="0 0 ${mounting_plate_offset}" rpy="0 0 0" />
         <geometry name="${prefix}forearm_collision">
           <mesh filename="package://sr_description/meshes/components/forearm/forearm_collision_${hand_version}.dae" scale="0.001 0.001 0.001" />
         </geometry>
       </collision>
       <!-- wrist mount -->
       <collision>
-        <origin xyz="0 -0.01 0.181" rpy="0 0.78 0" />
+        <origin xyz="0 -0.01 ${0.181+mounting_plate_offset}" rpy="0 0.78 0" />
         <geometry>
           <box size="0.07 0.07 0.07" />
         </geometry>
@@ -45,7 +51,7 @@
           </geometry>
         </visual>
         <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
+          <origin xyz="0 0 ${-1.0*mounting_plate_offset}" rpy="0 0 0" />
           <geometry>
             <cylinder radius="0.0675" length="0.012" />
           </geometry>
