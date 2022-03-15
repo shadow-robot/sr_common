@@ -10,7 +10,7 @@
     </material>
   </xacro:macro>
   <xacro:if value="${mounting_plate}">
-    <xacro:property name="mounting_plate_offset" value="-0.0055" />
+    <xacro:property name="mounting_plate_offset" value="0.0055" />
   </xacro:if>
   <xacro:unless value="${mounting_plate}">
     <xacro:property name="mounting_plate_offset" value="0.0" />
