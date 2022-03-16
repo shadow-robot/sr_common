@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 2.82.7</authoring_tool>
     </contributor>
-    <created>2022-03-16T10:56:32</created>
-    <modified>2022-03-16T10:56:32</modified>
+    <created>2022-03-16T10:59:58</created>
+    <modified>2022-03-16T10:59:58</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -48,7 +48,7 @@
   <library_visual_scenes>
     <visual_scene id="Scene" name="Scene">
       <node id="Ur_Hand_G_Mounting_Plate" name="Ur Hand G Mounting Plate" type="NODE">
-        <matrix sid="transform">-4.37114e-8 1 0 0 -1 -4.37114e-8 0 0 0 0 1 0 0 0 0 1</matrix>
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
         <instance_geometry url="#Ur_Hand_G_Mounting_Plate-mesh" name="Ur Hand G Mounting Plate"/>
       </node>
     </visual_scene>
