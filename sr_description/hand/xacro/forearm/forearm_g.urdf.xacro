@@ -35,7 +35,7 @@
           </geometry>
         </visual>
         <collision>
-          <origin xyz="0 0 ${mounting_plate_offset/2}" rpy="0 0 0" />
+          <origin xyz="0 0 0.003" rpy="0 0 0" />
           <geometry>
             <box size="0.120 0.109 0.006" />
           </geometry>
