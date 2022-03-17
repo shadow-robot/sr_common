@@ -35,19 +35,12 @@
           </geometry>
         </visual>
         <collision>
-          <origin xyz="0 0 0" rpy="0 0 0" />
+          <origin xyz="0 0 ${mounting_plate_offset}" rpy="0 0 0" />
           <geometry>
             <box size="0.120 0.109 0.006" />
           </geometry>
         </collision>
       </xacro:if>
-      <!-- TODO: Make a decision on whether to add the connector or not -->
-      <!--visual>
-        <origin rpy="0 -1.57 -1.57" xyz="0.0 0.055 0.0"/>
-        <geometry name="${prefix}cable_extr_visualisation">
-          <mesh filename="package://sr_description/meshes/components/cable_connector/cable_connector_base_${hand_version}.dae" scale="0.001 0.001 0.001" />
-        </geometry>
-      </visual-->
     </link>
     <gazebo reference="${prefix}forearm">
       <selfCollide>false</selfCollide>
