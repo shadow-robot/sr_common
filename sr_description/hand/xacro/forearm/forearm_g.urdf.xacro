@@ -37,7 +37,7 @@
         <collision>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry>
-            <cylinder radius="0.0675" length="0.006" />
+            <box size="0.120 0.109 0.006" />
           </geometry>
         </collision>
       </xacro:if>
