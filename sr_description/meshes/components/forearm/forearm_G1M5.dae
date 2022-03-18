@@ -18,9 +18,18 @@
             <emission>
               <color sid="emission">0 0 0 1</color>
             </emission>
+            <ambient>
+              <color sid="ambient">0.04392 0.04392 0.04392 1</color>
+            </ambient>
             <diffuse>
               <color sid="diffuse">0.21961 0.21961 0.21961 1</color>
             </diffuse>
+            <specular>
+              <color sid="specular">0.45000 0.45000 0.45000 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">32</float>
+            </shininess>
             <index_of_refraction>
               <float sid="ior">1</float>
             </index_of_refraction>
