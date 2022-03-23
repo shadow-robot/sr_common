@@ -1,39 +1,49 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
-  <xacro:macro name="forearm" params="hand_type:=^ prefix:=^">
+  <xacro:if value="${mounting_plate}">
+    <xacro:property name="mounting_plate_offset" value="0.005" />
+  </xacro:if>
+  <xacro:unless value="${mounting_plate}">
+    <xacro:property name="mounting_plate_offset" value="0.0" />
+  </xacro:unless>
+  <xacro:macro name="forearm" params="hand_type:=^ hand_version:=^ prefix:=^ mounting_plate:=^">
     <link name="${prefix}forearm">
       <inertial>
         <origin xyz="0 0 0.09" rpy="0 0 0" />
         <!-- TODO: This is a rough estimate. Total hand is 2359g -->
         <mass value="1.8" />
-        <inertia ixx="0.108" ixy="0.0" ixz="0.0" iyy="0.108"
-        iyz="0.0" izz="0.054" />
+        <inertia ixx="0.108" ixy="0.0" ixz="0.0" iyy="0.108" iyz="0.0" izz="0.054" />
       </inertial>
       <visual>
-        <origin xyz="0 0 0" rpy="0 0 ${pi/2}" />
+        <origin xyz="0 0 ${mounting_plate_offset}" rpy="0 0 ${pi/2}" />
         <geometry name="${prefix}forearm_visual">
           <mesh filename="package://sr_description/meshes/components/forearm/forearm_${hand_version}.dae" scale="1.0 1.0 1.0" />
         </geometry>
         <material name="Grey" />
       </visual>
       <collision>
-        <origin xyz="0 0 0.065" rpy="0 0 0" />
+        <origin xyz="0 0 ${0.065+mounting_plate_offset}" rpy="0 0 0" />
         <geometry name="${prefix}forearm_collision">
           <box size="0.120 0.109 0.130" />
         </geometry>
       </collision>
-      <!-- TODO: Make a decision on whether to add the connector or not -->
-      <!--visual>
-        <origin rpy="0 -1.57 -1.57" xyz="0.0 0.055 0.0"/>
-        <geometry name="${prefix}cable_extr_visualisation">
-          <mesh filename="package://sr_description/meshes/components/cable_connector/cable_connector_base_${hand_version}.dae" scale="1 1 1" />
-        </geometry>
-      </visual>
-      <collision>
-        <origin rpy="0 -1.57 -1.57" xyz="0.0 0.055 0.0"/>
-        <geometry name="${prefix}cable_extr_collision">
-          <mesh filename="package://sr_description/components/cable_connector/cable_connector_base_${hand_version}.dae" scale="1 1 1" />
-        </geometry>
-      </collision-->
+      <!-- mounting plate in case the hand is attached to an arm -->
+      <xacro:if value="${mounting_plate}">
+        <visual>
+          <origin xyz="0 0 0" rpy="0 0 0" />
+          <geometry name="${prefix}mounting_plate">
+            <mesh filename="package://sr_description/meshes/components/mounting_plate/mounting_plate_${hand_version}.dae" scale="0.001 0.001 0.001" />
+          </geometry>
+        </visual>
+        <collision>
+          <origin xyz="0 0 0.002" rpy="0 0 0" />
+          <geometry>
+            <box size="0.120 0.109 0.006" />
+          </geometry>
+        </collision>
+      </xacro:if>
     </link>
+    <gazebo reference="${prefix}forearm">
+      <selfCollide>false</selfCollide>
+    </gazebo>
   </xacro:macro>
 </robot>

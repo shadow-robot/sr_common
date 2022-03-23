@@ -3,7 +3,7 @@
        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
 
-  <xacro:macro name="sr_hand" params="hand_type hand_version side fingers tip_sensors prox_sensors mid_sensors palm_sensor">
+  <xacro:macro name="sr_hand" params="hand_type hand_version side fingers tip_sensors prox_sensors mid_sensors palm_sensor mounting_plate">
 
     <!-- Process hand type, version and side parameters -->
     <xacro:include filename="$(find sr_description)/hand/xacro/process_hand_type_version_side_parameters.xacro" />

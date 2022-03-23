@@ -17,6 +17,7 @@
   <xacro:arg name="right_mid_sensors" default="none"/>
   <xacro:arg name="right_prox_sensors" default="none"/>
   <xacro:arg name="right_palm_sensor" default="none"/>
+  <xacro:arg name="right_mounting_plate" default="false"/>
 
   <xacro:arg name="left_hand_type" default="hand_e"/>
   <xacro:arg name="left_hand_version" default="E3M5"/>
@@ -25,6 +26,7 @@
   <xacro:arg name="left_mid_sensors" default="none"/>
   <xacro:arg name="left_prox_sensors" default="none"/>
   <xacro:arg name="left_palm_sensor" default="none"/>
+  <xacro:arg name="left_mounting_plate" default="false"/>
 
   <link name="world" />
   <joint name="world_joint" type="fixed">
@@ -35,11 +37,11 @@
   
   <xacro:sr_hand side="right" hand_type="$(arg right_hand_type)" hand_version="$(arg right_hand_version)"
                  fingers="$(arg right_fingers)" tip_sensors="$(arg right_tip_sensors)" mid_sensors="$(arg right_mid_sensors)"
-                 prox_sensors="$(arg right_prox_sensors)" palm_sensor="$(arg right_palm_sensor)"/>
+                 prox_sensors="$(arg right_prox_sensors)" palm_sensor="$(arg right_palm_sensor)" mounting_plate="$(arg right_mounting_plate)"/>
 
   <xacro:sr_hand side="left" hand_type="$(arg left_hand_type)" hand_version="$(arg left_hand_version)"
                  fingers="$(arg left_fingers)" tip_sensors="$(arg left_tip_sensors)" mid_sensors="$(arg left_mid_sensors)"
-                 prox_sensors="$(arg left_prox_sensors)" palm_sensor="$(arg left_palm_sensor)"/>
+                 prox_sensors="$(arg left_prox_sensors)" palm_sensor="$(arg left_palm_sensor)" mounting_plate="$(arg left_mounting_plate)"/>
 
   <joint name="right_hand_to_left_hand" type="fixed">
     <parent link="rh_forearm" />
