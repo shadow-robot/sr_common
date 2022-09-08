@@ -45,7 +45,7 @@
         <parent link="${parent}" />
         <child link="${prefix}thhub" />
         <origin xyz="0 0 0.038" rpy="0 0 0" />
-        <axis xyz="1 0 0" />
+        <axis xyz="${reflect} 0 0" />
         <limit lower="${-12/180*pi}" upper="${12/180*pi}" effort="2.0" velocity="4.0" />
         <dynamics damping="0.2" />
       </joint>
