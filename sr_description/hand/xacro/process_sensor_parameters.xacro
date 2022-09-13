@@ -23,7 +23,8 @@
  or tort (including negligence or otherwise) arising in any way out of the use of this
  software, even if advised of the possibility of such damage.
 -->
-process_sensor_parameters xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<process_sensor_parameters xmlns:xacro="http://www.ros.org/wiki/xacro">
 	<xacro:include filename="$(find sr_description)/hand/xacro/validate_macros.xacro" />
 	<!-- Set defaults -->
 	<xacro:property name="default_tactile_sensor" default="none" />
