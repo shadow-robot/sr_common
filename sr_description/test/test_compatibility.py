@@ -42,14 +42,12 @@ from __future__ import absolute_import, print_function
 
 import ast
 import re
-import sys
 import os
 import unittest
-import xacro
+from unittest import subTest  # pylint: disable=C0103
 import xml.dom
 from xml.dom.minidom import parseString
-from io import StringIO
-from unittest import subTest  # pylint: disable=C0103
+import xacro
 
 # regex to match whitespace
 whitespace = re.compile(r'\s+')
@@ -96,12 +94,13 @@ def all_attributes_match(arg1, arg2):
     a_atts.sort()
     b_atts.sort()
 
-    for a, b in zip(a_atts, b_atts):
-        if a[0] != b[0]:
-            raise AssertionError('Different attribute names: %s and %s' % (a[0], b[0]))
-        if not text_values_match(a[1], b[1]):
+    el1, el2 = 0, 0
+    for el1, el2 in zip(a_atts, b_atts):
+        if el1[0] != el2[0]:
+            raise AssertionError('Different attribute names: %s and %s' % (el1[0], el2[0]))
+        if not text_values_match(el1[1], el2[1]):
             raise AssertionError('Different attribute values: {}={} and {}={}'.
-                                 format(a[0], a[1], b[0], b[1]))
+                                 format(el1[0], el1[1], el2[0], el2[1]))
     return True
 
 
@@ -168,7 +167,7 @@ def xml_matches(arg1, arg2, ignore_nodes=None):
         ignore_nodes = []
     if isinstance(arg1, str):
         return xml_matches(parseString(arg1).documentElement, arg2, ignore_nodes)
-    if isinstance(b, str):
+    if isinstance(arg2, str):
         return xml_matches(arg1, parseString(arg2).documentElement, ignore_nodes)
     if arg1.nodeType == xml.dom.Node.DOCUMENT_NODE:
         return xml_matches(arg1.documentElement, arg2, ignore_nodes)
