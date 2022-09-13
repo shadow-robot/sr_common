@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <!--
  Software License Agreement (BSD License)
  Copyright © 2022 belongs to Shadow Robot Company Ltd.
@@ -23,7 +24,6 @@
  software, even if advised of the possibility of such damage.
 -->
 
-<?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
   <xacro:macro name="thmiddle_gazebo" params="prefix:=^ mid_sensor:=^|none">
     <gazebo reference="${prefix}thmiddle">
