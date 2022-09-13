@@ -121,8 +121,8 @@ def nodes_match(arg1, arg2, ignore_nodes):
 
     # compare text-valued nodes
     if arg1.nodeType in [xml.dom.Node.TEXT_NODE,
-                      xml.dom.Node.CDATA_SECTION_NODE,
-                      xml.dom.Node.COMMENT_NODE]:
+                         xml.dom.Node.CDATA_SECTION_NODE,
+                         xml.dom.Node.COMMENT_NODE]:
         return text_matches(arg1.data, arg2.data)
 
     # ignore all other nodes except ELEMENTs
