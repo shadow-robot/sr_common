@@ -72,17 +72,18 @@ def text_values_match(arg1, arg2):
     def match_splits(arg1, arg2):
         if len(arg1) != len(arg2):
             return False
-        for a, b in zip(arg1, arg2):
-            if a == b:
+        el1, el2 = 0, 0
+        for el1, el2 in zip(arg1, arg2):
+            if el1 == el2:
                 continue
             try:  # compare numeric values only up to some accuracy
-                if abs(float(a) - float(b)) > 1.0e-9:
+                if abs(float(el1) - float(el2)) > 1.0e-9:
                     return False
             except ValueError:  # values aren't numeric and not identical
                 return False
         return True
 
-    return match_splits(a.split(), b.split())
+    return match_splits(arg1.split(), arg2.split())
 
 
 def all_attributes_match(arg1, arg2):
@@ -135,8 +136,8 @@ def nodes_match(arg1, arg2, ignore_nodes):
 
     try:
         all_attributes_match(arg1, arg2)
-    except AssertionError as e:
-        raise AssertionError('{err} in node <{node}>'.format(err=str(e), node=arg1.nodeName))
+    except AssertionError as error:
+        raise AssertionError('{err} in node <{node}>'.format(err=str(error), node=arg1.nodeName)) from error
 
     arg1 = arg1.firstChild
     arg2 = arg2.firstChild
@@ -162,7 +163,9 @@ def nodes_match(arg1, arg2, ignore_nodes):
     return True
 
 
-def xml_matches(arg1, b, ignore_nodes=[]):
+def xml_matches(arg1, arg2, ignore_nodes=None):
+    if ignore_nodes is None:
+        ignore_nodes = []
     if isinstance(arg1, str):
         return xml_matches(parseString(arg1).documentElement, arg2, ignore_nodes)
     if isinstance(b, str):
@@ -176,7 +179,7 @@ def xml_matches(arg1, b, ignore_nodes=[]):
 
 
 class TestEquality(unittest.TestCase):
-    def generate_test_params(self):
+    def generate_test_params(self):  # pylint: disable=R0201
         path = os.path.dirname(__file__)
         old_path = os.path.join(path, 'robots.old')
         new_path = os.path.join(path, 'robots.new')
@@ -188,8 +191,8 @@ class TestEquality(unittest.TestCase):
             if name.endswith('.urdf.xacro') and os.path.isfile(old_file) and os.path.isfile(new_file):
                 yield name, old_file, new_file
 
-    def save_results(self, name, doc):
-        with open(name, 'w') as file:
+    def save_results(self, name, doc):  # pylint: disable=R0201
+        with open(name, 'w', encoding="utf-8") as file:
             file.write(doc.toprettyxml(indent='  '))
 
     def test_files(self):
@@ -213,8 +216,8 @@ class TestEquality(unittest.TestCase):
                         self.save_results(os.path.join(results_dir, name + suffix), doc)
 
                     raise
-                except Exception as e:
-                    msg = str(e) or repr(e)
+                except Exception as error:
+                    msg = str(error) or repr(error)
                     xacro.error(msg)
                     xacro.print_location()
                     raise
