@@ -36,6 +36,7 @@
 ######################################################################
 
 # Author: Robert Haschke <rhaschke@techfak.uni-bielefeld.de>
+# pylint: disable-all
 
 from __future__ import absolute_import, print_function
 
