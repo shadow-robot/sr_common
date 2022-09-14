@@ -70,7 +70,7 @@ def text_values_match(arg1, arg2):
     def match_splits(arg1, arg2):
         if len(arg1) != len(arg2):
             return False
-        el1, el2 = 0, 0
+        e, el2 = 0, 0
         for el1, el2 in zip(arg1, arg2):
             if el1 == el2:
                 continue
