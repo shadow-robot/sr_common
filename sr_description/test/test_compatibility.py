@@ -137,7 +137,7 @@ def nodes_match(arg1, arg2, ignore_nodes):
         all_attributes_match(arg1, arg2)
     except AssertionError as error:
         raise AssertionError('{err} in node <{node}>'.format(err=str(error), node=arg1.nodeName)) from error
-
+    uselessVariable = 1
     arg1 = arg1.firstChild
     arg2 = arg2.firstChild
     while arg1 or arg2:
