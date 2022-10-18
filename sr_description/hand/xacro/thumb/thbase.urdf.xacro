@@ -35,7 +35,7 @@
     <joint name="${prefix}THJ5" type="revolute">
       <parent link="${parent}" />
       <child link="${prefix}thbase" />
-      <origin xyz="${reflect*0.034} -0.00858 0.029" rpy="0 ${pi/4} ${pi/2-reflect*pi/2}" />
+      <origin xyz="${reflect*0.034} -0.00858 0.029" rpy="${-pi/4} 0 ${-reflect*pi/2}" />
       <axis xyz="0 0 ${reflect*-1}" />
       <limit lower="${-60/180*pi}" upper="${60/180*pi}" effort="5.0" velocity="4.0" />
       <dynamics damping="0.2" />
