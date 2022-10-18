@@ -37,155 +37,148 @@
 
 # Author: Robert Haschke <rhaschke@techfak.uni-bielefeld.de>
 
+
 from __future__ import absolute_import, print_function
 
 import ast
 import re
-import sys
 import os
 import unittest
-import xacro
+from unittest import subTest  # pylint: disable=C0103
 import xml.dom
 from xml.dom.minidom import parseString
-from io import StringIO
-
-try:
-    from unittest import subTest
-except ImportError:
-    # subTest was introduced in 3.4 only. Provide a dummy fallback.
-    from contextlib import contextmanager
-
-    @contextmanager
-    def subTest(msg):
-        print(msg)
-        yield None
+import xacro
 
 # regex to match whitespace
 whitespace = re.compile(r'\s+')
 
 
-def text_values_match(a, b):
+def text_values_match(arg1, arg2):
     # generic comparison
-    if whitespace.sub(' ', a).strip() == whitespace.sub(' ', b).strip():
+    if whitespace.sub(' ', arg1).strip() == whitespace.sub(' ', arg2).strip():
         return True
 
     try:  # special handling of dicts: ignore order
-        a_dict = ast.literal_eval(a)
-        b_dict = ast.literal_eval(b)
+        a_dict = ast.literal_eval(arg1)
+        b_dict = ast.literal_eval(arg1)
         if (isinstance(a_dict, dict) and isinstance(b_dict, dict) and a_dict == b_dict):
             return True
     except Exception:  # Attribute values aren't dicts
         pass
 
     # on failure, try to split a and b at whitespace and compare snippets
-    def match_splits(a_, b_):
-        if len(a_) != len(b_):
+    def match_splits(arg1, arg2):
+        if len(arg1) != len(arg2):
             return False
-        for a, b in zip(a_, b_):
-            if a == b:
+        el1, el2 = 0, 0
+        for el1, el2 in zip(arg1, arg2):
+            if el1 == el2:
                 continue
             try:  # compare numeric values only up to some accuracy
-                if abs(float(a) - float(b)) > 1.0e-9:
+                if abs(float(el1) - float(el2)) > 1.0e-9:
                     return False
             except ValueError:  # values aren't numeric and not identical
                 return False
         return True
 
-    return match_splits(a.split(), b.split())
+    return match_splits(arg1.split(), arg2.split())
 
 
-def all_attributes_match(a, b):
-    if len(a.attributes) != len(b.attributes):
+def all_attributes_match(arg1, arg2):
+    if len(arg1.attributes) != len(arg2.attributes):
         raise AssertionError('Different number of attributes: [{}] != [{}]'.
-                             format(', '.join(sorted(a.attributes.keys())),
-                                    ', '.join(sorted(b.attributes.keys()))))
-    a_atts = a.attributes.items()
-    b_atts = b.attributes.items()
+                             format(', '.join(sorted(arg1.attributes.keys())),
+                                    ', '.join(sorted(arg2.attributes.keys()))))
+    a_atts = arg1.attributes.items()
+    b_atts = arg2.attributes.items()
     a_atts.sort()
     b_atts.sort()
 
-    for a, b in zip(a_atts, b_atts):
-        if a[0] != b[0]:
-            raise AssertionError('Different attribute names: %s and %s' % (a[0], b[0]))
-        if not text_values_match(a[1], b[1]):
+    el1, el2 = 0, 0
+    for el1, el2 in zip(a_atts, b_atts):
+        if el1[0] != el2[0]:
+            raise AssertionError('Different attribute names: %s and %s' % (el1[0], el2[0]))
+        if not text_values_match(el1[1], el2[1]):
             raise AssertionError('Different attribute values: {}={} and {}={}'.
-                                 format(a[0], a[1], b[0], b[1]))
+                                 format(el1[0], el1[1], el2[0], el2[1]))
     return True
 
 
-def text_matches(a, b):
-    if text_values_match(a, b):
+def text_matches(arg1, arg2):
+    if text_values_match(arg1, arg2):
         return True
-    raise AssertionError("Different text values: '%s' and '%s'" % (a, b))
+    raise AssertionError("Different text values: '%s' and '%s'" % (arg1, arg2))
 
 
-def nodes_match(a, b, ignore_nodes):
-    if not a and not b:
+def nodes_match(arg1, arg2, ignore_nodes):
+    if not arg1 and not arg2:
         return True
-    if not a or not b:
+    if not arg1 or not arg2:
         return False
 
-    if a.nodeType != b.nodeType:
-        raise AssertionError('Different node types: %s and %s' % (a, b))
+    if arg1.nodeType != arg2.nodeType:
+        raise AssertionError('Different node types: %s and %s' % (arg1, arg2))
 
     # compare text-valued nodes
-    if a.nodeType in [xml.dom.Node.TEXT_NODE,
-                      xml.dom.Node.CDATA_SECTION_NODE,
-                      xml.dom.Node.COMMENT_NODE]:
-        return text_matches(a.data, b.data)
+    if arg1.nodeType in [xml.dom.Node.TEXT_NODE,
+                         xml.dom.Node.CDATA_SECTION_NODE,
+                         xml.dom.Node.COMMENT_NODE]:
+        return text_matches(arg1.data, arg2.data)
 
     # ignore all other nodes except ELEMENTs
-    if a.nodeType != xml.dom.Node.ELEMENT_NODE:
+    if arg1.nodeType != xml.dom.Node.ELEMENT_NODE:
         return True
 
     # compare ELEMENT nodes
-    if a.nodeName != b.nodeName:
-        raise AssertionError('Different element names: %s and %s' % (a.nodeName, b.nodeName))
+    if arg1.nodeName != arg2.nodeName:
+        raise AssertionError('Different element names: %s and %s' % (arg1.nodeName, arg2.nodeName))
 
     try:
-        all_attributes_match(a, b)
-    except AssertionError as e:
-        raise AssertionError('{err} in node <{node}>'.format(err=str(e), node=a.nodeName))
+        all_attributes_match(arg1, arg2)
+    except AssertionError as error:
+        raise AssertionError('{err} in node <{node}>'.format(err=str(error), node=arg1.nodeName)) from error
 
-    a = a.firstChild
-    b = b.firstChild
-    while a or b:
+    arg1 = arg1.firstChild
+    arg2 = arg2.firstChild
+    while arg1 or arg2:
         # ignore whitespace-only text nodes
         # we could have several text nodes in a row, due to replacements
-        while (a and
-               ((a.nodeType in ignore_nodes) or
-                (a.nodeType == xml.dom.Node.TEXT_NODE and whitespace.sub('', a.data) == ""))):
-            a = a.nextSibling
-        while (b and
-               ((b.nodeType in ignore_nodes) or
-                (b.nodeType == xml.dom.Node.TEXT_NODE and whitespace.sub('', b.data) == ""))):
-            b = b.nextSibling
+        while (arg1 and
+               ((arg1.nodeType in ignore_nodes) or
+                (arg1.nodeType == xml.dom.Node.TEXT_NODE and whitespace.sub('', arg1.data) == ""))):
+            arg1 = arg1.nextSibling
+        while (arg2 and
+               ((arg2.nodeType in ignore_nodes) or
+                (arg2.nodeType == xml.dom.Node.TEXT_NODE and whitespace.sub('', arg2.data) == ""))):
+            arg2 = arg2.nextSibling
 
-        nodes_match(a, b, ignore_nodes)
+        nodes_match(arg1, arg2, ignore_nodes)
 
-        if a:
-            a = a.nextSibling
-        if b:
-            b = b.nextSibling
+        if arg1:
+            arg1 = arg1.nextSibling
+        if arg2:
+            arg2 = arg2.nextSibling
 
     return True
 
 
-def xml_matches(a, b, ignore_nodes=[]):
-    if isinstance(a, str):
-        return xml_matches(parseString(a).documentElement, b, ignore_nodes)
-    if isinstance(b, str):
-        return xml_matches(a, parseString(b).documentElement, ignore_nodes)
-    if a.nodeType == xml.dom.Node.DOCUMENT_NODE:
-        return xml_matches(a.documentElement, b, ignore_nodes)
-    if b.nodeType == xml.dom.Node.DOCUMENT_NODE:
-        return xml_matches(a, b.documentElement, ignore_nodes)
+def xml_matches(arg1, arg2, ignore_nodes=None):
+    if ignore_nodes is None:
+        ignore_nodes = []
+    if isinstance(arg1, str):
+        return xml_matches(parseString(arg1).documentElement, arg2, ignore_nodes)
+    if isinstance(arg2, str):
+        return xml_matches(arg1, parseString(arg2).documentElement, ignore_nodes)
+    if arg1.nodeType == xml.dom.Node.DOCUMENT_NODE:
+        return xml_matches(arg1.documentElement, arg2, ignore_nodes)
+    if arg2.nodeType == xml.dom.Node.DOCUMENT_NODE:
+        return xml_matches(arg1, arg2.documentElement, ignore_nodes)
 
-    return nodes_match(a, b, ignore_nodes)
+    return nodes_match(arg1, arg2, ignore_nodes)
 
 
 class TestEquality(unittest.TestCase):
-    def generate_test_params(self):
+    def generate_test_params(self):  # pylint: disable=R0201
         path = os.path.dirname(__file__)
         old_path = os.path.join(path, 'robots.old')
         new_path = os.path.join(path, 'robots.new')
@@ -197,9 +190,9 @@ class TestEquality(unittest.TestCase):
             if name.endswith('.urdf.xacro') and os.path.isfile(old_file) and os.path.isfile(new_file):
                 yield name, old_file, new_file
 
-    def save_results(self, name, doc):
-        with open(name, 'w') as f:
-            f.write(doc.toprettyxml(indent='  '))
+    def save_results(self, name, doc):  # pylint: disable=R0201
+        with open(name, 'w', encoding="utf-8") as file:
+            file.write(doc.toprettyxml(indent='  '))
 
     def test_files(self):
         def process(filename):
@@ -222,8 +215,8 @@ class TestEquality(unittest.TestCase):
                         self.save_results(os.path.join(results_dir, name + suffix), doc)
 
                     raise
-                except Exception as e:
-                    msg = str(e) or repr(e)
+                except Exception as error:
+                    msg = str(error) or repr(error)
                     xacro.error(msg)
                     xacro.print_location()
                     raise
