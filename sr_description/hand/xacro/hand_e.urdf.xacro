@@ -84,7 +84,7 @@
     <xacro:if value="${'lf' in fingers}">
       <xacro:finger link_prefix="lf" joint_prefix="LF" tip_sensor="${tip_sensors.lf}" prox_sensor="${prox_sensors.lf}"
                     mid_sensor="${mid_sensors.lf}" parent="${prefix}palm">
-        <origin xyz="0 0 0.06579" rpy="0 0 0" />
+        <origin xyz="${reflect*0.05389084} 0 0.03773727" rpy="0 ${reflect*0.9599} 0" />
         <axis xyz="0 ${reflect} 0" />
       </xacro:finger>
     </xacro:if>
