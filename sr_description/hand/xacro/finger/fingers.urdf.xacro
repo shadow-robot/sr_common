@@ -40,7 +40,7 @@
       <xacro:lfmetacarpal parent="${parent}" />
       <!-- Knuckle -->
       <xacro:knuckle hand_type="${hand_type}" hand_version="${hand_version}" parent="${prefix}lfmetacarpal">
-        <xacro:insert_block name="origin" />  
+        <xacro:insert_block name="origin" />
       </xacro:knuckle>
     </xacro:if>
     <!-- Standard finger -->
