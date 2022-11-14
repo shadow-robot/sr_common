@@ -135,6 +135,10 @@
               <mesh filename="package://sr_description/meshes/components/th_distal/pst/th_distal_pst.dae"
                     scale="0.001 0.001 0.001" />
             </xacro:if>
+            <xacro:if value="${tip_sensor == 'mst'}">
+              <mesh filename="package://sr_description/meshes/components/th_distal/mst/th_distal_mst.dae"
+                    scale="0.001 0.001 0.001" />
+            </xacro:if>
             <xacro:if value="${tip_sensor == 'bt_sp'}">
               <mesh filename="package://sr_description/meshes/components/th_distal/bt_sp/th_distal_bt_sp.dae"
                     scale="0.001 0.001 0.001" />
@@ -153,6 +157,10 @@
           <geometry name="${prefix}thmiddle_collision_geom">
             <xacro:if value="${tip_sensor == 'pst'}">
               <mesh filename="package://sr_description/meshes/components/th_distal/pst/th_distal_pst.dae"
+                    scale="0.001 0.001 0.001" />
+            </xacro:if>
+            <xacro:if value="${tip_sensor == 'mst'}">
+              <mesh filename="package://sr_description/meshes/components/th_distal/mst/th_distal_mst.dae"
                     scale="0.001 0.001 0.001" />
             </xacro:if>
             <xacro:if value="${tip_sensor == 'bt_sp'}">
