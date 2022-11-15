@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 3.3.1 commit date:2022-10-04, commit time:18:35, hash:b292cfe5a936</authoring_tool>
     </contributor>
-    <created>2022-11-15T08:25:50</created>
-    <modified>2022-11-15T08:25:50</modified>
+    <created>2022-11-15T08:55:00</created>
+    <modified>2022-11-15T08:55:00</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -145,7 +145,7 @@
               <color sid="emission">0 0 0 1</color>
             </emission>
             <diffuse>
-              <color sid="diffuse">0.7356523 0.5146139 0.07162746 1</color>
+              <color sid="diffuse">0.0558236 0.7356523 0.1112958 1</color>
             </diffuse>
             <index_of_refraction>
               <float sid="ior">1.45</float>
@@ -271,7 +271,7 @@
         </instance_geometry>
       </node>
       <node id="f_distal_pst" name="f_distal_pst" type="NODE">
-        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <matrix sid="transform">1 0 0 0 0 1 0 20 0 0 1 0 0 0 0 1</matrix>
         <instance_geometry url="#f_distal_pst-mesh" name="f_distal_pst">
           <bind_material>
             <technique_common>
