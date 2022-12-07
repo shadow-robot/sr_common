@@ -178,7 +178,8 @@ def xml_matches(arg1, arg2, ignore_nodes=None):
 
 
 class TestEquality(unittest.TestCase):
-    def generate_test_params(self):  # pylint: disable=R0201
+    @staticmethod
+    def generate_test_params():
         path = os.path.dirname(__file__)
         old_path = os.path.join(path, 'robots.old')
         new_path = os.path.join(path, 'robots.new')
@@ -190,9 +191,10 @@ class TestEquality(unittest.TestCase):
             if name.endswith('.urdf.xacro') and os.path.isfile(old_file) and os.path.isfile(new_file):
                 yield name, old_file, new_file
 
-    def save_results(self, name, doc):  # pylint: disable=R0201
-        with open(name, 'w', encoding="utf-8") as file:
-            file.write(doc.toprettyxml(indent='  '))
+    @staticmethod
+    def save_results(name, doc):
+        with open(name, 'w', encoding="utf-8") as result_file:
+            result_file.write(doc.toprettyxml(indent='  '))
 
     def test_files(self):
         def process(filename):
