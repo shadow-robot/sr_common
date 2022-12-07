@@ -190,7 +190,7 @@ class TestEquality(unittest.TestCase):
 
             if name.endswith('.urdf.xacro') and os.path.isfile(old_file) and os.path.isfile(new_file):
                 yield name, old_file, new_file
-    
+
     @staticmethod
     def save_results(name, doc):
         with open(name, 'w', encoding="utf-8") as result_file:
