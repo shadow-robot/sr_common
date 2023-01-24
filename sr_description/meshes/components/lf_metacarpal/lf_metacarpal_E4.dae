@@ -5,8 +5,8 @@
       <author>Blender User</author>
       <authoring_tool>Blender 3.4.1 commit date:2022-12-19, commit time:17:00, hash:55485cb379f7</authoring_tool>
     </contributor>
-    <created>2023-01-23T08:27:58</created>
-    <modified>2023-01-23T08:27:58</modified>
+    <created>2023-01-24T13:07:25</created>
+    <modified>2023-01-24T13:07:25</modified>
     <unit name="meter" meter="1"/>
     <up_axis>Z_UP</up_axis>
   </asset>
@@ -113,7 +113,7 @@
   <library_visual_scenes>
     <visual_scene id="Scene" name="Scene">
       <node id="LMC_Flesh_Mesh" name="LMC_Flesh_Mesh" type="NODE">
-        <matrix sid="transform">1 8.74228e-8 8.74228e-8 0 8.74228e-8 -1 7.64274e-15 0 8.74228e-8 0 -1 0 0 0 0 1</matrix>
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
         <instance_geometry url="#LMC_Flesh_Mesh-mesh" name="LMC_Flesh_Mesh"/>
       </node>
       <node id="Camera" name="Camera" type="NODE">
