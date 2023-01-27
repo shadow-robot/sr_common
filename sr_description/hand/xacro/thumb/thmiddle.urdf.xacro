@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
  Software License Agreement (BSD License)
- Copyright © 2022 belongs to Shadow Robot Company Ltd.
+ Copyright © 2022-2023 belongs to Shadow Robot Company Ltd.
  All rights reserved.
  Redistribution and use in source and binary forms, with or without modification,
  are permitted provided that the following conditions are met:
@@ -83,9 +83,9 @@
           </geometry>
         </collision>
         <collision>
-          <origin xyz="0 0 0" rpy="0 1.5708 0" />
-          <geometry name="${prefix}${link_prefix}knuckle_collision_geom">
-            <cylinder radius="0.007" length="0.014" />
+          <origin xyz="0 0 0.032" rpy="0 1.5708 0" />
+          <geometry>
+            <cylinder radius="0.010" length="0.014" />
           </geometry>
         </collision>
       </xacro:unless>

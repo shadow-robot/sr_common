@@ -42,33 +42,24 @@
 			<profile_COMMON>
 				<technique sid="blender">
 					<phong>
-						<emission>
-							<color>0.00000 0.00000 0.00000 1</color>
-						</emission>
-						<ambient>
-							<color>0.05997 0.05997 0.05997 1</color>
-						</ambient>
-						<diffuse>
-							<color>0.16355 0.16355 0.16355 1</color>
-						</diffuse>
-						<specular>
-							<color>0.36585 0.36585 0.36585 1</color>
-						</specular>
-						<shininess>
-							<float>12.5</float>
-						</shininess>
-						<reflective>
-							<color>1.00000 1.00000 1.00000 1</color>
-						</reflective>
-						<reflectivity>
-							<float>0.0</float>
-						</reflectivity>
-						<transparent>
-							<color>1 1 1 1</color>
-						</transparent>
-						<transparency>
-							<float>0.0</float>
-						</transparency>
+                        <emission>
+                          <color sid="emission">0 0 0 1</color>
+                        </emission>
+                        <ambient>
+                          <color sid="ambient">0.04392 0.04392 0.04392 1</color>
+                        </ambient>
+                        <diffuse>
+                          <color sid="diffuse">0.21961 0.21961 0.21961 1</color>
+                        </diffuse>
+                        <specular>
+                          <color sid="specular">0.45000 0.45000 0.45000 1</color>
+                        </specular>
+                        <shininess>
+                          <float sid="shininess">32</float>
+                        </shininess>
+                        <index_of_refraction>
+                          <float sid="index_of_refraction">1</float>
+                        </index_of_refraction>
 					</phong>
 				</technique>
 			</profile_COMMON>
