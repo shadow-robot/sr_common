@@ -70,7 +70,6 @@
             <mesh filename="package://sr_description/meshes/components/th_distal/bt_2p/th_distal_bt_2p.dae"
             scale="0.0254 0.0254 0.0254" />
           </geometry>
-          <material name="BiotacGreen" />
         </visual>
         <collision>
           <geometry name="${prefix}th_distal_collision_geom">

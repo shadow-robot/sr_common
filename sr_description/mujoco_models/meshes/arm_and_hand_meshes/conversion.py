@@ -1,5 +1,5 @@
 # Software License Agreement (BSD License)
-# Copyright © 2022 belongs to Shadow Robot Company Ltd.
+# Copyright © 2022-2023 belongs to Shadow Robot Company Ltd.
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification,
@@ -22,9 +22,7 @@
 # however caused and on any theory of liability, whether in contract, strict liability,
 # or tort (including negligence or otherwise) arising in any way out of the use of this
 # software, even if advised of the possibility of such damage.
-from __future__ import absolute_import
 import bpy
-import os
 
 sr_description_path = '/home/user/projects/shadow_robot/base_deps/src/sr_common/sr_description'
 
@@ -32,9 +30,9 @@ file_names = ['forearm', 'forearm_muscle', 'forearm_muscle_disk', 'forearm_lite'
               'lfmetacarpal', 'F1', 'F2', 'F3', 'TH1_z', 'TH2_z', 'TH3_z']
 
 for file_name in file_names:
-    source_file_name = '{0}/meshes/hand/{1}.dae'.format(sr_description_path, file_name)
-    dest_file_name = '{0}/mujoco_models/meshes/arm_and_hand_meshes/{1}.stl'.format(sr_description_path, file_name)
-    print('Converting {0} to {1}...'.format(source_file_name, dest_file_name))
+    source_file_name = f'{sr_description_path}/meshes/hand/{file_name}.dae'
+    dest_file_name = f'{sr_description_path}/mujoco_models/meshes/arm_and_hand_meshes/{file_name}.stl'
+    print(f'Converting {source_file_name} to {dest_file_name}...')
 
     bpy.ops.object.select_all(action='SELECT')
     bpy.ops.object.delete()
