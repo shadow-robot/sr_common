@@ -1,5 +1,5 @@
 # Software License Agreement (BSD License)
-# Copyright © 2022 belongs to Shadow Robot Company Ltd.
+# Copyright © 2023 belongs to Shadow Robot Company Ltd.
 # All rights reserved.
 #
 # Redistribution and use in source and binary forms, with or without modification,
@@ -24,7 +24,6 @@
 # software, even if advised of the possibility of such damage.
 from __future__ import absolute_import
 import bpy
-import os
 
 sr_description_path = '/home/user/projects/shadow_robot/base_deps/src/sr_common/sr_description'
 
