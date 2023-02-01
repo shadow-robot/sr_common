@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!--
  Software License Agreement (BSD License)
- Copyright © 2022 belongs to Shadow Robot Company Ltd.
+ Copyright © 2022-2023 belongs to Shadow Robot Company Ltd.
  All rights reserved.
  Redistribution and use in source and binary forms, with or without modification,
  are permitted provided that the following conditions are met:
@@ -52,7 +52,8 @@
         <material name="Grey" />
       </visual>
       <collision>
-        <origin xyz="0 0 0.038" rpy="0 0 0" />
+        <origin xyz="${reflect*0.05397275/2.0} 0 ${0.038/2}" rpy="0 ${reflect*0.9599} 0" />
+        <axis xyz="0.573576436 0 ${reflect*0.819152044}" />
         <geometry name="${prefix}lfmetacarpal_collision_geom">
           <box size="0.018 0.024 0.040" />
         </geometry>
