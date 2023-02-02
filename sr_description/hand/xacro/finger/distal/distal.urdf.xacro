@@ -57,7 +57,7 @@
             <mesh filename="package://sr_description/meshes/components/f_distal/bt_2p/f_distal_bt_2p.dae" />
           </xacro:if>
           <xacro:if value="${tip_sensor == 'mst'}">
-            <mesh filename="package://sr_mst_description/meshes/f_distal/f_distal_mst.dae"
+            <mesh filename="package://sr_mst/meshes/f_distal/f_distal_mst.dae"
                   scale="0.001 0.001 0.001" />
           </xacro:if>
         </geometry>
@@ -77,7 +77,7 @@
             <mesh filename="package://sr_description/meshes/components/f_distal/bt_2p/f_distal_bt_2p.dae" />
           </xacro:if>
           <xacro:if value="${tip_sensor == 'mst'}">
-            <mesh filename="package://sr_mst_description/meshes/f_distal/f_distal_mst.dae"
+            <mesh filename="package://sr_mst/meshes/f_distal/f_distal_mst.dae"
                   scale="0.001 0.001 0.001" />
           </xacro:if>
         </geometry>
