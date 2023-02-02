@@ -135,7 +135,7 @@
                     scale="0.001 0.001 0.001" />
             </xacro:if>
             <xacro:if value="${tip_sensor == 'mst'}">
-              <mesh filename="package://sr_description/meshes/components/th_distal/mst/th_distal_mst.dae"
+              <mesh filename="package://sr_mst_description/meshes/th_distal/th_distal_mst.dae"
                     scale="0.001 0.001 0.001" />
             </xacro:if>
             <xacro:if value="${tip_sensor == 'bt_sp'}">
@@ -159,7 +159,7 @@
                     scale="0.001 0.001 0.001" />
             </xacro:if>
             <xacro:if value="${tip_sensor == 'mst'}">
-              <mesh filename="package://sr_description/meshes/components/th_distal/mst/th_distal_mst.dae"
+              <mesh filename="package://sr_mst_description/meshes/th_distal/th_distal_mst.dae"
                     scale="0.001 0.001 0.001" />
             </xacro:if>
             <xacro:if value="${tip_sensor == 'bt_sp'}">
