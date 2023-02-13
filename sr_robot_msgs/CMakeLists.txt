@@ -38,6 +38,7 @@ add_message_files(
   MidProxDataAll.msg
   MidProxData.msg
   MotorSystemControls.msg
+  MSTReading.msg
   reverseKinematics.msg
   sendupdate.msg
   ShadowPST.msg
