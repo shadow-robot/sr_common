@@ -1,3 +1,28 @@
+<!--
+ Software License Agreement (BSD License)
+ Copyright © 2022 belongs to Shadow Robot Company Ltd.
+ All rights reserved.
+ Redistribution and use in source and binary forms, with or without modification,
+ are permitted provided that the following conditions are met:
+   1. Redistributions of source code must retain the above copyright notice,
+      this list of conditions and the following disclaimer.
+   2. Redistributions in binary form must reproduce the above copyright notice,
+      this list of conditions and the following disclaimer in the documentation
+      and/or other materials provided with the distribution.
+   3. Neither the name of Shadow Robot Company Ltd nor the names of its contributors
+      may be used to endorse or promote products derived from this software without
+      specific prior written permission.
+ This software is provided by Shadow Robot Company Ltd "as is" and any express
+ or implied warranties, including, but not limited to, the implied warranties of
+ merchantability and fitness for a particular purpose are disclaimed. In no event
+ shall the copyright holder be liable for any direct, indirect, incidental, special,
+ exemplary, or consequential damages (including, but not limited to, procurement of
+ substitute goods or services; loss of use, data, or profits; or business interruption)
+ however caused and on any theory of liability, whether in contract, strict liability,
+ or tort (including negligence or otherwise) arising in any way out of the use of this
+ software, even if advised of the possibility of such damage.
+-->
+
 <robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
        xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
        xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
@@ -59,7 +84,7 @@
     <xacro:if value="${'lf' in fingers}">
       <xacro:finger link_prefix="lf" joint_prefix="LF" tip_sensor="${tip_sensors.lf}" prox_sensor="${prox_sensors.lf}"
                     mid_sensor="${mid_sensors.lf}" parent="${prefix}palm">
-        <origin xyz="0 0 0.06579" rpy="0 0 0" />
+        <origin xyz="${reflect*0.05397275} 0 0.03779463" rpy="0 ${reflect*0.9599} 0" />
         <axis xyz="0 ${reflect} 0" />
       </xacro:finger>
     </xacro:if>
