@@ -10,5 +10,5 @@ Code Coverage|[<img src="https://codebuild.eu-west-2.amazonaws.com/badges?uuid=e
 
 
 # Shadow Robot Common packages
-This repository contains the bare minimum for communicating with the Shadow Hand from a remote computer: urdf models, messages aad services.
+This repository contains the bare minimum for communicating with the Shadow Hand from a remote computer: urdf models, messages and services.
 
