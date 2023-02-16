@@ -44,7 +44,6 @@
       </inertial>
       <visual>
         <origin xyz="0 0 0" rpy="0 ${reflect*0.9599} 0" />
-        <axis xyz="0.573576436 0 ${reflect*0.819152044}" />
         <geometry name="${prefix}lfmetacarpal_visual">
           <mesh filename="package://sr_description/meshes/components/lf_metacarpal/lf_metacarpal_${hand_version}.dae"
           scale="${reflect*0.001} 0.001 0.001" />
@@ -53,7 +52,6 @@
       </visual>
       <collision>
         <origin xyz="${reflect*0.05397275/2.0} 0 ${0.038/2}" rpy="0 ${reflect*0.9599} 0" />
-        <axis xyz="0.573576436 0 ${reflect*0.819152044}" />
         <geometry name="${prefix}lfmetacarpal_collision_geom">
           <box size="0.018 0.024 0.040" />
         </geometry>
