@@ -1,2 +1,2 @@
-# Each finger has 7 sensors
-MSTSensor[7] sensors
+# Each finger has 17 sensors
+MSTSensor[17] sensors
