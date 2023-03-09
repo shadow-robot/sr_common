@@ -27,7 +27,7 @@
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro">
 	<xacro:include filename="$(find sr_description)/hand/xacro/validate_macros.xacro" />
 	<xacro:property name="allowed_hand_types" value="${python.set('hand_e hand_g hand_c'.split())}" />
-	<xacro:property name="allowed_hand_versions" value="${python.set('E3M5 E2M3 C6M2 G1M5'.split())}"/>
+	<xacro:property name="allowed_hand_versions" value="${python.set('E4 E3M5 E2M3 C6M2 G1M5'.split())}"/>
         <xacro:property name="allowed_sides" value="${python.set('right left'.split())}"/>
         <xacro:property name="allowed_mounting_plate" value="${python.set([False, True])}"/>
 
