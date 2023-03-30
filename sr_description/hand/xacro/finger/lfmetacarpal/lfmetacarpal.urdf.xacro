@@ -38,7 +38,7 @@
   <xacro:macro name="lfmetacarpal" params="prefix:=^ reflect:=^ parent">
     <link name="${prefix}lfmetacarpal">
       <inertial>
-        <origin xyz="${reflect*0.05397275/1.7} 0 ${0.038/1.7}" rpy="0 ${reflect*0.9599} 0" />
+        <origin xyz="0 0 0.04" rpy="0 0 0" />
         <mass value="0.030" />
         <inertia ixx="0.0000145" ixy="0.0" ixz="0.0" iyy="0.00001638" iyz="0.0" izz="0.000004272" />
       </inertial>
