@@ -48,7 +48,7 @@
       <joint name="${prefix}THJ1" type="revolute">
         <parent link="${parent}" />
         <child link="${prefix}thdistal_J1_dummy" />
-        <origin xyz="0 0 0.02" rpy="0 0 ${-pi/2}" />
+        <origin xyz="0 0 0.02" rpy="0 0 0" />
         <axis xyz="1 0 0" />
         <limit lower="${20*pi/180}" upper="${20.1*pi/180}" effort="0.0" velocity="2.0" />
         <dynamics damping="0.5" />
@@ -99,7 +99,7 @@
       <joint name="${prefix}th_distal_joint" type="fixed">
         <parent link="${prefix}thmiddle" />
         <child link="${prefix}thdistal" />
-        <origin xyz="0 0.0 0.01" rpy="0 0 ${-pi/2}" />
+        <origin xyz="0 0.0 0.01" rpy="0 0 0" />
       </joint>
       <!-- extra link to imaginary sphere in fingertip for FK/IK calculations -->
       <link name="${prefix}thtip">
