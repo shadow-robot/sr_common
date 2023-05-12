@@ -27,6 +27,7 @@ add_message_files(
   EthercatDebug.msg
   FromMotorDataType.msg
   GraspArray.msg
+  HybridControllerStatus.msg
   JointControllerState.msg
   joint.msg
   JointMusclePositionControllerState.msg
@@ -38,21 +39,18 @@ add_message_files(
   MidProxDataAll.msg
   MidProxData.msg
   MotorSystemControls.msg
-  MSTReading.msg
+  MST.msg
+  MSTAll.msg
   reverseKinematics.msg
   sendupdate.msg
+  ShadowContactStateStamped.msg
   ShadowPST.msg
   TactileArray.msg
   Tactile.msg
   UBI0All.msg
   UBI0.msg
-  MSTSensor.msg
-  MSTFinger.msg
-  MSTPalm.msg
-  ShadowContactStateStamped.msg
   WrenchWithModelGroupName.msg
   WrenchArray.msg
-  HybridControllerStatus.msg
 )
 
 add_service_files(
