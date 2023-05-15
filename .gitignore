@@ -33,6 +33,9 @@
 #PyCharm IDE
 .idea
 
+# VSCode
+.vscode
+
 #QtCreator files
 CMakeLists.txt.user
 
