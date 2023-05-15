@@ -41,6 +41,7 @@ add_message_files(
   MotorSystemControls.msg
   MST.msg
   MSTAll.msg
+  MSTReading.msg
   reverseKinematics.msg
   sendupdate.msg
   ShadowContactStateStamped.msg
@@ -49,6 +50,10 @@ add_message_files(
   Tactile.msg
   UBI0All.msg
   UBI0.msg
+  MSTSensor.msg
+  MSTFinger.msg
+  MSTPalm.msg
+  ShadowContactStateStamped.msg
   WrenchWithModelGroupName.msg
   WrenchArray.msg
 )
