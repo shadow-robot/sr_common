@@ -1,4 +1,3 @@
-Header header
 # Stamp when sent
 time timestamp
 # Fields gathering both the magnetic and temperature data
