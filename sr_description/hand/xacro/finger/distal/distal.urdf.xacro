@@ -43,7 +43,6 @@
         <origin xyz="0 0 0.012" />
         <inertia ixx="0.00000094" ixy="0.0" ixz="0.0" iyy="0.0000011" iyz="0.0" izz="0.00000053" />
       </inertial>
-      <xacro:unless value="${tip_sensor == 'mst'}">
         <visual>
           <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry name="${prefix}${link_prefix}distal_visual">
@@ -58,9 +57,11 @@
             <xacro:if value="${tip_sensor == 'bt_2p'}">
               <mesh filename="package://sr_description/meshes/components/f_distal/bt_2p/f_distal_bt_2p.dae" />
             </xacro:if>
-            <!-- <xacro:if value="${tip_sensor == 'mst'}">
-              <mesh filename="package://sr_mst/meshes/mstXL/mstXL_skin.stl"/>
-            </xacro:if> -->
+            <xacro:if value="${tip_sensor == 'mst'}">
+              <mesh filename="package://sr_mst/meshes/f_distal/f_distal_mst.dae"
+                  scale="0.001 0.001 0.001" />
+
+            </xacro:if>
           </geometry>
         </visual>
         <collision>
@@ -78,11 +79,11 @@
               <mesh filename="package://sr_description/meshes/components/f_distal/bt_2p/f_distal_bt_2p.dae" />
             </xacro:if>
             <xacro:if value="${tip_sensor == 'mst'}">
-              <mesh filename="package://sr_mst/meshes/mstXL/mstXL_skin.stl"/>
+              <mesh filename="package://sr_mst/meshes/f_distal/f_distal_mst.dae"
+                  scale="0.001 0.001 0.001" />
             </xacro:if>
           </geometry>
         </collision>
-      </xacro:unless>
     </link>
     <xacro:unless value="${tip_sensor == 'bt_2p'}">
       <joint name="${prefix}${joint_prefix}J1" type="revolute">
