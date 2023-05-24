@@ -34,7 +34,7 @@
 
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/distal/distal.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/finger/distal/distal.transmission.xacro" />
-  <xacro:include filename="$(find sr_mst)/xacro/mstXL.urdf.xacro" />
+  <xacro:include filename="$(find sr_mst)/xacro/f_distal.urdf.xacro" />
 
   <xacro:macro name="distal" params="prefix:=^ link_prefix:=^ joint_prefix:=^ tip_sensor:=^|pst parent">
     <link name="${prefix}${link_prefix}distal">
@@ -111,7 +111,7 @@
         <origin xyz="0 0 0.026" rpy="0 0 0" />
       </joint>
       <xacro:if value="${tip_sensor == 'mst'}">
-        <xacro:mstXL prefix="${prefix}" link_prefix="${link_prefix}" parent="${prefix}${link_prefix}distal" scale="0.001"/>
+        <xacro:mst_distal prefix="${prefix}" link_prefix="${link_prefix}" parent="${prefix}${link_prefix}distal" scale="0.001" show_mesh="false"/>
       </xacro:if>
     </xacro:unless>
     <!-- extensions -->
