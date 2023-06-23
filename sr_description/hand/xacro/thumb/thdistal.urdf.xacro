@@ -34,6 +34,7 @@
 
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thdistal.gazebo.xacro" />
   <xacro:include filename="$(find sr_description)/hand/xacro/thumb/thdistal.transmission.xacro" />
+  <xacro:include filename="$(find sr_mst)/xacro/th_distal.urdf.xacro" />
 
   <xacro:macro name="thdistal" params="tip_sensor:=^|pst prefix:=^ parent">
     <xacro:if value="${tip_sensor == 'bt_2p'}">
@@ -134,6 +135,10 @@
               <mesh filename="package://sr_description/meshes/components/th_distal/pst/th_distal_pst.dae"
                     scale="0.001 0.001 0.001" />
             </xacro:if>
+            <xacro:if value="${tip_sensor == 'mst'}">
+              <mesh filename="package://sr_mst/meshes/th_distal/th_distal_mst.dae"
+                    scale="0.001 0.001 0.001" />
+            </xacro:if>
             <xacro:if value="${tip_sensor == 'bt_sp'}">
               <mesh filename="package://sr_description/meshes/components/th_distal/bt_sp/th_distal_bt_sp.dae"
                     scale="0.001 0.001 0.001" />
@@ -152,6 +157,10 @@
           <geometry name="${prefix}thmiddle_collision_geom">
             <xacro:if value="${tip_sensor == 'pst'}">
               <mesh filename="package://sr_description/meshes/components/th_distal/pst/th_distal_pst.dae"
+                    scale="0.001 0.001 0.001" />
+            </xacro:if>
+            <xacro:if value="${tip_sensor == 'mst'}">
+              <mesh filename="package://sr_mst/meshes/th_distal/th_distal_mst.dae"
                     scale="0.001 0.001 0.001" />
             </xacro:if>
             <xacro:if value="${tip_sensor == 'bt_sp'}">
@@ -188,6 +197,9 @@
         <child link="${prefix}thtip" />
         <origin xyz="0 0 0.0275" rpy="0 0 0" />
       </joint>
+      <xacro:if value="${tip_sensor == 'mst'}">
+        <xacro:t_mst_distal prefix="${prefix}" link_prefix="th" parent="${prefix}thdistal" scale="0.001" show_mesh="false"/>
+      </xacro:if>
       <xacro:thdistal_gazebo />
     </xacro:unless>
     <!-- extensions -->
