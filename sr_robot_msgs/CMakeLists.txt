@@ -41,10 +41,6 @@ add_message_files(
   MotorSystemControls.msg
   MST.msg
   MSTAll.msg
-  MSTReading.msg
-  MSTSensor.msg
-  MSTFinger.msg
-  MSTPalm.msg
   reverseKinematics.msg
   sendupdate.msg
   ShadowContactStateStamped.msg
